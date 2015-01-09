@@ -14,6 +14,10 @@
 		CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA492B821A606CDB00ED13B3 /* Images.xcassets */; };
 		CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */; };
 		CA492B921A606CDB00ED13B3 /* DayTraderzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B911A606CDB00ED13B3 /* DayTraderzTests.m */; };
+		CA492BA01A606E2600ED13B3 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */; };
+		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
+		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
+		CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BAC1A6072F400ED13B3 /* AccountCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		CA492B8B1A606CDB00ED13B3 /* DayTraderzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTraderzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B901A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B911A606CDB00ED13B3 /* DayTraderzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayTraderzTests.m; sourceTree = "<group>"; };
+		CA492B9E1A606E2600ED13B3 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
+		CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
+		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
+		CA492BA51A606F7E00ED13B3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		CA492BA61A606F7E00ED13B3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		CA492BAB1A6072F400ED13B3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		CA492BAC1A6072F400ED13B3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,9 @@
 		CA492B741A606CDB00ED13B3 /* DayTraderz */ = {
 			isa = PBXGroup;
 			children = (
+				CA492BA41A606F6500ED13B3 /* Models */,
+				CA492BA11A606F0000ED13B3 /* Views */,
+				CA492B9B1A606DA800ED13B3 /* Controllers */,
 				CA492B791A606CDB00ED13B3 /* AppDelegate.h */,
 				CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */,
 				CA492B7C1A606CDB00ED13B3 /* ViewController.h */,
@@ -117,6 +131,34 @@
 				CA492B901A606CDB00ED13B3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA492B9B1A606DA800ED13B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA492B9E1A606E2600ED13B3 /* AccountsViewController.h */,
+				CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CA492BA11A606F0000ED13B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA492BA21A606F2600ED13B3 /* AccountCell.xib */,
+				CA492BAB1A6072F400ED13B3 /* AccountCell.h */,
+				CA492BAC1A6072F400ED13B3 /* AccountCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CA492BA41A606F6500ED13B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA492BA51A606F7E00ED13B3 /* Account.h */,
+				CA492BA61A606F7E00ED13B3 /* Account.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */,
+				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 			);
@@ -221,7 +264,10 @@
 			files = (
 				CA492B7E1A606CDB00ED13B3 /* ViewController.m in Sources */,
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
+				CA492BA01A606E2600ED13B3 /* AccountsViewController.m in Sources */,
+				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
+				CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +458,7 @@
 				CA492B971A606CDB00ED13B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTraderzTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +467,7 @@
 				CA492B9A1A606CDB00ED13B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
