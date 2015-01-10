@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface AccountViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

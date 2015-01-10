@@ -10,4 +10,6 @@
 
 @interface PickCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
+
 @end

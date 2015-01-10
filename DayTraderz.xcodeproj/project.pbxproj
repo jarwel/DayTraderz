@@ -23,6 +23,7 @@
 		CA492BCD1A60853700ED13B3 /* PicksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PicksViewController.m */; };
 		CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD31A60886F00ED13B3 /* FinanceClient.m */; };
 		CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD61A608DEC00ED13B3 /* Quote.m */; };
+		CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BE61A60AD8300ED13B3 /* Pick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		CA492BD31A60886F00ED13B3 /* FinanceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceClient.m; sourceTree = "<group>"; };
 		CA492BD51A608DEC00ED13B3 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
 		CA492BD61A608DEC00ED13B3 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
+		CA492BE51A60AD8300ED13B3 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
+		CA492BE61A60AD8300ED13B3 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				CA492BA61A606F7E00ED13B3 /* Account.m */,
 				CA492BD51A608DEC00ED13B3 /* Quote.h */,
 				CA492BD61A608DEC00ED13B3 /* Quote.m */,
+				CA492BE51A60AD8300ED13B3 /* Pick.h */,
+				CA492BE61A60AD8300ED13B3 /* Pick.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				CA492BCD1A60853700ED13B3 /* PicksViewController.m in Sources */,
 				CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
+				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
 				CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,

@@ -7,11 +7,16 @@
 //
 
 #import "AccountViewController.h"
+#import "PicksViewController.h"
 #import "PickCell.h"
 
-@interface AccountViewController ()
+@interface AccountViewController () <PicksViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) Pick *todaysPick;
+@property (strong, nonatomic) Pick *tomorrowsPick;
+@property (strong, nonatomic) NSArray *historicalPick;
 
 @end
 
@@ -49,10 +54,28 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if (indexPath.section == 0) {
+        if (_tomorrowsPick) {
+            cell.symbolLabel.text = _tomorrowsPick.symbol;
+        }
+    }
+    
     return cell;
 }
+
+- (void)pickFromController:(Pick *)pick {
+    _tomorrowsPick = pick;
+    [_tableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowPicksSegue"]) {
+        PicksViewController *picksViewController = segue.destinationViewController;
+        picksViewController.delegate = self;
+    }
+}
+
 
 @end

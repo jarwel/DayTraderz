@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pick.h"
+
+@protocol PicksViewControllerDelegate <NSObject>
+
+@required
+    - (void)pickFromController:(Pick *)pick;
+
+@end
 
 @interface PicksViewController : UIViewController <UISearchBarDelegate>
+
+@property (weak, nonatomic) id<PicksViewControllerDelegate> delegate;
 
 @end

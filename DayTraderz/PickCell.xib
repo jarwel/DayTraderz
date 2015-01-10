@@ -37,6 +37,9 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="symbolLabel" destination="x9l-0m-Jos" id="AO4-AP-Y8O"/>
+            </connections>
             <point key="canvasLocation" x="236" y="233"/>
         </tableViewCell>
     </objects>

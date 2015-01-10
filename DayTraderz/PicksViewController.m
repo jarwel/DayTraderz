@@ -47,6 +47,9 @@
 }
 
 - (IBAction)onConfirmButton:(id)sender {
+    Pick *pick = [[Pick alloc] init];
+    pick.symbol = _symbolLabel.text;
+    [_delegate pickFromController:pick];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
