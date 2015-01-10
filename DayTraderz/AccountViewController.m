@@ -58,6 +58,7 @@ static NSString * const cellIdentifier = @"PickCell";
     
     if (indexPath.section == 0) {
         if (_tomorrowsPick) {
+            cell.dateLabel.text = [self formatDate:_tomorrowsPick.date];
             cell.symbolLabel.text = _tomorrowsPick.symbol;
         }
     }
@@ -75,6 +76,12 @@ static NSString * const cellIdentifier = @"PickCell";
         PicksViewController *picksViewController = segue.destinationViewController;
         picksViewController.delegate = self;
     }
+}
+
+- (NSString *)formatDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
+    return [formatter stringFromDate:date];
 }
 
 

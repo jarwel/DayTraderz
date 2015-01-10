@@ -48,6 +48,7 @@
 
 - (IBAction)onConfirmButton:(id)sender {
     Pick *pick = [[Pick alloc] init];
+    pick.date = self.todayWithoutTime;
     pick.symbol = _symbolLabel.text;
     [_delegate pickFromController:pick];
     [self.navigationController popViewControllerAnimated:YES];
@@ -57,6 +58,12 @@
     NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", quote.priceChange];
     NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", quote.percentChange];
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
+}
+
+- (NSDate *)todayWithoutTime {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    return [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
 }
 
 @end

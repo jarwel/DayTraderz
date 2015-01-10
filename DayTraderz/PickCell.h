@@ -10,6 +10,7 @@
 
 @interface PickCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
 
 @end
