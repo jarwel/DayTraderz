@@ -32,13 +32,13 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Tomorrow's Pick";
+        return @"Tomorrow";
     }
     
     if (section == 1) {
-        return @"Today's Pick";
+        return @"Today";
     }
-    return @"Historical Picks";
+    return @"Historical";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

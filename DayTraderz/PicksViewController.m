@@ -46,6 +46,10 @@
     }];
 }
 
+- (IBAction)onConfirmButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (NSString *)formatChangeFromQuote:(Quote *)quote {
     NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", quote.priceChange];
     NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", quote.percentChange];
