@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PicksViewController.h
 //  DayTraderz
 //
 //  Created by Jason Wells on 1/9/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PicksViewController : UIViewController <UISearchBarDelegate>
 
 @end
-

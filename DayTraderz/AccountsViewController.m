@@ -18,11 +18,13 @@
 
 @implementation AccountsViewController
 
+static NSString * const cellIdentifier = @"AccountCell";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINib *userCell = [UINib nibWithNibName:@"AccountCell" bundle:nil];
-    [self.tableView registerNib:userCell forCellReuseIdentifier:@"AccountCell"];
+    UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
     NSMutableArray *accounts = [[NSMutableArray alloc] init];
     
@@ -47,7 +49,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
-    AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AccountCell" forIndexPath:indexPath];
+    AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.accountName.text = account.name;
     cell.accountValue.text = [NSString stringWithFormat:@"%0.2f", account.value];
     return cell;
