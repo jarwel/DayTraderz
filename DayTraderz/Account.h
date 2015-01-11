@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-@interface Account : NSObject
+@interface Account : PFObject<PFSubclassing>
 
-@property (strong, nonatomic) NSString* name;
+@property (assign, nonatomic) PFUser *user;
 @property (assign, nonatomic) float value;
+
++ (void)load;
++ (NSString *)parseClassName;
++ (Account *)initWithUser:(PFUser *)user;
 
 @end

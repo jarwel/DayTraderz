@@ -29,12 +29,10 @@ static NSString * const cellIdentifier = @"AccountCell";
     NSMutableArray *accounts = [[NSMutableArray alloc] init];
     
     Account *account1 = [[Account alloc] init];
-    account1.name = @"My First Account";
     account1.value = 10000.00;
     [accounts addObject:account1];
     
     Account *account2 = [[Account alloc] init];
-    account2.name = @"My Second Account";
     account2.value = 10000.00;
     [accounts addObject:account2];
     
@@ -50,7 +48,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.accountName.text = account.name;
+    cell.accountName.text = @"User Name";
     cell.accountValue.text = [NSString stringWithFormat:@"%0.2f", account.value];
     return cell;
 }

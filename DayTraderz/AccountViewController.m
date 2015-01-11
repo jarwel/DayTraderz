@@ -7,7 +7,9 @@
 //
 
 #import "AccountViewController.h"
+#import "AppConstants.h"
 #import "PicksViewController.h"
+#import "Account.h"
 #import "PickCell.h"
 
 @interface AccountViewController () <PicksViewControllerDelegate>
@@ -29,6 +31,10 @@ static NSString * const cellIdentifier = @"PickCell";
     
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
+    
+    PFQuery *query = [Account query];
+    [query whereKey:@"user" equalTo:PFUser.currentUser];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -82,6 +88,10 @@ static NSString * const cellIdentifier = @"PickCell";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd-yyyy"];
     return [formatter stringFromDate:date];
+}
+
+- (IBAction)onLogOutButton:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "AppConstants.h"
+#import "SignUpViewController.h"
+#import "LogInViewController.h"
+#import "Account.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +20,100 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [Account load];
+    [Parse setApplicationId:@"nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M" clientKey:@"lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO"];
+    
+    self.window.rootViewController = self.currentViewController;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logIn) name:LogInNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:LogOutNotification object:nil];
     return YES;
 }
+
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES;
+    }
+    
+    NSString *title = @"Log In Error";
+    NSString *message = @"Please fill out all of the information.";
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    return NO;
+}
+
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    
+    for (id key in info) {
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) {
+            informationComplete = NO;
+            break;
+        }
+    }
+    
+    if (!informationComplete) {
+        NSString *title = @"Log In Error";
+        NSString *message = @"Please fill out all of the information.";
+        [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
+    return informationComplete;
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [[Account initWithUser:user] saveInBackground];
+        }
+    }];
+    
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSString *title = @"Log In Error";
+    NSString *message = @"The username or password you provided is not correct.";
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+- (void)logIn {
+    self.window.rootViewController = self.currentViewController;
+}
+
+- (void)logOut {
+    [PFUser logOut];
+    self.window.rootViewController = self.currentViewController;
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+}
+
+- (UIViewController *)currentViewController {
+    if (![PFUser currentUser]) {
+        return self.signInViewController;
+    }
+    return self.homeViewController;
+}
+
+- (UIViewController *)signInViewController {
+    SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
+    [signUpViewController setDelegate:self];
+    
+    LogInViewController *logInViewController = [[LogInViewController alloc] init];
+    [logInViewController setDelegate:self];
+    [logInViewController setSignUpController:signUpViewController];
+    return logInViewController;
+}
+
+- (UIViewController *)homeViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *accountViewController = [storyboard instantiateViewControllerWithIdentifier:@"AppController"];
+    return accountViewController;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

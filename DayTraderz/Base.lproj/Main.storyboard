@@ -76,6 +76,11 @@
                                 <segue destination="WzP-JF-hGP" kind="show" id="ACR-Qg-zsI"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
+                            <connections>
+                                <action selector="onLogOutButton:" destination="PqU-rN-jni" id="xSJ-Yo-mwH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
@@ -190,7 +195,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2pK-OU-KbM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kh1-p2-uee" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AppController" automaticallyAdjustsScrollViewInsets="NO" id="Kh1-p2-uee" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Mz-h8-QLu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
