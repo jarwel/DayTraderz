@@ -247,10 +247,10 @@
 			children = (
 				CA492BA51A606F7E00ED13B3 /* Account.h */,
 				CA492BA61A606F7E00ED13B3 /* Account.m */,
-				CA492BD51A608DEC00ED13B3 /* Quote.h */,
-				CA492BD61A608DEC00ED13B3 /* Quote.m */,
 				CA492BE51A60AD8300ED13B3 /* Pick.h */,
 				CA492BE61A60AD8300ED13B3 /* Pick.m */,
+				CA492BD51A608DEC00ED13B3 /* Quote.h */,
+				CA492BD61A608DEC00ED13B3 /* Quote.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";

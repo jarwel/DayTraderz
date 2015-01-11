@@ -11,6 +11,7 @@
 #import "SignUpViewController.h"
 #import "LogInViewController.h"
 #import "Account.h"
+#import "Pick.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Account load];
+    [Account registerSubclass];
+    [Pick registerSubclass];
     [Parse setApplicationId:@"nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M" clientKey:@"lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO"];
     
     self.window.rootViewController = self.currentViewController;
@@ -69,7 +71,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [[Account initWithUser:user] saveInBackground];
+            [[Account initForUser:user] saveInBackground];
         }
     }];
     

@@ -38,14 +38,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
                                 <rect key="frame" x="16" y="72" width="93" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rTc-w6-mWH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
                                 <rect key="frame" x="542" y="72" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UcL-Vj-zWZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,6 +75,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="CvS-Ar-j7G"/>
+                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="I6d-Lt-Lkx"/>
+                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="O38-5T-gnz"/>
+                            <constraint firstItem="Udm-GY-JQX" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="caV-5w-2Je"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
                         <barButtonItem key="leftBarButtonItem" title="Leaderboard" id="QTk-8j-Mev">
@@ -83,7 +95,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
+                        <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>

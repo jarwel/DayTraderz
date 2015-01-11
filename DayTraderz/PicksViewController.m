@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *changeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
+@property (strong, nonatomic) Quote *quote;
+
 @end
 
 @implementation PicksViewController
@@ -27,17 +29,15 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:searchText];
+    NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
     [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (!error) {
             NSArray *quotes = [Quote fromData:data];
             if (quotes.count == 1) {
                 Quote *quote = [quotes firstObject];
-                if ([quote.symbol isEqualToString:searchBar.text]) {
-                    _symbolLabel.text = quote.symbol;
-                    _nameLabel.text = quote.name;
-                    _priceLabel.text = [NSString stringWithFormat:@"%0.2f", quote.price];
-                    _changeLabel.text = [self formatChangeFromQuote:quote];
+                if ([quote.symbol isEqualToString:[searchBar.text uppercaseString]]) {
+                    _quote = quote;
+                    [self refreshViews];
                 }
             }
         } else {
@@ -46,12 +46,22 @@
     }];
 }
 
+- (void)refreshViews {
+    _symbolLabel.text = _quote.symbol;
+    _nameLabel.text = _quote.name;
+    _priceLabel.text = [NSString stringWithFormat:@"%0.2f", _quote.price];
+    _changeLabel.text = [self formatChangeFromQuote:_quote];
+}
+
+
 - (IBAction)onConfirmButton:(id)sender {
-    Pick *pick = [[Pick alloc] init];
-    pick.date = self.todayWithoutTime;
-    pick.symbol = _symbolLabel.text;
-    [_delegate pickFromController:pick];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (_quote) {
+        Pick *pick = [Pick initForAccount:_account withSymbol:_quote.symbol];
+        pick.date = [self todayWithoutTime];
+        [pick saveInBackground];
+        [_delegate pickFromController:pick];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSString *)formatChangeFromQuote:(Quote *)quote {

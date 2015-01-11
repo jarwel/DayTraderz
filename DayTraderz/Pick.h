@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+#import "Account.h"
 
-@interface Pick : NSObject
+@interface Pick : PFObject<PFSubclassing>
 
+@property (strong, nonatomic) PFUser *user;
+@property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *symbol;
+@property (strong, nonatomic) NSNumber *priceBought;
+@property (strong, nonatomic) NSNumber *priceSold;
+@property (strong, nonatomic) NSNumber *accountValue;
+
++ (NSString *)parseClassName;
++ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol;
 
 @end

@@ -11,11 +11,10 @@
 
 @interface Account : PFObject<PFSubclassing>
 
-@property (assign, nonatomic) PFUser *user;
+@property (strong, nonatomic) PFUser *user;
 @property (assign, nonatomic) float value;
 
-+ (void)load;
 + (NSString *)parseClassName;
-+ (Account *)initWithUser:(PFUser *)user;
++ (Account *)initForUser:(PFUser *)user;
 
 @end

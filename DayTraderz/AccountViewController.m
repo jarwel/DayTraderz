@@ -15,7 +15,10 @@
 @interface AccountViewController () <PicksViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+@property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *todaysPick;
 @property (strong, nonatomic) Pick *tomorrowsPick;
 @property (strong, nonatomic) NSArray *historicalPick;
@@ -33,8 +36,14 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
     PFQuery *query = [Account query];
+    [query includeKey:@"user"];
     [query whereKey:@"user" equalTo:PFUser.currentUser];
-    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            _account = objects[0];
+            _valueLabel.text = [NSString stringWithFormat:@"$%0.02f", _account.value];
+        }
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -81,6 +90,7 @@ static NSString * const cellIdentifier = @"PickCell";
     if ([[segue identifier] isEqualToString:@"ShowPicksSegue"]) {
         PicksViewController *picksViewController = segue.destinationViewController;
         picksViewController.delegate = self;
+        picksViewController.account = _account;
     }
 }
 

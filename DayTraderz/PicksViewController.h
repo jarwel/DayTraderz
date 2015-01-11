@@ -19,5 +19,6 @@
 @interface PicksViewController : UIViewController <UISearchBarDelegate>
 
 @property (weak, nonatomic) id<PicksViewControllerDelegate> delegate;
+@property (strong, nonatomic) Account *account;
 
 @end
