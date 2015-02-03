@@ -36,7 +36,7 @@
             if (quotes.count == 1) {
                 Quote *quote = [quotes firstObject];
                 if ([quote.symbol isEqualToString:[searchBar.text uppercaseString]]) {
-                    _quote = quote;
+                    self.quote = quote;
                     [self refreshViews];
                 }
             }
@@ -47,19 +47,19 @@
 }
 
 - (void)refreshViews {
-    _symbolLabel.text = _quote.symbol;
-    _nameLabel.text = _quote.name;
-    _priceLabel.text = [NSString stringWithFormat:@"%0.2f", _quote.price];
-    _changeLabel.text = [self formatChangeFromQuote:_quote];
+    self.symbolLabel.text = _quote.symbol;
+    self.nameLabel.text = _quote.name;
+    self.priceLabel.text = [NSString stringWithFormat:@"%0.2f", self.quote.price];
+    self.changeLabel.text = [self formatChangeFromQuote:self.quote];
 }
 
 
 - (IBAction)onConfirmButton:(id)sender {
-    if (_quote) {
-        Pick *pick = [Pick initForAccount:_account withSymbol:_quote.symbol];
-        pick.date = [self todayWithoutTime];
+    if (self.quote) {
+        Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol];
+        pick.tradeDate = [self nextTradeDate];
         [pick saveInBackground];
-        [_delegate pickFromController:pick];
+        [self.delegate pickFromController:pick];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -70,10 +70,12 @@
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
-- (NSDate *)todayWithoutTime {
+- (NSString *)nextTradeDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate* date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:[NSDate date] options:0];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    return [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
+    return [formatter stringFromDate:date];
 }
 
 @end

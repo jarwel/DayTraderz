@@ -12,7 +12,7 @@
 
 @dynamic user;
 @dynamic account;
-@dynamic date;
+@dynamic tradeDate;
 @dynamic symbol;
 @dynamic priceBought;
 @dynamic priceSold;

@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) PFUser *user;
 @property (strong, nonatomic) Account *account;
-@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *tradeDate;
 @property (strong, nonatomic) NSString *symbol;
 @property (strong, nonatomic) NSNumber *priceBought;
 @property (strong, nonatomic) NSNumber *priceSold;
