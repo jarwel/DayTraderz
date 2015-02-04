@@ -82,24 +82,25 @@ static NSString * const cellIdentifier = @"PickCell";
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if (indexPath.section == 0 && self.nextPick) {
-        cell.dateLabel.text = [self formatTradeDate:self.nextPick.tradeDate];
+        cell.dateLabel.text = [self formatFromTradeDate:self.nextPick.tradeDate];
         cell.symbolLabel.text = self.nextPick.symbol;
     }
     
     if (indexPath.section == 1 && self.currentPick) {
-        cell.dateLabel.text = [self formatTradeDate:self.currentPick.tradeDate];
+        cell.dateLabel.text = [self formatFromTradeDate:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
     }
     
     if (indexPath.section == 2) {
         Pick* pick = [self.picks objectAtIndex:indexPath.row];
-        cell.dateLabel.text = [self formatTradeDate:pick.tradeDate];
+        cell.dateLabel.text = [self formatFromTradeDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         
         NSString *key = [NSString stringWithFormat:@"%@-%@", pick.symbol, pick.tradeDate];
-        Quote *quote = [self.quotes objectForKey:key];
-        
-        
+        DayQuote *quote = [self.quotes objectForKey:key];
+        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", quote.open];
+        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", quote.close];
+        cell.changeLabel.text = [self formatChangeFromQuote:quote];
     }
     
     return cell;
@@ -144,12 +145,20 @@ static NSString * const cellIdentifier = @"PickCell";
     return NO;
 }
 
-- (NSString *)formatTradeDate:(NSString *)tradeDate {
+- (NSString *)formatFromTradeDate:(NSString *)tradeDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate* date = [formatter dateFromString:tradeDate];
     [formatter setDateFormat:@"MM-dd-yyyy"];
     return [formatter stringFromDate:date];
+}
+
+- (NSString *)formatChangeFromQuote:(DayQuote *)quote {
+    float priceChange = quote.close - quote.open;
+    float percentChange = priceChange / quote.open;
+    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
+    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
+    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
 - (void)updateViewsWithObjects:(NSArray *)objects {
@@ -171,6 +180,7 @@ static NSString * const cellIdentifier = @"PickCell";
                     if (dayQuote) {
                         NSString *key = [NSString stringWithFormat:@"%@-%@", dayQuote.symbol, dayQuote.date];
                         [self.quotes setObject:dayQuote forKey:key];
+                        [self.tableView reloadData];
                     }
                 }
             }];

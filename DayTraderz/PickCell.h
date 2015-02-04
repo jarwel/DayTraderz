@@ -12,5 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
+@property (weak, nonatomic) IBOutlet UILabel *buyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sellLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *changeLabel;
 
 @end

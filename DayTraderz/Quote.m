@@ -59,7 +59,6 @@
     return _percentChange;
 }
 
-
 + (Quote *)fromDictionary:(NSDictionary *)dictionary {
     if ([dictionary objectForKey:@"ErrorIndicationreturnedforsymbolchangedinvalid"] == [NSNull null]) {
         return [[Quote alloc] initWithDictionary:dictionary];
