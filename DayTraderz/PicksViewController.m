@@ -71,8 +71,16 @@
 }
 
 - (NSString *)nextTradeDate {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate* date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:[NSDate date] options:0];
+    
+    long weekDay;
+    do {
+        NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
+        weekDay = [dateComponents weekday];
+    }
+    while (weekDay < 1 || weekDay > 6 );
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     return [formatter stringFromDate:date];

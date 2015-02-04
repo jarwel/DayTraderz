@@ -47,12 +47,11 @@ static NSString * const cellIdentifier = @"PickCell";
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.account = objects[0];
-        }
-    }];
-    
-    [[ParseClient instance] fetchPicksForUser:PFUser.currentUser callback:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            [self updateViewsWithObjects:objects];
+            [[ParseClient instance] fetchPicksForAccount:self.account callback:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    [self updateViewsWithObjects:objects];
+                }
+            }];
         }
     }];
 }
@@ -65,7 +64,7 @@ static NSString * const cellIdentifier = @"PickCell";
     if (section == 0) {
         return @"Current";
     }
-    return @"Historical";
+    return @"Past";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -156,7 +155,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)updateViewsWithObjects:(NSArray *)objects {
     [self.picks removeAllObjects];
     
-    float value = 0;
+    float value = self.account.value;
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
