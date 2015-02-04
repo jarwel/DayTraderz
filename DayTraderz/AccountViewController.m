@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *nextPick;
@@ -57,22 +58,18 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Tomorrow";
-    }
-    
-    if (section == 1) {
-        return @"Today";
+        return @"Current";
     }
     return @"Historical";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section < 2) {
+    if (section == 0) {
         return 1;
     }
     return self.picks.count;
@@ -81,17 +78,12 @@ static NSString * const cellIdentifier = @"PickCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if (indexPath.section == 0 && self.nextPick) {
-        cell.dateLabel.text = [self formatFromTradeDate:self.nextPick.tradeDate];
-        cell.symbolLabel.text = self.nextPick.symbol;
-    }
-    
-    if (indexPath.section == 1 && self.currentPick) {
+    if (indexPath.section == 0 && self.currentPick) {
         cell.dateLabel.text = [self formatFromTradeDate:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
     }
     
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         Pick* pick = [self.picks objectAtIndex:indexPath.row];
         cell.dateLabel.text = [self formatFromTradeDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
@@ -187,7 +179,9 @@ static NSString * const cellIdentifier = @"PickCell";
         }
     }
     
+    NSString *tradeDateFormat =  [self formatFromTradeDate:self.nextPick.tradeDate];
     self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", value];
+    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@ on %@", self.nextPick.symbol, tradeDateFormat];
     [self.tableView reloadData];
 }
 

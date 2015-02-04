@@ -39,47 +39,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="72" width="93" height="21"/>
+                                <rect key="frame" x="16" y="72" width="92.5" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="rTc-w6-mWH"/>
+                                    <constraint firstAttribute="height" constant="21" id="yfr-XW-eDd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
-                                <rect key="frame" x="542" y="72" width="42" height="21"/>
+                                <rect key="frame" x="542" y="72" width="41.5" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="UcL-Vj-zWZ"/>
+                                    <constraint firstAttribute="height" constant="21" id="QgL-Bz-r9Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
-                                <rect key="frame" x="268" y="90" width="65" height="30"/>
-                                <state key="normal" title="Set Picks">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="u4I-9O-JUX"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="buT-kL-TyP">
-                                <rect key="frame" x="0.0" y="128" width="600" height="472"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="buT-kL-TyP">
+                                <rect key="frame" x="0.0" y="136" width="600" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="PqU-rN-jni" id="0vY-FE-05E"/>
                                     <outlet property="delegate" destination="PqU-rN-jni" id="Cda-mg-x3z"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Pick" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
+                                <rect key="frame" x="16" y="101" width="74" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bvK-bZ-Vdh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
+                                <rect key="frame" x="527" y="98" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EoA-oi-saT"/>
+                                </constraints>
+                                <state key="normal" title="Set Pick">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="u4I-9O-JUX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="CvS-Ar-j7G"/>
-                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="I6d-Lt-Lkx"/>
-                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="O38-5T-gnz"/>
-                            <constraint firstItem="Udm-GY-JQX" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="caV-5w-2Je"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="buT-kL-TyP" secondAttribute="trailing" constant="-16" id="18o-EL-Kqh"/>
+                            <constraint firstItem="7NY-7p-bsx" firstAttribute="top" secondItem="Udm-GY-JQX" secondAttribute="bottom" constant="8" id="6Ja-Au-6S9"/>
+                            <constraint firstItem="XbG-j1-Zbe" firstAttribute="top" secondItem="buT-kL-TyP" secondAttribute="bottom" id="EHR-7Q-5UN"/>
+                            <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="8" id="Hx8-Js-Vnn"/>
+                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="JDn-fl-PPT"/>
+                            <constraint firstItem="tjc-Xf-oE6" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="JTh-56-Glg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HQR-bm-eRQ" secondAttribute="trailing" id="hTF-pC-Vn5"/>
+                            <constraint firstItem="tjc-Xf-oE6" firstAttribute="top" secondItem="HQR-bm-eRQ" secondAttribute="bottom" constant="5" id="nqX-Q6-db6"/>
+                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="8" id="rVc-f3-rFR"/>
+                            <constraint firstItem="7NY-7p-bsx" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="rWJ-BB-Ops"/>
+                            <constraint firstItem="buT-kL-TyP" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" constant="-16" id="swn-uw-xiw"/>
+                            <constraint firstItem="Udm-GY-JQX" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="tjL-kx-asx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
@@ -96,13 +116,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
+                        <outlet property="nextPickLabel" destination="7NY-7p-bsx" id="tqz-xN-wqC"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1415" y="-729"/>
+            <point key="canvasLocation" x="-1437" y="-729"/>
         </scene>
         <!--Picks View Controller-->
         <scene sceneID="dcb-bp-1rE">
