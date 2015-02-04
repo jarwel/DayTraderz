@@ -9,8 +9,11 @@
 #import "AccountViewController.h"
 #import "AppConstants.h"
 #import "ParseClient.h"
+#import "FinanceClient.h"
 #import "PicksViewController.h"
 #import "Account.h"
+#import "Quote.h"
+#import "DayQuote.h"
 #import "PickCell.h"
 
 @interface AccountViewController () <PicksViewControllerDelegate>
@@ -23,6 +26,7 @@
 @property (strong, nonatomic) Pick *nextPick;
 @property (strong, nonatomic) Pick *currentPick;
 @property (strong, nonatomic) NSMutableArray *picks;
+@property (strong, nonatomic) NSMutableDictionary *quotes;
 
 @end
 
@@ -32,6 +36,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.picks = [[NSMutableArray alloc] init];
+    self.quotes = [[NSMutableDictionary alloc ] init];
     
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
@@ -88,6 +95,11 @@ static NSString * const cellIdentifier = @"PickCell";
         Pick* pick = [self.picks objectAtIndex:indexPath.row];
         cell.dateLabel.text = [self formatTradeDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
+        
+        NSString *key = [NSString stringWithFormat:@"%@-%@", pick.symbol, pick.tradeDate];
+        Quote *quote = [self.quotes objectForKey:key];
+        
+        
     }
     
     return cell;
@@ -141,9 +153,9 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)updateViewsWithObjects:(NSArray *)objects {
-    self.picks = [[NSMutableArray alloc] init];
-    float value = 0;
+    [self.picks removeAllObjects];
     
+    float value = 0;
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
@@ -153,6 +165,15 @@ static NSString * const cellIdentifier = @"PickCell";
         }
         else {
             [self.picks addObject:pick];
+            [[FinanceClient instance] fetchQuoteForSymbol:pick.symbol onDate:pick.tradeDate callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+                if (!error) {
+                    DayQuote* dayQuote = [DayQuote fromData:data];
+                    if (dayQuote) {
+                        NSString *key = [NSString stringWithFormat:@"%@-%@", dayQuote.symbol, dayQuote.date];
+                        [self.quotes setObject:dayQuote forKey:key];
+                    }
+                }
+            }];
         }
     }
     

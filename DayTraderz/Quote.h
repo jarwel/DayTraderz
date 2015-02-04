@@ -10,16 +10,14 @@
 
 @interface Quote : NSObject
 
-@property (strong, nonatomic, readonly) NSString *symbol;
-@property (strong, nonatomic, readonly) NSString *name;
-@property (assign, nonatomic, readonly) float price;
-@property (assign, nonatomic, readonly) float priceChange;
-@property (assign, nonatomic, readonly) float percentChange;
-@property (assign, nonatomic, readonly) float open;
-@property (assign, nonatomic, readonly) float previousClose;
+@property (strong, nonatomic) NSString *symbol;
+@property (strong, nonatomic) NSString *name;
+@property (assign, nonatomic) float price;
+@property (assign, nonatomic) float priceChange;
+@property (assign, nonatomic) float percentChange;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-+ (Quote *)fromDictionary:(NSDictionary *)dictionary;
 + (NSArray *)fromData:(NSData *)data;
++ (Quote *)fromDictionary:(NSDictionary *)dictionary;
 
 @end

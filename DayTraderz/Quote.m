@@ -8,19 +8,55 @@
 
 #import "Quote.h"
 
+@interface Quote ()
+
+@property (strong, nonatomic) NSDictionary *dictionary;
+
+@end
+
+
 @implementation Quote
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super init]) {
-        _symbol = [dictionary objectForKey:@"symbol"];
-        _name = [dictionary objectForKey:@"Name"];
-        _price = [[dictionary objectForKey:@"LastTradePriceOnly"] floatValue];
-        _priceChange = [[dictionary objectForKey:@"Change"] floatValue];
-        _percentChange =[[dictionary objectForKey:@"ChangeinPercent"] floatValue];
-        _previousClose = [[dictionary objectForKey:@"PreviousClose"] floatValue];
-        
+        self.dictionary = dictionary;
     }
     return self;
+}
+
+- (NSString *)symbol {
+    if (!_symbol) {
+        self.symbol = [self.dictionary objectForKey:@"symbol"];
+    }
+    return _symbol;
+}
+
+- (NSString *)name {
+    if (!_name) {
+        self.name = [self.dictionary objectForKey:@"Name"];
+    }
+    return _name;
+}
+
+- (float)price {
+    if (_price == 0) {
+        self.price = [[self.dictionary objectForKey:@"LastTradePriceOnly"] floatValue];
+    }
+    return _price;
+}
+
+- (float)priceChange {
+    if (_priceChange == 0) {
+        self.priceChange = [[self.dictionary objectForKey:@"Change"] floatValue];
+    }
+    return _priceChange;
+}
+
+- (float)percentChange {
+    if (_percentChange == 0) {
+        self.percentChange = [[self.dictionary objectForKey:@"ChangeinPercent"] floatValue];
+    }
+    return _percentChange;
 }
 
 

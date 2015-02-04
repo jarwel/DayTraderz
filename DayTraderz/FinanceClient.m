@@ -20,9 +20,17 @@
 
 - (void)fetchQuotesForSymbols:(NSSet *)symbols callback:(void (^)(NSURLResponse *response, NSData *data, NSError *error))callback {
     NSString *symbolString = [NSString stringWithFormat:@"'%@'", [[symbols allObjects] componentsJoinedByString:@"','"]];
-    NSLog(@"fetchQuotesForSymbols: %@", symbolString);
-    
     NSString *query = [NSString stringWithFormat:@"select symbol, Name, LastTradePriceOnly, Change, ChangeinPercent, PreviousClose, ErrorIndicationreturnedforsymbolchangedinvalid from yahoo.finance.quotes where symbol in (%@)", symbolString];
+    NSString* encoded = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString *url = [NSString stringWithFormat:@"http://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded];
+    
+    NSLog(@"%@", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:callback];
+}
+
+- (void)fetchQuoteForSymbol:(NSString *)symbol onDate:(NSString *)tradeDate callback:(void (^)(NSURLResponse *response, NSData *data, NSError *error))callback {
+    NSString *query = [NSString stringWithFormat:@"select * from yahoo.finance.historicaldata where symbol = '%@' and startDate = '%@' and endDate = '%@'", symbol, tradeDate, tradeDate];
     NSString* encoded = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     NSString *url = [NSString stringWithFormat:@"http://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded];
     
