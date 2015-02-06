@@ -16,11 +16,14 @@
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) NSString *tradeDate;
 @property (strong, nonatomic) NSString *symbol;
-@property (strong, nonatomic) NSNumber *priceBought;
-@property (strong, nonatomic) NSNumber *priceSold;
-@property (strong, nonatomic) NSNumber *accountValue;
+@property (assign, nonatomic) float open;
+@property (assign, nonatomic) float close;
+@property (assign, nonatomic) float shares;
+@property (assign, nonatomic) float value;
+@property (assign, nonatomic) float change;
+
 
 + (NSString *)parseClassName;
-+ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol;
++ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSString *)date;
 
 @end

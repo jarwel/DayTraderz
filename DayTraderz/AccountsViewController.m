@@ -29,11 +29,11 @@ static NSString * const cellIdentifier = @"AccountCell";
     NSMutableArray *accounts = [[NSMutableArray alloc] init];
     
     Account *account1 = [[Account alloc] init];
-    account1.value = 10000.00;
+    account1.value = 10000.00f;
     [accounts addObject:account1];
     
     Account *account2 = [[Account alloc] init];
-    account2.value = 10000.00;
+    account2.value = 10000.00f;
     [accounts addObject:account2];
     
     _accounts = accounts;

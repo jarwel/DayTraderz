@@ -14,19 +14,23 @@
 @dynamic account;
 @dynamic tradeDate;
 @dynamic symbol;
-@dynamic priceBought;
-@dynamic priceSold;
-@dynamic accountValue;
+@dynamic open;
+@dynamic close;
+@dynamic value;
+@dynamic shares;
+@dynamic change;
 
 + (NSString *)parseClassName {
     return @"Pick";
 }
 
-+ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol {
++ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSString *)date {
     Pick *pick = [Pick object];
     pick.user = account.user;
     pick.account = account;
     pick.symbol = symbol;
+    pick.tradeDate = date;
+    pick.value = account.value;
     return pick;
 }
 

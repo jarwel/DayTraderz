@@ -27,7 +27,6 @@
 @property (strong, nonatomic) Pick *nextPick;
 @property (strong, nonatomic) Pick *currentPick;
 @property (strong, nonatomic) NSMutableArray *picks;
-@property (strong, nonatomic) NSMutableDictionary *quotes;
 
 @end
 
@@ -39,7 +38,6 @@ static NSString * const cellIdentifier = @"PickCell";
     [super viewDidLoad];
     
     self.picks = [[NSMutableArray alloc] init];
-    self.quotes = [[NSMutableDictionary alloc ] init];
     
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
@@ -87,11 +85,10 @@ static NSString * const cellIdentifier = @"PickCell";
         cell.dateLabel.text = [self formatFromTradeDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         
-        NSString *key = [NSString stringWithFormat:@"%@-%@", pick.symbol, pick.tradeDate];
-        DayQuote *quote = [self.quotes objectForKey:key];
-        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", quote.open];
-        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", quote.close];
-        cell.changeLabel.text = [self formatChangeFromQuote:quote];
+        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", pick.open];
+        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", pick.close];
+        cell.changeLabel.text = [self formatChangeFromPick:pick];
+        cell.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", pick.value + pick.change];
     }
     
     return cell;
@@ -144,9 +141,9 @@ static NSString * const cellIdentifier = @"PickCell";
     return [formatter stringFromDate:date];
 }
 
-- (NSString *)formatChangeFromQuote:(DayQuote *)quote {
-    float priceChange = quote.close - quote.open;
-    float percentChange = priceChange / quote.open;
+- (NSString *)formatChangeFromPick:(Pick *)pick {
+    float priceChange = pick.close - pick.open;
+    float percentChange = priceChange / pick.open;
     NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
     NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
@@ -155,7 +152,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)updateViewsWithObjects:(NSArray *)objects {
     [self.picks removeAllObjects];
     
-    float value = self.account.value;
+    float value = self.account.value ;
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
@@ -165,16 +162,6 @@ static NSString * const cellIdentifier = @"PickCell";
         }
         else {
             [self.picks addObject:pick];
-            [[FinanceClient instance] fetchQuoteForSymbol:pick.symbol onDate:pick.tradeDate callback:^(NSURLResponse *response, NSData *data, NSError *error) {
-                if (!error) {
-                    DayQuote* dayQuote = [DayQuote fromData:data];
-                    if (dayQuote) {
-                        NSString *key = [NSString stringWithFormat:@"%@-%@", dayQuote.symbol, dayQuote.date];
-                        [self.quotes setObject:dayQuote forKey:key];
-                        [self.tableView reloadData];
-                    }
-                }
-            }];
         }
     }
     

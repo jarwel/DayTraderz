@@ -56,8 +56,8 @@
 
 - (IBAction)onConfirmButton:(id)sender {
     if (self.quote) {
-        Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol];
-        pick.tradeDate = [self nextTradeDate];
+        NSString *tradeDate = [self nextTradeDate];
+        Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol withDate:tradeDate];
         [pick saveInBackground];
         [self.delegate pickFromController:pick];
         [self.navigationController popViewControllerAnimated:YES];
