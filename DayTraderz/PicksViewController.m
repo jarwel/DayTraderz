@@ -72,10 +72,11 @@
 
 - (NSString *)nextTradeDate {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate* date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:[NSDate date] options:0];
+    NSDate* date = [NSDate date];
     
     long weekDay;
     do {
+        date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
         NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
         weekDay = [dateComponents weekday];
     }

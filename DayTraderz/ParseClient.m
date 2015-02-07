@@ -27,8 +27,9 @@
 
 - (void)fetchPicksForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Pick query];
-    [query includeKey:@"user"];
+    [query includeKey:@"account"];
     [query whereKey:@"user" equalTo:user];
+    [query orderByDescending:@"tradeDate"];
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
@@ -36,6 +37,7 @@
     PFQuery *query = [Pick query];
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
+    [query orderByDescending:@"tradeDate"];
     [query findObjectsInBackgroundWithBlock:callback];
 }
 

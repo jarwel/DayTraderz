@@ -47,7 +47,7 @@ static NSString * const cellIdentifier = @"PickCell";
             self.account = objects[0];
             [[ParseClient instance] fetchPicksForAccount:self.account callback:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    [self updateViewsWithObjects:objects];
+                    [self parseObjects:objects];
                 }
             }];
         }
@@ -121,12 +121,10 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isNextPick:(Pick *) pick {
     if (pick) {
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDate* date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:[NSDate date] options:0];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSString* today = [formatter stringFromDate:date];
-        if ([today isEqualToString:pick.tradeDate]) {
+        NSDate* date = [formatter dateFromString:pick.tradeDate];
+        if ([[NSDate date] compare:date] == NSOrderedAscending) {
             return YES;
         }
     }
@@ -149,10 +147,15 @@ static NSString * const cellIdentifier = @"PickCell";
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
-- (void)updateViewsWithObjects:(NSArray *)objects {
+- (void)refreshViews {
+    NSString *tradeDateFormat =  [self formatFromTradeDate:self.nextPick.tradeDate];
+    self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
+    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@ on %@", self.nextPick.symbol, tradeDateFormat];
+    [self.tableView reloadData];
+}
+
+- (void)parseObjects:(NSArray *)objects {
     [self.picks removeAllObjects];
-    
-    float value = self.account.value ;
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
@@ -164,11 +167,7 @@ static NSString * const cellIdentifier = @"PickCell";
             [self.picks addObject:pick];
         }
     }
-    
-    NSString *tradeDateFormat =  [self formatFromTradeDate:self.nextPick.tradeDate];
-    self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", value];
-    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@ on %@", self.nextPick.symbol, tradeDateFormat];
-    [self.tableView reloadData];
+    [self refreshViews];
 }
 
 - (IBAction)onLogOutButton:(id)sender {
