@@ -56,7 +56,7 @@
 
 - (IBAction)onConfirmButton:(id)sender {
     if (self.quote) {
-        NSString *tradeDate = [self nextTradeDate];
+        NSDate *tradeDate = [self nextTradeDate];
         Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol withDate:tradeDate];
         [pick saveInBackground];
         [self.delegate pickFromController:pick];
@@ -70,9 +70,15 @@
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
-- (NSString *)nextTradeDate {
+- (NSDate *)nextTradeDate {
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitTimeZone;
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate* date = [NSDate date];
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
+    comps.hour = 14;
+    comps.minute = 30;
+    comps.second = 0;
+    comps.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    NSDate *date = [calendar dateFromComponents:comps];
     
     long weekDay;
     do {
@@ -81,10 +87,8 @@
         weekDay = [dateComponents weekday];
     }
     while (weekDay < 1 || weekDay > 6 );
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    return [formatter stringFromDate:date];
+
+    return date;
 }
 
 @end

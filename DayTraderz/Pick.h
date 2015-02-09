@@ -14,16 +14,16 @@
 
 @property (strong, nonatomic) PFUser *user;
 @property (strong, nonatomic) Account *account;
-@property (strong, nonatomic) NSString *tradeDate;
+@property (strong, nonatomic) NSDate *tradeDate;
 @property (strong, nonatomic) NSString *symbol;
-@property (assign, nonatomic) float open;
-@property (assign, nonatomic) float close;
-@property (assign, nonatomic) float shares;
-@property (assign, nonatomic) float value;
-@property (assign, nonatomic) float change;
+@property (assign, nonatomic, readonly) float open;
+@property (assign, nonatomic, readonly) float close;
+@property (assign, nonatomic, readonly) float shares;
+@property (assign, nonatomic, readonly) float value;
+@property (assign, nonatomic, readonly) float change;
 
 
 + (NSString *)parseClassName;
-+ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSString *)date;
++ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date;
 
 @end

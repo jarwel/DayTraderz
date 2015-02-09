@@ -96,7 +96,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)pickFromController:(Pick *)pick {
     self.nextPick = pick;
-    [self.tableView reloadData];
+    [self refreshViews];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -109,10 +109,14 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isCurrentPick:(Pick *) pick {
     if (pick) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSString* today = [formatter stringFromDate:[NSDate date]];
-        if ([today isEqualToString:pick.tradeDate]) {
+        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
+        comps.hour = 14;
+        comps.minute = 30;
+        comps.second = 0;
+        NSDate *date = [calendar dateFromComponents:comps];
+        if ([date compare:pick.tradeDate] == NSOrderedSame) {
             return YES;
         }
     }
@@ -121,22 +125,24 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isNextPick:(Pick *) pick {
     if (pick) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSDate* date = [formatter dateFromString:pick.tradeDate];
-        if ([[NSDate date] compare:date] == NSOrderedAscending) {
+        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
+        comps.hour = 14;
+        comps.minute = 30;
+        comps.second = 0;
+        NSDate *date = [calendar dateFromComponents:comps];
+        if ([date compare:pick.tradeDate] == NSOrderedAscending) {
             return YES;
         }
     }
     return NO;
 }
 
-- (NSString *)formatFromTradeDate:(NSString *)tradeDate {
+- (NSString *)formatFromTradeDate:(NSDate *)tradeDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate* date = [formatter dateFromString:tradeDate];
     [formatter setDateFormat:@"MM-dd-yyyy"];
-    return [formatter stringFromDate:date];
+    return [formatter stringFromDate:tradeDate];
 }
 
 - (NSString *)formatChangeFromPick:(Pick *)pick {
@@ -148,9 +154,8 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)refreshViews {
-    NSString *tradeDateFormat =  [self formatFromTradeDate:self.nextPick.tradeDate];
     self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
-    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@ on %@", self.nextPick.symbol, tradeDateFormat];
+    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
     [self.tableView reloadData];
 }
 
