@@ -10,8 +10,7 @@
 #import "AppConstants.h"
 #import "SignUpViewController.h"
 #import "LogInViewController.h"
-#import "Account.h"
-#import "Pick.h"
+#import "ParseClient.h"
 
 @interface AppDelegate ()
 
@@ -68,10 +67,13 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [[Account initForUser:user] saveInBackground];
+            [[ParseClient instance] createAccountForUser:user callback:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
+                }
+            }];
         }
     }];
     

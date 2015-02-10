@@ -50,4 +50,11 @@
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
+- (void)createAccountForUser:(PFUser *)user callback:(void(^)(BOOL succeeded, NSError *error))callback {
+    Account *account = [[Account alloc] init];
+    account.user = user;
+    account.value = 10000;
+    [account saveInBackgroundWithBlock:callback];
+}
+
 @end

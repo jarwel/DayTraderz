@@ -17,11 +17,4 @@
     return @"Account";
 }
 
-+ (Account *)initForUser:(PFUser *)user {
-    Account *account = [Account object];
-    account.value = 1000.00f;
-    account.user = user;
-    return account;
-}
-
 @end
