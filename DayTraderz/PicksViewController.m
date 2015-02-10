@@ -31,21 +31,23 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
-    [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
-        if (!error) {
-            NSArray *quotes = [Quote fromData:data];
-            if (quotes.count == 1) {
-                Quote *quote = [quotes firstObject];
-                if ([quote.symbol isEqualToString:[searchBar.text uppercaseString]]) {
-                    self.quote = quote;
-                    [self refreshViews];
+    if (![searchText hasPrefix:@"^"]) {
+        NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
+        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (!error) {
+                NSArray *quotes = [Quote fromData:data];
+                if (quotes.count == 1) {
+                    Quote *quote = [quotes firstObject];
+                    if ([quote.symbol isEqualToString:[searchBar.text uppercaseString]]) {
+                        self.quote = quote;
+                        [self refreshViews];
+                    }
                 }
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+        }];
+    }
 }
 
 - (void)refreshViews {
@@ -53,6 +55,7 @@
     self.nameLabel.text = _quote.name;
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f", self.quote.price];
     self.changeLabel.text = [PriceFormatter formattedChangeFromQuote:self.quote];
+    self.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
 }
 
 
