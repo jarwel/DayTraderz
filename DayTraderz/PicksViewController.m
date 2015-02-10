@@ -10,6 +10,7 @@
 #import "FinanceClient.h"
 #import "Quote.h"
 #import "DateHelper.h"
+#import "PriceFormatter.h"
 
 @interface PicksViewController ()
 
@@ -51,7 +52,7 @@
     self.symbolLabel.text = _quote.symbol;
     self.nameLabel.text = _quote.name;
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f", self.quote.price];
-    self.changeLabel.text = [self formatChangeFromQuote:self.quote];
+    self.changeLabel.text = [PriceFormatter formattedChangeFromQuote:self.quote];
 }
 
 
@@ -63,12 +64,6 @@
         [self.delegate pickFromController:pick];
         [self.navigationController popViewControllerAnimated:YES];
     }
-}
-
-- (NSString *)formatChangeFromQuote:(Quote *)quote {
-    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", quote.priceChange];
-    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", quote.percentChange];
-    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
 @end

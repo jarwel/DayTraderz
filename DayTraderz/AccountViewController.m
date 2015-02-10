@@ -15,6 +15,7 @@
 #import "Quote.h"
 #import "PickCell.h"
 #import "DateHelper.h"
+#import "PriceFormatter.h"
 
 @interface AccountViewController () <PicksViewControllerDelegate>
 
@@ -85,8 +86,8 @@ static NSString * const cellIdentifier = @"PickCell";
         cell.symbolLabel.text = self.currentPick.symbol;
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", self.quote.open];
         cell.sellLabel.text = @"--";
-        cell.changeLabel.text = [self formatChange:self.quote.priceChange percentChange:self.quote.percentChange];
-        cell.changeLabel.textColor = [self colorForChange:self.quote.priceChange];
+        cell.changeLabel.text = [PriceFormatter formattedChangeFromQuote:self.quote];
+        cell.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
     }
     
     if (indexPath.section == 1) {
@@ -96,9 +97,9 @@ static NSString * const cellIdentifier = @"PickCell";
         
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", pick.open];
         cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", pick.close];
-        cell.changeLabel.text = [self formatChangeFromPick:pick];
+        cell.changeLabel.text = [PriceFormatter formattedChangeFromPick:pick];
         cell.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", pick.value + pick.change];
-        cell.changeLabel.textColor = [self colorForChange:pick.change];
+        cell.changeLabel.textColor = [PriceFormatter colorForChange:pick.change];
     }
     
     return cell;
@@ -179,28 +180,6 @@ static NSString * const cellIdentifier = @"PickCell";
         }
     }
     return NO;
-}
-
-- (NSString *)formatChange:(float)priceChange percentChange:(float)percentChange {
-    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
-    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
-    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
-}
-
-- (NSString *)formatChangeFromPick:(Pick *)pick {
-    float priceChange = pick.close - pick.open;
-    float percentChange = priceChange / pick.open;
-    return [self formatChange:priceChange percentChange:percentChange];
-}
-
-- (UIColor *)colorForChange:(float)change {
-    if (change > 0) {
-        return [UIColor greenColor];
-    }
-    if (change < 0) {
-        return [UIColor redColor];
-    }
-    return [UIColor blueColor];
 }
 
 @end
