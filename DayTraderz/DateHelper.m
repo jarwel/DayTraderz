@@ -56,7 +56,7 @@
 
 + (NSString *)tradeDateFormat:(NSDate *)tradeDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd-yyyy"];
+    [formatter setDateFormat:@"MMM d, yyyy"];
     return [formatter stringFromDate:tradeDate];
 }
 
