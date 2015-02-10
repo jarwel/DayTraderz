@@ -109,14 +109,8 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isCurrentPick:(Pick *) pick {
     if (pick) {
-        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
-        comps.hour = 14;
-        comps.minute = 30;
-        comps.second = 0;
-        NSDate *date = [calendar dateFromComponents:comps];
-        if ([date compare:pick.tradeDate] == NSOrderedSame) {
+        NSDate *lastTradeDate = [self lastTradeDate];
+        if ([lastTradeDate compare:pick.tradeDate] == NSOrderedSame) {
             return YES;
         }
     }
@@ -125,18 +119,56 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isNextPick:(Pick *) pick {
     if (pick) {
-        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
-        comps.hour = 14;
-        comps.minute = 30;
-        comps.second = 0;
-        NSDate *date = [calendar dateFromComponents:comps];
-        if ([date compare:pick.tradeDate] == NSOrderedAscending) {
+        NSDate *nextTradeDate = [self nextTradeDate];
+        if ([nextTradeDate compare:pick.tradeDate] == NSOrderedSame) {
             return YES;
         }
     }
     return NO;
+}
+
+- (NSDate *)lastTradeDate {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDate *date = [NSDate date];
+    if ([calendar components:NSCalendarUnitHour fromDate:date].hour <= 14) {
+        long weekDay;
+        do {
+            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
+            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
+        }
+        while (weekDay < 1 || weekDay > 6 );
+    }
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
+    components.hour = 14;
+    components.minute = 30;
+    components.second = 0;
+    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    return [calendar dateFromComponents:components];
+}
+
+- (NSDate *)nextTradeDate {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDate *date = [NSDate date];
+    if ([calendar components:NSCalendarUnitHour fromDate:date].hour > 14) {
+        long weekDay;
+        do {
+            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
+            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
+        }
+        while (weekDay < 1 || weekDay > 6 );
+    }
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
+    components.hour = 14;
+    components.minute = 30;
+    components.second = 0;
+    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    return [calendar dateFromComponents:components];
 }
 
 - (NSString *)formatFromTradeDate:(NSDate *)tradeDate {
@@ -160,7 +192,7 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)parseObjects:(NSArray *)objects {
-    [self.picks removeAllObjects];
+    NSMutableArray *newPicks = [[NSMutableArray alloc] init];
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
@@ -169,9 +201,10 @@ static NSString * const cellIdentifier = @"PickCell";
             self.currentPick = pick;
         }
         else {
-            [self.picks addObject:pick];
+            [newPicks addObject:pick];
         }
     }
+    self.picks = newPicks;
     [self refreshViews];
 }
 

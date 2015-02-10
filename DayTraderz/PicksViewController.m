@@ -71,24 +71,25 @@
 }
 
 - (NSDate *)nextTradeDate {
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitTimeZone;
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
-    comps.hour = 14;
-    comps.minute = 30;
-    comps.second = 0;
-    comps.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    NSDate *date = [calendar dateFromComponents:comps];
     
-    long weekDay;
-    do {
-        date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
-        NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
-        weekDay = [dateComponents weekday];
+    NSDate *date = [NSDate date];
+    if ([calendar components:NSCalendarUnitHour fromDate:date].hour > 14) {
+        long weekDay;
+        do {
+            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
+            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
+        }
+        while (weekDay < 1 || weekDay > 6 );
     }
-    while (weekDay < 1 || weekDay > 6 );
-
-    return date;
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
+    components.hour = 14;
+    components.minute = 30;
+    components.second = 0;
+    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    return [calendar dateFromComponents:components];
 }
 
 @end
