@@ -54,7 +54,7 @@
     return [calendar dateFromComponents:components];
 }
 
-+ (NSString *)formattedTradeDate:(NSDate *)tradeDate {
++ (NSString *)tradeDateFormat:(NSDate *)tradeDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd-yyyy"];
     return [formatter stringFromDate:tradeDate];

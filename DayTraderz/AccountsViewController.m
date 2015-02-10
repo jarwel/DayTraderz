@@ -9,6 +9,8 @@
 #import "AccountsViewController.h"
 #import "Account.h"
 #import "AccountCell.h"
+#import "ParseClient.h"
+#import "PriceFormatter.h"
 
 @interface AccountsViewController ()
 
@@ -26,30 +28,22 @@ static NSString * const cellIdentifier = @"AccountCell";
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
-    NSMutableArray *accounts = [[NSMutableArray alloc] init];
-    
-    Account *account1 = [[Account alloc] init];
-    account1.value = 10000.00f;
-    [accounts addObject:account1];
-    
-    Account *account2 = [[Account alloc] init];
-    account2.value = 10000.00f;
-    [accounts addObject:account2];
-    
-    _accounts = accounts;
+    [[ParseClient instance] fetchAccountLeaders:^(NSArray *objects, NSError *error) {
+        self.accounts = objects;
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _accounts.count;
+    return self.accounts.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.accountName.text = @"User Name";
-    cell.accountValue.text = [NSString stringWithFormat:@"%0.2f", account.value];
+    cell.accountName.text = account.user.username;
+    cell.accountValue.text = [PriceFormatter valueFormat:account.value];
     return cell;
 }
 

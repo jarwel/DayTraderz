@@ -54,8 +54,8 @@
     self.symbolLabel.text = _quote.symbol;
     self.nameLabel.text = _quote.name;
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f", self.quote.price];
-    self.changeLabel.text = [PriceFormatter formattedChangeFromQuote:self.quote];
-    self.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
+    self.changeLabel.text = [PriceFormatter changeFormatFromQuote:self.quote];
+    self.changeLabel.textColor = [PriceFormatter colorFromChange:self.quote.priceChange];
 }
 
 

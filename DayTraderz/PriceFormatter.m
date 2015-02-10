@@ -10,23 +10,27 @@
 
 @implementation PriceFormatter
 
-+ (NSString *)formattedChange:(float)priceChange percentChange:(float)percentChange {
++ (NSString *)changeFormat:(float)priceChange percentChange:(float)percentChange {
     NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
     NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
-+ (NSString *)formattedChangeFromQuote:(Quote *)quote {
-    return [self formattedChange:quote.priceChange percentChange:quote.percentChange];
++ (NSString *)valueFormat:(float)value {
+    return [NSString stringWithFormat:@"$%0.02f", value];
 }
 
-+ (NSString *)formattedChangeFromPick:(Pick *)pick {
++ (NSString *)changeFormatFromQuote:(Quote *)quote {
+    return [self changeFormat:quote.priceChange percentChange:quote.percentChange];
+}
+
++ (NSString *)changeFormatFromPick:(Pick *)pick {
     float priceChange = pick.close - pick.open;
     float percentChange = priceChange / pick.open;
-    return [self formattedChange:priceChange percentChange:percentChange];
+    return [self changeFormat:priceChange percentChange:percentChange];
 }
 
-+ (UIColor *)colorForChange:(float)change {
++ (UIColor *)colorFromChange:(float)change {
     if (change > 0) {
         return [UIColor greenColor];
     }

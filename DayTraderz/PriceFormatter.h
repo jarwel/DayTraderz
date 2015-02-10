@@ -12,8 +12,9 @@
 
 @interface PriceFormatter : NSObject
 
-+ (NSString *)formattedChangeFromQuote:(Quote *)quote;
-+ (NSString *)formattedChangeFromPick:(Pick *)pick;
-+ (UIColor *)colorForChange:(float)change;
++ (NSString *)valueFormat:(float)value;
++ (NSString *)changeFormatFromQuote:(Quote *)quote;
++ (NSString *)changeFormatFromPick:(Pick *)pick;
++ (UIColor *)colorFromChange:(float)change;
 
 @end

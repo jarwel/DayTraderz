@@ -12,6 +12,6 @@
 
 + (NSDate *)nextTradeDate;
 + (NSDate *)lastTradeDate;
-+ (NSString *)formattedTradeDate:(NSDate *)tradeDate;
++ (NSString *)tradeDateFormat:(NSDate *)tradeDate;
 
 @end
