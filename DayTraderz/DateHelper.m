@@ -12,9 +12,10 @@
 
 + (NSDate *)nextTradeDate {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour > 14) {
+    if ([calendar components:NSCalendarUnitHour fromDate:date].hour >= 14) {
         long weekDay;
         do {
             date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
@@ -28,12 +29,12 @@
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     return [calendar dateFromComponents:components];
 }
 
 + (NSDate *)lastTradeDate {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *date = [NSDate date];
     if ([calendar components:NSCalendarUnitHour fromDate:date].hour <= 14) {
@@ -50,7 +51,6 @@
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     return [calendar dateFromComponents:components];
 }
 

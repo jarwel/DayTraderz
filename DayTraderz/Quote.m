@@ -40,28 +40,36 @@
 
 - (float)price {
     if (_price == 0) {
-        self.price = [[self.dictionary objectForKey:@"LastTradePriceOnly"] floatValue];
+        if ([self.dictionary objectForKey:@"LastTradePriceOnly"] != [NSNull null]) {
+            self.price = [[self.dictionary objectForKey:@"LastTradePriceOnly"] floatValue];
+        }
     }
     return _price;
 }
 
 - (float)priceChange {
     if (_priceChange == 0) {
-        self.priceChange = [[self.dictionary objectForKey:@"Change"] floatValue];
+        if ([self.dictionary objectForKey:@"Change"] != [NSNull null]) {
+            self.priceChange = [[self.dictionary objectForKey:@"Change"] floatValue];
+        }
     }
     return _priceChange;
 }
 
 - (float)percentChange {
     if (_percentChange == 0) {
-        self.percentChange = [[self.dictionary objectForKey:@"ChangeinPercent"] floatValue];
+        if ([self.dictionary objectForKey:@"ChangeinPercent"] != [NSNull null]) {
+            self.percentChange = [[self.dictionary objectForKey:@"ChangeinPercent"] floatValue];
+        }
     }
     return _percentChange;
 }
 
 - (float)open {
     if (_open == 0) {
-        self.open = [[self.dictionary objectForKey:@"Open"] floatValue];
+        if ([self.dictionary objectForKey:@"Open"] != [NSNull null]) {
+            self.open = [[self.dictionary objectForKey:@"Open"] floatValue];
+        }
     }
     return _open;
 }
