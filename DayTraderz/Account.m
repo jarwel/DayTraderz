@@ -17,4 +17,12 @@
     return @"Account";
 }
 
+- (id)initForUser:(PFUser *)user {
+    if (self = [super init]) {
+        self.value = 10000;
+        self.user = user;
+    }
+    return self;
+}
+
 @end

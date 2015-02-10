@@ -50,11 +50,20 @@
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)createAccountForUser:(PFUser *)user callback:(void(^)(BOOL succeeded, NSError *error))callback {
-    Account *account = [[Account alloc] init];
-    account.user = user;
-    account.value = 10000;
-    [account saveInBackgroundWithBlock:callback];
+- (void)createOrUpdatePick:(Pick *)pick {
+    PFQuery *query = [Pick query];
+    [query whereKey:@"account" equalTo:pick.account];
+    [query whereKey:@"tradeDate" equalTo:pick.tradeDate];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (object) {
+            [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [pick saveInBackground];
+            }];
+        }
+        else {
+            [pick saveInBackground];
+        }
+    }];
 }
 
 @end

@@ -24,13 +24,14 @@
     return @"Pick";
 }
 
-+ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date {
-    Pick *pick = [Pick object];
-    pick.user = account.user;
-    pick.account = account;
-    pick.symbol = symbol;
-    pick.tradeDate = date;
-    return pick;
+- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date {
+    if (self = [super init]) {
+        self.account = account;
+        self.user = account.user;
+        self.symbol = symbol;
+        self.tradeDate = date;
+    }
+    return self;
 }
 
 @end

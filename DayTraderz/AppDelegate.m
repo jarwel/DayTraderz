@@ -69,7 +69,8 @@
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [[ParseClient instance] createAccountForUser:user callback:^(BOOL succeeded, NSError *error) {
+            Account *account = [[Account alloc] initForUser:user];
+            [account saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
                 }

@@ -18,6 +18,6 @@
 - (void)fetchAccountForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback;
 - (void)fetchPicksForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback;
 - (void)fetchPicksForAccount:(Account *)account callback:(void(^)(NSArray *objects, NSError *error))callback;
-- (void)createAccountForUser:(PFUser *)user callback:(void(^)(BOOL succeeded, NSError *error))callback;
+- (void)createOrUpdatePick:(Pick *)pick;
 
 @end

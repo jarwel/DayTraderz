@@ -15,6 +15,6 @@
 @property (assign, nonatomic) float value;
 
 + (NSString *)parseClassName;
-+ (Account *)initForUser:(PFUser *)user;
+- (id)initForUser:(PFUser *)user;
 
 @end

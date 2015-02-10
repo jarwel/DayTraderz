@@ -24,6 +24,6 @@
 
 
 + (NSString *)parseClassName;
-+ (Pick *)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date;
+- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date;
 
 @end

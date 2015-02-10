@@ -8,6 +8,7 @@
 
 #import "PicksViewController.h"
 #import "FinanceClient.h"
+#import "ParseClient.h"
 #import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
@@ -61,9 +62,10 @@
 
 - (IBAction)onConfirmButton:(id)sender {
     if (self.quote) {
+        NSString *symbol = self.quote.symbol;
         NSDate *tradeDate = [DateHelper nextTradeDate];
-        Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol withDate:tradeDate];
-        [pick saveInBackground];
+        Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDate:tradeDate];
+        [[ParseClient instance] createOrUpdatePick:pick];
         [self.delegate pickFromController:pick];
         [self.navigationController popViewControllerAnimated:YES];
     }
