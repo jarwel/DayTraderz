@@ -59,6 +59,13 @@
     return _percentChange;
 }
 
+- (float)open {
+    if (_open == 0) {
+        self.open = [[self.dictionary objectForKey:@"Open"] floatValue];
+    }
+    return _open;
+}
+
 + (Quote *)fromDictionary:(NSDictionary *)dictionary {
     if ([dictionary objectForKey:@"ErrorIndicationreturnedforsymbolchangedinvalid"] == [NSNull null]) {
         return [[Quote alloc] initWithDictionary:dictionary];

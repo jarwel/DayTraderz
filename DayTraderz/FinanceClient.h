@@ -12,6 +12,6 @@
 
 + (FinanceClient *)instance;
 - (void)fetchQuotesForSymbols:(NSSet *)symbols callback:(void (^)(NSURLResponse *response, NSData *data, NSError *error))callback;
-- (void)fetchQuoteForSymbol:(NSString *)symbol onDate:(NSString *)tradeDate callback:(void (^)(NSURLResponse *response, NSData *data, NSError *error))callback;
+- (void)fetchDayQuoteForSymbol:(NSString *)symbol onDate:(NSString *)tradeDate callback:(void (^)(NSURLResponse *response, NSData *data, NSError *error))callback;
 
 @end

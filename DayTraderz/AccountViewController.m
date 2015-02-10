@@ -13,8 +13,8 @@
 #import "PicksViewController.h"
 #import "Account.h"
 #import "Quote.h"
-#import "DayQuote.h"
 #import "PickCell.h"
+#import "DateHelper.h"
 
 @interface AccountViewController () <PicksViewControllerDelegate>
 
@@ -27,6 +27,10 @@
 @property (strong, nonatomic) Pick *nextPick;
 @property (strong, nonatomic) Pick *currentPick;
 @property (strong, nonatomic) NSMutableArray *picks;
+@property (strong, nonatomic) Quote *quote;
+@property (strong, nonatomic) NSTimer *quoteTimer;
+
+- (void)refreshQuote;
 
 @end
 
@@ -38,7 +42,8 @@ static NSString * const cellIdentifier = @"PickCell";
     [super viewDidLoad];
     
     self.picks = [[NSMutableArray alloc] init];
-    
+    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshQuote) userInfo:nil repeats:YES];
+
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
@@ -47,7 +52,7 @@ static NSString * const cellIdentifier = @"PickCell";
             self.account = objects[0];
             [[ParseClient instance] fetchPicksForAccount:self.account callback:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    [self parseObjects:objects];
+                    [self refreshPicks:objects];
                 }
             }];
         }
@@ -76,19 +81,24 @@ static NSString * const cellIdentifier = @"PickCell";
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if (indexPath.section == 0 && self.currentPick) {
-        cell.dateLabel.text = [self formatFromTradeDate:self.currentPick.tradeDate];
+        cell.dateLabel.text = [DateHelper formattedTradeDate:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
+        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", self.quote.open];
+        cell.sellLabel.text = @"--";
+        cell.changeLabel.text = [self formatChange:self.quote.priceChange percentChange:self.quote.percentChange];
+        cell.changeLabel.textColor = [self colorForChange:self.quote.priceChange];
     }
     
     if (indexPath.section == 1) {
         Pick* pick = [self.picks objectAtIndex:indexPath.row];
-        cell.dateLabel.text = [self formatFromTradeDate:pick.tradeDate];
+        cell.dateLabel.text = [DateHelper formattedTradeDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", pick.open];
         cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", pick.close];
         cell.changeLabel.text = [self formatChangeFromPick:pick];
         cell.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", pick.value + pick.change];
+        cell.changeLabel.textColor = [self colorForChange:pick.change];
     }
     
     return cell;
@@ -107,91 +117,30 @@ static NSString * const cellIdentifier = @"PickCell";
     }
 }
 
-- (BOOL)isCurrentPick:(Pick *) pick {
-    if (pick) {
-        NSDate *lastTradeDate = [self lastTradeDate];
-        if ([lastTradeDate compare:pick.tradeDate] == NSOrderedSame) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-- (BOOL)isNextPick:(Pick *) pick {
-    if (pick) {
-        NSDate *nextTradeDate = [self nextTradeDate];
-        if ([nextTradeDate compare:pick.tradeDate] == NSOrderedSame) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-- (NSDate *)lastTradeDate {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour <= 14) {
-        long weekDay;
-        do {
-            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
-            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
-        }
-        while (weekDay < 1 || weekDay > 6 );
-    }
-    
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
-    components.hour = 14;
-    components.minute = 30;
-    components.second = 0;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    return [calendar dateFromComponents:components];
-}
-
-- (NSDate *)nextTradeDate {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour > 14) {
-        long weekDay;
-        do {
-            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
-            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
-        }
-        while (weekDay < 1 || weekDay > 6 );
-    }
-    
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
-    components.hour = 14;
-    components.minute = 30;
-    components.second = 0;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    return [calendar dateFromComponents:components];
-}
-
-- (NSString *)formatFromTradeDate:(NSDate *)tradeDate {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd-yyyy"];
-    return [formatter stringFromDate:tradeDate];
-}
-
-- (NSString *)formatChangeFromPick:(Pick *)pick {
-    float priceChange = pick.close - pick.open;
-    float percentChange = priceChange / pick.open;
-    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
-    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
-    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
-}
-
 - (void)refreshViews {
     self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
     self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
     [self.tableView reloadData];
 }
 
-- (void)parseObjects:(NSArray *)objects {
+- (void)refreshQuote {
+    if (self.currentPick) {
+    NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
+        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (!error) {
+                NSArray *quotes = [Quote fromData:data];
+                if (quotes.count == 1) {
+                    self.quote = [quotes firstObject];
+                    [self refreshViews];
+                }
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
+}
+
+- (void)refreshPicks:(NSArray *)objects {
     NSMutableArray *newPicks = [[NSMutableArray alloc] init];
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
@@ -212,5 +161,46 @@ static NSString * const cellIdentifier = @"PickCell";
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
+- (BOOL)isCurrentPick:(Pick *) pick {
+    if (pick) {
+        NSDate *lastTradeDate = [DateHelper lastTradeDate];
+        if ([lastTradeDate compare:pick.tradeDate] == NSOrderedSame) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)isNextPick:(Pick *) pick {
+    if (pick) {
+        NSDate *nextTradeDate = [DateHelper nextTradeDate];
+        if ([nextTradeDate compare:pick.tradeDate] == NSOrderedSame) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (NSString *)formatChange:(float)priceChange percentChange:(float)percentChange {
+    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
+    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
+    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
+}
+
+- (NSString *)formatChangeFromPick:(Pick *)pick {
+    float priceChange = pick.close - pick.open;
+    float percentChange = priceChange / pick.open;
+    return [self formatChange:priceChange percentChange:percentChange];
+}
+
+- (UIColor *)colorForChange:(float)change {
+    if (change > 0) {
+        return [UIColor greenColor];
+    }
+    if (change < 0) {
+        return [UIColor redColor];
+    }
+    return [UIColor blueColor];
+}
 
 @end

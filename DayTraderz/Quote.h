@@ -15,6 +15,7 @@
 @property (assign, nonatomic) float price;
 @property (assign, nonatomic) float priceChange;
 @property (assign, nonatomic) float percentChange;
+@property (assign, nonatomic) float open;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)fromData:(NSData *)data;

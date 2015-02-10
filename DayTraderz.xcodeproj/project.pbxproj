@@ -44,6 +44,7 @@
 		CA492C131A61DDAB00ED13B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C111A61DDAB00ED13B3 /* Social.framework */; };
 		CA492C151A61DE1000ED13B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */; };
 		CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C171A61E59700ED13B3 /* AppConstants.m */; };
+		CA685CA71A89909600727CE1 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA61A89909600727CE1 /* DateHelper.m */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,8 @@
 		CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CA492C161A61E59700ED13B3 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		CA492C171A61E59700ED13B3 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		CA685CA51A89909600727CE1 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
+		CA685CA61A89909600727CE1 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		CAAE46B71A81747E00B05BAB /* ParseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseClient.h; sourceTree = "<group>"; };
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
 				CA492BCB1A60853700ED13B3 /* PicksViewController.h */,
 				CA492BCC1A60853700ED13B3 /* PicksViewController.m */,
+				CA685CA41A89902500727CE1 /* Helpers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +300,15 @@
 				CA492BEB1A61D30500ED13B3 /* Bolts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA685CA41A89902500727CE1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CA685CA51A89909600727CE1 /* DateHelper.h */,
+				CA685CA61A89909600727CE1 /* DateHelper.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +419,7 @@
 				CA492BA01A606E2600ED13B3 /* AccountsViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PicksViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
+				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,

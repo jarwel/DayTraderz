@@ -9,6 +9,7 @@
 #import "PicksViewController.h"
 #import "FinanceClient.h"
 #import "Quote.h"
+#import "DateHelper.h"
 
 @interface PicksViewController ()
 
@@ -56,7 +57,7 @@
 
 - (IBAction)onConfirmButton:(id)sender {
     if (self.quote) {
-        NSDate *tradeDate = [self nextTradeDate];
+        NSDate *tradeDate = [DateHelper nextTradeDate];
         Pick *pick = [Pick initForAccount:self.account withSymbol:self.quote.symbol withDate:tradeDate];
         [pick saveInBackground];
         [self.delegate pickFromController:pick];
@@ -68,28 +69,6 @@
     NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", quote.priceChange];
     NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", quote.percentChange];
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
-}
-
-- (NSDate *)nextTradeDate {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour > 14) {
-        long weekDay;
-        do {
-            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
-            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
-        }
-        while (weekDay < 1 || weekDay > 6 );
-    }
-    
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
-    components.hour = 14;
-    components.minute = 30;
-    components.second = 0;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    return [calendar dateFromComponents:components];
 }
 
 @end
