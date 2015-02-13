@@ -86,7 +86,10 @@ static NSString * const cellIdentifier = @"PickCell";
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     Pick *pick;
-    if (indexPath.section == 0 && self.currentPick) {
+    if (indexPath.section == 1) {
+        pick = [self.picks objectAtIndex:indexPath.row];
+    }
+    else {
         if (self.currentPick.processed) {
             pick = self.currentPick;
         }
@@ -104,10 +107,6 @@ static NSString * const cellIdentifier = @"PickCell";
             cell.changeLabel.textColor = [PriceFormatter colorFromChange:estimatedPriceChange];
             return cell;
         }
-    }
-    
-    if (indexPath.section == 1) {
-        pick = [self.picks objectAtIndex:indexPath.row];
     }
     
     cell.dateLabel.text = [DateHelper tradeDateFormat:pick.tradeDate];
