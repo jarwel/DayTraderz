@@ -99,8 +99,8 @@ static NSString * const cellIdentifier = @"PickCell";
         cell.dateLabel.text = [DateHelper tradeDateFormat:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         
-        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", pick.open];
-        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Sell", pick.close];
+        cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", pick.open];
+        cell.sellLabel.text = [NSString stringWithFormat:@"Sell: %0.02f", pick.close];
         cell.changeLabel.text = [PriceFormatter changeFormatFromPick:pick];
         cell.valueLabel.text = [PriceFormatter valueFormat:pick.value + pick.change];
         cell.changeLabel.textColor = [PriceFormatter colorFromChange:pick.change];
