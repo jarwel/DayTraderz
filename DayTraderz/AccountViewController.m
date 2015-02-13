@@ -133,6 +133,7 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)refreshViews {
+    self.nameLabel.text = self.account.user.username;
     self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
     self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
     [self.tableView reloadData];
