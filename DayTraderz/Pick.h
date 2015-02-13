@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSString *symbol;
 @property (assign, nonatomic, readonly) float open;
 @property (assign, nonatomic, readonly) float close;
-@property (assign, nonatomic, readonly) float shares;
 @property (assign, nonatomic, readonly) float value;
 @property (assign, nonatomic, readonly) float change;
 @property (assign, nonatomic, readonly) BOOL processed;

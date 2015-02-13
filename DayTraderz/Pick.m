@@ -17,7 +17,6 @@
 @dynamic open;
 @dynamic close;
 @dynamic value;
-@dynamic shares;
 @dynamic change;
 @dynamic processed;
 
