@@ -60,6 +60,10 @@ static NSString * const cellIdentifier = @"PickCell";
     }];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.quoteTimer invalidate];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }

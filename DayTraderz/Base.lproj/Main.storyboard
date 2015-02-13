@@ -47,7 +47,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="72" width="92.5" height="21"/>
+                                <rect key="frame" x="16" y="72" width="93" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yfr-XW-eDd"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
-                                <rect key="frame" x="542" y="72" width="41.5" height="21"/>
+                                <rect key="frame" x="542" y="72" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="QgL-Bz-r9Q"/>
                                 </constraints>
@@ -164,7 +164,7 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6s-fD-EGi">
-                                <rect key="frame" x="16" y="128" width="58.5" height="21"/>
+                                <rect key="frame" x="16" y="128" width="59" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="COs-62-hiW"/>
                                 </constraints>
@@ -173,7 +173,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zv-0v-FUK">
-                                <rect key="frame" x="16" y="155" width="45.5" height="20.5"/>
+                                <rect key="frame" x="16" y="155" width="46" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="TrS-Ts-gdg"/>
                                 </constraints>
@@ -182,7 +182,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-lh-o81">
-                                <rect key="frame" x="544" y="128" width="39.5" height="21"/>
+                                <rect key="frame" x="544" y="128" width="40" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Xaf-cY-ldM"/>
                                 </constraints>
