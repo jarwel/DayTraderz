@@ -73,9 +73,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Current";
+        return @"Current Pick";
     }
-    return @"Past";
+    return @"Historical";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -137,7 +137,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)refreshViews {
     self.nameLabel.text = self.account.user.username;
-    self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
+    self.valueLabel.text = [PriceFormatter valueFormat:self.account.value];
     self.totalPicksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.goodPicks + self.account.badPicks];
     self.goodPicksLabel.text = [NSString stringWithFormat:@"+%d", self.account.goodPicks];
     self.goodPicksLabel.textColor = [UIColor greenColor];

@@ -17,7 +17,11 @@
 }
 
 + (NSString *)valueFormat:(float)value {
-    return [NSString stringWithFormat:@"$%0.02f", value];
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setCurrencyCode:@"USD"];
+    NSDecimalNumber *decimalNumber = [[NSDecimalNumber alloc] initWithFloat:value];
+    return [currencyFormatter stringFromNumber:decimalNumber];
 }
 
 + (NSString *)changeFormatFromQuote:(Quote *)quote {
