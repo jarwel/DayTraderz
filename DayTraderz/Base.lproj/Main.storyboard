@@ -63,6 +63,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
+                                <rect key="frame" x="485" y="89" width="99" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="rfd-wI-9hE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-ox-avr">
                                 <rect key="frame" x="485" y="115" width="99" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
@@ -94,8 +103,8 @@
                                     <outlet property="delegate" destination="PqU-rN-jni" id="Cda-mg-x3z"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Pick" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
-                                <rect key="frame" x="16" y="202" width="496" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
+                                <rect key="frame" x="16" y="202" width="498" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="AWd-Em-gAA"/>
                                     <constraint firstAttribute="width" constant="100" id="OMg-xx-cJM"/>
@@ -109,19 +118,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
-                                <rect key="frame" x="527" y="202" width="57" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="49T-N5-gXV"/>
-                                    <constraint firstAttribute="height" constant="21" id="xuG-ru-H7f"/>
-                                </constraints>
-                                <state key="normal" title="Change">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="u4I-9O-JUX"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-4b-kvQ">
                                 <rect key="frame" x="8" y="169" width="536" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -129,20 +125,24 @@
                                     <constraint firstAttribute="height" constant="1" id="39U-im-109"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
-                                <rect key="frame" x="485" y="89" width="99" height="20.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
+                                <rect key="frame" x="514" y="202" width="70" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="rfd-wI-9hE"/>
+                                    <constraint firstAttribute="width" constant="70" id="49T-N5-gXV"/>
+                                    <constraint firstAttribute="height" constant="21" id="xuG-ru-H7f"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Next Pick">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="u4I-9O-JUX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="leading" secondItem="Udm-GY-JQX" secondAttribute="trailing" id="0zL-VG-FJI"/>
-                            <constraint firstItem="tjc-Xf-oE6" firstAttribute="leading" secondItem="7NY-7p-bsx" secondAttribute="trailing" constant="15" id="53y-Zp-SCo"/>
+                            <constraint firstItem="tjc-Xf-oE6" firstAttribute="leading" secondItem="7NY-7p-bsx" secondAttribute="trailing" id="53y-Zp-SCo"/>
                             <constraint firstItem="HQR-bm-eRQ" firstAttribute="width" secondItem="Udm-GY-JQX" secondAttribute="width" id="7Bm-Fw-q7v"/>
                             <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="12" id="7k2-Cf-ogI"/>
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="7rp-JZ-7pu"/>
@@ -194,6 +194,7 @@
                         <outlet property="badPicksLabel" destination="tws-O7-xoZ" id="TUe-I9-CK0"/>
                         <outlet property="goodPicksLabel" destination="sxz-ox-avr" id="0Ta-EN-ivd"/>
                         <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
+                        <outlet property="nextPickButton" destination="tjc-Xf-oE6" id="Gpn-2W-7nT"/>
                         <outlet property="nextPickLabel" destination="7NY-7p-bsx" id="tqz-xN-wqC"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="totalPicksLabel" destination="iIl-RE-jO6" id="kYb-Gk-6Y6"/>

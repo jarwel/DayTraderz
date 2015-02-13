@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodPicksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *badPicksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
+@property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *nextPick;
@@ -143,7 +144,11 @@ static NSString * const cellIdentifier = @"PickCell";
     self.goodPicksLabel.textColor = [UIColor greenColor];
     self.badPicksLabel.text = [NSString stringWithFormat:@"-%d", self.account.badPicks];
     self.badPicksLabel.textColor = [UIColor redColor];
-    self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
+    if (self.nextPick) {
+        self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
+        [self.nextPickButton setTitle:@"Change" forState:UIControlStateNormal];
+
+    }
     [self.tableView reloadData];
 }
 
