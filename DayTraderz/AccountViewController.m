@@ -97,7 +97,7 @@ static NSString * const cellIdentifier = @"PickCell";
             float estimatedPercentChange = estimatedPriceChange / self.quote.open;
             float estimatedValue = self.account.value + (self.account.value * estimatedPercentChange);
             cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", self.quote.open];
-            cell.valueLabel.text = [@"~ " stringByAppendingString:[PriceFormatter valueFormat:estimatedValue]];
+            cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est.)", [PriceFormatter valueFormat:estimatedValue]];
             cell.changeLabel.text = [PriceFormatter changeFormat:estimatedPriceChange percentChange:estimatedPercentChange];
             cell.changeLabel.textColor = [PriceFormatter colorFromChange:estimatedPriceChange];
         }
