@@ -22,9 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalPicksLabel;
-@property (weak, nonatomic) IBOutlet UILabel *goodPicksLabel;
-@property (weak, nonatomic) IBOutlet UILabel *badPicksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *picksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *winnersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *losersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
@@ -47,7 +47,6 @@ static NSString * const cellIdentifier = @"PickCell";
     [super viewDidLoad];
     
     self.picks = [[NSMutableArray alloc] init];
-    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshQuote) userInfo:nil repeats:YES];
 
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
@@ -62,6 +61,10 @@ static NSString * const cellIdentifier = @"PickCell";
             }];
         }
     }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshQuote) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -139,11 +142,11 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)refreshViews {
     self.nameLabel.text = self.account.user.username;
     self.valueLabel.text = [PriceFormatter valueFormat:self.account.value];
-    self.totalPicksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.goodPicks + self.account.badPicks];
-    self.goodPicksLabel.text = [NSString stringWithFormat:@"+%d", self.account.goodPicks];
-    self.goodPicksLabel.textColor = [UIColor greenColor];
-    self.badPicksLabel.text = [NSString stringWithFormat:@"-%d", self.account.badPicks];
-    self.badPicksLabel.textColor = [UIColor redColor];
+    self.picksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers];
+    self.winnersLabel.text = [NSString stringWithFormat:@"+%d", self.account.winners];
+    self.winnersLabel.textColor = [UIColor greenColor];
+    self.losersLabel.text = [NSString stringWithFormat:@"-%d", self.account.losers];
+    self.losersLabel.textColor = [UIColor redColor];
     if (self.nextPick) {
         self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
         [self.nextPickButton setTitle:@"Change" forState:UIControlStateNormal];

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="74" width="469" height="45"/>
+                                <rect key="frame" x="16" y="74" width="489" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lON-RV-VDt"/>
                                 </constraints>
@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
-                                <rect key="frame" x="16" y="134" width="469" height="20.5"/>
+                                <rect key="frame" x="16" y="134" width="489" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="KSG-Te-s3a"/>
                                 </constraints>
@@ -34,8 +34,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
-                                <rect key="frame" x="485" y="89" width="99" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
+                                <rect key="frame" x="505" y="89" width="79" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="rfd-wI-9hE"/>
                                 </constraints>
@@ -43,14 +43,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-ox-avr">
-                                <rect key="frame" x="485" y="115" width="99" height="25.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winners" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-ox-avr">
+                                <rect key="frame" x="505" y="115" width="79" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tws-O7-xoZ">
-                                <rect key="frame" x="485" y="140" width="99" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Losers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tws-O7-xoZ">
+                                <rect key="frame" x="505" y="140.5" width="79" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="4Sj-OG-aWy"/>
                                 </constraints>
@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
                         <barButtonItem key="leftBarButtonItem" title="Leaders" id="QTk-8j-Mev">
                             <connections>
-                                <segue destination="UFK-IR-wzX" kind="push" id="84v-kN-OAS"/>
+                                <segue destination="UFK-IR-wzX" kind="show" id="84v-kN-OAS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
@@ -162,14 +162,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="badPicksLabel" destination="tws-O7-xoZ" id="TUe-I9-CK0"/>
-                        <outlet property="goodPicksLabel" destination="sxz-ox-avr" id="0Ta-EN-ivd"/>
+                        <outlet property="losersLabel" destination="tws-O7-xoZ" id="h49-2W-FVy"/>
                         <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
                         <outlet property="nextPickButton" destination="tjc-Xf-oE6" id="Gpn-2W-7nT"/>
                         <outlet property="nextPickLabel" destination="7NY-7p-bsx" id="tqz-xN-wqC"/>
+                        <outlet property="picksLabel" destination="iIl-RE-jO6" id="IPr-74-aFm"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
-                        <outlet property="totalPicksLabel" destination="iIl-RE-jO6" id="kYb-Gk-6Y6"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
+                        <outlet property="winnersLabel" destination="sxz-ox-avr" id="L2l-p7-mrr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>

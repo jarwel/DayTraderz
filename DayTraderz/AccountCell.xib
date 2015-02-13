@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="228.5" y="11" width="83" height="21"/>
+                        <rect key="frame" x="250" y="11" width="61.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cKZ-Ti-3RX"/>
                         </constraints>
@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVt-dp-6hC">
-                        <rect key="frame" x="90.5" y="11" width="42" height="21"/>
+                        <rect key="frame" x="70" y="11" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="TjT-Gs-rVr"/>
                         </constraints>
@@ -31,8 +31,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guk-zp-pYa">
-                        <rect key="frame" x="143" y="11" width="44" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Winners" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guk-zp-pYa">
+                        <rect key="frame" x="122.5" y="11" width="64.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="MtQ-za-tyH"/>
                         </constraints>
@@ -40,8 +40,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Bad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-F5-sxM">
-                        <rect key="frame" x="196.5" y="11" width="32" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Losers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-F5-sxM">
+                        <rect key="frame" x="197" y="11" width="53.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="tXW-Kf-bwp"/>
                         </constraints>
@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
-                        <rect key="frame" x="8" y="9" width="83" height="25"/>
+                        <rect key="frame" x="8" y="9" width="62.5" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="s2g-qH-FgJ"/>
                         </constraints>
@@ -75,11 +75,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="badPicksLabel" destination="MdP-F5-sxM" id="vn4-Kv-2XG"/>
-                <outlet property="goodPicksLabel" destination="guk-zp-pYa" id="RbA-DE-tR0"/>
+                <outlet property="losersLabel" destination="MdP-F5-sxM" id="PDb-Nc-iHL"/>
                 <outlet property="nameLabel" destination="mNs-cK-8hO" id="mPn-me-lgq"/>
-                <outlet property="totalPicksLabel" destination="LVt-dp-6hC" id="4oP-sY-mSg"/>
+                <outlet property="picksLabel" destination="LVt-dp-6hC" id="rKf-Ho-OZC"/>
                 <outlet property="valueLabel" destination="tyQ-V0-tnG" id="jeY-9m-kos"/>
+                <outlet property="winnersLabel" destination="guk-zp-pYa" id="35I-ak-izu"/>
             </connections>
             <point key="canvasLocation" x="224" y="183"/>
         </tableViewCell>

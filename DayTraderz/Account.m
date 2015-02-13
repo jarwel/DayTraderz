@@ -12,8 +12,8 @@
 
 @dynamic user;
 @dynamic value;
-@dynamic goodPicks;
-@dynamic badPicks;
+@dynamic winners;
+@dynamic losers;
 
 + (NSString *)parseClassName {
     return @"Account";
@@ -23,8 +23,8 @@
     if (self = [super init]) {
         self.user = user;
         self.value = 10000;
-        self.goodPicks = 0;
-        self.badPicks = 0;
+        self.winners = 0;
+        self.losers = 0;
     }
     return self;
 }
