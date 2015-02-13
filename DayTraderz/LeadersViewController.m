@@ -11,13 +11,13 @@
 #import "AccountCell.h"
 #import "ParseClient.h"
 #import "PriceFormatter.h"
+#import "DateHelper.h"
 
 @interface LeadersViewController ()
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-@property(strong, nonatomic) NSArray *accounts;
+@property (strong, nonatomic) NSArray *accounts;
 
 @end
 
@@ -30,11 +30,8 @@ static NSString * const cellIdentifier = @"AccountCell";
     
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
-    
-    [[ParseClient instance] fetchLeadersSortedByColumn:@"value" callback:^(NSArray *objects, NSError *error) {
-        self.accounts = objects;
-        [self.tableView reloadData];
-    }];
+
+    [self sortLeadersByColumn:@"value"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -53,6 +50,24 @@ static NSString * const cellIdentifier = @"AccountCell";
     cell.losersLabel.textColor = [UIColor redColor];
     cell.valueLabel.text = [PriceFormatter valueFormat:account.value];
     return cell;
+}
+
+- (void)sortLeadersByColumn:(NSString *)column {
+    [[ParseClient instance] fetchLeadersSortedByColumn:column callback:^(NSArray *objects, NSError *error) {
+        self.accounts = objects;
+        [self.tableView reloadData];
+    }];
+}
+
+- (IBAction)onValueChanged:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 1: [self sortLeadersByColumn:@"winners"];
+            break;
+        case 2: [self sortLeadersByColumn:@"losers"];
+            break;
+        default: [self sortLeadersByColumn:@"value"];
+    }
 }
 
 @end

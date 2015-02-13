@@ -149,8 +149,6 @@ static NSString * const cellIdentifier = @"PickCell";
     self.losersLabel.textColor = [UIColor redColor];
     if (self.nextPick) {
         self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
-        [self.nextPickButton setTitle:@"Change" forState:UIControlStateNormal];
-
     }
     [self.tableView reloadData];
 }
