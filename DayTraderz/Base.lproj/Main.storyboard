@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1656" y="-499"/>
+            <point key="canvasLocation" x="-1232" y="-883"/>
         </scene>
         <!--Picks View Controller-->
         <scene sceneID="dcb-bp-1rE">
