@@ -196,9 +196,4 @@ static NSString * const cellIdentifier = @"PickCell";
     return NO;
 }
 
-- (float)estimatedValueForAccount:(Account *)account withQuote:(Quote *)quote {
-    float valueChange = account.value * quote.percentChange / 100;
-    return account.value + valueChange;
-}
-
 @end
