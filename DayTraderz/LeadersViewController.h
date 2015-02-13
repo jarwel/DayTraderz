@@ -1,5 +1,5 @@
 //
-//  AccountsViewController.h
+//  LeadersViewController.h
 //  DayTraderz
 //
 //  Created by Jason Wells on 1/9/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountsViewController : UITableViewController
+@interface LeadersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

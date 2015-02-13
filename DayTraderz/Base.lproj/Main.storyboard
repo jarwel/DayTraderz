@@ -5,35 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Accounts View Controller-->
-        <scene sceneID="RMi-Vh-TYe">
-            <objects>
-                <tableViewController id="WzP-JF-hGP" customClass="AccountsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Un-OJ-ba4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountCell" id="QqS-8O-t7F">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QqS-8O-t7F" id="K0w-gz-BJE">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WzP-JF-hGP" id="DXa-gR-kdO"/>
-                            <outlet property="delegate" destination="WzP-JF-hGP" id="K8b-1N-LoT"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="ra4-aq-1ju">
-                        <barButtonItem key="backBarButtonItem" title="My Account" id="9vI-Tq-WjV"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ww-2A-eI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1427" y="145"/>
-        </scene>
         <!--Account View Controller-->
         <scene sceneID="hFY-rG-yjo">
             <objects>
@@ -181,7 +152,7 @@
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
                         <barButtonItem key="leftBarButtonItem" title="Leaders" id="QTk-8j-Mev">
                             <connections>
-                                <segue destination="WzP-JF-hGP" kind="show" id="ACR-Qg-zsI"/>
+                                <segue destination="UFK-IR-wzX" kind="push" id="84v-kN-OAS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
@@ -204,6 +175,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1232" y="-883"/>
+        </scene>
+        <!--Leaders View Controller-->
+        <scene sceneID="yeQ-z0-n9I">
+            <objects>
+                <viewController id="UFK-IR-wzX" customClass="LeadersViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pjh-vr-agZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="d94-zB-0yL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jPX-6J-z6g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-pe-uUY">
+                                <rect key="frame" x="16" y="72" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="K4j-IP-qSB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-un-ige">
+                                <rect key="frame" x="16" y="123" width="568" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="84x-Ii-nlR"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Value"/>
+                                    <segment title="Winners"/>
+                                    <segment title="Losers"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-fv-OhP">
+                                <rect key="frame" x="0.0" y="159" width="600" height="441"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountCell" id="GLA-Bh-7t9">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLA-Bh-7t9" id="4Cd-cG-2as">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UFK-IR-wzX" id="z6F-gY-4JM"/>
+                                    <outlet property="delegate" destination="UFK-IR-wzX" id="RHQ-9f-vO1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JDN-fv-OhP" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-16" id="3wy-7q-PJZ"/>
+                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" id="4tx-mh-UdI"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="Fqv-pe-uUY" secondAttribute="bottom" constant="30" id="5ia-jg-a4l"/>
+                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="trailing" secondItem="jPX-6J-z6g" secondAttribute="trailingMargin" id="Kwu-uo-d09"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" id="UW6-vM-tiy"/>
+                            <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="8" id="XUH-2m-Mwx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="aNL-DM-iUk"/>
+                            <constraint firstItem="d94-zB-0yL" firstAttribute="top" secondItem="JDN-fv-OhP" secondAttribute="bottom" id="cHX-tX-WRX"/>
+                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="8" id="dH8-Fw-XCw"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="trailing" secondItem="jPX-6J-z6g" secondAttribute="trailingMargin" id="re4-mM-iA7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QCh-vn-y9G"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="VYj-un-ige" id="krf-Up-0dz"/>
+                        <outlet property="tableView" destination="JDN-fv-OhP" id="2uT-Pg-DVy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1552" y="-48"/>
         </scene>
         <!--Picks View Controller-->
         <scene sceneID="dcb-bp-1rE">

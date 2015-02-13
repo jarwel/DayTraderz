@@ -18,10 +18,10 @@
     return instance;
 }
 
-- (void)fetchAccountLeaders:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchLeadersSortedByColumn:(NSString *)column callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
-    [query orderByDescending:@"value"];
+    [query orderByDescending:column];
     [query setLimit:10];
     [query findObjectsInBackgroundWithBlock:callback];
     

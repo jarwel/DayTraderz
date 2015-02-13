@@ -1,24 +1,27 @@
 //
-//  AccountsViewController.m
+//  LeadersViewController.m
 //  DayTraderz
 //
 //  Created by Jason Wells on 1/9/15.
 //  Copyright (c) 2015 Jason Wells. All rights reserved.
 //
 
-#import "AccountsViewController.h"
+#import "LeadersViewController.h"
 #import "Account.h"
 #import "AccountCell.h"
 #import "ParseClient.h"
 #import "PriceFormatter.h"
 
-@interface AccountsViewController ()
+@interface LeadersViewController ()
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property(strong, nonatomic) NSArray *accounts;
 
 @end
 
-@implementation AccountsViewController
+@implementation LeadersViewController
 
 static NSString * const cellIdentifier = @"AccountCell";
 
@@ -28,7 +31,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
-    [[ParseClient instance] fetchAccountLeaders:^(NSArray *objects, NSError *error) {
+    [[ParseClient instance] fetchLeadersSortedByColumn:@"value" callback:^(NSArray *objects, NSError *error) {
         self.accounts = objects;
         [self.tableView reloadData];
     }];

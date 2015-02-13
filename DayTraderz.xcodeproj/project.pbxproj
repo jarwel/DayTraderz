@@ -13,7 +13,7 @@
 		CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA492B821A606CDB00ED13B3 /* Images.xcassets */; };
 		CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */; };
 		CA492B921A606CDB00ED13B3 /* DayTraderzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B911A606CDB00ED13B3 /* DayTraderzTests.m */; };
-		CA492BA01A606E2600ED13B3 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */; };
+		CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */; };
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
 		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
 		CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BAC1A6072F400ED13B3 /* AccountCell.m */; };
@@ -72,8 +72,8 @@
 		CA492B8B1A606CDB00ED13B3 /* DayTraderzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTraderzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B901A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B911A606CDB00ED13B3 /* DayTraderzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayTraderzTests.m; sourceTree = "<group>"; };
-		CA492B9E1A606E2600ED13B3 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
-		CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
+		CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
+		CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		CA492BA51A606F7E00ED13B3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		CA492BA61A606F7E00ED13B3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
@@ -232,10 +232,10 @@
 				CA492C041A61D9A800ED13B3 /* LogInViewController.m */,
 				CA492C051A61D9A800ED13B3 /* SignUpViewController.h */,
 				CA492C061A61D9A800ED13B3 /* SignUpViewController.m */,
-				CA492B9E1A606E2600ED13B3 /* AccountsViewController.h */,
-				CA492B9F1A606E2600ED13B3 /* AccountsViewController.m */,
 				CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */,
 				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
+				CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */,
+				CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */,
 				CA492BCB1A60853700ED13B3 /* PicksViewController.h */,
 				CA492BCC1A60853700ED13B3 /* PicksViewController.m */,
 			);
@@ -422,7 +422,7 @@
 				CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */,
 				CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */,
 				CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */,
-				CA492BA01A606E2600ED13B3 /* AccountsViewController.m in Sources */,
+				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PicksViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
 				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
