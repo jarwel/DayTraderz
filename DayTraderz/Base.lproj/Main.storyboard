@@ -183,9 +183,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="badPicksLabel" destination="tws-O7-xoZ" id="TUe-I9-CK0"/>
+                        <outlet property="goodPicksLabel" destination="sxz-ox-avr" id="0Ta-EN-ivd"/>
                         <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
                         <outlet property="nextPickLabel" destination="7NY-7p-bsx" id="tqz-xN-wqC"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
+                        <outlet property="totalPicksLabel" destination="iIl-RE-jO6" id="kYb-Gk-6Y6"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                     </connections>
                 </viewController>

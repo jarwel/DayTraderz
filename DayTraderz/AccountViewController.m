@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalPicksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goodPicksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *badPicksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 
 @property (strong, nonatomic) Account *account;
@@ -135,6 +138,11 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)refreshViews {
     self.nameLabel.text = self.account.user.username;
     self.valueLabel.text = [NSString stringWithFormat:@"$%0.02f", self.account.value];
+    self.totalPicksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.goodPicks + self.account.badPicks];
+    self.goodPicksLabel.text = [NSString stringWithFormat:@"+%d", self.account.goodPicks];
+    self.goodPicksLabel.textColor = [UIColor greenColor];
+    self.badPicksLabel.text = [NSString stringWithFormat:@"-%d", self.account.badPicks];
+    self.badPicksLabel.textColor = [UIColor redColor];
     self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
     [self.tableView reloadData];
 }
