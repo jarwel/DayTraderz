@@ -21,6 +21,7 @@
 @property (assign, nonatomic, readonly) float shares;
 @property (assign, nonatomic, readonly) float value;
 @property (assign, nonatomic, readonly) float change;
+@property (assign, nonatomic, readonly) BOOL processed;
 
 
 + (NSString *)parseClassName;

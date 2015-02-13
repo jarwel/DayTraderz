@@ -19,6 +19,7 @@
 @dynamic value;
 @dynamic shares;
 @dynamic change;
+@dynamic processed;
 
 + (NSString *)parseClassName {
     return @"Pick";
