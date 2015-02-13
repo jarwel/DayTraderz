@@ -11,8 +11,10 @@
 @interface AccountCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalPicksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goodPicksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *badPicksLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end
