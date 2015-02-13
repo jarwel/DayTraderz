@@ -13,7 +13,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h0g-BL-VcS" id="Vcx-QX-cOS">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
                         <rect key="frame" x="8" y="11" width="45.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="s2g-qH-FgJ"/>
@@ -22,7 +22,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
                         <rect key="frame" x="270" y="11" width="41.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cKZ-Ti-3RX"/>
@@ -31,17 +31,44 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVt-dp-6hC">
+                        <rect key="frame" x="53" y="11" width="108.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="sc0-Ub-1IS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Bad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-rM-qQ5">
+                        <rect key="frame" x="161.5" y="11" width="108" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="NZs-MD-ZDj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="LVt-dp-6hC" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="97g-08-9yL"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="3" id="AyQ-FX-4ru"/>
+                    <constraint firstItem="LVt-dp-6hC" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="3" id="FHN-gf-vRG"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="3" id="KrH-tb-csL"/>
+                    <constraint firstItem="Ut1-rM-qQ5" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="3" id="LHM-np-4OL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="tyQ-V0-tnG" secondAttribute="trailing" id="SLk-QW-Tpy"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" id="dPz-k6-uii"/>
+                    <constraint firstItem="Ut1-rM-qQ5" firstAttribute="leading" secondItem="LVt-dp-6hC" secondAttribute="trailing" id="hSs-B0-kbm"/>
+                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="Ut1-rM-qQ5" secondAttribute="trailing" id="qh1-zp-F7i"/>
+                    <constraint firstItem="Ut1-rM-qQ5" firstAttribute="leading" secondItem="LVt-dp-6hC" secondAttribute="trailing" id="rmE-co-1io"/>
+                    <constraint firstItem="Ut1-rM-qQ5" firstAttribute="width" secondItem="LVt-dp-6hC" secondAttribute="width" id="zco-0M-J50"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="accountName" destination="mNs-cK-8hO" id="sfm-4Q-aYf"/>
-                <outlet property="accountValue" destination="tyQ-V0-tnG" id="vYk-xv-7hg"/>
+                <outlet property="badPicksLabel" destination="Ut1-rM-qQ5" id="E7f-X4-lYh"/>
+                <outlet property="goodPicksLabel" destination="LVt-dp-6hC" id="VsU-Rl-2xB"/>
+                <outlet property="nameLabel" destination="mNs-cK-8hO" id="mPn-me-lgq"/>
+                <outlet property="valueLabel" destination="tyQ-V0-tnG" id="jeY-9m-kos"/>
             </connections>
             <point key="canvasLocation" x="232" y="183"/>
         </tableViewCell>

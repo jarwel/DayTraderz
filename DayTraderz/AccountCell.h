@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AccountCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *accountName;
-@property (weak, nonatomic) IBOutlet UILabel *accountValue;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goodPicksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *badPicksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end

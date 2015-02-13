@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) PFUser *user;
 @property (assign, nonatomic) float value;
+@property (assign, nonatomic) int goodPicks;
+@property (assign, nonatomic) int badPicks;
 
 + (NSString *)parseClassName;
 - (id)initForUser:(PFUser *)user;

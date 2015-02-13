@@ -12,6 +12,8 @@
 
 @dynamic user;
 @dynamic value;
+@dynamic goodPicks;
+@dynamic badPicks;
 
 + (NSString *)parseClassName {
     return @"Account";
@@ -19,8 +21,10 @@
 
 - (id)initForUser:(PFUser *)user {
     if (self = [super init]) {
-        self.value = 10000;
         self.user = user;
+        self.value = 10000;
+        self.goodPicks = 0;
+        self.badPicks = 0;
     }
     return self;
 }

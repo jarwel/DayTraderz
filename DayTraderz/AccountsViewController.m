@@ -42,8 +42,12 @@ static NSString * const cellIdentifier = @"AccountCell";
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.accountName.text = account.user.username;
-    cell.accountValue.text = [PriceFormatter valueFormat:account.value];
+    cell.nameLabel.text = account.user.username;
+    cell.goodPicksLabel.text = [NSString stringWithFormat:@"+%d Good", account.goodPicks];
+    cell.goodPicksLabel.textColor = [UIColor greenColor];
+    cell.badPicksLabel.text = [NSString stringWithFormat:@"-%d Bad", account.badPicks];
+    cell.badPicksLabel.textColor = [UIColor redColor];
+    cell.valueLabel.text = [PriceFormatter valueFormat:account.value];
     return cell;
 }
 
