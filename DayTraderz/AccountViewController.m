@@ -94,7 +94,7 @@ static NSString * const cellIdentifier = @"PickCell";
             pick = self.currentPick;
         }
         else {
-            float estimatedPriceChange = self.quote.open - self.quote.price;
+            float estimatedPriceChange =  self.quote.price - self.quote.open;
             float estimatedPercentChange = estimatedPriceChange / self.quote.open;
             float estimatedValue = self.account.value + (self.account.value * estimatedPercentChange);
             
