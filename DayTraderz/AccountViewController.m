@@ -84,38 +84,38 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    [cell resetSubviews];
     
-    Pick *pick;
-    if (indexPath.section == 1) {
-        pick = [self.picks objectAtIndex:indexPath.row];
-    }
-    else {
-        if (self.currentPick.processed) {
-            pick = self.currentPick;
-        }
-        else {
+    if (indexPath.section == 0 && !self.currentPick.processed) {
+        cell.dateLabel.text = [DateHelper tradeDateFormat:self.currentPick.tradeDate];
+        cell.symbolLabel.text = self.currentPick.symbol;
+        if (self.quote.open != 0) {
             float estimatedPriceChange =  self.quote.price - self.quote.open;
             float estimatedPercentChange = estimatedPriceChange / self.quote.open;
             float estimatedValue = self.account.value + (self.account.value * estimatedPercentChange);
-            
-            cell.dateLabel.text = [DateHelper tradeDateFormat:self.currentPick.tradeDate];
-            cell.symbolLabel.text = self.currentPick.symbol;
-            cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Buy", self.quote.open];
-            cell.sellLabel.text = @"--";
+            cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", self.quote.open];
             cell.valueLabel.text = [@"~ " stringByAppendingString:[PriceFormatter valueFormat:estimatedValue]];
             cell.changeLabel.text = [PriceFormatter changeFormat:estimatedPriceChange percentChange:estimatedPercentChange];
             cell.changeLabel.textColor = [PriceFormatter colorFromChange:estimatedPriceChange];
-            return cell;
         }
     }
+    else {
+        Pick *pick;
+        if (indexPath.section == 0) {
+            pick = self.currentPick;
+        }
+        if (indexPath.section == 1) {
+            pick = [self.picks objectAtIndex:indexPath.row];
+        }
+        cell.dateLabel.text = [DateHelper tradeDateFormat:pick.tradeDate];
+        cell.symbolLabel.text = pick.symbol;
+        cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", pick.open];
+        cell.sellLabel.text = [NSString stringWithFormat:@"Sell: %0.02f", pick.close];
+        cell.valueLabel.text = [PriceFormatter valueFormat:pick.value + pick.change];
+        cell.changeLabel.text = [PriceFormatter changeFormatFromPick:pick];
+        cell.changeLabel.textColor = [PriceFormatter colorFromChange:pick.change];
+    }
     
-    cell.dateLabel.text = [DateHelper tradeDateFormat:pick.tradeDate];
-    cell.symbolLabel.text = pick.symbol;
-    cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", pick.open];
-    cell.sellLabel.text = [NSString stringWithFormat:@"Sell: %0.02f", pick.close];
-    cell.valueLabel.text = [PriceFormatter valueFormat:pick.value + pick.change];
-    cell.changeLabel.text = [PriceFormatter changeFormatFromPick:pick];
-    cell.changeLabel.textColor = [PriceFormatter colorFromChange:pick.change];
     return cell;
 }
 

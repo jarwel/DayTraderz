@@ -37,7 +37,7 @@
     [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour <= 14) {
+    if ([calendar components:NSCalendarUnitHour fromDate:date].hour < 14) {
         long weekDay;
         do {
             date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];

@@ -16,8 +16,15 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)resetSubviews {
+    self.symbolLabel.text = @"--";
+    self.dateLabel.text = @"--";
+    self.buyLabel.text = @"--";
+    self.sellLabel.text = @"--";
+    self.changeLabel.text = @"--";
+    self.valueLabel.text = @"--";
 }
 
 @end
