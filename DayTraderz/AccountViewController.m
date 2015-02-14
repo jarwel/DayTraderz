@@ -97,13 +97,11 @@ static NSString * const cellIdentifier = @"PickCell";
         cell.dateLabel.text = [DateHelper tradeDateFormat:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
         if (self.quote.open != 0) {
-            float estimatedPriceChange =  self.quote.price - self.quote.open;
-            float estimatedPercentChange = estimatedPriceChange / self.quote.open;
-            float estimatedValue = self.account.value + (self.account.value * estimatedPercentChange);
+            float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
             cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", self.quote.open];
             cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est.)", [PriceFormatter valueFormat:estimatedValue]];
-            cell.changeLabel.text = [PriceFormatter changeFormat:estimatedPriceChange percentChange:estimatedPercentChange];
-            cell.changeLabel.textColor = [PriceFormatter colorFromChange:estimatedPriceChange];
+            cell.changeLabel.text = [PriceFormatter changeFormatFromQuote:self.quote];
+            cell.changeLabel.textColor = [PriceFormatter colorFromChange:self.quote.priceChange];
         }
     }
     else {
@@ -131,6 +129,16 @@ static NSString * const cellIdentifier = @"PickCell";
     [self refreshViews];
 }
 
+- (IBAction)onNextPickButtonTouched:(id)sender {
+    if (self.nextPick) {
+        self.nextPick = nil;
+        [self.nextPick deleteInBackground];
+    }
+    else {
+        [self performSegueWithIdentifier: @"ShowPicksSegue" sender: self];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowPicksSegue"]) {
         PicksViewController *picksViewController = segue.destinationViewController;
@@ -149,25 +157,13 @@ static NSString * const cellIdentifier = @"PickCell";
     self.losersLabel.textColor = [UIColor redColor];
     if (self.nextPick) {
         self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
+        [self.nextPickButton setTitle:@"Remove" forState:UIControlStateNormal];
+    }
+    else {
+        self.nextPickLabel.text = @"";
+        [self.nextPickButton setTitle:@"Next Pick" forState:UIControlStateNormal];
     }
     [self.tableView reloadData];
-}
-
-- (void)refreshQuote {
-    if (self.currentPick) {
-    NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
-        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
-            if (!error) {
-                NSArray *quotes = [Quote fromData:data];
-                if (quotes.count == 1) {
-                    self.quote = [quotes firstObject];
-                    [self refreshViews];
-                }
-            } else {
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-    }
 }
 
 - (void)refreshPicks:(NSArray *)objects {
@@ -187,7 +183,24 @@ static NSString * const cellIdentifier = @"PickCell";
     [self refreshViews];
 }
 
-- (IBAction)onLogOutButton:(id)sender {
+- (void)refreshQuote {
+    if (self.currentPick) {
+        NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
+        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (!error) {
+                NSArray *quotes = [Quote fromData:data];
+                if (quotes.count == 1) {
+                    self.quote = [quotes firstObject];
+                    [self refreshViews];
+                }
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
+}
+
+- (IBAction)onLogOutButtonTouched:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 

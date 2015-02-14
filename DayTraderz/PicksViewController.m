@@ -65,9 +65,12 @@
         NSString *symbol = self.quote.symbol;
         NSDate *tradeDate = [DateHelper nextTradeDate];
         Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDate:tradeDate];
-        [[ParseClient instance] createOrUpdatePick:pick];
-        [self.delegate pickFromController:pick];
-        [self.navigationController popViewControllerAnimated:YES];
+        [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self.delegate pickFromController:pick];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     }
 }
 

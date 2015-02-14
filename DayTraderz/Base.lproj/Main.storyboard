@@ -106,7 +106,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="u4I-9O-JUX"/>
+                                    <action selector="onNextPickButtonTouched:" destination="PqU-rN-jni" eventType="touchUpInside" id="sb7-pD-zv2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,7 +157,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
                             <connections>
-                                <action selector="onLogOutButton:" destination="PqU-rN-jni" id="xSJ-Yo-mwH"/>
+                                <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="gJw-i2-gcb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -170,11 +170,12 @@
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                         <outlet property="winnersLabel" destination="sxz-ox-avr" id="L2l-p7-mrr"/>
+                        <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="NTx-Th-Odv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1232" y="-883"/>
+            <point key="canvasLocation" x="-1136" y="-818"/>
         </scene>
         <!--Leaders View Controller-->
         <scene sceneID="yeQ-z0-n9I">

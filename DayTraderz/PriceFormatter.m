@@ -30,7 +30,7 @@
 
 + (NSString *)changeFormatFromPick:(Pick *)pick {
     float priceChange = pick.close - pick.open;
-    float percentChange = priceChange / pick.open;
+    float percentChange = priceChange / pick.open * 100;
     return [self changeFormat:priceChange percentChange:percentChange];
 }
 

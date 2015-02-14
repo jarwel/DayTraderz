@@ -15,17 +15,19 @@
     [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour >= 14) {
-        long weekDay;
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitWeekday) fromDate:date];
+    long weekDay = components.weekday;
+    
+    if (components.hour >= 14 || weekDay < 2 || weekDay > 6) {
         do {
             date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
             weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
         }
-        while (weekDay < 1 || weekDay > 6 );
+        while (weekDay < 2 || weekDay > 6);
     }
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
+    components = [calendar components:unitFlags fromDate:date];
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
@@ -37,17 +39,19 @@
     [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *date = [NSDate date];
-    if ([calendar components:NSCalendarUnitHour fromDate:date].hour < 14) {
-        long weekDay;
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitWeekday) fromDate:date];
+    long weekDay = components.weekday;
+    
+    if (components.hour < 14) {
         do {
             date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
             weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
         }
-        while (weekDay < 1 || weekDay > 6 );
+        while (weekDay < 2 || weekDay > 6);
     }
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:unitFlags fromDate:date];
+    components = [calendar components:unitFlags fromDate:date];
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
