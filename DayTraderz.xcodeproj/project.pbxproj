@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA06C8121A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = CA06C80F1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m */; };
+		CA06C8131A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
 		CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA492B7F1A606CDB00ED13B3 /* Main.storyboard */; };
@@ -61,6 +63,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA06C80D1A93FF3100DA2537 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		CA06C80E1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		CA06C80F1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		CA06C8101A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		CA492B721A606CDB00ED13B3 /* DayTraderz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTraderz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B761A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B771A606CDB00ED13B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,6 +167,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA06C80C1A93FF3100DA2537 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				CA06C80D1A93FF3100DA2537 /* SVPullToRefresh.h */,
+				CA06C80E1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.h */,
+				CA06C80F1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m */,
+				CA06C8101A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.h */,
+				CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			name = SVPullToRefresh;
+			path = ../../SVPullToRefresh/SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		CA492B691A606CDB00ED13B3 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +214,7 @@
 				CA492B7F1A606CDB00ED13B3 /* Main.storyboard */,
 				CA492B821A606CDB00ED13B3 /* Images.xcassets */,
 				CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */,
+				CA06C80C1A93FF3100DA2537 /* SVPullToRefresh */,
 				CA492B751A606CDB00ED13B3 /* Supporting Files */,
 			);
 			path = DayTraderz;
@@ -232,10 +253,10 @@
 				CA492C041A61D9A800ED13B3 /* LogInViewController.m */,
 				CA492C051A61D9A800ED13B3 /* SignUpViewController.h */,
 				CA492C061A61D9A800ED13B3 /* SignUpViewController.m */,
-				CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */,
-				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
 				CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */,
 				CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */,
+				CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */,
+				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
 				CA492BCB1A60853700ED13B3 /* PicksViewController.h */,
 				CA492BCC1A60853700ED13B3 /* PicksViewController.m */,
 			);
@@ -422,6 +443,7 @@
 				CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */,
 				CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */,
 				CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */,
+				CA06C8131A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PicksViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
@@ -436,6 +458,7 @@
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,
 				CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */,
 				CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */,
+				CA06C8121A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

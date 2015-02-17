@@ -245,6 +245,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QCh-vn-y9G"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="VYj-un-ige" id="MbL-vc-vAD"/>
                         <outlet property="tableView" destination="JDN-fv-OhP" id="2uT-Pg-DVy"/>
                     </connections>
                 </viewController>

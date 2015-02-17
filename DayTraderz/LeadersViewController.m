@@ -7,6 +7,7 @@
 //
 
 #import "LeadersViewController.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
 #import "Account.h"
 #import "AccountCell.h"
 #import "ParseClient.h"
@@ -15,9 +16,9 @@
 
 @interface LeadersViewController ()
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSString *currentSortColumn;
 @property (strong, nonatomic) NSMutableArray *accounts;
 
 @end
@@ -33,7 +34,19 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
 
     self.accounts = [[NSMutableArray alloc] init];
-    [self sortLeadersByColumn:@"value"];
+    
+    [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
+        [self.accounts addObjectsFromArray:objects];
+        [self.tableView reloadData];
+        [self.tableView addInfiniteScrollingWithActionHandler:^{
+            [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
+                [self.accounts addObjectsFromArray:objects];
+                [self.tableView reloadData];
+                [self.tableView.infiniteScrollingView stopAnimating];
+            }];
+        }];
+    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,25 +67,19 @@ static NSString * const cellIdentifier = @"AccountCell";
     return cell;
 }
 
-- (void)sortLeadersByColumn:(NSString *)column {
-    if (![column isEqualToString:self.currentSortColumn]) {
-        [self.accounts removeAllObjects];
-        self.currentSortColumn = column;
-    }
-    [[ParseClient instance] fetchLeadersSortedByColumn:column withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
+- (IBAction)onValueChanged:(id)sender {
+    [self.accounts removeAllObjects];
+    [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
         [self.accounts addObjectsFromArray:objects];
         [self.tableView reloadData];
     }];
 }
 
-- (IBAction)onValueChanged:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    switch (segmentedControl.selectedSegmentIndex) {
-        case 1: [self sortLeadersByColumn:@"winners"];
-            break;
-        case 2: [self sortLeadersByColumn:@"losers"];
-            break;
-        default: [self sortLeadersByColumn:@"value"];
+- (NSString *)columnSelected {
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 1: return @"winners";
+        case 2: return @"losers";
+        default: return @"value";
     }
 }
 
