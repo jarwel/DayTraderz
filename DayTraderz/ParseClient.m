@@ -18,11 +18,11 @@
     return instance;
 }
 
-- (void)fetchAccountForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchAccountForUser:(PFUser *)user callback:(void(^)(NSObject *object, NSError *error))callback {
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
     [query whereKey:@"user" equalTo:user];
-    [query findObjectsInBackgroundWithBlock:callback];
+    [query getFirstObjectInBackgroundWithBlock:callback];
 }
 
 - (void)fetchPicksForAccount:(Account *)account withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
@@ -30,7 +30,7 @@
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
     [query orderByDescending:@"tradeDate"];
-    [query setLimit:10];
+    [query setLimit:5];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }

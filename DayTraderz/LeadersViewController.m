@@ -34,7 +34,6 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
 
     self.accounts = [[NSMutableArray alloc] init];
-    
     [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
         [self.accounts addObjectsFromArray:objects];
         [self.tableView reloadData];

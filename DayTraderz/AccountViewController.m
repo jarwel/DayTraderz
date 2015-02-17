@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
 #import "ParseClient.h"
 #import "FinanceClient.h"
@@ -45,18 +46,26 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.picks = [[NSMutableArray alloc] init];
 
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     
-    [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSArray *objects, NSError *error) {
+    self.picks = [[NSMutableArray alloc] init];
+    [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
         if (!error) {
-            self.account = objects[0];
+            self.account = (Account *)object;
             [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    [self refreshPicks:objects];
+                    [self sortObjects:objects];
+                    [self refreshViews];
+                    [self.tableView addInfiniteScrollingWithActionHandler:^{
+                        long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
+                        [[ParseClient instance] fetchPicksForAccount:self.account withSkip:skip callback:^(NSArray *objects, NSError *error) {
+                            [self.picks addObjectsFromArray:objects];
+                            [self.tableView reloadData];
+                            [self.tableView.infiniteScrollingView stopAnimating];
+                        }];
+                    }];
                 }
             }];
         }
@@ -170,23 +179,6 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.tableView reloadData];
 }
 
-- (void)refreshPicks:(NSArray *)objects {
-    NSMutableArray *newPicks = [[NSMutableArray alloc] init];
-    for (Pick* pick in objects) {
-        if ([self isNextPick:pick]) {
-            self.nextPick = pick;
-        }
-        else if ([self isCurrentPick:pick]) {
-            self.currentPick = pick;
-        }
-        else {
-            [newPicks addObject:pick];
-        }
-    }
-    self.picks = newPicks;
-    [self refreshViews];
-}
-
 - (void)refreshQuote {
     if (self.currentPick) {
         NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
@@ -206,6 +198,20 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (IBAction)onLogOutButtonTouched:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
+}
+
+- (void)sortObjects:(NSArray *)objects {
+    for (Pick* pick in objects) {
+        if ([self isNextPick:pick]) {
+            self.nextPick = pick;
+        }
+        else if ([self isCurrentPick:pick]) {
+            self.currentPick = pick;
+        }
+        else {
+            [self.picks addObject:pick];
+        }
+    }
 }
 
 - (BOOL)isCurrentPick:(Pick *) pick {
