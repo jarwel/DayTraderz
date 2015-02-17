@@ -18,13 +18,13 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)resetSubviews {
-    self.symbolLabel.text = @"--";
-    self.dateLabel.text = @"--";
-    self.buyLabel.text = @"--";
-    self.sellLabel.text = @"--";
-    self.changeLabel.text = @"--";
-    self.valueLabel.text = @"--";
+- (void)clearSubviews {
+    self.symbolLabel.text = @"";
+    self.dateLabel.text = @"";
+    self.buyLabel.text = @"";
+    self.sellLabel.text = @"";
+    self.changeLabel.text = @"";
+    self.valueLabel.text = @"";
 }
 
 @end

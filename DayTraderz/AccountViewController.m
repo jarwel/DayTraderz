@@ -91,7 +91,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell resetSubviews];
+    [cell clearSubviews];
     
     if (indexPath.section == 0 && !self.currentPick.processed) {
         cell.dateLabel.text = [DateHelper tradeDateFormat:self.currentPick.tradeDate];
