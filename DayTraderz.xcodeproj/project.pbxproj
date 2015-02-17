@@ -214,8 +214,8 @@
 				CA492B7F1A606CDB00ED13B3 /* Main.storyboard */,
 				CA492B821A606CDB00ED13B3 /* Images.xcassets */,
 				CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */,
-				CA06C80C1A93FF3100DA2537 /* SVPullToRefresh */,
 				CA492B751A606CDB00ED13B3 /* Supporting Files */,
+				CA06C80C1A93FF3100DA2537 /* SVPullToRefresh */,
 			);
 			path = DayTraderz;
 			sourceTree = "<group>";

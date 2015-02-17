@@ -39,7 +39,7 @@
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
     [query orderByDescending:column];
-    [query setLimit:1];
+    [query setLimit:10];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }
