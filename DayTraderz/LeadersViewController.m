@@ -17,7 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSArray *accounts;
+@property (strong, nonatomic) NSString *currentSortColumn;
+@property (strong, nonatomic) NSMutableArray *accounts;
 
 @end
 
@@ -31,6 +32,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
 
+    self.accounts = [[NSMutableArray alloc] init];
     [self sortLeadersByColumn:@"value"];
 }
 
@@ -53,8 +55,12 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (void)sortLeadersByColumn:(NSString *)column {
-    [[ParseClient instance] fetchLeadersSortedByColumn:column withSkip:0 callback:^(NSArray *objects, NSError *error) {
-        self.accounts = objects;
+    if (![column isEqualToString:self.currentSortColumn]) {
+        [self.accounts removeAllObjects];
+        self.currentSortColumn = column;
+    }
+    [[ParseClient instance] fetchLeadersSortedByColumn:column withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
+        [self.accounts addObjectsFromArray:objects];
         [self.tableView reloadData];
     }];
 }
