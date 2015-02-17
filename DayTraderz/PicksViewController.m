@@ -71,14 +71,14 @@
         self.changeLabel.text = @"";
         [self.confirmButton setEnabled:NO];
     }
-    self.tradeDate = [DateHelper nextTradeDate];
-    self.tradeDateLabel.text = [NSString stringWithFormat:@"Trade Date: %@", [DateHelper tradeDateFormat:self.tradeDate]];
+    self.tradeDate = [[DateHelper instance] nextTradeDate];
+    self.tradeDateLabel.text = [NSString stringWithFormat:@"Trade Date: %@", [[DateHelper instance] tradeDateFormat:self.tradeDate]];
 }
 
 - (IBAction)onConfirmButtonTouched:(id)sender {
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
-        NSDate *tradeDate = [DateHelper nextTradeDate];
+        NSDate *tradeDate = [[DateHelper instance] nextTradeDate];
         Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDate:tradeDate];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {

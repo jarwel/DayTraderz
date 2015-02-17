@@ -12,19 +12,10 @@
 
 + (ParseClient *)instance {
     static ParseClient *instance;
-    if (! instance) {
+    if (!instance) {
         instance = [[ParseClient alloc] init];
     }
     return instance;
-}
-
-- (void)fetchLeadersSortedByColumn:(NSString *)column callback:(void(^)(NSArray *objects, NSError *error))callback {
-    PFQuery *query = [Account query];
-    [query includeKey:@"user"];
-    [query orderByDescending:column];
-    [query setLimit:10];
-    [query findObjectsInBackgroundWithBlock:callback];
-    
 }
 
 - (void)fetchAccountForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback {
@@ -34,19 +25,13 @@
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)fetchPicksForUser:(PFUser *)user callback:(void(^)(NSArray *objects, NSError *error))callback {
-    PFQuery *query = [Pick query];
-    [query includeKey:@"account"];
-    [query whereKey:@"user" equalTo:user];
-    [query orderByDescending:@"tradeDate"];
-    [query findObjectsInBackgroundWithBlock:callback];
-}
-
-- (void)fetchPicksForAccount:(Account *)account callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchPicksForAccount:(Account *)account withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Pick query];
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
     [query orderByDescending:@"tradeDate"];
+    [query setLimit:10];
+    [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
@@ -64,6 +49,16 @@
             [pick saveInBackground];
         }
     }];
+}
+
+- (void)fetchLeadersSortedByColumn:(NSString *)column withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+    PFQuery *query = [Account query];
+    [query includeKey:@"user"];
+    [query orderByDescending:column];
+    [query setLimit:10];
+    [query setSkip:skip];
+    [query findObjectsInBackgroundWithBlock:callback];
+    
 }
 
 @end

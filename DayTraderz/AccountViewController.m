@@ -54,7 +54,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.account = objects[0];
-            [[ParseClient instance] fetchPicksForAccount:self.account callback:^(NSArray *objects, NSError *error) {
+            [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
                 if (!error) {
                     [self refreshPicks:objects];
                 }
@@ -94,7 +94,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [cell clearSubviews];
     
     if (indexPath.section == 0 && !self.currentPick.processed) {
-        cell.dateLabel.text = [DateHelper tradeDateFormat:self.currentPick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] tradeDateFormat:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
         if (self.quote.open != 0) {
             float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
@@ -112,7 +112,7 @@ static NSString * const cellIdentifier = @"PickCell";
         if (indexPath.section == 1) {
             pick = [self.picks objectAtIndex:indexPath.row];
         }
-        cell.dateLabel.text = [DateHelper tradeDateFormat:pick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] tradeDateFormat:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         cell.buyLabel.text = [NSString stringWithFormat:@"Buy: %0.02f", pick.open];
         cell.sellLabel.text = [NSString stringWithFormat:@"Sell: %0.02f", pick.close];
@@ -210,7 +210,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isCurrentPick:(Pick *) pick {
     if (pick) {
-        NSDate *lastTradeDate = [DateHelper lastTradeDate];
+        NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
         if ([lastTradeDate compare:pick.tradeDate] == NSOrderedSame) {
             return YES;
         }
@@ -220,7 +220,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isNextPick:(Pick *) pick {
     if (pick) {
-        NSDate *nextTradeDate = [DateHelper nextTradeDate];
+        NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
         if ([nextTradeDate compare:pick.tradeDate] == NSOrderedSame) {
             return YES;
         }

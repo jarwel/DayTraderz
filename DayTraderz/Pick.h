@@ -22,7 +22,6 @@
 @property (assign, nonatomic, readonly) float change;
 @property (assign, nonatomic, readonly) BOOL processed;
 
-
 + (NSString *)parseClassName;
 - (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date;
 

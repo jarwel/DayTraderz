@@ -12,7 +12,7 @@
 
 + (FinanceClient *)instance {
     static FinanceClient *instance;
-    if (! instance) {
+    if (!instance) {
         instance = [[FinanceClient alloc] init];
     }
     return instance;

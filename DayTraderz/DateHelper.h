@@ -10,8 +10,9 @@
 
 @interface DateHelper : NSObject
 
-+ (NSDate *)nextTradeDate;
-+ (NSDate *)lastTradeDate;
-+ (NSString *)tradeDateFormat:(NSDate *)tradeDate;
++ (DateHelper *)instance;
+- (NSDate *)nextTradeDate;
+- (NSDate *)lastTradeDate;
+- (NSString *)tradeDateFormat:(NSDate *)tradeDate;
 
 @end

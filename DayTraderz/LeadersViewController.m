@@ -53,7 +53,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (void)sortLeadersByColumn:(NSString *)column {
-    [[ParseClient instance] fetchLeadersSortedByColumn:column callback:^(NSArray *objects, NSError *error) {
+    [[ParseClient instance] fetchLeadersSortedByColumn:column withSkip:0 callback:^(NSArray *objects, NSError *error) {
         self.accounts = objects;
         [self.tableView reloadData];
     }];

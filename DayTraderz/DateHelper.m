@@ -8,67 +8,74 @@
 
 #import "DateHelper.h"
 
+@interface DateHelper ()
+
+@property (strong, nonatomic) NSCalendar *calendar;
+@property (strong, nonatomic) NSArray *holidays;
+
+@end
+
 @implementation DateHelper
 
-+ (NSDate *)nextTradeDate {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
++ (DateHelper *)instance {
+    static DateHelper *instance;
+    if (!instance) {
+        instance = [[DateHelper alloc] init];
+        instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"MarketHolidays"];
+        instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [instance.calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    }
+    return instance;
+}
+
+- (NSDate *)nextTradeDate {
     NSDate *date = [NSDate date];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitWeekday) fromDate:date];
-    long weekDay = components.weekday;
-    
-    if (components.hour >= 14 || [self isInvalideTradeDate:date]) {
+
+    long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
+    if (hour >= 14 || [self isInvalideTradeDate:date]) {
         do {
-            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
-            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
+            date = [self.calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
         }
         while ([self isInvalideTradeDate:date]);
     }
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    components = [calendar components:unitFlags fromDate:date];
+    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
-    return [calendar dateFromComponents:components];
+    return [self.calendar dateFromComponents:components];
 }
 
-+ (NSDate *)lastTradeDate {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
+- (NSDate *)lastTradeDate {
     NSDate *date = [NSDate date];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitWeekday) fromDate:date];
-    long weekDay = components.weekday;
-    
-    if (components.hour < 14) {
+
+    long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
+    if (hour < 14) {
         do {
-            date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
-            weekDay = [[calendar components:NSCalendarUnitWeekday fromDate:date] weekday];
+            date = [self.calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
         }
         while ([self isInvalideTradeDate:date]);
     }
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    components = [calendar components:unitFlags fromDate:date];
+    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
     components.hour = 14;
     components.minute = 30;
     components.second = 0;
-    return [calendar dateFromComponents:components];
+    return [self.calendar dateFromComponents:components];
 }
 
-+ (NSString *)tradeDateFormat:(NSDate *)tradeDate {
+- (NSString *)tradeDateFormat:(NSDate *)tradeDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM d, yyyy"];
     return [formatter stringFromDate:tradeDate];
 }
 
-+ (BOOL)isInvalideTradeDate:(NSDate *)date {
-    NSArray *holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"MarketHolidays"];
+- (BOOL)isInvalideTradeDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
-    return components.weekday < 2 && components.weekday > 6 && ![holidays containsObject:date];
+    return components.weekday < 2 && components.weekday > 6 && ![self.holidays containsObject:date];
 }
 
 @end
