@@ -28,6 +28,12 @@
     return instance;
 }
 
+- (NSString *)tradeDateFormat:(NSDate *)tradeDate {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, yyyy"];
+    return [formatter stringFromDate:tradeDate];
+}
+
 - (NSDate *)nextTradeDate {
     NSDate *date = [NSDate date];
 
@@ -39,12 +45,7 @@
         while ([self isInvalideTradeDate:date]);
     }
     
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
-    components.hour = 14;
-    components.minute = 30;
-    components.second = 0;
-    return [self.calendar dateFromComponents:components];
+    return [self tradeDateFromDate:date];
 }
 
 - (NSDate *)lastTradeDate {
@@ -58,24 +59,22 @@
         while ([self isInvalideTradeDate:date]);
     }
     
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
-    components.hour = 14;
-    components.minute = 30;
-    components.second = 0;
-    return [self.calendar dateFromComponents:components];
-}
-
-- (NSString *)tradeDateFormat:(NSDate *)tradeDate {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMM d, yyyy"];
-    return [formatter stringFromDate:tradeDate];
+    return [self tradeDateFromDate:date];
 }
 
 - (BOOL)isInvalideTradeDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
     return components.weekday < 2 && components.weekday > 6 && ![self.holidays containsObject:date];
+}
+
+- (NSDate *)tradeDateFromDate:(NSDate *)date {
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
+    components.hour = 14;
+    components.minute = 30;
+    components.second = 0;
+    return [self.calendar dateFromComponents:components];
 }
 
 @end
