@@ -131,8 +131,12 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (IBAction)onNextPickButtonTouched:(id)sender {
     if (self.nextPick) {
-        self.nextPick = nil;
-        [self.nextPick deleteInBackground];
+        [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                self.nextPick = nil;
+                [self refreshViews];
+            }
+        }];
     }
     else {
         [self performSegueWithIdentifier: @"ShowPicksSegue" sender: self];
