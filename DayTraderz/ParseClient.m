@@ -30,7 +30,7 @@
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
     [query orderByDescending:@"tradeDate"];
-    [query setLimit:5];
+    [query setLimit:10];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }
