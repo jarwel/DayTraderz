@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
                         <barButtonItem key="leftBarButtonItem" title="Leaders" id="QTk-8j-Mev">
                             <connections>
-                                <segue destination="UFK-IR-wzX" kind="show" id="84v-kN-OAS"/>
+                                <segue destination="UFK-IR-wzX" kind="show" identifier="ShowLeadersSegue" id="84v-kN-OAS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
@@ -170,14 +170,14 @@
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                         <outlet property="winnersLabel" destination="sxz-ox-avr" id="L2l-p7-mrr"/>
-                        <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPicksSegue" id="NTx-Th-Odv"/>
+                        <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPickSegue" id="NTx-Th-Odv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1136" y="-818"/>
         </scene>
-        <!--Leaders View Controller-->
+        <!--Leaderboard-->
         <scene sceneID="yeQ-z0-n9I">
             <objects>
                 <viewController id="UFK-IR-wzX" customClass="LeadersViewController" sceneMemberID="viewController">
@@ -190,7 +190,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-un-ige">
-                                <rect key="frame" x="16" y="135" width="568" height="29"/>
+                                <rect key="frame" x="16" y="84" width="568" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="84x-Ii-nlR"/>
                                 </constraints>
@@ -204,7 +204,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-fv-OhP">
-                                <rect key="frame" x="0.0" y="173" width="600" height="427"/>
+                                <rect key="frame" x="0.0" y="132" width="600" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountCell" id="GLA-Bh-7t9">
@@ -219,31 +219,19 @@
                                     <outlet property="delegate" destination="UFK-IR-wzX" id="RHQ-9f-vO1"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-pe-uUY">
-                                <rect key="frame" x="16" y="80" width="568" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="K4j-IP-qSB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JDN-fv-OhP" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-16" id="3wy-7q-PJZ"/>
-                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" id="4tx-mh-UdI"/>
-                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="Fqv-pe-uUY" secondAttribute="bottom" constant="20" id="5ia-jg-a4l"/>
-                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="trailing" secondItem="jPX-6J-z6g" secondAttribute="trailingMargin" id="Kwu-uo-d09"/>
                             <constraint firstItem="VYj-un-ige" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" id="UW6-vM-tiy"/>
-                            <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="10" id="XUH-2m-Mwx"/>
+                            <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="20" id="XUH-2m-Mwx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="aNL-DM-iUk"/>
                             <constraint firstItem="d94-zB-0yL" firstAttribute="top" secondItem="JDN-fv-OhP" secondAttribute="bottom" id="cHX-tX-WRX"/>
-                            <constraint firstItem="Fqv-pe-uUY" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="16" id="dH8-Fw-XCw"/>
                             <constraint firstItem="VYj-un-ige" firstAttribute="trailing" secondItem="jPX-6J-z6g" secondAttribute="trailingMargin" id="re4-mM-iA7"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="20" id="tiI-th-S9v"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QCh-vn-y9G"/>
+                    <navigationItem key="navigationItem" title="Leaderboard" id="QCh-vn-y9G"/>
                     <connections>
                         <outlet property="segmentedControl" destination="VYj-un-ige" id="MbL-vc-vAD"/>
                         <outlet property="tableView" destination="JDN-fv-OhP" id="2uT-Pg-DVy"/>

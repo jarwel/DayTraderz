@@ -148,12 +148,12 @@ static NSString * const cellIdentifier = @"PickCell";
         }];
     }
     else {
-        [self performSegueWithIdentifier: @"ShowPicksSegue" sender: self];
+        [self performSegueWithIdentifier: @"ShowPickSegue" sender: self];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ShowPicksSegue"]) {
+    if ([[segue identifier] isEqualToString:@"ShowPickSegue"]) {
         PicksViewController *picksViewController = segue.destinationViewController;
         picksViewController.delegate = self;
         picksViewController.account = self.account;
