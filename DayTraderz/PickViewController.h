@@ -1,5 +1,5 @@
 //
-//  PicksViewController.h
+//  PickViewController.h
 //  DayTraderz
 //
 //  Created by Jason Wells on 1/9/15.
@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Pick.h"
 
-@protocol PicksViewControllerDelegate <NSObject>
+@protocol PickViewControllerDelegate <NSObject>
 
 @required
 - (void)pickFromController:(Pick *)pick;
 
 @end
 
-@interface PicksViewController : UIViewController <UISearchBarDelegate>
+@interface PickViewController : UIViewController <UISearchBarDelegate>
 
-@property (weak, nonatomic) id<PicksViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<PickViewControllerDelegate> delegate;
 @property (strong, nonatomic) Account *account;
 
 @end

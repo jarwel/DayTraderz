@@ -1,25 +1,25 @@
 //
-//  PicksViewController.m
+//  PickViewController.m
 //  DayTraderz
 //
 //  Created by Jason Wells on 1/9/15.
 //  Copyright (c) 2015 Jason Wells. All rights reserved.
 //
 
-#import "PicksViewController.h"
+#import "PickViewController.h"
 #import "FinanceClient.h"
 #import "ParseClient.h"
 #import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
 
-@interface PicksViewController ()
+@interface PickViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *changeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tradeDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (strong, nonatomic) NSDate *tradeDate;
@@ -27,10 +27,16 @@
 
 @end
 
-@implementation PicksViewController
+@implementation PickViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tradeDate = [[DateHelper instance] nextTradeDate];
+    [self setTitle:[NSString stringWithFormat:@"Trade %@", [[DateHelper instance] tradeDateFormat:self.tradeDate]]];
+    
+    NSString *details = @"The security listed above will be bought for the full value of your account at the opening price and sold at market close on the next trading day %@.";
+    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] tradeDateFormat:self.tradeDate]];
     [self refreshViews];
 }
 
@@ -71,8 +77,6 @@
         self.changeLabel.text = @"";
         [self.confirmButton setEnabled:NO];
     }
-    self.tradeDate = [[DateHelper instance] nextTradeDate];
-    self.tradeDateLabel.text = [NSString stringWithFormat:@"Trade Date: %@", [[DateHelper instance] tradeDateFormat:self.tradeDate]];
 }
 
 - (IBAction)onConfirmButtonTouched:(id)sender {

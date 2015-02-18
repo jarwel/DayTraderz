@@ -11,14 +11,14 @@
 #import "AppConstants.h"
 #import "ParseClient.h"
 #import "FinanceClient.h"
-#import "PicksViewController.h"
+#import "PickViewController.h"
 #import "Account.h"
 #import "Quote.h"
 #import "PickCell.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
 
-@interface AccountViewController () <PicksViewControllerDelegate>
+@interface AccountViewController () <PickViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -154,9 +154,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowPickSegue"]) {
-        PicksViewController *picksViewController = segue.destinationViewController;
-        picksViewController.delegate = self;
-        picksViewController.account = self.account;
+        PickViewController *pickViewController = segue.destinationViewController;
+        pickViewController.delegate = self;
+        pickViewController.account = self.account;
     }
 }
 
