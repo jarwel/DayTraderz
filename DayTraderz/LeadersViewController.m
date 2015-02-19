@@ -29,23 +29,14 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
-
     self.accounts = [[NSMutableArray alloc] init];
-    [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
-        [self.accounts addObjectsFromArray:objects];
-        [self.tableView reloadData];
-        [self.tableView addInfiniteScrollingWithActionHandler:^{
-            [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
-                [self.accounts addObjectsFromArray:objects];
-                [self.tableView reloadData];
-                [self.tableView.infiniteScrollingView stopAnimating];
-            }];
-        }];
-    }];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchAccounts];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,7 +45,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Account *account = [self.accounts objectAtIndex:indexPath.row];
-    
+
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.nameLabel.text = account.user.username;
     cell.picksLabel.text = [NSString stringWithFormat:@"%d Picks:", account.winners + account.losers];
@@ -67,11 +58,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (IBAction)onValueChanged:(id)sender {
-    [self.accounts removeAllObjects];
-    [[ParseClient instance] fetchLeadersSortedByColumn:[self columnSelected] withSkip:self.accounts.count callback:^(NSArray *objects, NSError *error) {
-        [self.accounts addObjectsFromArray:objects];
-        [self.tableView reloadData];
-    }];
+    [self fetchAccounts];
 }
 
 - (NSString *)columnSelected {
@@ -80,6 +67,41 @@ static NSString * const cellIdentifier = @"AccountCell";
         case 2: return @"losers";
         default: return @"value";
     }
+}
+
+- (void)fetchAccounts {
+    NSString *column = [self columnSelected];
+    [[ParseClient instance] fetchAccountsSortedByColumn:column withSkip:0 callback:^(NSArray *objects, NSError *error) {
+        if ([column isEqualToString:[self columnSelected]]) {
+            [self.accounts removeAllObjects];
+            if (!error) {
+                [self.accounts addObjectsFromArray:objects];
+                [self.tableView reloadData];
+                [self enableInfiniteScroll];
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }
+    }];
+}
+
+- (void)enableInfiniteScroll {
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        NSString *column = [self columnSelected];
+        long skip = self.accounts.count;
+        [[ParseClient instance] fetchAccountsSortedByColumn:column withSkip:skip callback:^(NSArray *objects, NSError *error) {
+            if ([column isEqualToString:[self columnSelected]]) {
+                [self.accounts removeAllObjects];
+                if (!error) {
+                    [self.accounts addObjectsFromArray:objects];
+                    [self.tableView reloadData];
+                } else {
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }
+            [self.tableView.infiniteScrollingView stopAnimating];
+        }];
+    }];
 }
 
 @end

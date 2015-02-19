@@ -16,7 +16,7 @@
 + (ParseClient *)instance;
 - (void)fetchAccountForUser:(PFUser *)user callback:(void(^)(NSObject *object, NSError *error))callback;
 - (void)fetchPicksForAccount:(Account *)account withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback;
-- (void)fetchLeadersSortedByColumn:(NSString *)column withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback;
+- (void)fetchAccountsSortedByColumn:(NSString *)column withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback;
 - (void)createOrUpdatePick:(Pick *)pick;
 
 @end

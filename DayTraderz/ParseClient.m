@@ -35,7 +35,7 @@
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)fetchLeadersSortedByColumn:(NSString *)column withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchAccountsSortedByColumn:(NSString *)column withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
     [query orderByDescending:column];

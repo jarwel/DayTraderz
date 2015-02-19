@@ -46,37 +46,31 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
-    
     self.picks = [[NSMutableArray alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.picks removeAllObjects];
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
         if (!error) {
             self.account = (Account *)object;
-            [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
-                if (!error) {
-                    [self sortObjects:objects];
-                    [self refreshViews];
-                    [self.tableView addInfiniteScrollingWithActionHandler:^{
-                        long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
-                        [[ParseClient instance] fetchPicksForAccount:self.account withSkip:skip callback:^(NSArray *objects, NSError *error) {
-                            [self.picks addObjectsFromArray:objects];
-                            [self.tableView reloadData];
-                            [self.tableView.infiniteScrollingView stopAnimating];
-                        }];
-                    }];
-                }
-            }];
+            [self fetchPicks];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshQuote) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     [self.quoteTimer invalidate];
 }
 
@@ -200,6 +194,19 @@ static NSString * const cellIdentifier = @"PickCell";
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
+- (void)fetchPicks {
+    [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
+        [self.picks removeAllObjects];
+        if (!error) {
+            [self sortObjects:objects];
+            [self refreshViews];
+            [self enableInfiniteScroll];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 - (void)sortObjects:(NSArray *)objects {
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
@@ -232,6 +239,21 @@ static NSString * const cellIdentifier = @"PickCell";
         }
     }
     return NO;
+}
+
+- (void)enableInfiniteScroll {
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
+        [[ParseClient instance] fetchPicksForAccount:self.account withSkip:skip callback:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                [self.picks addObjectsFromArray:objects];
+                [self.tableView reloadData];
+                [self.tableView.infiniteScrollingView stopAnimating];
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }];
 }
 
 @end
