@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA06C8121A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = CA06C80F1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m */; };
 		CA06C8131A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */; };
+		CA1361721A96604400218B97 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1361711A96604400218B97 /* logo.png */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
 		CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA492B7F1A606CDB00ED13B3 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		CA06C80F1A93FF3100DA2537 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		CA06C8101A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		CA1361711A96604400218B97 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../Downloads/logo.png; sourceTree = "<group>"; };
 		CA492B721A606CDB00ED13B3 /* DayTraders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTraders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B761A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B771A606CDB00ED13B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			path = ../../SVPullToRefresh/SVPullToRefresh;
 			sourceTree = "<group>";
 		};
+		CA1361701A96601C00218B97 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CA1361711A96604400218B97 /* logo.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		CA492B691A606CDB00ED13B3 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 		CA492B741A606CDB00ED13B3 /* DayTrades */ = {
 			isa = PBXGroup;
 			children = (
+				CA1361701A96601C00218B97 /* Assets */,
 				CA492BD11A60884200ED13B3 /* Clients */,
 				CA492BA41A606F6500ED13B3 /* Models */,
 				CA492BA11A606F0000ED13B3 /* Views */,
@@ -217,7 +228,6 @@
 				CA492B751A606CDB00ED13B3 /* Supporting Files */,
 				CA06C80C1A93FF3100DA2537 /* SVPullToRefresh */,
 			);
-			name = DayTrades;
 			path = DayTrades;
 			sourceTree = "<group>";
 		};
@@ -236,7 +246,6 @@
 				CA492B911A606CDB00ED13B3 /* DayTradesTests.m */,
 				CA492B8F1A606CDB00ED13B3 /* Supporting Files */,
 			);
-			name = DayTradesTests;
 			path = DayTradesTests;
 			sourceTree = "<group>";
 		};
@@ -421,6 +430,7 @@
 			files = (
 				CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */,
 				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
+				CA1361721A96604400218B97 /* logo.png in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,

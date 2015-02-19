@@ -10,12 +10,25 @@
 
 @interface SignUpViewController ()
 
+@property (strong, nonatomic) UILabel *titleLabel;
+
 @end
 
 @implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
+    
+    NSString *title = @"DayTrades";
+    UIFont *font = [UIFont systemFontOfSize:32];
+    CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:font}];
+    CGRect frame = CGRectMake(0, 0, size.width, size.height);
+    self.titleLabel = [[UILabel alloc] initWithFrame:frame];
+    self.titleLabel.font = font;
+    self.titleLabel.text = title;
+    self.titleLabel.textColor = [UIColor lightGrayColor];
+    [self.signUpView.logo addSubview:self.titleLabel];
     
 //    CAGradientLayer *gradient = [CAGradientLayer layer];
 //    gradient.frame = self.view.bounds;
@@ -49,12 +62,24 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.signUpView.usernameField.text = nil;
-    self.signUpView.passwordField.text = nil;
     self.signUpView.emailField.text = nil;
+    self.signUpView.passwordField.text = nil;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    float logoWidth = 180.0f;
+    float logoHeight = 180.0f;
+    float logoX = (self.view.frame.size.width / 2) - (logoWidth / 2);
+    float logoY = (self.signUpView.usernameField.frame.origin.y / 2) - (logoHeight / 2);
+    [self.signUpView.logo setFrame:CGRectMake(logoX, logoY, logoWidth, logoHeight)];
+    
+    float titleWidth = self.titleLabel.frame.size.width;
+    float titleHeight = self.titleLabel.frame.size.height;
+    float titleX = (logoWidth - titleWidth) / 2;
+    float titleY = logoHeight - titleHeight - 10;
+    [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
 }
 
 @end

@@ -10,33 +10,32 @@
 
 @interface LogInViewController ()
 
+@property (strong, nonatomic) UILabel *titleLabel;
+
 @end
 
 @implementation LogInViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.logInView.dismissButton setHidden:YES];
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
+    
+    NSString *title = @"DayTrades";
+    UIFont *font = [UIFont systemFontOfSize:32];
+    CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:font}];
+    CGRect frame = CGRectMake(0, 0, size.width, size.height);
+    self.titleLabel = [[UILabel alloc] initWithFrame:frame];
+    self.titleLabel.font = font;
+    self.titleLabel.text = title;
+    self.titleLabel.textColor = [UIColor lightGrayColor];
+    [self.logInView.logo addSubview:self.titleLabel];
 
 //    CAGradientLayer *gradient = [CAGradientLayer layer];
 //    gradient.frame = self.view.bounds;
 //    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
 //    [self.view.layer insertSublayer:gradient atIndex:0];
-//    
-//    NSString *title = @"WeTrade";
-//    UIFont *font = [UIFont systemFontOfSize:29];
-//    CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:font}];
-//    CGRect frame = CGRectMake(5, 85, size.width, size.height);
-//    
-//    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-//    label.font = font;
-//    label.text = title;
-//    label.textColor = [UIColor lightGrayColor];
-//    
-//    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
-//    [logo addSubview:label];
 //
-//    [self.logInView setLogo:logo];
-//    [self.logInView.dismissButton setHidden:YES];
 //    [self.logInView.usernameField setBackgroundColor:[UIColor darkGrayColor]];
 //    [self.logInView.usernameField setBorderStyle:UITextBorderStyleBezel];
 //    [self.logInView.passwordField setBackgroundColor:[UIColor darkGrayColor]];
@@ -54,8 +53,20 @@
     self.logInView.passwordField.text = nil;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    float logoWidth = 180.0f;
+    float logoHeight = 180.0f;
+    float logoX = (self.view.frame.size.width / 2) - (logoWidth / 2);
+    float logoY = (self.logInView.usernameField.frame.origin.y / 2) - (logoHeight / 2);
+    [self.logInView.logo setFrame:CGRectMake(logoX, logoY, logoWidth, logoHeight)];
+    
+    float titleWidth = self.titleLabel.frame.size.width;
+    float titleHeight = self.titleLabel.frame.size.height;
+    float titleX = (logoWidth - titleWidth) / 2;
+    float titleY = logoHeight - titleHeight - 10;
+    [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
 }
 
 @end
