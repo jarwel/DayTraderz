@@ -51,7 +51,6 @@
 		CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA91A89923B00727CE1 /* PriceFormatter.m */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
-		CACAA3FF1A9671080014580D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CACAA3FE1A9671080014580D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +70,7 @@
 		CA06C8101A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		CA06C8111A93FF3100DA2537 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		CA1361711A96604400218B97 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../Downloads/logo.png; sourceTree = "<group>"; };
-		CA492B721A606CDB00ED13B3 /* DayTraders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTraders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B761A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B771A606CDB00ED13B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA492B791A606CDB00ED13B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,7 +78,7 @@
 		CA492B801A606CDB00ED13B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA492B821A606CDB00ED13B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CA492B851A606CDB00ED13B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CA492B8B1A606CDB00ED13B3 /* DayTradersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTradersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA492B8B1A606CDB00ED13B3 /* DayTradesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTradesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B901A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B911A606CDB00ED13B3 /* DayTradesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayTradesTests.m; sourceTree = "<group>"; };
 		CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
-		CACAA3FE1A9671080014580D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +193,6 @@
 		CA492B691A606CDB00ED13B3 = {
 			isa = PBXGroup;
 			children = (
-				CACAA3FE1A9671080014580D /* Default-568h@2x.png */,
 				CA492B741A606CDB00ED13B3 /* DayTrades */,
 				CA492B8E1A606CDB00ED13B3 /* DayTradesTests */,
 				CA492BE81A61D2BC00ED13B3 /* Frameworks */,
@@ -206,8 +203,8 @@
 		CA492B731A606CDB00ED13B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA492B721A606CDB00ED13B3 /* DayTraders.app */,
-				CA492B8B1A606CDB00ED13B3 /* DayTradersTests.xctest */,
+				CA492B721A606CDB00ED13B3 /* DayTrades.app */,
+				CA492B8B1A606CDB00ED13B3 /* DayTradesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,9 +351,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA492B711A606CDB00ED13B3 /* DayTraders */ = {
+		CA492B711A606CDB00ED13B3 /* DayTrades */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA492B951A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTraders" */;
+			buildConfigurationList = CA492B951A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTrades" */;
 			buildPhases = (
 				CA492B6E1A606CDB00ED13B3 /* Sources */,
 				CA492B6F1A606CDB00ED13B3 /* Frameworks */,
@@ -366,14 +363,14 @@
 			);
 			dependencies = (
 			);
-			name = DayTraders;
+			name = DayTrades;
 			productName = DayTrades;
-			productReference = CA492B721A606CDB00ED13B3 /* DayTraders.app */;
+			productReference = CA492B721A606CDB00ED13B3 /* DayTrades.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CA492B8A1A606CDB00ED13B3 /* DayTradersTests */ = {
+		CA492B8A1A606CDB00ED13B3 /* DayTradesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTradersTests" */;
+			buildConfigurationList = CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTradesTests" */;
 			buildPhases = (
 				CA492B871A606CDB00ED13B3 /* Sources */,
 				CA492B881A606CDB00ED13B3 /* Frameworks */,
@@ -384,9 +381,9 @@
 			dependencies = (
 				CA492B8D1A606CDB00ED13B3 /* PBXTargetDependency */,
 			);
-			name = DayTradersTests;
+			name = DayTradesTests;
 			productName = DayTradesTests;
-			productReference = CA492B8B1A606CDB00ED13B3 /* DayTradersTests.xctest */;
+			productReference = CA492B8B1A606CDB00ED13B3 /* DayTradesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -420,8 +417,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA492B711A606CDB00ED13B3 /* DayTraders */,
-				CA492B8A1A606CDB00ED13B3 /* DayTradersTests */,
+				CA492B711A606CDB00ED13B3 /* DayTrades */,
+				CA492B8A1A606CDB00ED13B3 /* DayTradesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -436,7 +433,6 @@
 				CA1361721A96604400218B97 /* logo.png in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
-				CACAA3FF1A9671080014580D /* Default-568h@2x.png in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +487,7 @@
 /* Begin PBXTargetDependency section */
 		CA492B8D1A606CDB00ED13B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA492B711A606CDB00ED13B3 /* DayTraders */;
+			target = CA492B711A606CDB00ED13B3 /* DayTrades */;
 			targetProxy = CA492B8C1A606CDB00ED13B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -602,7 +598,7 @@
 				);
 				INFOPLIST_FILE = DayTrades/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = DayTraders;
+				PRODUCT_NAME = DayTrades;
 			};
 			name = Debug;
 		};
@@ -616,7 +612,7 @@
 				);
 				INFOPLIST_FILE = DayTrades/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = DayTraders;
+				PRODUCT_NAME = DayTrades;
 			};
 			name = Release;
 		};
@@ -634,7 +630,7 @@
 				);
 				INFOPLIST_FILE = DayTradesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = DayTradersTests;
+				PRODUCT_NAME = DayTradesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DayTrades.app/DayTrades";
 			};
 			name = Debug;
@@ -649,7 +645,7 @@
 				);
 				INFOPLIST_FILE = DayTradesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = DayTradersTests;
+				PRODUCT_NAME = DayTradesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DayTrades.app/DayTrades";
 			};
 			name = Release;
@@ -666,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA492B951A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTraders" */ = {
+		CA492B951A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTrades" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA492B961A606CDB00ED13B3 /* Debug */,
@@ -675,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTradersTests" */ = {
+		CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTradesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA492B991A606CDB00ED13B3 /* Debug */,
