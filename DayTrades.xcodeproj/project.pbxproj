@@ -51,6 +51,7 @@
 		CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA91A89923B00727CE1 /* PriceFormatter.m */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
+		CACAA3FF1A9671080014580D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CACAA3FE1A9671080014580D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
+		CACAA3FE1A9671080014580D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		CA492B691A606CDB00ED13B3 = {
 			isa = PBXGroup;
 			children = (
+				CACAA3FE1A9671080014580D /* Default-568h@2x.png */,
 				CA492B741A606CDB00ED13B3 /* DayTrades */,
 				CA492B8E1A606CDB00ED13B3 /* DayTradesTests */,
 				CA492BE81A61D2BC00ED13B3 /* Frameworks */,
@@ -433,6 +436,7 @@
 				CA1361721A96604400218B97 /* logo.png in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
+				CACAA3FF1A9671080014580D /* Default-568h@2x.png in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
