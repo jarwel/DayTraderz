@@ -36,7 +36,7 @@
 @property (strong, nonatomic) Quote *quote;
 @property (strong, nonatomic) NSTimer *quoteTimer;
 
-- (void)refreshQuote;
+- (void)fetchQuote;
 
 @end
 
@@ -66,7 +66,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshQuote) userInfo:nil repeats:YES];
+    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fetchQuote) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -173,7 +173,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.tableView reloadData];
 }
 
-- (void)refreshQuote {
+- (void)fetchQuote {
     if (self.currentPick) {
         NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
         [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -198,7 +198,8 @@ static NSString * const cellIdentifier = @"PickCell";
     [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
         [self.picks removeAllObjects];
         if (!error) {
-            [self sortObjects:objects];
+            [self parsePicksFromObjects:objects];
+            [self fetchQuote];
             [self refreshViews];
             [self enableInfiniteScroll];
         } else {
@@ -207,7 +208,7 @@ static NSString * const cellIdentifier = @"PickCell";
     }];
 }
 
-- (void)sortObjects:(NSArray *)objects {
+- (void)parsePicksFromObjects:(NSArray *)objects {
     for (Pick* pick in objects) {
         if ([self isNextPick:pick]) {
             self.nextPick = pick;
