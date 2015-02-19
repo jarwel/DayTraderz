@@ -127,9 +127,8 @@ static NSString * const cellIdentifier = @"PickCell";
     return cell;
 }
 
-- (void)pickFromController:(Pick *)pick {
-    self.nextPick = pick;
-    [self refreshViews];
+- (IBAction)onLogOutButtonTouched:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
 - (IBAction)onNextPickButtonTouched:(id)sender {
@@ -144,6 +143,11 @@ static NSString * const cellIdentifier = @"PickCell";
     else {
         [self performSegueWithIdentifier: @"ShowPickSegue" sender: self];
     }
+}
+
+- (void)updateNextPick:(Pick *)pick {
+    self.nextPick = pick;
+    [self refreshViews];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -188,10 +192,6 @@ static NSString * const cellIdentifier = @"PickCell";
             }
         }];
     }
-}
-
-- (IBAction)onLogOutButtonTouched:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
 - (void)fetchPicks {

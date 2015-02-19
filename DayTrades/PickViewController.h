@@ -12,7 +12,7 @@
 @protocol PickViewControllerDelegate <NSObject>
 
 @required
-- (void)pickFromController:(Pick *)pick;
+- (void)updateNextPick:(Pick *)pick;
 
 @end
 

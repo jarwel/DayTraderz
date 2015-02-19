@@ -84,7 +84,7 @@
         Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDate:tradeDate];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                [self.delegate pickFromController:pick];
+                [self.delegate updateNextPick:pick];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
