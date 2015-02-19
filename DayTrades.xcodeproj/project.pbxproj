@@ -182,12 +182,12 @@
 			path = ../../SVPullToRefresh/SVPullToRefresh;
 			sourceTree = "<group>";
 		};
-		CA1361701A96601C00218B97 /* Assets */ = {
+		CA1361701A96601C00218B97 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				CA1361711A96604400218B97 /* logo.png */,
 			);
-			name = Assets;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		CA492B691A606CDB00ED13B3 = {
@@ -212,7 +212,7 @@
 		CA492B741A606CDB00ED13B3 /* DayTrades */ = {
 			isa = PBXGroup;
 			children = (
-				CA1361701A96601C00218B97 /* Assets */,
+				CA1361701A96601C00218B97 /* Images */,
 				CA492BD11A60884200ED13B3 /* Clients */,
 				CA492BA41A606F6500ED13B3 /* Models */,
 				CA492BA11A606F0000ED13B3 /* Views */,

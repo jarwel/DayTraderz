@@ -71,7 +71,7 @@
 - (NSDate *)tradeDateFromDate:(NSDate *)date {
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
     NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
-    components.hour = 0;
+    components.hour = 14;
     components.minute = 0;
     components.second = 0;
     return [self.calendar dateFromComponents:components];
