@@ -19,12 +19,12 @@
 }
 
 - (void)clearSubviews {
-    self.symbolLabel.text = @"";
-    self.dateLabel.text = @"";
-    self.buyLabel.text = @"";
-    self.sellLabel.text = @"";
-    self.changeLabel.text = @"";
-    self.valueLabel.text = @"";
+    self.symbolLabel.text = nil;
+    self.dateLabel.text = nil;
+    self.buyLabel.text = nil;
+    self.sellLabel.text = nil;
+    self.changeLabel.text = nil;
+    self.valueLabel.text = nil;
 }
 
 @end

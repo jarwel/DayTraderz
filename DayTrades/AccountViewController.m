@@ -161,17 +161,26 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)refreshViews {
     self.nameLabel.text = self.account.user.username;
     self.valueLabel.text = [PriceFormatter valueFormat:self.account.value];
-    self.picksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers];
-    self.winnersLabel.text = [NSString stringWithFormat:@"+%d", self.account.winners];
-    self.winnersLabel.textColor = [UIColor greenColor];
-    self.losersLabel.text = [NSString stringWithFormat:@"-%d", self.account.losers];
-    self.losersLabel.textColor = [UIColor redColor];
+    
+    int picks = self.account.winners + self.account.losers;
+    if (picks == 0) {
+        self.picksLabel.text = @"No Picks";
+        self.winnersLabel.text = nil;
+        self.losersLabel.text = nil;
+    }
+    else {
+        self.picksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers];
+        self.winnersLabel.text = [NSString stringWithFormat:@"+%d", self.account.winners];
+        self.winnersLabel.textColor = [UIColor greenColor];
+        self.losersLabel.text = [NSString stringWithFormat:@"-%d", self.account.losers];
+        self.losersLabel.textColor = [UIColor redColor];
+    }
     if (self.nextPick) {
         self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
         [self.nextPickButton setTitle:@"Remove" forState:UIControlStateNormal];
     }
     else {
-        self.nextPickLabel.text = @"";
+        self.nextPickLabel.text = nil;
         [self.nextPickButton setTitle:@"Next Pick" forState:UIControlStateNormal];
     }
     [self.tableView reloadData];
