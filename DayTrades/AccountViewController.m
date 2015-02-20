@@ -233,8 +233,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isCurrentPick:(Pick *) pick {
     if (pick) {
+        NSDate *tradeDate = pick.tradeDate;
         NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
-        if ([lastTradeDate compare:pick.tradeDate] == NSOrderedSame) {
+        if ([lastTradeDate compare:tradeDate] == NSOrderedSame) {
             return YES;
         }
     }
@@ -243,8 +244,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)isNextPick:(Pick *) pick {
     if (pick) {
+        NSDate *tradeDate = pick.tradeDate;
         NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
-        if ([nextTradeDate compare:pick.tradeDate] == NSOrderedSame) {
+        if ([nextTradeDate compare:tradeDate] == NSOrderedSame) {
             return YES;
         }
     }
