@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kh1-p2-uee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kh1-p2-uee">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -102,7 +102,7 @@
                                     <constraint firstAttribute="width" constant="70" id="49T-N5-gXV"/>
                                     <constraint firstAttribute="height" constant="21" id="xuG-ru-H7f"/>
                                 </constraints>
-                                <state key="normal" title="Set Pick">
+                                <state key="normal" title="Next Pick">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -325,6 +325,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="b7l-lh-o81" firstAttribute="trailing" secondItem="Kxd-Lf-fip" secondAttribute="trailingMargin" id="6Nt-Z6-Lo5"/>
                             <constraint firstItem="lGm-6V-uD8" firstAttribute="top" secondItem="e6z-vF-AJ8" secondAttribute="bottom" id="6vp-UV-XKN"/>
@@ -344,6 +345,9 @@
                             <constraint firstItem="tLp-zp-EVf" firstAttribute="trailing" secondItem="Kxd-Lf-fip" secondAttribute="trailingMargin" id="qWg-kk-9xE"/>
                             <constraint firstItem="s4m-4n-tNW" firstAttribute="top" secondItem="tLp-zp-EVf" secondAttribute="bottom" constant="50" id="usM-R3-vk0"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bWK-q5-r3w" appends="YES" id="hji-ZE-r0O"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="9gc-Z3-h8M"/>
                     <connections>
@@ -356,6 +360,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdB-40-I2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bWK-q5-r3w">
+                    <connections>
+                        <action selector="onTap:" destination="mIB-Vw-XNj" id="n7q-2Q-FsH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-250" y="-644"/>
         </scene>
