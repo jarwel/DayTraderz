@@ -20,14 +20,11 @@
     [super viewDidLoad];
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
     
-    NSString *title = @"DayTrades";
-    UIFont *font = [UIFont systemFontOfSize:32];
-    CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:font}];
-    CGRect frame = CGRectMake(0, 0, size.width, size.height);
-    self.titleLabel = [[UILabel alloc] initWithFrame:frame];
-    self.titleLabel.font = font;
-    self.titleLabel.text = title;
-    self.titleLabel.textColor = [UIColor lightGrayColor];
+    self.titleLabel = [[UILabel alloc] init];
+    [self.titleLabel setText:@"DayTrades"];
+    [self.titleLabel setTextColor:[UIColor lightGrayColor]];
+    [self.titleLabel setFont:[UIFont systemFontOfSize:40]];
+    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.signUpView.logo addSubview:self.titleLabel];
     
 //    CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -69,16 +66,16 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    float logoWidth = 180.0f;
-    float logoHeight = 180.0f;
+    float logoWidth = self.signUpView.usernameField.frame.origin.y * 0.6f;
     float logoX = (self.view.frame.size.width / 2) - (logoWidth / 2);
-    float logoY = (self.signUpView.usernameField.frame.origin.y / 2) - (logoHeight / 2);
-    [self.signUpView.logo setFrame:CGRectMake(logoX, logoY, logoWidth, logoHeight)];
+    float logoY = (self.signUpView.usernameField.frame.origin.y / 2) - (logoWidth / 2);
+    [self.signUpView.logo setFrame:CGRectMake(logoX, logoY, logoWidth, logoWidth)];
     
-    float titleWidth = self.titleLabel.frame.size.width;
-    float titleHeight = self.titleLabel.frame.size.height;
-    float titleX = (logoWidth - titleWidth) / 2;
-    float titleY = logoHeight - titleHeight - 10;
+    float titleWidth = logoWidth * 0.9f;
+    float titleHeight = logoWidth / 3;
+    float titleX = (logoWidth / 2) - (titleWidth / 2);
+    float titleY = logoWidth - titleHeight;
+    [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
 }
 
