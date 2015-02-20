@@ -48,11 +48,11 @@ static NSString * const cellIdentifier = @"AccountCell";
 
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.nameLabel.text = account.user.username;
-    cell.picksLabel.text = [NSString stringWithFormat:@"%d Picks:", account.winners + account.losers];
     cell.winnersLabel.text = [NSString stringWithFormat:@"+%d", account.winners];
     cell.winnersLabel.textColor = [UIColor greenColor];
     cell.losersLabel.text = [NSString stringWithFormat:@"-%d", account.losers];
     cell.losersLabel.textColor = [UIColor redColor];
+    cell.picksLabel.text = [NSString stringWithFormat:@"%d Tot", account.winners + account.losers];
     cell.valueLabel.text = [PriceFormatter valueFormat:account.value];
     return cell;
 }
