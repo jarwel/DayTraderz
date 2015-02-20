@@ -91,7 +91,6 @@ static NSString * const cellIdentifier = @"AccountCell";
         long skip = self.accounts.count;
         [[ParseClient instance] fetchAccountsSortedByColumn:column withSkip:skip callback:^(NSArray *objects, NSError *error) {
             if ([column isEqualToString:[self columnSelected]]) {
-                [self.accounts removeAllObjects];
                 if (!error) {
                     [self.accounts addObjectsFromArray:objects];
                     [self.tableView reloadData];
