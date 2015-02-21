@@ -46,6 +46,12 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.nameLabel.text = nil;
+    self.valueLabel.text = nil;
+    self.picksLabel.text = nil;
+    self.winnersLabel.text = nil;
+    self.losersLabel.text = nil;
+    self.nextPickButton.hidden = YES;
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
     self.picks = [[NSMutableArray alloc] init];
@@ -53,7 +59,6 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.picks removeAllObjects];
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
         if (!error) {
             self.account = (Account *)object;
@@ -101,7 +106,7 @@ static NSString * const cellIdentifier = @"PickCell";
         cell.symbolLabel.text = self.currentPick.symbol;
         if (self.quote.open != 0) {
             float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
-            cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Op", self.quote.open];
+            cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", self.quote.open];
             cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter valueFormat:estimatedValue]];
             cell.changeLabel.text = [PriceFormatter changeFormatFromQuote:self.quote];
             cell.changeLabel.textColor = [PriceFormatter colorFromChange:self.quote.priceChange];
@@ -117,8 +122,8 @@ static NSString * const cellIdentifier = @"PickCell";
         }
         cell.dateLabel.text = [[DateHelper instance] tradeDateFormat:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
-        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f Op", pick.open];
-        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f Cl", pick.close];
+        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", pick.open];
+        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f-C", pick.close];
         cell.valueLabel.text = [PriceFormatter valueFormat:pick.value + pick.change];
         cell.changeLabel.text = [PriceFormatter changeFormatFromPick:pick];
         cell.changeLabel.textColor = [PriceFormatter colorFromChange:pick.change];
@@ -183,6 +188,8 @@ static NSString * const cellIdentifier = @"PickCell";
         self.nextPickLabel.text = nil;
         [self.nextPickButton setTitle:@"Next Pick" forState:UIControlStateNormal];
     }
+    self.nextPickButton.hidden = NO;
+    
     [self.tableView reloadData];
 }
 

@@ -26,35 +26,6 @@
     [self.titleLabel setFont:[UIFont systemFontOfSize:40]];
     [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.signUpView.logo addSubview:self.titleLabel];
-    
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.view.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
-//    [self.view.layer insertSublayer:gradient atIndex:0];
-//    
-//    NSString *title = @"WeTrade";
-//    UIFont *font = [UIFont systemFontOfSize:29];
-//    CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:font}];
-//    CGRect frame = CGRectMake(5, 85, size.width, size.height);
-//    
-//    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-//    label.font = font;
-//    label.text = title;
-//    label.textColor = [UIColor lightGrayColor];
-//    
-//    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
-//    [logo addSubview:label];
-//    
-//    [self.signUpView setLogo:logo];
-//    [self.signUpView.usernameField setBackgroundColor:[UIColor darkGrayColor]];
-//    [self.signUpView.usernameField setBorderStyle:UITextBorderStyleBezel];
-//    [self.signUpView.passwordField setBackgroundColor:[UIColor darkGrayColor]];
-//    [self.signUpView.passwordField setBorderStyle:UITextBorderStyleBezel];
-//    [self.signUpView.emailField setBackgroundColor:[UIColor darkGrayColor]];
-//    [self.signUpView.emailField setBorderStyle:UITextBorderStyleBezel];
-//    [self.signUpView.signUpButton setBackgroundImage:nil forState:UIControlStateNormal];
-//    [self.signUpView.signUpButton setBackgroundImage:nil forState:UIControlStateHighlighted];
-//    [self.signUpView.signUpButton setBackgroundColor:[UIColor blueColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +48,13 @@
     float titleY = logoWidth - titleHeight;
     [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.signUpView.usernameField) {
+        return !([textField.text length] >= 15 && [string length] > range.length);
+    }
+    return YES;
 }
 
 @end

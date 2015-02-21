@@ -65,7 +65,7 @@
 - (BOOL)isInvalideTradeDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
-    return components.weekday < 2 && components.weekday > 6 && ![self.holidays containsObject:date];
+    return components.weekday < 2 || components.weekday > 6 || [self.holidays containsObject:date];
 }
 
 - (NSDate *)tradeDateFromDate:(NSDate *)date {
