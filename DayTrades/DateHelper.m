@@ -28,10 +28,16 @@
     return instance;
 }
 
-- (NSString *)tradeDateFormat:(NSDate *)tradeDate {
+- (NSString *)dayFormatFromDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMM d, yyyy"];
-    return [formatter stringFromDate:tradeDate];
+    [formatter setDateFormat:@"E MMM d"];
+    return [formatter stringFromDate:date];
+}
+
+- (NSString *)fullFormatFromDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"E MMM d, yyyy"];
+    return [formatter stringFromDate:date];
 }
 
 - (NSDate *)nextTradeDate {

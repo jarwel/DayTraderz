@@ -102,7 +102,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [cell clearSubviews];
     
     if (indexPath.section == 0 && !self.currentPick.processed) {
-        cell.dateLabel.text = [[DateHelper instance] tradeDateFormat:self.currentPick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] dayFormatFromDate:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
         if (self.quote.open != 0) {
             float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
@@ -120,7 +120,7 @@ static NSString * const cellIdentifier = @"PickCell";
         if (indexPath.section == 1) {
             pick = [self.picks objectAtIndex:indexPath.row];
         }
-        cell.dateLabel.text = [[DateHelper instance] tradeDateFormat:pick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] dayFormatFromDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", pick.open];
         cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f-C", pick.close];

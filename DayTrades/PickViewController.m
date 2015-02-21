@@ -32,9 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tradeDate = [[DateHelper instance] nextTradeDate];
-    [self setTitle:[[DateHelper instance] tradeDateFormat:self.tradeDate]];
-    NSString *details = @"The security listed above will be bought for the full value of your account at the opening price and sold at market close on the next trading day, %@.";
-    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] tradeDateFormat:self.tradeDate]];
+    [self setTitle:[[DateHelper instance] dayFormatFromDate:self.tradeDate]];
+    NSString *details = @"The security above will be bought in full for the value of your account at the opening price and sold at market close on %@. Changes can be made up until 9:00 AM on the date of trade.";
+    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatFromDate:self.tradeDate]];
     [self refreshViews];
 }
 
