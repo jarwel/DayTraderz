@@ -53,7 +53,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     cell.losersLabel.text = [NSString stringWithFormat:@"-%d", account.losers];
     cell.losersLabel.textColor = [UIColor redColor];
     cell.picksLabel.text = [NSString stringWithFormat:@"%d Tot", account.winners + account.losers];
-    cell.valueLabel.text = [PriceFormatter valueFormat:account.value];
+    cell.valueLabel.text = [PriceFormatter formatForValue:account.value];
     return cell;
 }
 

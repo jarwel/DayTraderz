@@ -13,7 +13,7 @@
 + (DateHelper *)instance;
 - (NSDate *)nextTradeDate;
 - (NSDate *)lastTradeDate;
-- (NSString *)dayFormatFromDate:(NSDate *)date;
-- (NSString *)fullFormatFromDate:(NSDate *)date;
+- (NSString *)dayFormatForDate:(NSDate *)date;
+- (NSString *)fullFormatForDate:(NSDate *)date;
 
 @end

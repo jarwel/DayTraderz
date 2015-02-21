@@ -85,9 +85,9 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Current Pick";
+        return @"Today's Pick";
     }
-    return @"Historical";
+    return @"Previous Picks";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -102,14 +102,14 @@ static NSString * const cellIdentifier = @"PickCell";
     [cell clearSubviews];
     
     if (indexPath.section == 0 && !self.currentPick.processed) {
-        cell.dateLabel.text = [[DateHelper instance] dayFormatFromDate:self.currentPick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate];
         cell.symbolLabel.text = self.currentPick.symbol;
         if (self.quote.open != 0) {
             float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
             cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", self.quote.open];
-            cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter valueFormat:estimatedValue]];
-            cell.changeLabel.text = [PriceFormatter changeFormatFromQuote:self.quote];
-            cell.changeLabel.textColor = [PriceFormatter colorFromChange:self.quote.priceChange];
+            cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]];
+            cell.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
+            cell.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
         }
     }
     else {
@@ -120,13 +120,13 @@ static NSString * const cellIdentifier = @"PickCell";
         if (indexPath.section == 1) {
             pick = [self.picks objectAtIndex:indexPath.row];
         }
-        cell.dateLabel.text = [[DateHelper instance] dayFormatFromDate:pick.tradeDate];
+        cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", pick.open];
         cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f-C", pick.close];
-        cell.valueLabel.text = [PriceFormatter valueFormat:pick.value + pick.change];
-        cell.changeLabel.text = [PriceFormatter changeFormatFromPick:pick];
-        cell.changeLabel.textColor = [PriceFormatter colorFromChange:pick.change];
+        cell.valueLabel.text = [PriceFormatter formatForValue:pick.value + pick.change];
+        cell.changeLabel.text = [PriceFormatter formatForPick:pick];
+        cell.changeLabel.textColor = [PriceFormatter colorForChange:pick.change];
     }
     
     return cell;
@@ -165,7 +165,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)refreshViews {
     self.nameLabel.text = self.account.user.username;
-    self.valueLabel.text = [PriceFormatter valueFormat:self.account.value];
+    self.valueLabel.text = [PriceFormatter formatForValue:self.account.value];
     
     int picks = self.account.winners + self.account.losers;
     if (picks == 0) {
@@ -186,7 +186,7 @@ static NSString * const cellIdentifier = @"PickCell";
     }
     else {
         self.nextPickLabel.text = nil;
-        [self.nextPickButton setTitle:@"Next Pick" forState:UIControlStateNormal];
+        [self.nextPickButton setTitle:@"Set Pick" forState:UIControlStateNormal];
     }
     self.nextPickButton.hidden = NO;
     

@@ -10,13 +10,7 @@
 
 @implementation PriceFormatter
 
-+ (NSString *)changeFormat:(float)priceChange percentChange:(float)percentChange {
-    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
-    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
-    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
-}
-
-+ (NSString *)valueFormat:(float)value {
++ (NSString *)formatForValue:(float)value {
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [currencyFormatter setCurrencyCode:@"USD"];
@@ -24,17 +18,23 @@
     return [currencyFormatter stringFromNumber:decimalNumber];
 }
 
-+ (NSString *)changeFormatFromQuote:(Quote *)quote {
-    return [self changeFormat:quote.priceChange percentChange:quote.percentChange];
++ (NSString *)formatForQuote:(Quote *)quote {
+    return [self formatForPriceChange:quote.priceChange andPercentChange:quote.percentChange];
 }
 
-+ (NSString *)changeFormatFromPick:(Pick *)pick {
++ (NSString *)formatForPick:(Pick *)pick {
     float priceChange = pick.close - pick.open;
     float percentChange = priceChange / pick.open * 100;
-    return [self changeFormat:priceChange percentChange:percentChange];
+    return [self formatForPriceChange:priceChange andPercentChange:percentChange];
 }
 
-+ (UIColor *)colorFromChange:(float)change {
++ (NSString *)formatForPriceChange:(float)priceChange andPercentChange:(float)percentChange {
+    NSString *priceChangeFormat = [NSString stringWithFormat:@"%+0.2f", priceChange];
+    NSString *percentChangeFormat = [NSString stringWithFormat:@"%+0.2f%%", percentChange];
+    return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
+}
+
++ (UIColor *)colorForChange:(float)change {
     if (change > 0) {
         return [UIColor greenColor];
     }

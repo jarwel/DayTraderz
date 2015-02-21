@@ -32,9 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tradeDate = [[DateHelper instance] nextTradeDate];
-    [self setTitle:[[DateHelper instance] dayFormatFromDate:self.tradeDate]];
+    [self setTitle:[[DateHelper instance] dayFormatForDate:self.tradeDate]];
     NSString *details = @"The security above will be bought in full for the value of your account at the opening price and sold at market close on %@. Changes can be made up until 9:00 AM on the date of trade.";
-    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatFromDate:self.tradeDate]];
+    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]];
     [self refreshViews];
 }
 
@@ -64,8 +64,8 @@
         self.symbolLabel.text = self.quote.symbol;
         self.nameLabel.text = self.quote.name;
         self.priceLabel.text = [NSString stringWithFormat:@"%0.2f", self.quote.price];
-        self.changeLabel.text = [PriceFormatter changeFormatFromQuote:self.quote];
-        self.changeLabel.textColor = [PriceFormatter colorFromChange:self.quote.priceChange];
+        self.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
+        self.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
         [self.confirmButton setEnabled:YES];
     }
     else {

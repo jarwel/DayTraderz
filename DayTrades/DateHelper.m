@@ -28,15 +28,15 @@
     return instance;
 }
 
-- (NSString *)dayFormatFromDate:(NSDate *)date {
+- (NSString *)dayFormatForDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E MMM d"];
+    [formatter setDateFormat:@"E, MMM d"];
     return [formatter stringFromDate:date];
 }
 
-- (NSString *)fullFormatFromDate:(NSDate *)date {
+- (NSString *)fullFormatForDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E MMM d, yyyy"];
+    [formatter setDateFormat:@"E, MMM d, yyyy"];
     return [formatter stringFromDate:date];
 }
 

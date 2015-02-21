@@ -12,10 +12,10 @@
 
 @interface PriceFormatter : NSObject
 
-+ (NSString *)valueFormat:(float)value;
-+ (NSString *)changeFormat:(float)priceChange percentChange:(float)percentChange;
-+ (NSString *)changeFormatFromQuote:(Quote *)quote;
-+ (NSString *)changeFormatFromPick:(Pick *)pick;
-+ (UIColor *)colorFromChange:(float)change;
++ (NSString *)formatForValue:(float)value;
++ (NSString *)formatForQuote:(Quote *)quote;
++ (NSString *)formatForPick:(Pick *)pick;
++ (NSString *)formatForPriceChange:(float)priceChange andPercentChange:(float)percentChange;
++ (UIColor *)colorForChange:(float)change;
 
 @end
