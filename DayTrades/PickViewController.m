@@ -77,6 +77,10 @@
     }
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.view endEditing:YES];
+}
+
 - (IBAction)onConfirmButtonTouched:(id)sender {
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
