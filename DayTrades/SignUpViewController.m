@@ -50,11 +50,16 @@
     [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (textField == self.signUpView.usernameField) {
         return !([textField.text length] >= 15 && [string length] > range.length);
     }
     return YES;
 }
+
+- (void)textWillChange:(id<UITextInput>)textInput {}
+- (void)textDidChange:(id<UITextInput>)textInput {}
+- (void)selectionWillChange:(id<UITextInput>)textInput {}
+- (void)selectionDidChange:(id<UITextInput>)textInput {}
 
 @end
