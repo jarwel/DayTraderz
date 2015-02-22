@@ -10,8 +10,6 @@
 
 @interface SignUpViewController ()
 
-@property (strong, nonatomic) UILabel *titleLabel;
-
 @end
 
 @implementation SignUpViewController
@@ -20,12 +18,13 @@
     [super viewDidLoad];
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
     
-    self.titleLabel = [[UILabel alloc] init];
-    [self.titleLabel setText:@"DayTrades"];
-    [self.titleLabel setTextColor:[UIColor lightGrayColor]];
-    [self.titleLabel setFont:[UIFont systemFontOfSize:40]];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.signUpView.logo addSubview:self.titleLabel];
+    UILabel *titleLabel = [[UILabel alloc] init];
+    [titleLabel setText:@"New Account"];
+    [titleLabel setTextColor:[UIColor lightGrayColor]];
+    [titleLabel setFont:[UIFont systemFontOfSize:40]];
+    [titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.signUpView setLogo:titleLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,18 +35,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
-    float logoWidth = self.signUpView.usernameField.frame.origin.y * 0.6f;
-    float logoX = (self.view.frame.size.width / 2) - (logoWidth / 2);
-    float logoY = (self.signUpView.usernameField.frame.origin.y / 2) - (logoWidth / 2);
-    [self.signUpView.logo setFrame:CGRectMake(logoX, logoY, logoWidth, logoWidth)];
-    
-    float titleWidth = logoWidth * 0.9f;
-    float titleHeight = logoWidth / 3;
-    float titleX = (logoWidth / 2) - (titleWidth / 2);
-    float titleY = logoWidth - titleHeight;
-    [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
-    [self.titleLabel setFrame:CGRectMake(titleX, titleY, titleWidth, titleHeight)];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
