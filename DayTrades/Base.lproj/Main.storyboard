@@ -287,7 +287,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-lh-o81">
-                                <rect key="frame" x="544.5" y="133" width="39.5" height="15"/>
+                                <rect key="frame" x="544" y="133" width="39.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Xaf-cY-ldM"/>
                                 </constraints>
@@ -311,7 +311,7 @@
                                     <constraint firstAttribute="height" constant="100" id="dem-Cz-84R"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wvG-iQ-FWB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">

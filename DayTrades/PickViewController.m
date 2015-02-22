@@ -33,7 +33,7 @@
     [super viewDidLoad];
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     [self setTitle:[[DateHelper instance] dayFormatForDate:self.tradeDate]];
-    NSString *details = @"The security above will be bought in full for the value of your account at the opening price and sold at market close on %@. Changes can be made up until 9:00 AM on the date of trade.";
+    NSString *details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@. Your choice can be changed until 9:00 AM EST on the date of trade.";
     self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]];
     [self refreshViews];
 }
@@ -67,13 +67,15 @@
         self.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
         self.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
         [self.confirmButton setEnabled:YES];
+        [self.confirmButton setBackgroundColor:self.confirmButton.tintColor];
     }
     else {
-        self.symbolLabel.text = @"";
-        self.nameLabel.text = @"";
-        self.priceLabel.text = @"";
-        self.changeLabel.text = @"";
+        self.symbolLabel.text = nil;
+        self.nameLabel.text = nil;
+        self.priceLabel.text = nil;
+        self.changeLabel.text = nil;
         [self.confirmButton setEnabled:NO];
+        [self.confirmButton setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     }
 }
 
