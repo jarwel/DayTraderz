@@ -29,10 +29,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
+@property (strong, nonatomic) NSMutableArray *picks;
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *nextPick;
 @property (strong, nonatomic) Pick *currentPick;
-@property (strong, nonatomic) NSMutableArray *picks;
 @property (strong, nonatomic) Quote *quote;
 @property (strong, nonatomic) NSTimer *quoteTimer;
 
