@@ -135,23 +135,24 @@ static NSString * const cellIdentifier = @"PickCell";
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
 
-- (IBAction)onNextPickButtonTouched:(id)sender {
-    if (self.nextPick) {
-        [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                self.nextPick = nil;
-                [self refreshViews];
-            }
-        }];
-    }
-    else {
-        [self performSegueWithIdentifier: @"ShowPickSegue" sender: self];
-    }
-}
-
 - (void)updateNextPick:(Pick *)pick {
     self.nextPick = pick;
     [self refreshViews];
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"ShowPickSegue"]) {
+        if (self.nextPick) {
+            [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    self.nextPick = nil;
+                    [self refreshViews];
+                }
+            }];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

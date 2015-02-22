@@ -109,7 +109,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onNextPickButtonTouched:" destination="PqU-rN-jni" eventType="touchUpInside" id="sb7-pD-zv2"/>
+                                    <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPickSegue" id="afn-rg-LkX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,7 +175,6 @@
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                         <outlet property="winnersLabel" destination="sxz-ox-avr" id="L2l-p7-mrr"/>
-                        <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPickSegue" id="NTx-Th-Odv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
