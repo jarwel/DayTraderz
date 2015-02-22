@@ -28,27 +28,21 @@
     return instance;
 }
 
-- (NSString *)dayFormatForDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E, MMM d"];
-    return [formatter stringFromDate:date];
-}
-
-- (NSString *)fullFormatForDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E, MMM d, yyyy"];
-    return [formatter stringFromDate:date];
+- (BOOL)isMarketOpenOnDate:(NSDate *)date {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
+    return components.weekday > 1 && components.weekday < 7 && ![self.holidays containsObject:date];
 }
 
 - (NSDate *)nextTradeDate {
     NSDate *date = [NSDate date];
 
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
-    if (hour >= 9 || [self isInvalideTradeDate:date]) {
+    if (hour >= 9 || ![self isMarketOpenOnDate:date]) {
         do {
             date = [self.calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:date options:0];
         }
-        while ([self isInvalideTradeDate:date]);
+        while (![self isMarketOpenOnDate:date]);
     }
     
     return [self tradeDateFromDate:date];
@@ -62,16 +56,22 @@
         do {
             date = [self.calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:date options:0];
         }
-        while ([self isInvalideTradeDate:date]);
+        while (![self isMarketOpenOnDate:date]);
     }
     
     return [self tradeDateFromDate:date];
 }
 
-- (BOOL)isInvalideTradeDate:(NSDate *)date {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
-    return components.weekday < 2 || components.weekday > 6 || [self.holidays containsObject:date];
+- (NSString *)dayFormatForDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"E, MMM d"];
+    return [formatter stringFromDate:date];
+}
+
+- (NSString *)fullFormatForDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"E, MMM d, yyyy"];
+    return [formatter stringFromDate:date];
 }
 
 - (NSDate *)tradeDateFromDate:(NSDate *)date {

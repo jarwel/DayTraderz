@@ -11,6 +11,7 @@
 @interface DateHelper : NSObject
 
 + (DateHelper *)instance;
+- (BOOL)isMarketOpenOnDate:(NSDate *)date;
 - (NSDate *)nextTradeDate;
 - (NSDate *)lastTradeDate;
 - (NSString *)dayFormatForDate:(NSDate *)date;

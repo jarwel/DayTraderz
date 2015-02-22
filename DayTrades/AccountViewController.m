@@ -101,25 +101,24 @@ static NSString * const cellIdentifier = @"PickCell";
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell clearSubviews];
     
-    if (indexPath.section == 0 && !self.currentPick.processed) {
-        cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate];
-        cell.symbolLabel.text = self.currentPick.symbol;
-        if (self.quote.open != 0) {
-            float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
-            cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", self.quote.open];
-            cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]];
-            cell.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
-            cell.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
+    if (indexPath.section == 0) {
+        if (self.currentPick) {
+            cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate];
+            cell.symbolLabel.text = self.currentPick.symbol;
+            if (self.quote.open != 0) {
+                float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
+                cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", self.quote.open];
+                cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]];
+                cell.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
+                cell.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
+            }
+        }
+        else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
+            cell.buyLabel.text = @"Market Closed";
         }
     }
     else {
-        Pick *pick;
-        if (indexPath.section == 0) {
-            pick = self.currentPick;
-        }
-        if (indexPath.section == 1) {
-            pick = [self.picks objectAtIndex:indexPath.row];
-        }
+        Pick *pick = [self.picks objectAtIndex:indexPath.row];
         cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:pick.tradeDate];
         cell.symbolLabel.text = pick.symbol;
         cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", pick.open];
@@ -214,7 +213,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
         [self.picks removeAllObjects];
         if (!error) {
-            [self parsePicksFromObjects:objects];
+            [self sortPicksFromObjects:objects];
             [self fetchQuote];
             [self refreshViews];
             [self enableInfiniteScroll];
@@ -224,40 +223,21 @@ static NSString * const cellIdentifier = @"PickCell";
     }];
 }
 
-- (void)parsePicksFromObjects:(NSArray *)objects {
+- (void)sortPicksFromObjects:(NSArray *)objects {
+    NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
+    NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
     for (Pick* pick in objects) {
-        if ([self isNextPick:pick]) {
-            self.nextPick = pick;
-        }
-        else if ([self isCurrentPick:pick]) {
+        NSDate *tradeDate = pick.tradeDate;
+        if (!pick.processed && [lastTradeDate compare:tradeDate] == NSOrderedSame) {
             self.currentPick = pick;
+        }
+        else if ([nextTradeDate compare:tradeDate] == NSOrderedSame) {
+            self.nextPick = pick;
         }
         else {
             [self.picks addObject:pick];
         }
     }
-}
-
-- (BOOL)isCurrentPick:(Pick *) pick {
-    if (pick) {
-        NSDate *tradeDate = pick.tradeDate;
-        NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
-        if ([lastTradeDate compare:tradeDate] == NSOrderedSame) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-- (BOOL)isNextPick:(Pick *) pick {
-    if (pick) {
-        NSDate *tradeDate = pick.tradeDate;
-        NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
-        if ([nextTradeDate compare:tradeDate] == NSOrderedSame) {
-            return YES;
-        }
-    }
-    return NO;
 }
 
 - (void)enableInfiniteScroll {
