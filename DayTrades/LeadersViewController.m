@@ -29,9 +29,10 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.accounts = [[NSMutableArray alloc] init];
+    
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
-    self.accounts = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,15 +46,15 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Account *account = [self.accounts objectAtIndex:indexPath.row];
-
+    
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.nameLabel.text = account.user.username;
-    cell.winnersLabel.text = [NSString stringWithFormat:@"+%d", account.winners];
-    cell.winnersLabel.textColor = [UIColor greenColor];
-    cell.losersLabel.text = [NSString stringWithFormat:@"-%d", account.losers];
-    cell.losersLabel.textColor = [UIColor redColor];
-    cell.picksLabel.text = [NSString stringWithFormat:@"%d Tot", account.winners + account.losers];
-    cell.valueLabel.text = [PriceFormatter formatForValue:account.value];
+    [cell.nameLabel setText:account.user.username];
+    [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
+    [cell.winnersLabel setTextColor:[UIColor greenColor]];
+    [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
+    [cell.losersLabel setTextColor:[UIColor redColor]];
+    [cell.picksLabel setText:[NSString stringWithFormat:@"%d Tot", account.winners + account.losers]];
+    [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
     return cell;
 }
 

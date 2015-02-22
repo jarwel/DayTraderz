@@ -28,9 +28,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.signUpView.usernameField.text = nil;
-    self.signUpView.emailField.text = nil;
-    self.signUpView.passwordField.text = nil;
+    [self.signUpView.usernameField setText:nil];
+    [self.signUpView.emailField setText:nil];
+    [self.signUpView.passwordField setText: nil];
 }
 
 - (void)viewDidLayoutSubviews {

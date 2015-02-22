@@ -28,8 +28,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.logInView.usernameField.text = nil;
-    self.logInView.passwordField.text = nil;
+    [self.logInView.usernameField setText:nil];
+    [self.logInView.passwordField setText:nil];
 }
 
 - (void)viewDidLayoutSubviews {

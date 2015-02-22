@@ -46,15 +46,16 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.nameLabel.text = nil;
-    self.valueLabel.text = nil;
-    self.picksLabel.text = nil;
-    self.winnersLabel.text = nil;
-    self.losersLabel.text = nil;
-    self.nextPickButton.hidden = YES;
+    [self.nameLabel setText:nil];
+    [self.valueLabel setText:nil];
+    [self.picksLabel setText:nil];
+    [self.winnersLabel setText:nil];
+    [self.losersLabel setText:nil];
+    [self.nextPickButton setHidden:YES];
+    self.picks = [[NSMutableArray alloc] init];
+    
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
-    self.picks = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,29 +104,29 @@ static NSString * const cellIdentifier = @"PickCell";
     
     if (indexPath.section == 0) {
         if (self.currentPick) {
-            cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate];
-            cell.symbolLabel.text = self.currentPick.symbol;
+            [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate]];
+            [cell.symbolLabel setText:self.currentPick.symbol];
             if (self.quote.open != 0) {
                 float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
-                cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", self.quote.open];
-                cell.valueLabel.text = [NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]];
-                cell.changeLabel.text = [PriceFormatter formatForQuote:self.quote];
-                cell.changeLabel.textColor = [PriceFormatter colorForChange:self.quote.priceChange];
+                [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f-O", self.quote.open]];
+                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
+                [cell.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
+                [cell.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
             }
         }
         else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
-            cell.buyLabel.text = @"Market Closed";
+            [cell.buyLabel setText:@"Market Closed"];
         }
     }
     else {
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
-        cell.dateLabel.text = [[DateHelper instance] dayFormatForDate:pick.tradeDate];
-        cell.symbolLabel.text = pick.symbol;
-        cell.buyLabel.text = [NSString stringWithFormat:@"%0.02f-O", pick.open];
-        cell.sellLabel.text = [NSString stringWithFormat:@"%0.02f-C", pick.close];
-        cell.valueLabel.text = [PriceFormatter formatForValue:pick.value + pick.change];
-        cell.changeLabel.text = [PriceFormatter formatForPick:pick];
-        cell.changeLabel.textColor = [PriceFormatter colorForChange:pick.change];
+        [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:pick.tradeDate]];
+        [cell.symbolLabel setText:pick.symbol];
+        [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f-O", pick.open]];
+        [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f-C", pick.close]];
+        [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
+        [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
+        [cell.changeLabel setTextColor:[PriceFormatter colorForChange:pick.change]];
     }
     
     return cell;
@@ -158,37 +159,37 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowPickSegue"]) {
         PickViewController *pickViewController = segue.destinationViewController;
-        pickViewController.delegate = self;
+        [pickViewController setDelegate:self];
         pickViewController.account = self.account;
     }
 }
 
 - (void)refreshViews {
-    self.nameLabel.text = self.account.user.username;
-    self.valueLabel.text = [PriceFormatter formatForValue:self.account.value];
+    [self.nameLabel setText:self.account.user.username];
+    [self.valueLabel setText:[PriceFormatter formatForValue:self.account.value]];
     
     int picks = self.account.winners + self.account.losers;
     if (picks == 0) {
-        self.picksLabel.text = @"No Picks";
-        self.winnersLabel.text = nil;
-        self.losersLabel.text = nil;
+        [self.picksLabel setText:@"No Picks"];
+        [self.winnersLabel setText:nil];
+        [self.losersLabel setText:nil];
     }
     else {
-        self.picksLabel.text = [NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers];
-        self.winnersLabel.text = [NSString stringWithFormat:@"+%d", self.account.winners];
-        self.winnersLabel.textColor = [UIColor greenColor];
-        self.losersLabel.text = [NSString stringWithFormat:@"-%d", self.account.losers];
-        self.losersLabel.textColor = [UIColor redColor];
+        [self.picksLabel setText:[NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers]];
+        [self.winnersLabel setText:[NSString stringWithFormat:@"+%d", self.account.winners]];
+        [self.winnersLabel setTextColor:[UIColor greenColor]];
+        [self.losersLabel setText:[NSString stringWithFormat:@"-%d", self.account.losers]];
+        [self.losersLabel setTextColor:[UIColor redColor]];
     }
     if (self.nextPick) {
-        self.nextPickLabel.text = [NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol];
+        [self.nextPickLabel setText:[NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol]];
         [self.nextPickButton setTitle:@"Remove" forState:UIControlStateNormal];
     }
     else {
-        self.nextPickLabel.text = nil;
+        [self.nextPickLabel setText: nil];
         [self.nextPickButton setTitle:@"Set Pick" forState:UIControlStateNormal];
     }
-    self.nextPickButton.hidden = NO;
+    [self.nextPickButton setHidden:NO];
     
     [self.tableView reloadData];
 }
