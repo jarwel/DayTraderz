@@ -107,11 +107,13 @@ static NSString * const cellIdentifier = @"PickCell";
             [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate]];
             [cell.symbolLabel setText:self.currentPick.symbol];
             if (self.quote.open != 0) {
-                float estimatedValue = self.account.value + (self.account.value * self.quote.percentChange / 100);
+                float priceChange = self.quote.price - self.quote.open;
+                float percentChange = priceChange / self.quote.open * 100;
+                float estimatedValue = self.account.value + (self.account.value * percentChange / 100);
                 [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f-O", self.quote.open]];
                 [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
-                [cell.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
-                [cell.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
+                [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
+                [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
             }
         }
         else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
