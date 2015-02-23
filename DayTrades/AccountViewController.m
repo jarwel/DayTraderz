@@ -231,7 +231,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)sortPicksFromObjects:(NSArray *)objects {
     NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
     NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
-    for (Pick* pick in objects) {
+    for (Pick *pick in objects) {
         NSDate *tradeDate = pick.tradeDate;
         if (!pick.processed && [lastTradeDate compare:tradeDate] == NSOrderedSame) {
             self.currentPick = pick;
