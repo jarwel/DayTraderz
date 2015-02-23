@@ -190,7 +190,7 @@ static NSString * const cellIdentifier = @"PickCell";
     }
     else {
         [self.nextPickLabel setText: nil];
-        [self.nextPickButton setTitle:@"Set Pick" forState:UIControlStateNormal];
+        [self.nextPickButton setTitle:@"Set Next" forState:UIControlStateNormal];
     }
     [self.nextPickButton setHidden:NO];
     
