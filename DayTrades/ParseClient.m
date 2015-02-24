@@ -25,21 +25,21 @@
     [query getFirstObjectInBackgroundWithBlock:callback];
 }
 
-- (void)fetchPicksForAccount:(Account *)account withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchPicksForAccount:(Account *)account withLimit:(int)limit withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Pick query];
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
     [query orderByDescending:@"tradeDate"];
-    [query setLimit:10];
+    [query setLimit:limit];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)fetchAccountsSortedByColumn:(NSString *)column withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchAccountsSortedByColumn:(NSString *)column withLimit:(int)limit withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
     [query orderByDescending:column];
-    [query setLimit:20];
+    [query setLimit:limit];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
 }

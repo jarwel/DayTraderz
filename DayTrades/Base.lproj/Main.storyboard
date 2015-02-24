@@ -74,7 +74,7 @@
                                     <outlet property="delegate" destination="PqU-rN-jni" id="Cda-mg-x3z"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Pick" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
                                 <rect key="frame" x="16" y="203" width="496" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="AWd-Em-gAA"/>

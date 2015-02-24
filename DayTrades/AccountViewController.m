@@ -51,6 +51,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.picksLabel setText:nil];
     [self.winnersLabel setText:nil];
     [self.losersLabel setText:nil];
+    [self.nextPickLabel setText:nil];
     [self.nextPickButton setHidden:YES];
     self.picks = [[NSMutableArray alloc] init];
     
@@ -148,7 +149,8 @@ static NSString * const cellIdentifier = @"PickCell";
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
-        if (self.nextPick) {
+        NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
+        if (self.nextPick && [nextTradeDate compare:self.nextPick.tradeDate] == NSOrderedSame) {
             [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     self.nextPick = nil;
@@ -217,7 +219,9 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)fetchPicks {
-    [[ParseClient instance] fetchPicksForAccount:self.account withSkip:0 callback:^(NSArray *objects, NSError *error) {
+    [[ParseClient instance] fetchPicksForAccount:self.account withLimit:10 withSkip:0 callback:^(NSArray *objects, NSError *error) {
+        self.nextPick = nil;
+        self.currentPick = nil;
         [self.picks removeAllObjects];
         if (!error) {
             [self sortPicksFromObjects:objects];
@@ -250,7 +254,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)enableInfiniteScroll {
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
-        [[ParseClient instance] fetchPicksForAccount:self.account withSkip:skip callback:^(NSArray *objects, NSError *error) {
+        [[ParseClient instance] fetchPicksForAccount:self.account withLimit:5 withSkip:skip callback:^(NSArray *objects, NSError *error) {
             if (!error) {
                 [self.picks addObjectsFromArray:objects];
                 [self.tableView reloadData];
