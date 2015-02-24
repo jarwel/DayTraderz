@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *picksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *winnersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *losersLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end

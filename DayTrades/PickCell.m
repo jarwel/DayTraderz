@@ -11,7 +11,7 @@
 @implementation PickCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self clearSubviews];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,12 +19,14 @@
 }
 
 - (void)clearSubviews {
-    self.symbolLabel.text = nil;
-    self.dateLabel.text = nil;
-    self.buyLabel.text = nil;
-    self.sellLabel.text = nil;
-    self.changeLabel.text = nil;
-    self.valueLabel.text = nil;
+    [self.symbolLabel setText:nil];
+    [self.dateLabel setText:nil];
+    [self.buyLabel setText:nil];
+    [self.sellLabel setText:nil];
+    [self.openLabel setText:nil];
+    [self.closeLabel setText:nil];
+    [self.changeLabel setText:nil];
+    [self.valueLabel setText:nil];
 }
 
 @end

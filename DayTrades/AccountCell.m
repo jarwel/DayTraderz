@@ -11,7 +11,11 @@
 @implementation AccountCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.nameLabel setText:nil];
+    [self.picksLabel setText:nil];
+    [self.winnersLabel setText:nil];
+    [self.losersLabel setText:nil];
+    [self.valueLabel setText:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

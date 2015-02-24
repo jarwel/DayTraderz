@@ -110,8 +110,9 @@ static NSString * const cellIdentifier = @"PickCell";
                 float priceChange = self.quote.price - self.quote.open;
                 float percentChange = priceChange / self.quote.open * 100;
                 float estimatedValue = self.account.value + (self.account.value * percentChange / 100);
-                [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f-O", self.quote.open]];
+                [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
                 [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
+                [cell.openLabel setText:@"-O"];
                 [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
@@ -125,8 +126,10 @@ static NSString * const cellIdentifier = @"PickCell";
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
         [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:pick.tradeDate]];
         [cell.symbolLabel setText:pick.symbol];
-        [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f-O", pick.open]];
-        [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f-C", pick.close]];
+        [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f", pick.open]];
+        [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
+        [cell.openLabel setText:@"-O"];
+        [cell.closeLabel setText:@"-C"];
         [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
         [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
         [cell.changeLabel setTextColor:[PriceFormatter colorForChange:pick.change]];
@@ -171,14 +174,14 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.nameLabel setText:self.account.user.username];
     [self.valueLabel setText:[PriceFormatter formatForValue:self.account.value]];
     
-    int picks = self.account.winners + self.account.losers;
-    if (picks == 0) {
+    int count = self.account.winners + self.account.losers;
+    if (count == 0) {
         [self.picksLabel setText:@"No Picks"];
         [self.winnersLabel setText:nil];
         [self.losersLabel setText:nil];
     }
     else {
-        [self.picksLabel setText:[NSString stringWithFormat:@"%d Picks", self.account.winners + self.account.losers]];
+        [self.picksLabel setText:[NSString stringWithFormat:@"%d Pick%@", count, count > 1 ? @"s" : @""]];
         [self.winnersLabel setText:[NSString stringWithFormat:@"+%d", self.account.winners]];
         [self.winnersLabel setTextColor:[UIColor greenColor]];
         [self.losersLabel setText:[NSString stringWithFormat:@"-%d", self.account.losers]];

@@ -16,6 +16,7 @@
 
 @interface LeadersViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *processedDate;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -29,6 +30,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.processedDate setText:nil];
     self.accounts = [[NSMutableArray alloc] init];
     
     UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
@@ -49,11 +51,11 @@ static NSString * const cellIdentifier = @"AccountCell";
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell.nameLabel setText:account.user.username];
+    [cell.picksLabel setText:[NSString stringWithFormat:@"%d Picks", account.winners + account.losers]];
     [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
     [cell.winnersLabel setTextColor:[UIColor greenColor]];
     [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
     [cell.losersLabel setTextColor:[UIColor redColor]];
-    [cell.picksLabel setText:[NSString stringWithFormat:@"%d Tot", account.winners + account.losers]];
     [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
     return cell;
 }
