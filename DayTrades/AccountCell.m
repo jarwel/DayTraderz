@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     [self.nameLabel setText:nil];
-    [self.picksLabel setText:nil];
     [self.winnersLabel setText:nil];
     [self.losersLabel setText:nil];
     [self.valueLabel setText:nil];

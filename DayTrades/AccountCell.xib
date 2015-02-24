@@ -13,8 +13,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h0g-BL-VcS" id="Vcx-QX-cOS">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="241" y="12" width="71" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
+                        <rect key="frame" x="222.5" y="12" width="89.5" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cKZ-Ti-3RX"/>
                         </constraints>
@@ -27,22 +27,8 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Picks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVt-dp-6hC">
-                        <rect key="frame" x="79" y="12" width="37.5" height="19.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="TjT-Gs-rVr"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="TjT-Gs-rVr"/>
-                            </mask>
-                        </variation>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Winners" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guk-zp-pYa">
-                        <rect key="frame" x="126" y="12" width="57.5" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Winners" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guk-zp-pYa">
+                        <rect key="frame" x="97" y="12" width="57.5" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="MtQ-za-tyH"/>
                         </constraints>
@@ -55,8 +41,8 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Losers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-F5-sxM">
-                        <rect key="frame" x="194" y="12" width="47.5" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Losers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-F5-sxM">
+                        <rect key="frame" x="165" y="12" width="57.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="tXW-Kf-bwp"/>
                         </constraints>
@@ -69,8 +55,8 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
-                        <rect key="frame" x="8" y="12" width="71" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
+                        <rect key="frame" x="8" y="12" width="89.5" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="s2g-qH-FgJ"/>
                         </constraints>
@@ -85,23 +71,21 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="LVt-dp-6hC" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="2oM-3t-u2y"/>
                     <constraint firstAttribute="bottomMargin" secondItem="MdP-F5-sxM" secondAttribute="bottom" constant="4" id="4R5-aU-RrB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="guk-zp-pYa" secondAttribute="bottom" constant="4" id="8tI-0f-8yL"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="AyQ-FX-4ru"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="MdP-F5-sxM" secondAttribute="trailing" id="B33-ta-gye"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="LVt-dp-6hC" secondAttribute="bottom" constant="4" id="BTh-DO-yKC"/>
-                    <constraint firstItem="guk-zp-pYa" firstAttribute="leading" secondItem="LVt-dp-6hC" secondAttribute="trailing" constant="10" id="EA5-ny-2Np"/>
+                    <constraint firstItem="MdP-F5-sxM" firstAttribute="width" secondItem="guk-zp-pYa" secondAttribute="width" id="Dhv-ey-Kmf"/>
                     <constraint firstItem="guk-zp-pYa" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="JQ6-ss-fZi"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="KrH-tb-csL"/>
                     <constraint firstItem="MdP-F5-sxM" firstAttribute="leading" secondItem="guk-zp-pYa" secondAttribute="trailing" constant="10" id="PuM-sF-854"/>
                     <constraint firstAttribute="trailingMargin" secondItem="tyQ-V0-tnG" secondAttribute="trailing" id="SLk-QW-Tpy"/>
+                    <constraint firstItem="guk-zp-pYa" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="W87-Pw-TTF"/>
                     <constraint firstItem="MdP-F5-sxM" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="3" id="bJX-LD-XDA"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" id="dPz-k6-uii"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="width" secondItem="mNs-cK-8hO" secondAttribute="width" id="db7-op-XyX"/>
                     <constraint firstItem="MdP-F5-sxM" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="e01-SH-eFc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="mNs-cK-8hO" secondAttribute="bottom" constant="4" id="fUb-JO-KdP"/>
-                    <constraint firstItem="LVt-dp-6hC" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="rx3-cY-mgz"/>
                     <constraint firstAttribute="bottomMargin" secondItem="tyQ-V0-tnG" secondAttribute="bottom" constant="4" id="uqh-fK-X3v"/>
                 </constraints>
                 <variation key="default">
@@ -113,7 +97,6 @@
             <connections>
                 <outlet property="losersLabel" destination="MdP-F5-sxM" id="dOh-WB-dWe"/>
                 <outlet property="nameLabel" destination="mNs-cK-8hO" id="mPn-me-lgq"/>
-                <outlet property="picksLabel" destination="LVt-dp-6hC" id="MB7-as-jlU"/>
                 <outlet property="valueLabel" destination="tyQ-V0-tnG" id="jeY-9m-kos"/>
                 <outlet property="winnersLabel" destination="guk-zp-pYa" id="rKW-Zj-8B9"/>
             </connections>

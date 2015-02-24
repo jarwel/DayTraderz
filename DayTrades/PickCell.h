@@ -19,6 +19,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *changeLabel;
 
-- (void)clearSubviews;
-
 @end

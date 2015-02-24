@@ -51,7 +51,6 @@ static NSString * const cellIdentifier = @"AccountCell";
     
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell.nameLabel setText:account.user.username];
-    [cell.picksLabel setText:[NSString stringWithFormat:@"%d Picks", account.winners + account.losers]];
     [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
     [cell.winnersLabel setTextColor:[UIColor greenColor]];
     [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
