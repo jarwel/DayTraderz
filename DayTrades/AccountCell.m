@@ -11,14 +11,18 @@
 @implementation AccountCell
 
 - (void)awakeFromNib {
-    [self.nameLabel setText:nil];
-    [self.winnersLabel setText:nil];
-    [self.losersLabel setText:nil];
-    [self.valueLabel setText:nil];
+    [self clearFields];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)clearFields {
+    [self.nameLabel setText:nil];
+    [self.winnersLabel setText:nil];
+    [self.losersLabel setText:nil];
+    [self.valueLabel setText:nil];
 }
 
 @end

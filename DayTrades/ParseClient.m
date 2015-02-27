@@ -25,7 +25,7 @@
     [query getFirstObjectInBackgroundWithBlock:callback];
 }
 
-- (void)fetchPicksForAccount:(Account *)account withLimit:(int)limit withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchPicksForAccount:(Account *)account withLimit:(int)limit withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Pick query];
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
@@ -35,7 +35,7 @@
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)fetchAccountsSortedByColumn:(NSString *)column withLimit:(int)limit withSkip:(int)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
+- (void)fetchAccountsSortedByColumn:(NSString *)column withLimit:(int)limit withSkip:(long)skip callback:(void(^)(NSArray *objects, NSError *error))callback {
     PFQuery *query = [Account query];
     [query includeKey:@"user"];
     [query orderByDescending:column];
