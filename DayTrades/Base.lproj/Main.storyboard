@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Account View Controller-->
+        <!--Home-->
         <scene sceneID="hFY-rG-yjo">
             <objects>
                 <viewController id="PqU-rN-jni" customClass="AccountViewController" sceneMemberID="viewController">
@@ -67,6 +67,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8w7-cL-dba" id="1JO-CT-iSg">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -98,7 +99,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
                                 <rect key="frame" x="522" y="203" width="70" height="21"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="49T-N5-gXV"/>
                                     <constraint firstAttribute="height" constant="21" id="xuG-ru-H7f"/>
@@ -154,13 +155,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
-                        <barButtonItem key="leftBarButtonItem" title="Leaders" id="QTk-8j-Mev">
+                    <navigationItem key="navigationItem" title="Home" id="3Ag-VT-6Bi">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="leaders.png" id="QTk-8j-Mev">
+                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="UFK-IR-wzX" kind="show" identifier="ShowLeadersSegue" id="84v-kN-OAS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="i74-N8-tjR">
+                        <barButtonItem key="rightBarButtonItem" image="logout.png" id="i74-N8-tjR">
+                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="gJw-i2-gcb"/>
                             </connections>
@@ -447,4 +450,8 @@
             <point key="canvasLocation" x="-2575" y="-1698"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="leaders.png" width="24" height="24"/>
+        <image name="logout.png" width="24" height="24"/>
+    </resources>
 </document>

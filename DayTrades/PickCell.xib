@@ -129,6 +129,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="buyLabel" destination="6oS-9Y-Ssc" id="l7y-cf-N8O"/>
                 <outlet property="changeLabel" destination="TBV-CJ-ife" id="VoB-fP-79g"/>

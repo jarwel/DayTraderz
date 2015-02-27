@@ -50,6 +50,8 @@
 		CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA91A89923B00727CE1 /* PriceFormatter.m */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
+		CAD061FD1AA138BB0000C613 /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CAD061FB1AA138BB0000C613 /* leaders.png */; };
+		CAD062001AA13A760000C613 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAD061FF1AA13A760000C613 /* logout.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
+		CAD061FB1AA138BB0000C613 /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
+		CAD061FF1AA13A760000C613 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,7 @@
 		CA492B741A606CDB00ED13B3 /* DayTrades */ = {
 			isa = PBXGroup;
 			children = (
+				CAD061FA1AA136DC0000C613 /* Images */,
 				CA492BD11A60884200ED13B3 /* Clients */,
 				CA492BA41A606F6500ED13B3 /* Models */,
 				CA492BA11A606F0000ED13B3 /* Views */,
@@ -337,6 +342,15 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		CAD061FA1AA136DC0000C613 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CAD061FF1AA13A760000C613 /* logout.png */,
+				CAD061FB1AA138BB0000C613 /* leaders.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +435,8 @@
 				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
+				CAD062001AA13A760000C613 /* logout.png in Resources */,
+				CAD061FD1AA138BB0000C613 /* leaders.png in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

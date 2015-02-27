@@ -46,6 +46,10 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor grayColor]];
+    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    
     [self.nameLabel setText:nil];
     [self.valueLabel setText:nil];
     [self.picksLabel setText:nil];
@@ -139,6 +143,14 @@ static NSString * const cellIdentifier = @"PickCell";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView* headerFooterView = (UITableViewHeaderFooterView*) view;
+        [headerFooterView.contentView setBackgroundColor:[UIColor darkGrayColor]];
+        [headerFooterView.textLabel setTextColor:[UIColor whiteColor]];
+    }
+}
+
 - (IBAction)onLogOutButtonTouched:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:LogOutNotification object:nil];
 }
@@ -148,7 +160,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [self refreshViews];
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
         NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
         if (self.nextPick && [nextTradeDate compare:self.nextPick.tradeDate] == NSOrderedSame) {
