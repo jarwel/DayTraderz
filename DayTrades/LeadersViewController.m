@@ -30,6 +30,11 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.tableView setBackgroundColor:[UIColor blackColor]];
+    
     [self.processedDate setText:nil];
     self.accounts = [[NSMutableArray alloc] init];
     
@@ -40,6 +45,16 @@ static NSString * const cellIdentifier = @"AccountCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchAccounts];
+}
+
+- (UIImage *)backgroundImage {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]]; //your input image
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

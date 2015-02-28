@@ -31,12 +31,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     NSString *details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@. Your choice can be changed until 9:00 AM EST on the date of trade.";
     
     [self setTitle:[[DateHelper instance] dayFormatForDate:self.tradeDate]];
     self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]];
     [self refreshViews];
+}
+
+- (UIImage *)backgroundImage {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-3.jpg"]]; //your input image
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

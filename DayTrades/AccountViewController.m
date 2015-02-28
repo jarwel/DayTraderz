@@ -46,9 +46,10 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor grayColor]];
-    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.tableView setBackgroundColor:[UIColor blackColor]];
     
     [self.nameLabel setText:nil];
     [self.valueLabel setText:nil];
@@ -83,6 +84,16 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.quoteTimer invalidate];
+}
+
+- (UIImage *)backgroundImage {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]]; //your input image
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
