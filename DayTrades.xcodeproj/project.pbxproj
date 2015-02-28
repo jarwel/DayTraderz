@@ -53,8 +53,8 @@
 		CAD062001AA13A760000C613 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAD061FF1AA13A760000C613 /* logout.png */; };
 		CAFCA16D1AA269DF0076B79E /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA16C1AA269DF0076B79E /* background-1.jpg */; };
 		CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA16E1AA270620076B79E /* background-2.jpg */; };
-		CAFCA1731AA271D60076B79E /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA1721AA271D60076B79E /* background-3.jpg */; };
 		CAFCA1791AA2814A0076B79E /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA1781AA2814A0076B79E /* leaders.png */; };
+		CAFCA17D1AA2826A0076B79E /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA17C1AA2826A0076B79E /* background-3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,8 +138,8 @@
 		CAD061FF1AA13A760000C613 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		CAFCA16C1AA269DF0076B79E /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
 		CAFCA16E1AA270620076B79E /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
-		CAFCA1721AA271D60076B79E /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
 		CAFCA1781AA2814A0076B79E /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
+		CAFCA17C1AA2826A0076B79E /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,7 +353,7 @@
 			children = (
 				CAFCA16C1AA269DF0076B79E /* background-1.jpg */,
 				CAFCA16E1AA270620076B79E /* background-2.jpg */,
-				CAFCA1721AA271D60076B79E /* background-3.jpg */,
+				CAFCA17C1AA2826A0076B79E /* background-3.jpg */,
 				CAD061FF1AA13A760000C613 /* logout.png */,
 				CAFCA1781AA2814A0076B79E /* leaders.png */,
 			);
@@ -443,13 +443,13 @@
 				CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */,
 				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
+				CAFCA17D1AA2826A0076B79E /* background-3.jpg in Resources */,
 				CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */,
 				CAFCA16D1AA269DF0076B79E /* background-1.jpg in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 				CAD062001AA13A760000C613 /* logout.png in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
 				CAFCA1791AA2814A0076B79E /* leaders.png in Resources */,
-				CAFCA1731AA271D60076B79E /* background-3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
