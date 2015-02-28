@@ -32,14 +32,16 @@ static NSString * const cellIdentifier = @"AccountCell";
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.segmentedControl setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
+    [self.segmentedControl setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
-    [self.tableView setBackgroundColor:[UIColor blackColor]];
     
     [self.processedDate setText:nil];
     self.accounts = [[NSMutableArray alloc] init];
     
-    UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
+    UINib *accountCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self.tableView registerNib:accountCell forCellReuseIdentifier:cellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,7 +51,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (UIImage *)backgroundImage {
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]]; //your input image
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-3.jpg"]];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
     [filter setValue:inputImage forKey:@"inputImage"];
     [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
@@ -59,6 +61,10 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.accounts.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Leaders";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,6 +79,19 @@ static NSString * const cellIdentifier = @"AccountCell";
     [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView* headerFooterView = (UITableViewHeaderFooterView*) view;
+        [headerFooterView.contentView setBackgroundColor:[UIColor darkGrayColor]];
+        [headerFooterView.textLabel setTextColor:[UIColor whiteColor]];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
+}
+
 
 - (IBAction)onValueChanged:(id)sender {
     [self fetchAccounts];

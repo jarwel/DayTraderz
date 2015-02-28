@@ -11,8 +11,8 @@
 @implementation PickCell
 
 - (void)awakeFromNib {
-    self.layoutMargins = UIEdgeInsetsZero;
-    self.preservesSuperviewLayoutMargins = NO;
+    [self setLayoutMargins:UIEdgeInsetsZero];
+    [self setPreservesSuperviewLayoutMargins:NO];
     [self clearFields];
 }
 

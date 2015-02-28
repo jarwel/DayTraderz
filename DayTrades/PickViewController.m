@@ -33,19 +33,19 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     NSString *details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@. Your choice can be changed until 9:00 AM EST on the date of trade.";
     
-    [self setTitle:[[DateHelper instance] dayFormatForDate:self.tradeDate]];
-    self.detailsLabel.text = [NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]];
+    [self.detailsLabel setText:[NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]]];
     [self refreshViews];
 }
 
 - (UIImage *)backgroundImage {
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-3.jpg"]]; //your input image
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]]; //your input image
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
     [filter setValue:inputImage forKey:@"inputImage"];
     [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
@@ -82,7 +82,7 @@
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
         [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
         [self.confirmButton setEnabled:YES];
-        [self.confirmButton setBackgroundColor:self.confirmButton.tintColor];
+        [self.confirmButton setHidden:NO];
     }
     else {
         [self.symbolLabel setText:nil];
@@ -90,7 +90,7 @@
         [self.priceLabel setText:nil];
         [self.changeLabel setText:nil];
         [self.confirmButton setEnabled:NO];
-        [self.confirmButton setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+        [self.confirmButton setHidden:YES];
     }
 }
 

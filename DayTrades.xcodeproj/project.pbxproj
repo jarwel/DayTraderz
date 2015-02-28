@@ -52,9 +52,9 @@
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
 		CAD061FD1AA138BB0000C613 /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CAD061FB1AA138BB0000C613 /* leaders.png */; };
 		CAD062001AA13A760000C613 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAD061FF1AA13A760000C613 /* logout.png */; };
-		CAD062021AA13D390000C613 /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAD062011AA13D390000C613 /* background-1.jpg */; };
-		CAD062061AA147EE0000C613 /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAD062051AA147EE0000C613 /* background-2.jpg */; };
-		CAD062081AA14D380000C613 /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAD062071AA14D380000C613 /* background-3.jpg */; };
+		CAFCA16D1AA269DF0076B79E /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA16C1AA269DF0076B79E /* background-1.jpg */; };
+		CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA16E1AA270620076B79E /* background-2.jpg */; };
+		CAFCA1731AA271D60076B79E /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA1721AA271D60076B79E /* background-3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,9 +137,9 @@
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
 		CAD061FB1AA138BB0000C613 /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
 		CAD061FF1AA13A760000C613 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
-		CAD062011AA13D390000C613 /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
-		CAD062051AA147EE0000C613 /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
-		CAD062071AA14D380000C613 /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
+		CAFCA16C1AA269DF0076B79E /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
+		CAFCA16E1AA270620076B79E /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
+		CAFCA1721AA271D60076B79E /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,9 +351,9 @@
 		CAD061FA1AA136DC0000C613 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				CAD062071AA14D380000C613 /* background-3.jpg */,
-				CAD062051AA147EE0000C613 /* background-2.jpg */,
-				CAD062011AA13D390000C613 /* background-1.jpg */,
+				CAFCA16C1AA269DF0076B79E /* background-1.jpg */,
+				CAFCA16E1AA270620076B79E /* background-2.jpg */,
+				CAFCA1721AA271D60076B79E /* background-3.jpg */,
 				CAD061FF1AA13A760000C613 /* logout.png */,
 				CAD061FB1AA138BB0000C613 /* leaders.png */,
 			);
@@ -443,13 +443,13 @@
 				CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */,
 				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
+				CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */,
+				CAFCA16D1AA269DF0076B79E /* background-1.jpg in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 				CAD062001AA13A760000C613 /* logout.png in Resources */,
-				CAD062081AA14D380000C613 /* background-3.jpg in Resources */,
-				CAD062061AA147EE0000C613 /* background-2.jpg in Resources */,
-				CAD062021AA13D390000C613 /* background-1.jpg in Resources */,
 				CAD061FD1AA138BB0000C613 /* leaders.png in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
+				CAFCA1731AA271D60076B79E /* background-3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

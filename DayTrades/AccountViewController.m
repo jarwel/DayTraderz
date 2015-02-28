@@ -48,8 +48,8 @@ static NSString * const cellIdentifier = @"PickCell";
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
-    [self.tableView setBackgroundColor:[UIColor blackColor]];
     
     [self.nameLabel setText:nil];
     [self.valueLabel setText:nil];
@@ -60,8 +60,8 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.nextPickButton setHidden:YES];
     self.picks = [[NSMutableArray alloc] init];
     
-    UINib *userCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    [self.tableView registerNib:userCell forCellReuseIdentifier:cellIdentifier];
+    UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,7 +88,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (UIImage *)backgroundImage {
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]]; //your input image
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
     [filter setValue:inputImage forKey:@"inputImage"];
     [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
@@ -160,6 +160,10 @@ static NSString * const cellIdentifier = @"PickCell";
         [headerFooterView.contentView setBackgroundColor:[UIColor darkGrayColor]];
         [headerFooterView.textLabel setTextColor:[UIColor whiteColor]];
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
 }
 
 - (IBAction)onLogOutButtonTouched:(id)sender {
