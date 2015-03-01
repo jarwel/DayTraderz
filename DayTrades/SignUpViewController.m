@@ -16,15 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
+    [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.signUpView.dismissButton setTintColor:[UIColor whiteColor]];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"New Account"];
-    [titleLabel setTextColor:[UIColor lightGrayColor]];
+    [titleLabel setTextColor:[UIColor whiteColor]];
     [titleLabel setFont:[UIFont systemFontOfSize:40]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.signUpView setLogo:titleLabel];
+    
+    
+    UIColor *fieldBackgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+    [self.signUpView.usernameField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.usernameField setTextColor:[UIColor whiteColor]];
+    [self.signUpView.passwordField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
+    [self.signUpView.emailField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,6 +53,16 @@
         return !([textField.text length] >= 15 && [string length] > range.length);
     }
     return YES;
+}
+
+- (UIImage *)backgroundImage {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 - (void)textWillChange:(id<UITextInput>)textInput {}
