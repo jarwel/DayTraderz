@@ -163,7 +163,7 @@
                                 <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="I5Z-Qw-OSt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="leaders.png" id="QTk-8j-Mev">
+                        <barButtonItem key="rightBarButtonItem" image="leaders.png" id="QTk-8j-Mev">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="UFK-IR-wzX" kind="show" identifier="ShowLeadersSegue" id="84v-kN-OAS"/>

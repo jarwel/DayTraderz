@@ -18,7 +18,7 @@
     [super viewDidLoad];
     [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
     [self.logInView.dismissButton setHidden:YES];
-    
+
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"DayTrades"];
     [titleLabel setTextColor:[UIColor whiteColor]];
@@ -50,8 +50,7 @@
     CIContext *context = [CIContext contextWithOptions:nil];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
     [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
-    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    [filter setValue:[NSNumber numberWithFloat:1.1] forKey:@"inputContrast"];
     return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
