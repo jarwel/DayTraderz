@@ -32,6 +32,8 @@
     [self.logInView.usernameField setTextColor:[UIColor whiteColor]];
     [self.logInView.passwordField setBackgroundColor:fieldBackgroundColor];
     [self.logInView.passwordField setTextColor:[UIColor whiteColor]];
+    
+    [self.logInView.passwordForgottenButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,10 +46,10 @@
 }
 
 - (UIImage *)backgroundImage {
+    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-4.jpg"]];
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:image forKey:@"inputImage"];
     [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
     [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
     return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];

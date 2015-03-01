@@ -43,16 +43,6 @@
     [self refreshViews];
 }
 
-- (UIImage *)backgroundImage {
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]]; //your input image
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:inputImage forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
-    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
-}
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (![searchText hasPrefix:@"^"]) {
         NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
@@ -114,6 +104,16 @@
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (UIImage *)backgroundImage {
+    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]];
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:image forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end

@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
-    [self.signUpView.dismissButton setTintColor:[UIColor whiteColor]];
+    [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    [titleLabel setText:@"New Account"];
+    [titleLabel setText:@"Join Us"];
     [titleLabel setTextColor:[UIColor whiteColor]];
     [titleLabel setFont:[UIFont systemFontOfSize:40]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -56,10 +56,10 @@
 }
 
 - (UIImage *)backgroundImage {
+    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-4.jpg"]];
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:inputImage forKey:@"inputImage"];
+    [filter setValue:image forKey:@"inputImage"];
     [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
     [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
     return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];

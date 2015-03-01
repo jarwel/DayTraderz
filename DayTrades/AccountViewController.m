@@ -86,16 +86,6 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.quoteTimer invalidate];
 }
 
-- (UIImage *)backgroundImage {
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:inputImage forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
-    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -292,6 +282,16 @@ static NSString * const cellIdentifier = @"PickCell";
             }
         }];
     }];
+}
+
+- (UIImage *)backgroundImage {
+    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:image forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:0.01] forKey:@"inputBrightness"];
+    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
+    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end
