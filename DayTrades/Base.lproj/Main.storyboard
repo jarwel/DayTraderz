@@ -342,7 +342,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-4n-tNW">
-                                        <rect key="frame" x="16" y="71" width="568" height="123"/>
+                                        <rect key="frame" x="16" y="71" width="568" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="6q0-2B-aNN"/>
                                             <constraint firstAttribute="height" constant="120" id="dem-Cz-84R"/>
@@ -378,7 +378,7 @@
                                     <constraint firstItem="tLp-zp-EVf" firstAttribute="leading" secondItem="8Zv-0v-FUK" secondAttribute="trailing" id="lWp-jy-niV"/>
                                     <constraint firstItem="tLp-zp-EVf" firstAttribute="leading" secondItem="8Zv-0v-FUK" secondAttribute="trailing" id="nBv-JA-tEX"/>
                                     <constraint firstItem="8Zv-0v-FUK" firstAttribute="leading" secondItem="z9k-Dv-NFM" secondAttribute="leading" constant="16" id="olD-JW-yJn"/>
-                                    <constraint firstItem="SKJ-a0-Mfp" firstAttribute="top" secondItem="s4m-4n-tNW" secondAttribute="bottom" id="tLt-hz-EFJ"/>
+                                    <constraint firstItem="SKJ-a0-Mfp" firstAttribute="top" secondItem="s4m-4n-tNW" secondAttribute="bottom" constant="10" id="tLt-hz-EFJ"/>
                                     <constraint firstAttribute="trailing" secondItem="s4m-4n-tNW" secondAttribute="trailing" constant="16" id="ucF-jH-0Un"/>
                                     <constraint firstItem="b7l-lh-o81" firstAttribute="leading" secondItem="z6s-fD-EGi" secondAttribute="trailing" id="v7p-uq-bM6"/>
                                     <constraint firstItem="SKJ-a0-Mfp" firstAttribute="leading" secondItem="z9k-Dv-NFM" secondAttribute="leading" id="wju-Iz-jZw"/>
