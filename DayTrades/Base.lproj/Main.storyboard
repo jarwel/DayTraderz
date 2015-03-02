@@ -198,11 +198,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-un-ige">
-                                <rect key="frame" x="16" y="104" width="568" height="29"/>
+                                <rect key="frame" x="8" y="89" width="584" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="84x-Ii-nlR"/>
-                                </constraints>
                                 <segments>
                                     <segment title="Value"/>
                                     <segment title="Winners"/>
@@ -214,7 +211,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-fv-OhP">
-                                <rect key="frame" x="0.0" y="162" width="600" height="438"/>
+                                <rect key="frame" x="0.0" y="142" width="600" height="458"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -223,6 +220,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLA-Bh-7t9" id="4Cd-cG-2as">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -233,14 +231,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="40" id="25p-yb-Rem"/>
-                            <constraint firstItem="JDN-fv-OhP" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-16" id="3wy-7q-PJZ"/>
-                            <constraint firstItem="VYj-un-ige" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" id="UW6-vM-tiy"/>
-                            <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="30" id="XUH-2m-Mwx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="aNL-DM-iUk"/>
-                            <constraint firstItem="d94-zB-0yL" firstAttribute="top" secondItem="JDN-fv-OhP" secondAttribute="bottom" id="cHX-tX-WRX"/>
-                            <constraint firstItem="VYj-un-ige" firstAttribute="trailing" secondItem="jPX-6J-z6g" secondAttribute="trailingMargin" id="re4-mM-iA7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VYj-un-ige" secondAttribute="trailing" constant="-8" id="12R-vA-FeO"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="25" id="5sW-Sq-nrk"/>
+                            <constraint firstItem="JDN-fv-OhP" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-16" id="CfX-Vm-Ve5"/>
+                            <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="25" id="Nzc-0i-ASg"/>
+                            <constraint firstItem="d94-zB-0yL" firstAttribute="top" secondItem="JDN-fv-OhP" secondAttribute="bottom" id="QNT-GC-a4O"/>
+                            <constraint firstItem="VYj-un-ige" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-8" id="kWk-Ft-UeW"/>
                             <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="100" id="tiI-th-S9v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="uDL-bw-zAR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
