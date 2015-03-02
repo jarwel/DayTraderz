@@ -52,11 +52,11 @@
 		CA9908131AA28A2100804200 /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908121AA28A2100804200 /* leaders.png */; };
 		CA9908151AA28AD700804200 /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA9908141AA28AD700804200 /* background-4.jpg */; };
 		CA9908201AA2C45500804200 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CA99081F1AA2C45500804200 /* close.png */; };
+		CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAAB61A01AA40C35002D739B /* background-2.jpg */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
 		CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584401AA3E4FA002422DD /* background-1.jpg */; };
 		CAF584471AA3EB47002422DD /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584461AA3EB47002422DD /* background-3.jpg */; };
-		CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAFCA16E1AA270620076B79E /* background-2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,13 +137,13 @@
 		CA9908121AA28A2100804200 /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
 		CA9908141AA28AD700804200 /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		CA99081F1AA2C45500804200 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		CAAB61A01AA40C35002D739B /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
 		CAAE46B71A81747E00B05BAB /* ParseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseClient.h; sourceTree = "<group>"; };
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
 		CAF584401AA3E4FA002422DD /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
 		CAF584461AA3EB47002422DD /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
-		CAFCA16E1AA270620076B79E /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,7 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				CAF584401AA3E4FA002422DD /* background-1.jpg */,
-				CAFCA16E1AA270620076B79E /* background-2.jpg */,
+				CAAB61A01AA40C35002D739B /* background-2.jpg */,
 				CAF584461AA3EB47002422DD /* background-3.jpg */,
 				CA9908141AA28AD700804200 /* background-4.jpg */,
 				CA9908101AA289AD00804200 /* logout.png */,
@@ -452,7 +452,7 @@
 				CAF584471AA3EB47002422DD /* background-3.jpg in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA9908201AA2C45500804200 /* close.png in Resources */,
-				CAFCA16F1AA270620076B79E /* background-2.jpg in Resources */,
+				CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */,
 				CA9908151AA28AD700804200 /* background-4.jpg in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 				CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */,
