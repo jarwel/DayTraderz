@@ -17,6 +17,7 @@
 #import "PickCell.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
+#import "UIColor+TableView.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 
@@ -130,10 +131,10 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
                 
-                if (self.quote.price != 0 && self.quote.price != self.lastPrice) {
+                if (self.lastPrice != 0 && self.lastPrice != self.quote.price) {
                     UIColor *color = [PriceFormatter colorForChange:self.quote.price - self.lastPrice];
-                    [self flashTextColor:color forLabel:cell.sellLabel];
-                    [self flashTextColor:color forLabel:cell.valueLabel];
+                    [self flashTextColor:color onLabel:cell.sellLabel];
+                    [self flashTextColor:color onLabel:cell.valueLabel];
                 }
                 self.lastPrice = self.quote.price;
             }
@@ -156,7 +157,6 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.sellLabel setTextColor:[UIColor whiteColor]];
         [cell.valueLabel setTextColor:[UIColor whiteColor]];
     }
-    
     return cell;
 }
 
@@ -169,14 +169,7 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height;
-    if (self.tableView.contentOffset.y >= y) {
-        [self.tableView setContentOffset:CGPointMake(0, y)];
-    }
+    [cell setBackgroundColor:[UIColor tableViewBackgroundColor]];
 }
 
 - (IBAction)onLogOutButtonTouched:(id)sender {
@@ -292,7 +285,7 @@ static NSString * const cellIdentifier = @"PickCell";
     }
 }
 
-- (void)flashTextColor:(UIColor *)color forLabel:(UILabel *)label {
+- (void)flashTextColor:(UIColor *)color onLabel:(UILabel *)label {
     [UIView transitionWithView: label duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         label.textColor = color;
     } completion:^(BOOL finished) {
@@ -313,6 +306,8 @@ static NSString * const cellIdentifier = @"PickCell";
             }
         }];
     }];
+    [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor tableViewBackgroundColor]];
 }
 
 @end

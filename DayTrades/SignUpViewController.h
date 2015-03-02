@@ -7,6 +7,7 @@
 //
 
 #import <ParseUI/ParseUI.h>
+
 @interface SignUpViewController : PFSignUpViewController <UITextInputDelegate>
 
 @end

@@ -12,6 +12,7 @@
 #import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
+#import "UIColor+TableView.h"
 
 @interface PickViewController ()
 
@@ -36,7 +37,7 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-2.jpg"]]];
-    [self.securityView setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
+    [self.securityView setBackgroundColor:[UIColor tableViewBackgroundColor]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     [self refreshViews];

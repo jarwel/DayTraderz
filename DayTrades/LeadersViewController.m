@@ -13,6 +13,7 @@
 #import "ParseClient.h"
 #import "PriceFormatter.h"
 #import "DateHelper.h"
+#import "UIColor+TableView.h"
 
 @interface LeadersViewController ()
 
@@ -33,7 +34,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.segmentedControl setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
+    [self.segmentedControl setBackgroundColor:[UIColor tableViewBackgroundColor]];
     [self.segmentedControl setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-3.jpg"]]];
     
@@ -79,14 +80,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height;
-    if (self.tableView.contentOffset.y >= y) {
-        [self.tableView setContentOffset:CGPointMake(0, y)];
-    }
+    [cell setBackgroundColor:[UIColor tableViewBackgroundColor]];
 }
 
 - (IBAction)onValueChanged:(id)sender {
@@ -133,6 +127,8 @@ static NSString * const cellIdentifier = @"AccountCell";
             [self.tableView.infiniteScrollingView stopAnimating];
         }];
     }];
+    [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor tableViewBackgroundColor]];
 }
 
 @end
