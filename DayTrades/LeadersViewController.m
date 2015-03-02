@@ -13,7 +13,7 @@
 #import "ParseClient.h"
 #import "PriceFormatter.h"
 #import "DateHelper.h"
-#import "UIColor+TableView.h"
+#import "UIColor+Application.h"
 
 @interface LeadersViewController ()
 
@@ -34,7 +34,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.segmentedControl setBackgroundColor:[UIColor tableViewBackgroundColor]];
+    [self.segmentedControl setBackgroundColor:[UIColor translucentColor]];
     [self.segmentedControl setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-3.jpg"]]];
     
@@ -80,7 +80,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setBackgroundColor:[UIColor tableViewBackgroundColor]];
+    [cell setBackgroundColor:[UIColor translucentColor]];
 }
 
 - (IBAction)onValueChanged:(id)sender {
@@ -128,7 +128,7 @@ static NSString * const cellIdentifier = @"AccountCell";
         }];
     }];
     [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
-    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor tableViewBackgroundColor]];
+    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor translucentColor]];
 }
 
 @end

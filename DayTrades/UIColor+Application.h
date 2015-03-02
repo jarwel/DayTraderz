@@ -1,5 +1,5 @@
 //
-//  UIColor.h
+//  UIColor+Application.h
 //  DayTrades
 //
 //  Created by Jason Wells on 3/2/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (TableView)
+@interface UIColor (Application)
 
-+ (UIColor *)tableViewBackgroundColor;
++ (UIColor *)translucentColor;
 
 @end

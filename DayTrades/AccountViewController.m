@@ -17,7 +17,7 @@
 #import "PickCell.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
-#import "UIColor+TableView.h"
+#import "UIColor+Application.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 
@@ -169,7 +169,7 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setBackgroundColor:[UIColor tableViewBackgroundColor]];
+    [cell setBackgroundColor:[UIColor translucentColor]];
 }
 
 - (IBAction)onLogOutButtonTouched:(id)sender {
@@ -307,7 +307,7 @@ static NSString * const cellIdentifier = @"PickCell";
         }];
     }];
     [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
-    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor tableViewBackgroundColor]];
+    [self.tableView.infiniteScrollingView setBackgroundColor:[UIColor translucentColor]];
 }
 
 @end

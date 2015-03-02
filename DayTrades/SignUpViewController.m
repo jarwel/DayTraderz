@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "UIColor+Application.h"
 
 @interface SignUpViewController ()
 
@@ -28,12 +29,11 @@
     [self.signUpView setLogo:titleLabel];
     
     
-    UIColor *fieldBackgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
-    [self.signUpView.usernameField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.usernameField setBackgroundColor:[UIColor translucentColor]];
     [self.signUpView.usernameField setTextColor:[UIColor whiteColor]];
-    [self.signUpView.passwordField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.passwordField setBackgroundColor:[UIColor translucentColor]];
     [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
-    [self.signUpView.emailField setBackgroundColor:fieldBackgroundColor];
+    [self.signUpView.emailField setBackgroundColor:[UIColor translucentColor]];
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
 
 }
