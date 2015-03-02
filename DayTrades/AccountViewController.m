@@ -124,11 +124,12 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
                 
-                if (self.quote.price != self.lastPrice) {
+                if (self.quote.price != 0 && self.quote.price != self.lastPrice) {
                     UIColor *color = [PriceFormatter colorForChange:self.quote.price - self.lastPrice];
                     [self flashTextColor:color forLabel:cell.sellLabel];
                     [self flashTextColor:color forLabel:cell.valueLabel];
                 }
+                self.lastPrice = self.quote.price;
             }
         }
         else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
@@ -147,6 +148,7 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
         [cell.changeLabel setTextColor:[PriceFormatter colorForChange:pick.change]];
         [cell.sellLabel setTextColor:[UIColor whiteColor]];
+        [cell.valueLabel setTextColor:[UIColor whiteColor]];
     }
     
     return cell;
@@ -241,11 +243,7 @@ static NSString * const cellIdentifier = @"PickCell";
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];
                 if (quotes.count == 1) {
-                    self.lastPrice = self.quote.price;
                     self.quote = [quotes firstObject];
-                    if (self.lastPrice  == 0) {
-                        self.lastPrice = self.quote.price;
-                    }
                     [self.tableView reloadData];
                 }
             } else {
