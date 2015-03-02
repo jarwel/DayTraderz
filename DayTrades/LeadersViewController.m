@@ -82,6 +82,12 @@ static NSString * const cellIdentifier = @"AccountCell";
     [cell setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height;
+    if (self.tableView.contentOffset.y >= y) {
+        [self.tableView setContentOffset:CGPointMake(0, y)];
+    }
+}
 
 - (IBAction)onValueChanged:(id)sender {
     [self fetchAccounts];
