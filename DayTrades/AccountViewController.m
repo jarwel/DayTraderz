@@ -35,6 +35,7 @@
 @property (strong, nonatomic) Pick *currentPick;
 @property (strong, nonatomic) Quote *quote;
 @property (strong, nonatomic) NSTimer *quoteTimer;
+@property (assign, nonatomic) float lastPrice;
 
 - (void)fetchQuote;
 
@@ -122,6 +123,12 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
+                
+                if (self.quote.price != self.lastPrice) {
+                    UIColor *color = [PriceFormatter colorForChange:self.quote.price - self.lastPrice];
+                    [self flashTextColor:color forLabel:cell.sellLabel];
+                    [self flashTextColor:color forLabel:cell.valueLabel];
+                }
             }
         }
         else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
@@ -139,6 +146,7 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
         [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
         [cell.changeLabel setTextColor:[PriceFormatter colorForChange:pick.change]];
+        [cell.sellLabel setTextColor:[UIColor whiteColor]];
     }
     
     return cell;
@@ -233,8 +241,12 @@ static NSString * const cellIdentifier = @"PickCell";
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];
                 if (quotes.count == 1) {
+                    self.lastPrice = self.quote.price;
                     self.quote = [quotes firstObject];
-                    [self refreshViews];
+                    if (self.lastPrice  == 0) {
+                        self.lastPrice = self.quote.price;
+                    }
+                    [self.tableView reloadData];
                 }
             } else {
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -274,6 +286,14 @@ static NSString * const cellIdentifier = @"PickCell";
             [self.picks addObject:pick];
         }
     }
+}
+
+- (void)flashTextColor:(UIColor *)color forLabel:(UILabel *)label {
+    [UIView transitionWithView: label duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        label.textColor = color;
+    } completion:^(BOOL finished) {
+        label.textColor = [UIColor whiteColor];
+    }];
 }
 
 - (void)enableInfiniteScroll {
