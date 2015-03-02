@@ -70,7 +70,7 @@
 
 - (NSString *)fullFormatForDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E, MMM d, yyyy"];
+    [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
     return [formatter stringFromDate:date];
 }
 

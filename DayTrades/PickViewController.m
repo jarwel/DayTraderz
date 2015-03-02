@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) NSDate *tradeDate;
 @property (strong, nonatomic) Quote *quote;
+@property (strong, nonatomic) NSString *details;
 
 @end
 
@@ -37,9 +38,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
-    NSString *details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@. Your choice can be changed until 9:00 AM EST on the date of trade.";
-    
-    [self.detailsLabel setText:[NSString stringWithFormat:details, [[DateHelper instance] fullFormatForDate:self.tradeDate]]];
+    self.details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.";
     [self refreshViews];
 }
 
@@ -71,7 +70,7 @@
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
         [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
-        [self.confirmButton setEnabled:YES];
+        [self.detailsLabel setText:[NSString stringWithFormat:self.details, [[DateHelper instance] fullFormatForDate:self.tradeDate]]];
         [self.confirmButton setHidden:NO];
     }
     else {
@@ -79,7 +78,7 @@
         [self.nameLabel setText:nil];
         [self.priceLabel setText:nil];
         [self.changeLabel setText:nil];
-        [self.confirmButton setEnabled:NO];
+        [self.detailsLabel setText:nil];
         [self.confirmButton setHidden:YES];
     }
 }
