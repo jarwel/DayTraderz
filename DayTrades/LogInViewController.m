@@ -22,7 +22,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"DayTrades"];
     [titleLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setFont:[UIFont systemFontOfSize:40]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:40]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.logInView setLogo:titleLabel];
