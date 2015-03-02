@@ -37,6 +37,8 @@
 @property (strong, nonatomic) NSTimer *quoteTimer;
 @property (assign, nonatomic) float lastPrice;
 
+- (void)applicationBecameActive;
+- (void)applicationBecameInactive;
 - (void)fetchQuote;
 
 @end
@@ -63,10 +65,16 @@ static NSString * const cellIdentifier = @"PickCell";
     
     UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecameActive) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecameInactive) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [self applicationBecameActive];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)applicationBecameActive {
+    NSLog(@"application became active");
+    
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
         if (!error) {
             self.account = (Account *)object;
@@ -75,15 +83,12 @@ static NSString * const cellIdentifier = @"PickCell";
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+    [self.quoteTimer invalidate];
     self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fetchQuote) userInfo:nil repeats:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)applicationBecameInactive {
+    NSLog(@"application became inactive");
     [self.quoteTimer invalidate];
 }
 
