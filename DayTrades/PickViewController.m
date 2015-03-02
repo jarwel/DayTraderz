@@ -15,6 +15,7 @@
 
 @interface PickViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *securityView;
 @property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -36,6 +37,7 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-2.jpg"]]];
+    [self.securityView setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     self.details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.";
@@ -71,15 +73,10 @@
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
         [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
         [self.detailsLabel setText:[NSString stringWithFormat:self.details, [[DateHelper instance] fullFormatForDate:self.tradeDate]]];
-        [self.confirmButton setHidden:NO];
+        [self.securityView setHidden:NO];
     }
     else {
-        [self.symbolLabel setText:nil];
-        [self.nameLabel setText:nil];
-        [self.priceLabel setText:nil];
-        [self.changeLabel setText:nil];
-        [self.detailsLabel setText:nil];
-        [self.confirmButton setHidden:YES];
+        [self.securityView setHidden:YES];
     }
 }
 
