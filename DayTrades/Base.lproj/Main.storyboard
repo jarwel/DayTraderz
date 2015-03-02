@@ -342,7 +342,7 @@
                                     <constraint firstAttribute="height" constant="56" id="zYZ-i6-Fb1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Confirm">
+                                <state key="normal" title="Place Trade">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

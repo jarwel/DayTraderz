@@ -35,7 +35,7 @@
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-2.jpg"]]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
     self.details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.";
@@ -103,15 +103,6 @@
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
-}
-
-- (UIImage *)backgroundImage {
-    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-2.jpg"]];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1.05] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end
