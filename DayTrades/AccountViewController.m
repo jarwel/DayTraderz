@@ -49,7 +49,7 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-1.jpg"]]];
     
     [self.nameLabel setText:nil];
     [self.valueLabel setText:nil];
@@ -282,15 +282,6 @@ static NSString * const cellIdentifier = @"PickCell";
             }
         }];
     }];
-}
-
-- (UIImage *)backgroundImage {
-    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-1.jpg"]];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end

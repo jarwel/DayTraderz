@@ -60,7 +60,7 @@
     CIContext *context = [CIContext contextWithOptions:nil];
     CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
     [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1.5] forKey:@"inputContrast"];
+    [filter setValue:[NSNumber numberWithFloat:1.3] forKey:@"inputContrast"];
     return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 

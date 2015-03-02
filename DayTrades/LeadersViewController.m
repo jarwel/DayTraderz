@@ -35,7 +35,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.segmentedControl setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
     [self.segmentedControl setTintColor:[UIColor whiteColor]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-3.jpg"]]];
     
     [self.processedDate setText:nil];
     self.accounts = [[NSMutableArray alloc] init];
@@ -127,15 +127,6 @@ static NSString * const cellIdentifier = @"AccountCell";
             [self.tableView.infiniteScrollingView stopAnimating];
         }];
     }];
-}
-
-- (UIImage *)backgroundImage {
-    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-3.jpg"]];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end
