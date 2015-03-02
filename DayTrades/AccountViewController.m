@@ -89,6 +89,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)applicationBecameInactive {
     NSLog(@"application became inactive");
+    
     [self.quoteTimer invalidate];
 }
 
