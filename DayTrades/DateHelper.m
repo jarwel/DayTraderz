@@ -36,8 +36,6 @@
 
 - (NSDate *)nextTradeDate {
     NSDate *date = [NSDate date];
-    NSInteger seconds = [self.calendar.timeZone secondsFromGMTForDate: date];
-    date = [NSDate dateWithTimeInterval: seconds sinceDate: date];
 
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
     if (hour >= 9 || ![self isMarketOpenOnDate:date]) {
@@ -52,8 +50,6 @@
 
 - (NSDate *)lastTradeDate {
     NSDate *date = [NSDate date];
-    NSInteger seconds = [self.calendar.timeZone secondsFromGMTForDate: date];
-    date = [NSDate dateWithTimeInterval: seconds sinceDate: date];
 
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
     if (hour < 9) {
