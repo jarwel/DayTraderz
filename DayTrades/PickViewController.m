@@ -25,7 +25,6 @@
 
 @property (strong, nonatomic) NSDate *tradeDate;
 @property (strong, nonatomic) Quote *quote;
-@property (strong, nonatomic) NSString *details;
 
 @end
 
@@ -40,7 +39,6 @@
     [self.securityView setBackgroundColor:[[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
-    self.details = @"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.";
     [self refreshViews];
 }
 
@@ -67,12 +65,13 @@
 
 - (void)refreshViews {
     if (self.quote) {
+        NSString *details = [NSString stringWithFormat:@"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        [self.detailsLabel setText:details];
         [self.symbolLabel setText:self.quote.symbol];
         [self.nameLabel setText:self.quote.name];
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
         [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
-        [self.detailsLabel setText:[NSString stringWithFormat:self.details, [[DateHelper instance] fullFormatForDate:self.tradeDate]]];
         [self.securityView setHidden:NO];
     }
     else {
