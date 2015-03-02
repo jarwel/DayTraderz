@@ -41,7 +41,7 @@
     if (change < 0) {
         return [UIColor redColor];
     }
-    return [UIColor blueColor];
+    return [UIColor lightGrayColor];
 }
 
 @end
