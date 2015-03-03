@@ -120,7 +120,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
                 [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
                 [cell.buyLabel setText:@"BUY"];
-                [cell.buyLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
+                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
                 
