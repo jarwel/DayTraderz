@@ -103,7 +103,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height + self.tableView.infiniteScrollingView.frame.size.height;
+    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height + self.tableView.infiniteScrollingView.frame.size.height + 1;
     if (self.tableView.contentOffset.y >= y) {
         [self.tableView setContentOffset:CGPointMake(0, y)];
     }
