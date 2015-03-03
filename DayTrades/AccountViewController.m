@@ -164,8 +164,8 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 0: return @"Today's Pick";
-        case 1: return @"Today's Pick";
+        case 0: return @"Current Pick";
+        case 1: return @"Previous Pick";
         default: return nil;
     }
 }
