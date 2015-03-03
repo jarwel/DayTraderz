@@ -17,7 +17,6 @@
 
 @interface LeadersViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *processedDate;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -34,11 +33,9 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.segmentedControl setBackgroundColor:[UIColor translucentColor]];
-    [self.segmentedControl setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-3.jpg"]]];
+    [self.segmentedControl setBackgroundColor:[UIColor translucentColor]];
     
-    [self.processedDate setText:nil];
     self.accounts = [[NSMutableArray alloc] init];
     
     UINib *accountCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
@@ -50,25 +47,47 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self fetchAccounts];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.accounts.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Top Traders";
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return self.accounts.count;
+    }
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Account *account = [self.accounts objectAtIndex:indexPath.row];
-    
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell.nameLabel setText:account.user.username];
-    [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
-    [cell.winnersLabel setTextColor:[UIColor greenColor]];
-    [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
-    [cell.losersLabel setTextColor:[UIColor redColor]];
-    [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
+    [cell clearFields];
+    
+    if (indexPath.section == 0) {
+        Account *account = [self.accounts objectAtIndex:indexPath.row];
+        [cell.nameLabel setText:account.user.username];
+        [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
+        [cell.winnersLabel setTextColor:[UIColor greenColor]];
+        [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
+        [cell.losersLabel setTextColor:[UIColor redColor]];
+        [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
+    }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int headerHeight = 22;
+    int cellHeight = 44;
+    if(indexPath.section == 1) {
+        return MAX(self.tableView.frame.size.height - headerHeight - (self.accounts.count * cellHeight), 0);
+    }
+    return cellHeight;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Top Traders";
+    }
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
@@ -81,6 +100,13 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell setBackgroundColor:[UIColor translucentColor]];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height + self.tableView.infiniteScrollingView.frame.size.height;
+    if (self.tableView.contentOffset.y >= y) {
+        [self.tableView setContentOffset:CGPointMake(0, y)];
+    }
 }
 
 - (IBAction)onValueChanged:(id)sender {

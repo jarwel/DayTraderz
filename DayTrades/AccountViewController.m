@@ -95,21 +95,14 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return @"Today's Pick";
-    }
-    return @"Previous Picks";
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
+    if (section == 1) {
+        return self.picks.count;
     }
-    return self.picks.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,7 +136,7 @@ static NSString * const cellIdentifier = @"PickCell";
             [cell.buyLabel setText:@"Market Closed"];
         }
     }
-    else {
+    else if (indexPath.section == 1) {
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
         [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:pick.tradeDate]];
         [cell.symbolLabel setText:pick.symbol];
@@ -160,6 +153,23 @@ static NSString * const cellIdentifier = @"PickCell";
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int headerHeight = 22;
+    int cellHeight = 65;
+    if(indexPath.section == 2) {
+        return MAX(self.tableView.frame.size.height - (2 * headerHeight) - (self.picks.count * cellHeight), 0);
+    }
+    return cellHeight;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0: return @"Today's Pick";
+        case 1: return @"Today's Pick";
+        default: return nil;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
         UITableViewHeaderFooterView* headerFooterView = (UITableViewHeaderFooterView*) view;
@@ -170,6 +180,13 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell setBackgroundColor:[UIColor translucentColor]];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float y = self.tableView.contentSize.height - self.tableView.bounds.size.height + self.tableView.infiniteScrollingView.frame.size.height;
+    if (self.tableView.contentOffset.y >= y) {
+        [self.tableView setContentOffset:CGPointMake(0, y)];
+    }
 }
 
 - (IBAction)onLogOutButtonTouched:(id)sender {
