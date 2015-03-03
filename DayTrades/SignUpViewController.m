@@ -20,9 +20,9 @@
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-4.jpg"]]];
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    [titleLabel setText:@"Join Us"];
+    [titleLabel setText:@"Sign Up"];
     [titleLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:40]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:38]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.signUpView setLogo:titleLabel];
@@ -35,6 +35,7 @@
     [self.signUpView.emailField setBackgroundColor:[UIColor translucentColor]];
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
     
+    [self.signUpView.signUpButton setTitle:@"Submit" forState:UIControlStateNormal];
     [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
 }
 
