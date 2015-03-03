@@ -7,6 +7,7 @@
 //
 
 #import "LogInViewController.h"
+#import "UIColor+Application.h"
 
 @interface LogInViewController ()
 
@@ -16,24 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
-    [self.logInView.dismissButton setHidden:YES];
+    [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-4.jpg"]]];
 
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"DayTrades"];
     [titleLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:40]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:38]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.logInView setLogo:titleLabel];
     
-    UIColor *fieldBackgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
-    [self.logInView.usernameField setBackgroundColor:fieldBackgroundColor];
+    [self.logInView.usernameField setBackgroundColor:[UIColor translucentColor]];
     [self.logInView.usernameField setTextColor:[UIColor whiteColor]];
-    [self.logInView.passwordField setBackgroundColor:fieldBackgroundColor];
+    [self.logInView.passwordField setBackgroundColor:[UIColor translucentColor]];
     [self.logInView.passwordField setTextColor:[UIColor whiteColor]];
     
     [self.logInView.passwordForgottenButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.logInView.dismissButton setHidden:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,15 +43,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-}
-
-- (UIImage *)backgroundImage {
-    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-4.jpg"]];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1.3] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 @end

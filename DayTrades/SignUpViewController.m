@@ -17,8 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[self backgroundImage]]];
-    [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
+    [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-4.jpg"]]];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"Join Us"];
@@ -35,7 +34,8 @@
     [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
     [self.signUpView.emailField setBackgroundColor:[UIColor translucentColor]];
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
-
+    
+    [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,15 +53,6 @@
         return !([textField.text length] >= 15 && [string length] > range.length);
     }
     return YES;
-}
-
-- (UIImage *)backgroundImage {
-    CIImage *image = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"background-4.jpg"]];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIColorControls"];
-    [filter setValue:image forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:1.3] forKey:@"inputContrast"];
-    return [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
 }
 
 - (void)textWillChange:(id<UITextInput>)textInput {}
