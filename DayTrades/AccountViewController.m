@@ -117,10 +117,10 @@ static NSString * const cellIdentifier = @"PickCell";
                 float priceChange = self.quote.price - self.quote.open;
                 float percentChange = priceChange / self.quote.open * 100;
                 float estimatedValue = self.account.value + (self.account.value * percentChange / 100);
-                [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
-                [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
-                [cell.openLabel setText:@"-O"];
-                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
+                [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
+                [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
+                [cell.buyLabel setText:@"BUY"];
+                [cell.buyLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
                 [cell.changeLabel setTextColor:[PriceFormatter colorForChange:priceChange]];
                 
@@ -140,15 +140,15 @@ static NSString * const cellIdentifier = @"PickCell";
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
         [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:pick.tradeDate]];
         [cell.symbolLabel setText:pick.symbol];
-        [cell.buyLabel setText:[NSString stringWithFormat:@"%0.02f", pick.open]];
-        [cell.sellLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
-        [cell.openLabel setText:@"-O"];
-        [cell.closeLabel setText:@"-C"];
+        [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", pick.open]];
+        [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
+        [cell.buyLabel setText:@"BUY"];
+        [cell.sellLabel setText:@"SELL"];
         [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
         [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
         [cell.changeLabel setTextColor:[PriceFormatter colorForChange:pick.change]];
-        [cell.sellLabel setTextColor:[UIColor whiteColor]];
-        [cell.valueLabel setTextColor:[UIColor whiteColor]];
+        [cell.openLabel setTextColor:[UIColor whiteColor]];
+        [cell.closeLabel setTextColor:[UIColor whiteColor]];
     }
     return cell;
 }
