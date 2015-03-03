@@ -114,11 +114,10 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (NSString *)columnSelected {
-    switch (self.segmentedControl.selectedSegmentIndex) {
-        case 1: return @"winners";
-        case 2: return @"losers";
-        default: return @"value";
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        return @"value";
     }
+    return @"winners";
 }
 
 - (void)fetchAccounts {

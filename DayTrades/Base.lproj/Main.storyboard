@@ -202,8 +202,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Value"/>
-                                    <segment title="Winners"/>
-                                    <segment title="Losers"/>
+                                    <segment title="Picks"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
