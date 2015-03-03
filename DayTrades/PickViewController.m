@@ -16,12 +16,15 @@
 
 @interface PickViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *detailsView;
+@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tradeDateLabel;
 @property (weak, nonatomic) IBOutlet UIView *securityView;
 @property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *changeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (strong, nonatomic) NSDate *tradeDate;
@@ -37,6 +40,7 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-2.jpg"]]];
+    [self.detailsView setBackgroundColor:[UIColor translucentColor]];
     [self.securityView setBackgroundColor:[UIColor translucentColor]];
     
     self.tradeDate = [[DateHelper instance] nextTradeDate];
@@ -66,16 +70,20 @@
 
 - (void)refreshViews {
     if (self.quote) {
-        NSString *details = [NSString stringWithFormat:@"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
-        [self.detailsLabel setText:details];
+        NSString *disclaimer = [NSString stringWithFormat:@"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        [self.disclaimerLabel setText:disclaimer];
         [self.symbolLabel setText:self.quote.symbol];
         [self.nameLabel setText:self.quote.name];
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
         [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
+        [self.detailsView setHidden:YES];
         [self.securityView setHidden:NO];
     }
     else {
+        [self.detailsLabel setText:@"Search for a security to trade on"];
+        [self.tradeDateLabel setText:[[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        [self.detailsView setHidden:NO];
         [self.securityView setHidden:YES];
     }
 }
