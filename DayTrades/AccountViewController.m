@@ -126,7 +126,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 
                 if (self.lastPrice != 0 && self.lastPrice != self.quote.price) {
                     UIColor *color = [PriceFormatter colorForChange:self.quote.price - self.lastPrice];
-                    [self flashTextColor:color onLabel:cell.sellLabel];
+                    [self flashTextColor:color onLabel:cell.closeLabel];
                     [self flashTextColor:color onLabel:cell.valueLabel];
                 }
                 self.lastPrice = self.quote.price;
