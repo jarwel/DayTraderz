@@ -66,7 +66,7 @@
 
 - (void)refreshViews {
     if (self.quote) {
-        NSString *details = [NSString stringWithFormat:@"The security above will be purchased in full for the value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        NSString *details = [NSString stringWithFormat:@"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
         [self.detailsLabel setText:details];
         [self.symbolLabel setText:self.quote.symbol];
         [self.nameLabel setText:self.quote.name];
