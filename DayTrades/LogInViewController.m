@@ -22,6 +22,8 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setText:@"DayTrades"];
     [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel setShadowColor:[UIColor blackColor]];
+    [titleLabel setShadowOffset:CGSizeMake(1, 1)];
     [titleLabel setFont:[UIFont boldSystemFontOfSize:38]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
