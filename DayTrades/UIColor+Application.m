@@ -11,7 +11,11 @@
 @implementation UIColor (Application)
 
 + (UIColor *)translucentColor {
-    return [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+    static UIColor *translucentColor;
+    if (!translucentColor) {
+        translucentColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+    }
+    return translucentColor;
 }
 
 @end
