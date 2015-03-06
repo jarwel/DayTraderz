@@ -37,6 +37,14 @@
 		<date>2015-12-25T14:30:00Z</date>
 		<date>2015-12-31T14:30:00Z</date>
 		<date>2016-01-01T14:30:00Z</date>
+		<date>2016-01-18T14:30:00Z</date>
+		<date>2016-02-15T14:30:00Z</date>
+		<date>2016-03-25T13:30:00Z</date>
+		<date>2016-05-30T13:30:00Z</date>
+		<date>2016-07-04T13:30:00Z</date>
+		<date>2016-09-05T13:30:00Z</date>
+		<date>2016-11-24T14:30:00Z</date>
+		<date>2016-12-26T14:30:00Z</date>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
