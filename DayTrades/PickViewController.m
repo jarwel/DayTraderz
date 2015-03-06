@@ -47,6 +47,10 @@
     [self refreshViews];
 }
 
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return [searchBar.text length] + [text length] - range.length <= 5;
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (![searchText hasPrefix:@"^"]) {
         NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
