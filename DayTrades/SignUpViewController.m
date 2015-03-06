@@ -52,7 +52,7 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (textField == self.signUpView.usernameField) {
+    if (textField != self.signUpView.emailField) {
         return !([textField.text length] >= 15 && [string length] > range.length);
     }
     return YES;
