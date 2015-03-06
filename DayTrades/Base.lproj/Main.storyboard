@@ -279,10 +279,10 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzZ-b1-FQg" userLabel="Details View">
-                                <rect key="frame" x="0.0" y="108" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-MT-v7h">
-                                        <rect key="frame" x="0.0" y="10" width="600" height="21"/>
+                                        <rect key="frame" x="0.0" y="25" width="600" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="RDR-ND-GXL"/>
@@ -292,7 +292,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbd-6r-lky">
-                                        <rect key="frame" x="0.0" y="31" width="600" height="21"/>
+                                        <rect key="frame" x="0.0" y="46" width="600" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="cLo-ZN-tH6"/>
@@ -307,9 +307,9 @@
                                     <constraint firstAttribute="trailing" secondItem="NFe-MT-v7h" secondAttribute="trailing" id="HlG-Gw-70w"/>
                                     <constraint firstItem="NFe-MT-v7h" firstAttribute="top" secondItem="Xbd-6r-lky" secondAttribute="top" constant="10" id="RLK-Nu-YYh"/>
                                     <constraint firstItem="Xbd-6r-lky" firstAttribute="top" secondItem="wzZ-b1-FQg" secondAttribute="top" constant="80" id="Th8-mR-UJT"/>
-                                    <constraint firstAttribute="height" constant="70" id="YhV-uU-pmp"/>
+                                    <constraint firstAttribute="height" constant="100" id="YhV-uU-pmp"/>
                                     <constraint firstItem="Xbd-6r-lky" firstAttribute="leading" secondItem="wzZ-b1-FQg" secondAttribute="leading" id="dgA-ED-1LL"/>
-                                    <constraint firstItem="NFe-MT-v7h" firstAttribute="top" secondItem="wzZ-b1-FQg" secondAttribute="top" constant="10" id="fqr-oh-wWd"/>
+                                    <constraint firstItem="NFe-MT-v7h" firstAttribute="top" secondItem="wzZ-b1-FQg" secondAttribute="top" constant="25" id="fqr-oh-wWd"/>
                                     <constraint firstAttribute="trailing" secondItem="Xbd-6r-lky" secondAttribute="trailing" id="rT7-z6-rbC"/>
                                     <constraint firstItem="NFe-MT-v7h" firstAttribute="leading" secondItem="wzZ-b1-FQg" secondAttribute="leading" id="sTm-hL-lqi"/>
                                     <constraint firstItem="Xbd-6r-lky" firstAttribute="top" secondItem="NFe-MT-v7h" secondAttribute="bottom" id="vI3-Eg-y7b"/>
