@@ -85,7 +85,7 @@ static NSString * const cellIdentifier = @"PickCell";
         }
     }];
     [self.quoteTimer invalidate];
-    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fetchQuote) userInfo:nil repeats:YES];
+    self.quoteTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(fetchQuote) userInfo:nil repeats:YES];
 }
 
 - (void)applicationBecameInactive {
