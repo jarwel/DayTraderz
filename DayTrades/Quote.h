@@ -19,6 +19,5 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)fromData:(NSData *)data;
-+ (Quote *)fromDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -74,13 +74,6 @@
     return _open;
 }
 
-+ (Quote *)fromDictionary:(NSDictionary *)dictionary {
-    if ([dictionary objectForKey:@"ErrorIndicationreturnedforsymbolchangedinvalid"] == [NSNull null]) {
-        return [[Quote alloc] initWithDictionary:dictionary];
-    }
-    return nil;
-}
-
 + (NSArray *)fromData:(NSData *)data {
     NSMutableArray *quotes = [[NSMutableArray alloc] init];
     
@@ -90,7 +83,7 @@
     if (count == 1) {
         NSDictionary *results = [query objectForKey:@"results"];
         NSDictionary *dictionary = [results objectForKey:@"quote"];
-        Quote* quote = [Quote fromDictionary:dictionary];
+        Quote* quote = [[Quote alloc] initWithDictionary:dictionary];
         if (quote) {
             [quotes addObject:quote];
         }
@@ -98,7 +91,7 @@
     if (count > 1) {
         NSDictionary *results = [query objectForKey:@"results"];
         for (NSDictionary *dictionary in [results objectForKey:@"quote"]) {
-            Quote* quote = [Quote fromDictionary:dictionary];
+            Quote* quote = [[Quote alloc] initWithDictionary:dictionary];
             if (quote) {
                 [quotes addObject:quote];
             }
