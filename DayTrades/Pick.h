@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) PFUser *user;
 @property (strong, nonatomic) Account *account;
-@property (strong, nonatomic) NSDate *tradeDate;
+@property (strong, nonatomic) NSString *dayOfTrade;
 @property (strong, nonatomic) NSString *symbol;
 @property (assign, nonatomic, readonly) float open;
 @property (assign, nonatomic, readonly) float close;
@@ -23,6 +23,6 @@
 @property (assign, nonatomic, readonly) BOOL processed;
 
 + (NSString *)parseClassName;
-- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date;
+- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDayOfTrade:(NSString *)dayOfTrade;
 
 @end

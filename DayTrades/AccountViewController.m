@@ -111,7 +111,7 @@ static NSString * const cellIdentifier = @"PickCell";
     
     if (indexPath.section == 0) {
         if (self.currentPick) {
-            [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:self.currentPick.tradeDate]];
+            [cell.dateLabel setText:[[DateHelper instance] shortFormatForDayOfTrade:self.currentPick.dayOfTrade]];
             [cell.symbolLabel setText:self.currentPick.symbol];
             if (self.quote.open != 0) {
                 float priceChange = self.quote.price - self.quote.open;
@@ -138,7 +138,7 @@ static NSString * const cellIdentifier = @"PickCell";
     }
     else if (indexPath.section == 1) {
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
-        [cell.dateLabel setText:[[DateHelper instance] dayFormatForDate:pick.tradeDate]];
+        [cell.dateLabel setText:[[DateHelper instance] shortFormatForDayOfTrade:pick.dayOfTrade]];
         [cell.symbolLabel setText:pick.symbol];
         [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", pick.open]];
         [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
@@ -200,8 +200,8 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
-        NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
-        if (self.nextPick && [nextTradeDate compare:self.nextPick.tradeDate] == NSOrderedSame) {
+        NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTrade];
+        if (self.nextPick && [nextDayOfTrade isEqualToString:self.nextPick.dayOfTrade]) {
             [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     self.nextPick = nil;
@@ -286,14 +286,13 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)sortPicksFromObjects:(NSArray *)objects {
-    NSDate *lastTradeDate = [[DateHelper instance] lastTradeDate];
-    NSDate *nextTradeDate = [[DateHelper instance] nextTradeDate];
+    NSString *lastDayOfTrade = [[DateHelper instance] lastDayOfTrade];
+    NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTrade];
     for (Pick *pick in objects) {
-        NSDate *tradeDate = pick.tradeDate;
-        if (!pick.processed && [lastTradeDate compare:tradeDate] == NSOrderedSame) {
+        if (!pick.processed && [lastDayOfTrade isEqualToString:pick.dayOfTrade]) {
             self.currentPick = pick;
         }
-        else if ([nextTradeDate compare:tradeDate] == NSOrderedSame) {
+        else if ([nextDayOfTrade isEqualToString:pick.dayOfTrade]) {
             self.nextPick = pick;
         }
         else {

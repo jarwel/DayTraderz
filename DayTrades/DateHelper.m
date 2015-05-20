@@ -34,7 +34,7 @@
     return components.weekday > 1 && components.weekday < 7 && ![self.holidays containsObject:date];
 }
 
-- (NSDate *)nextTradeDate {
+- (NSString *)nextDayOfTrade{
     NSDate *date = [NSDate date];
 
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
@@ -45,10 +45,10 @@
         while (![self isMarketOpenOnDate:date]);
     }
     
-    return [self tradeDateFromDate:date];
+    return [self dayOfTradeFromDate:date];
 }
 
-- (NSDate *)lastTradeDate {
+- (NSString *)lastDayOfTrade {
     NSDate *date = [NSDate date];
 
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
@@ -59,28 +59,46 @@
         while (![self isMarketOpenOnDate:date]);
     }
     
-    return [self tradeDateFromDate:date];
+    return [self dayOfTradeFromDate:date];
 }
 
-- (NSString *)dayFormatForDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"E, MMM d"];
+- (NSString *)shortFormatForDayOfTrade:(NSString *)dayOfTrade {
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"E, MMM d"];
+    }
+    NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
     return [formatter stringFromDate:date];
 }
 
-- (NSString *)fullFormatForDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+- (NSString *)longFormatForDayOfTrade:(NSString *)dayOfTrade {
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+    }
+    NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
     return [formatter stringFromDate:date];
 }
 
-- (NSDate *)tradeDateFromDate:(NSDate *)date {
-    unsigned unitFlags = NSCalendarUnitTimeZone | NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *components = [self.calendar components:unitFlags fromDate:date];
-    components.hour = 9;
-    components.minute = 30;
-    components.second = 0;
-    return [self.calendar dateFromComponents:components];
+- (NSString *)dayOfTradeFromDate:(NSDate *)date {
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+    }
+    return [formatter stringFromDate:date];
 }
+
+- (NSDate *)dateFromDayOfTrade:(NSString *)dayOfTrade {
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+    }
+    return [formatter dateFromString:dayOfTrade];
+}
+
 
 @end

@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
-@property (strong, nonatomic) NSDate *tradeDate;
+@property (strong, nonatomic) NSString *dayOfTrade;
 @property (strong, nonatomic) Quote *quote;
 
 @end
@@ -43,7 +43,7 @@
     [self.detailsView setBackgroundColor:[UIColor translucentColor]];
     [self.securityView setBackgroundColor:[UIColor translucentColor]];
     
-    self.tradeDate = [[DateHelper instance] nextTradeDate];
+    self.dayOfTrade = [[DateHelper instance] nextDayOfTrade];
     [self refreshViews];
 }
 
@@ -73,8 +73,10 @@
 }
 
 - (void)refreshViews {
+    static NSString *text = @"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.";
+    NSString *dateFormat = [[DateHelper instance] longFormatForDayOfTrade:self.dayOfTrade];
     if (self.quote) {
-        NSString *disclaimer = [NSString stringWithFormat:@"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.", [[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        NSString *disclaimer = [NSString stringWithFormat:text, dateFormat];
         [self.disclaimerLabel setText:disclaimer];
         [self.symbolLabel setText:self.quote.symbol];
         [self.nameLabel setText:self.quote.name];
@@ -86,7 +88,7 @@
     }
     else {
         [self.detailsLabel setText:@"Choose a security to trade on"];
-        [self.tradeDateLabel setText:[[DateHelper instance] fullFormatForDate:self.tradeDate]];
+        [self.tradeDateLabel setText:dateFormat];
         [self.detailsView setHidden:NO];
         [self.securityView setHidden:YES];
     }
@@ -99,8 +101,8 @@
 - (IBAction)onConfirmButtonTouched:(id)sender {
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
-        NSDate *tradeDate = [[DateHelper instance] nextTradeDate];
-        Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDate:tradeDate];
+        NSString *dayOfTrade = [[DateHelper instance] nextDayOfTrade];
+        Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDayOfTrade:dayOfTrade];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [self.delegate updateNextPick:pick];

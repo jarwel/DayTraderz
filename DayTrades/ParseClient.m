@@ -29,7 +29,7 @@
     PFQuery *query = [Pick query];
     [query includeKey:@"account"];
     [query whereKey:@"account" equalTo:account];
-    [query orderByDescending:@"tradeDate"];
+    [query orderByDescending:@"dayOfTrade"];
     [query setLimit:limit];
     [query setSkip:skip];
     [query findObjectsInBackgroundWithBlock:callback];
@@ -47,7 +47,7 @@
 - (void)createOrUpdatePick:(Pick *)pick {
     PFQuery *query = [Pick query];
     [query whereKey:@"account" equalTo:pick.account];
-    [query whereKey:@"tradeDate" equalTo:pick.tradeDate];
+    [query whereKey:@"dayOfTrade" equalTo:pick.dayOfTrade];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (object) {
             [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

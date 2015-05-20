@@ -12,7 +12,7 @@
 
 @dynamic user;
 @dynamic account;
-@dynamic tradeDate;
+@dynamic dayOfTrade;
 @dynamic symbol;
 @dynamic open;
 @dynamic close;
@@ -24,12 +24,12 @@
     return @"Pick";
 }
 
-- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDate:(NSDate *)date {
+- (id)initForAccount:(Account *)account withSymbol:(NSString *)symbol withDayOfTrade:(NSString *)dayOfTrade {
     if (self = [super init]) {
         self.account = account;
         self.user = account.user;
         self.symbol = symbol;
-        self.tradeDate = date;
+        self.dayOfTrade = dayOfTrade;
     }
     return self;
 }

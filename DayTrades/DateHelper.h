@@ -12,9 +12,9 @@
 
 + (DateHelper *)instance;
 - (BOOL)isMarketOpenOnDate:(NSDate *)date;
-- (NSDate *)nextTradeDate;
-- (NSDate *)lastTradeDate;
-- (NSString *)dayFormatForDate:(NSDate *)date;
-- (NSString *)fullFormatForDate:(NSDate *)date;
+- (NSString *)nextDayOfTrade;
+- (NSString *)lastDayOfTrade;
+- (NSString *)shortFormatForDayOfTrade:(NSString *)dayOfTrade;
+- (NSString *)longFormatForDayOfTrade:(NSString *)dayOfTrade;
 
 @end
