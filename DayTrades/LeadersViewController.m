@@ -30,16 +30,17 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.accounts = [[NSMutableArray alloc] init];
+    
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background-3.jpg"]]];
     [self.segmentedControl setBackgroundColor:[UIColor translucentColor]];
     
-    self.accounts = [[NSMutableArray alloc] init];
-    
     UINib *accountCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:accountCell forCellReuseIdentifier:cellIdentifier];
+    [self.tableView setAllowsSelection:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

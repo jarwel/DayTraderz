@@ -66,6 +66,7 @@ static NSString * const cellIdentifier = @"PickCell";
     
     UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
+    [self.tableView setAllowsSelection:NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecameActive) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecameInactive) name:UIApplicationDidEnterBackgroundNotification object:nil];
