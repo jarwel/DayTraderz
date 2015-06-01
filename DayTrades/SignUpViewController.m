@@ -49,6 +49,11 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    [self adjustFrameForView:self.signUpView.logo];
+    [self adjustFrameForView:self.signUpView.usernameField];
+    [self adjustFrameForView:self.signUpView.passwordField];
+    [self adjustFrameForView:self.signUpView.emailField];
+    [self adjustFrameForView:self.signUpView.signUpButton];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -56,6 +61,10 @@
         return !([textField.text length] >= 15 && [string length] > range.length);
     }
     return YES;
+}
+
+- (void)adjustFrameForView:(UIView *)view {
+    [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y - 25, view.frame.size.width, view.frame.size.height)];
 }
 
 - (void)textWillChange:(id<UITextInput>)textInput {}
