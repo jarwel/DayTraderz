@@ -20,11 +20,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Parse setApplicationId:@"nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M" clientKey:@"lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO"];
     [Account registerSubclass];
     [Pick registerSubclass];
-    [Parse setApplicationId:@"nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M" clientKey:@"lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO"];
     
-    self.window.rootViewController = self.currentViewController;
+    UIViewController *currentViewController = [self currentViewController];
+    self.window.rootViewController = currentViewController;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logIn) name:LogInNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:LogOutNotification object:nil];
     return YES;
