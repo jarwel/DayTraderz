@@ -87,7 +87,7 @@
         [self.securityView setHidden:NO];
     }
     else {
-        [self.detailsLabel setText:@"Choose a security to trade on"];
+        [self.detailsLabel setText:@"Choose a security to buy on"];
         [self.tradeDateLabel setText:dateFormat];
         [self.detailsView setHidden:NO];
         [self.securityView setHidden:YES];
