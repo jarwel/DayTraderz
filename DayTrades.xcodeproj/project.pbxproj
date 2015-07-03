@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		AAA28C371B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C341B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m */; };
 		AAA28C381B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C361B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m */; };
+		AAA28C3B1B46FB3C00B672C8 /* DateHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C3A1B46FB3C00B672C8 /* DateHelperTests.m */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
 		CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA492B7F1A606CDB00ED13B3 /* Main.storyboard */; };
 		CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA492B821A606CDB00ED13B3 /* Images.xcassets */; };
 		CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */; };
-		CA492B921A606CDB00ED13B3 /* DayTradesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B911A606CDB00ED13B3 /* DayTradesTests.m */; };
 		CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */; };
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
 		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
@@ -77,6 +77,7 @@
 		AAA28C341B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		AAA28C351B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		AAA28C361B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		AAA28C3A1B46FB3C00B672C8 /* DateHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelperTests.m; sourceTree = "<group>"; };
 		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B761A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B771A606CDB00ED13B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		CA492B851A606CDB00ED13B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CA492B8B1A606CDB00ED13B3 /* DayTradesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTradesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B901A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA492B911A606CDB00ED13B3 /* DayTradesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayTradesTests.m; sourceTree = "<group>"; };
 		CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
 		CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 		CA492B8E1A606CDB00ED13B3 /* DayTradesTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA492B911A606CDB00ED13B3 /* DayTradesTests.m */,
+				AAA28C3A1B46FB3C00B672C8 /* DateHelperTests.m */,
 				CA492B8F1A606CDB00ED13B3 /* Supporting Files */,
 			);
 			path = DayTradesTests;
@@ -511,7 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA492B921A606CDB00ED13B3 /* DayTradesTests.m in Sources */,
+				AAA28C3B1B46FB3C00B672C8 /* DateHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

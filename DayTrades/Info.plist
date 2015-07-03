@@ -22,34 +22,40 @@
 	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MarketHolidays</key>
-	<array>
-		<date>2015-01-01T14:30:00Z</date>
-		<date>2015-01-19T14:30:00Z</date>
-		<date>2015-02-16T14:30:00Z</date>
-		<date>2015-04-03T13:30:00Z</date>
-		<date>2015-05-25T13:30:00Z</date>
-		<date>2015-07-03T13:30:00Z</date>
-		<date>2015-09-07T13:30:00Z</date>
-		<date>2015-11-26T14:30:00Z</date>
-		<date>2015-11-27T14:30:00Z</date>
-		<date>2015-12-24T14:30:00Z</date>
-		<date>2015-12-25T14:30:00Z</date>
-		<date>2015-12-31T14:30:00Z</date>
-		<date>2016-01-01T14:30:00Z</date>
-		<date>2016-01-18T14:30:00Z</date>
-		<date>2016-02-15T14:30:00Z</date>
-		<date>2016-03-25T13:30:00Z</date>
-		<date>2016-05-30T13:30:00Z</date>
-		<date>2016-07-04T13:30:00Z</date>
-		<date>2016-09-05T13:30:00Z</date>
-		<date>2016-11-24T14:30:00Z</date>
-		<date>2016-12-26T14:30:00Z</date>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>Market holidays</key>
+	<array>
+		<string>2015-01-01</string>
+		<string>2015-01-19</string>
+		<string>2015-02-16</string>
+		<string>2015-05-25</string>
+		<string>2015-07-03</string>
+		<string>2015-09-07</string>
+		<string>2015-11-26</string>
+		<string>2015-12-25</string>
+		<string>2015-12-31</string>
+		<string>2016-01-01</string>
+		<string>2016-01-18</string>
+		<string>2016-02-15</string>
+		<string>2016-03-25</string>
+		<string>2016-05-30</string>
+		<string>2016-07-04</string>
+		<string>2016-09-05</string>
+		<string>2016-11-24</string>
+		<string>2016-12-26</string>
+		<string>2017-01-02</string>
+		<string>2017-01-16</string>
+		<string>2017-02-20</string>
+		<string>2017-04-14</string>
+		<string>2017-05-29</string>
+		<string>2017-07-04</string>
+		<string>2017-09-04</string>
+		<string>2017-11-23</string>
+		<string>2017-12-25</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

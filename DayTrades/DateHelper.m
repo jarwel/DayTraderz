@@ -21,7 +21,7 @@
     static DateHelper *instance;
     if (!instance) {
         instance = [[DateHelper alloc] init];
-        instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"MarketHolidays"];
+        instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Market holidays"];
         instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [instance.calendar setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
     }
@@ -30,8 +30,12 @@
 
 - (BOOL)isMarketOpenOnDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:( NSCalendarUnitWeekday) fromDate:date];
-    return components.weekday > 1 && components.weekday < 7 && ![self.holidays containsObject:date];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitWeekday) fromDate:date];
+    if (components.weekday > 1 && components.weekday < 7) {
+        NSString *dayOfTrade = [self dayOfTradeFromDate:date];
+        return ![self.holidays containsObject:dayOfTrade];
+    }
+    return NO;
 }
 
 - (NSString *)nextDayOfTrade{
