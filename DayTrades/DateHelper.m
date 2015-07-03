@@ -80,7 +80,7 @@
     static NSDateFormatter *formatter;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+        [formatter setDateFormat:@"EEEE MMM d, yyyy"];
     }
     NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
     return [formatter stringFromDate:date];

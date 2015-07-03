@@ -25,7 +25,7 @@
     [Pick registerSubclass];
     
     UIViewController *currentViewController = [self currentViewController];
-    self.window.rootViewController = currentViewController;
+    [self.window setRootViewController:currentViewController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logIn) name:LogInNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:LogOutNotification object:nil];
@@ -86,12 +86,14 @@
 }
 
 - (void)logIn {
-    self.window.rootViewController = self.currentViewController;
+    UIViewController *currentViewController = [self currentViewController];
+    [self.window setRootViewController:currentViewController];
 }
 
 - (void)logOut {
     [PFUser logOut];
-    self.window.rootViewController = self.currentViewController;
+    UIViewController *currentViewController = [self currentViewController];
+    [self.window setRootViewController:currentViewController];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
 }
 
