@@ -71,6 +71,7 @@
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"E, MMM d"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
     return [formatter stringFromDate:date];
@@ -81,6 +82,7 @@
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE MMM d, yyyy"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
     return [formatter stringFromDate:date];
