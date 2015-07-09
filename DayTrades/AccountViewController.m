@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
 #import "ParseClient.h"
@@ -14,7 +15,6 @@
 #import "PickViewController.h"
 #import "Account.h"
 #import "Quote.h"
-#import "PickCell.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
 #import "UIColor+Application.h"
@@ -108,7 +108,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PickCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell clearFields];
+    [cell clear];
     
     if (indexPath.section == 0) {
         if (self.currentPick) {

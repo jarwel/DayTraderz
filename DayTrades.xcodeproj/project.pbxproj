@@ -20,7 +20,6 @@
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
 		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
-		CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BC21A607CD500ED13B3 /* PickCell.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
 		CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PickViewController.m */; };
 		CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD31A60886F00ED13B3 /* FinanceClient.m */; };
@@ -48,6 +47,7 @@
 		CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C171A61E59700ED13B3 /* AppConstants.m */; };
 		CA685CA71A89909600727CE1 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA61A89909600727CE1 /* DateHelper.m */; };
 		CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA91A89923B00727CE1 /* PriceFormatter.m */; };
+		CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E71B4EE4B800B869A4 /* PickCell.swift */; };
 		CA98EF771AA55BCC0058A3EF /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF761AA55BCC0058A3EF /* background-4.jpg */; };
 		CA98EF791AA55BD20058A3EF /* background-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF781AA55BD20058A3EF /* background-5.jpg */; };
 		CA9908111AA289AD00804200 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908101AA289AD00804200 /* logout.png */; };
@@ -97,8 +97,6 @@
 		CA492BA61A606F7E00ED13B3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
-		CA492BC11A607CD500ED13B3 /* PickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickCell.h; sourceTree = "<group>"; };
-		CA492BC21A607CD500ED13B3 /* PickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickCell.m; sourceTree = "<group>"; };
 		CA492BC41A607CE100ED13B3 /* PickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickCell.xib; sourceTree = "<group>"; };
 		CA492BCB1A60853700ED13B3 /* PickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
 		CA492BCC1A60853700ED13B3 /* PickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
@@ -135,6 +133,7 @@
 		CA685CA61A89909600727CE1 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		CA685CA81A89923B00727CE1 /* PriceFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceFormatter.h; sourceTree = "<group>"; };
 		CA685CA91A89923B00727CE1 /* PriceFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceFormatter.m; sourceTree = "<group>"; };
+		CA8136E71B4EE4B800B869A4 /* PickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCell.swift; sourceTree = "<group>"; };
 		CA98EF761AA55BCC0058A3EF /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		CA98EF781AA55BD20058A3EF /* background-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-5.jpg"; sourceTree = "<group>"; };
 		CA9908101AA289AD00804200 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
@@ -289,8 +288,7 @@
 				CA492BA21A606F2600ED13B3 /* AccountCell.xib */,
 				AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */,
 				CA492BC41A607CE100ED13B3 /* PickCell.xib */,
-				CA492BC11A607CD500ED13B3 /* PickCell.h */,
-				CA492BC21A607CD500ED13B3 /* PickCell.m */,
+				CA8136E71B4EE4B800B869A4 /* PickCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -490,13 +488,13 @@
 				CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */,
 				AAA28C371B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				CABC942A1AA51CBB001A3629 /* UIColor+Application.m in Sources */,
+				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
-				CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
