@@ -25,9 +25,9 @@
         instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Market holidays"];
         instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [instance.calendar setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
-        instance.utcFormatter = [[NSDateFormatter alloc] init];
-        [instance.utcFormatter setDateFormat:@"yyyy-MM-dd"];
-        [instance.utcFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        instance.utc = [[NSDateFormatter alloc] init];
+        [instance.utc setDateFormat:@"yyyy-MM-dd"];
+        [instance.utc setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     return instance;
 }
