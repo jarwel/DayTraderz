@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic) NSCalendar *calendar;
 @property (strong, nonatomic) NSArray *holidays;
-@property (strong, nonatomic) NSDateFormatter *utc;
 
 @end
 
@@ -25,9 +24,6 @@
         instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Market holidays"];
         instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [instance.calendar setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
-        instance.utc = [[NSDateFormatter alloc] init];
-        [instance.utc setDateFormat:@"yyyy-MM-dd"];
-        [instance.utc setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     return instance;
 }
@@ -81,7 +77,7 @@
     static NSDateFormatter *formatter;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"EEEE MMM d, yyyy"];
+        [formatter setDateFormat:@"EEEE, MMMM d, yyyy"];
         [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     NSDate *date = [self dateFromDayOfTrade:dayOfTrade];
@@ -89,11 +85,23 @@
 }
 
 - (NSString *)dayOfTradeFromDate:(NSDate *)date {
-    return [self.utc stringFromDate:date];
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+    }
+    return [formatter stringFromDate:date];
 }
 
 - (NSDate *)dateFromDayOfTrade:(NSString *)dayOfTrade {
-    return [self.utc dateFromString:dayOfTrade];
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    }
+    return [formatter dateFromString:dayOfTrade];
 }
 
 

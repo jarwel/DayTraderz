@@ -35,6 +35,16 @@
     [super tearDown];
 }
 
+- (void)testShortFormatForDayOfTrade {
+    NSString *formatted = [[DateHelper instance] shortFormatForDayOfTrade:@"2015-07-09"];
+    XCTAssertEqualObjects(formatted, @"Thu, Jul 9");
+}
+
+- (void)testLongFormatForDayOfTrade {
+    NSString *formatted = [[DateHelper instance] longFormatForDayOfTrade:@"2015-07-09"];
+    XCTAssertEqualObjects(formatted, @"Thursday, July 9, 2015");
+}
+
 - (void)testNextDayOfTradeFromDate {
     NSDate *date = [self.utc dateFromString:@"2015-07-09T04:29:00"];
     NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:date];
