@@ -13,7 +13,6 @@
 #import "ParseClient.h"
 #import "PriceFormatter.h"
 #import "DateHelper.h"
-#import "UIColor+Application.h"
 
 @interface LeadersViewController ()
 

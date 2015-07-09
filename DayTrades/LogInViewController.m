@@ -7,7 +7,7 @@
 //
 
 #import "LogInViewController.h"
-#import "UIColor+Application.h"
+#import "DayTrades-Swift.h"
 
 @interface LogInViewController ()
 

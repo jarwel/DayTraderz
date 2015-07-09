@@ -7,12 +7,12 @@
 //
 
 #import "PickViewController.h"
+#import "DayTrades-Swift.h"
 #import "FinanceClient.h"
 #import "ParseClient.h"
 #import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
-#import "UIColor+Application.h"
 
 @interface PickViewController ()
 

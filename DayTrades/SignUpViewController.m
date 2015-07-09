@@ -7,7 +7,7 @@
 //
 
 #import "SignUpViewController.h"
-#import "UIColor+Application.h"
+#import "DayTrades-Swift.h"
 
 @interface SignUpViewController ()
 

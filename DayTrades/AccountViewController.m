@@ -17,7 +17,6 @@
 #import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
-#import "UIColor+Application.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 

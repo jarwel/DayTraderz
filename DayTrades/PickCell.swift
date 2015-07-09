@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PickCell : UITableViewCell {
+class PickCell: UITableViewCell {
     
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
