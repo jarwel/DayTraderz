@@ -15,4 +15,14 @@ extension UIColor {
         return UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     }
     
+    class func colorForChange(change: Double) -> UIColor {
+        if (change > 0) {
+            return self.greenColor()
+        }
+        if (change < 0) {
+            return self.redColor()
+        }
+        return self.grayColor()
+    }
+    
 }

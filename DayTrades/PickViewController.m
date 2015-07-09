@@ -82,7 +82,7 @@
         [self.nameLabel setText:self.quote.name];
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
-        [self.changeLabel setTextColor:[PriceFormatter colorForChange:self.quote.priceChange]];
+        [self.changeLabel setTextColor:[UIColor colorForChange:self.quote.priceChange]];
         [self.detailsView setHidden:YES];
         [self.securityView setHidden:NO];
     }

@@ -16,6 +16,5 @@
 + (NSString *)formatForQuote:(Quote *)quote;
 + (NSString *)formatForPick:(Pick *)pick;
 + (NSString *)formatForPriceChange:(float)priceChange andPercentChange:(float)percentChange;
-+ (UIColor *)colorForChange:(float)change;
 
 @end

@@ -34,14 +34,4 @@
     return [NSString stringWithFormat:@"%@ (%@)", priceChangeFormat, percentChangeFormat];
 }
 
-+ (UIColor *)colorForChange:(float)change {
-    if (change > 0) {
-        return [UIColor greenColor];
-    }
-    if (change < 0) {
-        return [UIColor redColor];
-    }
-    return [UIColor lightGrayColor];
-}
-
 @end
