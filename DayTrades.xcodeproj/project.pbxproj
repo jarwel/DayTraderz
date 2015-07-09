@@ -10,6 +10,7 @@
 		AAA28C371B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C341B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m */; };
 		AAA28C381B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C361B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m */; };
 		AAA28C3B1B46FB3C00B672C8 /* DateHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA28C3A1B46FB3C00B672C8 /* DateHelperTests.m */; };
+		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
 		CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA492B7F1A606CDB00ED13B3 /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */; };
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
 		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
-		CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BAC1A6072F400ED13B3 /* AccountCell.m */; };
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
 		CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BC21A607CD500ED13B3 /* PickCell.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
@@ -78,6 +78,8 @@
 		AAA28C351B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		AAA28C361B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		AAA28C3A1B46FB3C00B672C8 /* DateHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelperTests.m; sourceTree = "<group>"; };
+		AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
+		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B761A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA492B771A606CDB00ED13B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		CA492BA51A606F7E00ED13B3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		CA492BA61A606F7E00ED13B3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
-		CA492BAB1A6072F400ED13B3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
-		CA492BAC1A6072F400ED13B3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 		CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		CA492BC11A607CD500ED13B3 /* PickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickCell.h; sourceTree = "<group>"; };
@@ -226,6 +226,7 @@
 				CA492BA11A606F0000ED13B3 /* Views */,
 				CA492B9B1A606DA800ED13B3 /* Controllers */,
 				CA685CA41A89902500727CE1 /* Helpers */,
+				AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */,
 				CA492B791A606CDB00ED13B3 /* AppDelegate.h */,
 				CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */,
 				CA492C161A61E59700ED13B3 /* AppConstants.h */,
@@ -286,8 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				CA492BA21A606F2600ED13B3 /* AccountCell.xib */,
-				CA492BAB1A6072F400ED13B3 /* AccountCell.h */,
-				CA492BAC1A6072F400ED13B3 /* AccountCell.m */,
+				AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */,
 				CA492BC41A607CE100ED13B3 /* PickCell.xib */,
 				CA492BC11A607CD500ED13B3 /* PickCell.h */,
 				CA492BC21A607CD500ED13B3 /* PickCell.m */,
@@ -493,6 +493,7 @@
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
+				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CA492BC31A607CD500ED13B3 /* PickCell.m in Sources */,
@@ -504,7 +505,6 @@
 				AAA28C381B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,
 				CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */,
-				CA492BAD1A6072F400ED13B3 /* AccountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -637,6 +638,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = DayTrades;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DayTrades/DayTrades-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -645,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -656,6 +660,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = DayTrades;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DayTrades/DayTrades-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

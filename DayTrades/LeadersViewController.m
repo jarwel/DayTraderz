@@ -7,9 +7,9 @@
 //
 
 #import "LeadersViewController.h"
+#import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "Account.h"
-#import "AccountCell.h"
 #import "ParseClient.h"
 #import "PriceFormatter.h"
 #import "DateHelper.h"
@@ -61,7 +61,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell clearFields];
+    [cell clear];
     
     if (indexPath.section == 0) {
         Account *account = [self.accounts objectAtIndex:indexPath.row];
