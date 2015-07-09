@@ -22,7 +22,6 @@
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
 		CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PickViewController.m */; };
-		CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD61A608DEC00ED13B3 /* Quote.m */; };
 		CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BE61A60AD8300ED13B3 /* Pick.m */; };
 		CA492BEA1A61D2F700ED13B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BE91A61D2F700ED13B3 /* Parse.framework */; };
 		CA492BEC1A61D30500ED13B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEB1A61D30500ED13B3 /* Bolts.framework */; };
@@ -49,6 +48,7 @@
 		CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E71B4EE4B800B869A4 /* PickCell.swift */; };
 		CA8136EA1B4EE74B00B869A4 /* UIColor+Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */; };
 		CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
+		CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136ED1B4F098A00B869A4 /* Quote.swift */; };
 		CA98EF771AA55BCC0058A3EF /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF761AA55BCC0058A3EF /* background-4.jpg */; };
 		CA98EF791AA55BD20058A3EF /* background-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF781AA55BD20058A3EF /* background-5.jpg */; };
 		CA9908111AA289AD00804200 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908101AA289AD00804200 /* logout.png */; };
@@ -100,8 +100,6 @@
 		CA492BC41A607CE100ED13B3 /* PickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickCell.xib; sourceTree = "<group>"; };
 		CA492BCB1A60853700ED13B3 /* PickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
 		CA492BCC1A60853700ED13B3 /* PickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
-		CA492BD51A608DEC00ED13B3 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
-		CA492BD61A608DEC00ED13B3 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		CA492BE51A60AD8300ED13B3 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
 		CA492BE61A60AD8300ED13B3 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
 		CA492BE91A61D2F700ED13B3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -134,6 +132,7 @@
 		CA8136E71B4EE4B800B869A4 /* PickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCell.swift; sourceTree = "<group>"; };
 		CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Application.swift"; sourceTree = "<group>"; };
 		CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceClient.swift; sourceTree = "<group>"; };
+		CA8136ED1B4F098A00B869A4 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		CA98EF761AA55BCC0058A3EF /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		CA98EF781AA55BD20058A3EF /* background-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-5.jpg"; sourceTree = "<group>"; };
 		CA9908101AA289AD00804200 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
@@ -294,12 +293,11 @@
 		CA492BA41A606F6500ED13B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA8136ED1B4F098A00B869A4 /* Quote.swift */,
 				CA492BA51A606F7E00ED13B3 /* Account.h */,
 				CA492BA61A606F7E00ED13B3 /* Account.m */,
 				CA492BE51A60AD8300ED13B3 /* Pick.h */,
 				CA492BE61A60AD8300ED13B3 /* Pick.m */,
-				CA492BD51A608DEC00ED13B3 /* Quote.h */,
-				CA492BD61A608DEC00ED13B3 /* Quote.m */,
 				CAAE46BA1A8193DC00B05BAB /* DayQuote.h */,
 				CAAE46BB1A8193DC00B05BAB /* DayQuote.m */,
 			);
@@ -488,12 +486,12 @@
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
+				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
 				CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */,
-				CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */,
 				AAA28C381B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,
 				CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */,

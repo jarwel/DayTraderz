@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DayTrades-Swift.h"
 #import "Pick.h"
-#import "Quote.h"
 
 @interface PriceFormatter : NSObject
 

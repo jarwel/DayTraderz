@@ -19,7 +19,9 @@
 }
 
 + (NSString *)formatForQuote:(Quote *)quote {
-    return [self formatForPriceChange:quote.priceChange andPercentChange:quote.percentChange];
+    float priceChange = quote.priceChange;
+    float percentChange = quote.percentChange;
+    return [self formatForPriceChange:priceChange andPercentChange:percentChange];
 }
 
 + (NSString *)formatForPick:(Pick *)pick {

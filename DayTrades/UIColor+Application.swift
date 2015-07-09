@@ -16,10 +16,10 @@ extension UIColor {
     }
     
     class func changeColor(change: Double) -> UIColor {
-        if (change > 0) {
+        if change > 0 {
             return self.greenColor()
         }
-        if (change < 0) {
+        if change < 0 {
             return self.redColor()
         }
         return self.grayColor()

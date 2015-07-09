@@ -13,7 +13,6 @@
 #import "ParseClient.h"
 #import "PickViewController.h"
 #import "Account.h"
-#import "Quote.h"
 #import "DateHelper.h"
 #import "PriceFormatter.h"
 
@@ -34,7 +33,7 @@
 @property (strong, nonatomic) Pick *currentPick;
 @property (strong, nonatomic) Quote *quote;
 @property (strong, nonatomic) NSTimer *quoteTimer;
-@property (assign, nonatomic) float lastPrice;
+@property (assign, nonatomic) double lastPrice;
 
 - (void)applicationBecameActive;
 - (void)applicationBecameInactive;
