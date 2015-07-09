@@ -8,7 +8,6 @@
 
 #import "PickViewController.h"
 #import "DayTrades-Swift.h"
-#import "FinanceClient.h"
 #import "ParseClient.h"
 #import "Quote.h"
 #import "DateHelper.h"
@@ -54,7 +53,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (![searchText hasPrefix:@"^"]) {
         NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
-        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [FinanceClient fetchQuotes:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
             self.quote = nil;
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];
@@ -82,7 +81,7 @@
         [self.nameLabel setText:self.quote.name];
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
         [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
-        [self.changeLabel setTextColor:[UIColor colorForChange:self.quote.priceChange]];
+        [self.changeLabel setTextColor:[UIColor changeColor:self.quote.priceChange]];
         [self.detailsView setHidden:YES];
         [self.securityView setHidden:NO];
     }

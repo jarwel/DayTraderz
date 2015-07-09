@@ -22,7 +22,6 @@
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
 		CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PickViewController.m */; };
-		CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD31A60886F00ED13B3 /* FinanceClient.m */; };
 		CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BD61A608DEC00ED13B3 /* Quote.m */; };
 		CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BE61A60AD8300ED13B3 /* Pick.m */; };
 		CA492BEA1A61D2F700ED13B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BE91A61D2F700ED13B3 /* Parse.framework */; };
@@ -49,6 +48,7 @@
 		CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA91A89923B00727CE1 /* PriceFormatter.m */; };
 		CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E71B4EE4B800B869A4 /* PickCell.swift */; };
 		CA8136EA1B4EE74B00B869A4 /* UIColor+Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */; };
+		CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
 		CA98EF771AA55BCC0058A3EF /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF761AA55BCC0058A3EF /* background-4.jpg */; };
 		CA98EF791AA55BD20058A3EF /* background-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF781AA55BD20058A3EF /* background-5.jpg */; };
 		CA9908111AA289AD00804200 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908101AA289AD00804200 /* logout.png */; };
@@ -100,8 +100,6 @@
 		CA492BC41A607CE100ED13B3 /* PickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickCell.xib; sourceTree = "<group>"; };
 		CA492BCB1A60853700ED13B3 /* PickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
 		CA492BCC1A60853700ED13B3 /* PickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
-		CA492BD21A60886F00ED13B3 /* FinanceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceClient.h; sourceTree = "<group>"; };
-		CA492BD31A60886F00ED13B3 /* FinanceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceClient.m; sourceTree = "<group>"; };
 		CA492BD51A608DEC00ED13B3 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
 		CA492BD61A608DEC00ED13B3 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		CA492BE51A60AD8300ED13B3 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
@@ -135,6 +133,7 @@
 		CA685CA91A89923B00727CE1 /* PriceFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceFormatter.m; sourceTree = "<group>"; };
 		CA8136E71B4EE4B800B869A4 /* PickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCell.swift; sourceTree = "<group>"; };
 		CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Application.swift"; sourceTree = "<group>"; };
+		CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceClient.swift; sourceTree = "<group>"; };
 		CA98EF761AA55BCC0058A3EF /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		CA98EF781AA55BD20058A3EF /* background-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-5.jpg"; sourceTree = "<group>"; };
 		CA9908101AA289AD00804200 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
@@ -310,8 +309,7 @@
 		CA492BD11A60884200ED13B3 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				CA492BD21A60886F00ED13B3 /* FinanceClient.h */,
-				CA492BD31A60886F00ED13B3 /* FinanceClient.m */,
+				CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */,
 				CAAE46B71A81747E00B05BAB /* ParseClient.h */,
 				CAAE46B81A81747E00B05BAB /* ParseClient.m */,
 			);
@@ -483,7 +481,6 @@
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
 				CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */,
 				CA685CAA1A89923B00727CE1 /* PriceFormatter.m in Sources */,
-				CA492BD41A60886F00ED13B3 /* FinanceClient.m in Sources */,
 				AAA28C371B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
@@ -499,6 +496,7 @@
 				CA492BD71A608DEC00ED13B3 /* Quote.m in Sources */,
 				AAA28C381B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,
+				CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */,
 				CA8136EA1B4EE74B00B869A4 /* UIColor+Application.swift in Sources */,
 				CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */,
 			);

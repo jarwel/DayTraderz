@@ -11,7 +11,6 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
 #import "ParseClient.h"
-#import "FinanceClient.h"
 #import "PickViewController.h"
 #import "Account.h"
 #import "Quote.h"
@@ -122,10 +121,10 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.buyLabel setText:@"BUY"];
                 [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
                 [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
-                [cell.changeLabel setTextColor:[UIColor colorForChange:priceChange]];
+                [cell.changeLabel setTextColor:[UIColor changeColor:priceChange]];
                 
                 if (self.lastPrice != 0 && self.lastPrice != self.quote.price) {
-                    UIColor *color = [UIColor colorForChange:self.quote.price - self.lastPrice];
+                    UIColor *color = [UIColor changeColor:self.quote.price - self.lastPrice];
                     [self flashTextColor:color onLabel:cell.closeLabel];
                     [self flashTextColor:color onLabel:cell.valueLabel];
                 }
@@ -146,7 +145,7 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.sellLabel setText:@"SELL"];
         [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
         [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
-        [cell.changeLabel setTextColor:[UIColor colorForChange:pick.change]];
+        [cell.changeLabel setTextColor:[UIColor changeColor:pick.change]];
         [cell.openLabel setTextColor:[UIColor whiteColor]];
         [cell.closeLabel setTextColor:[UIColor whiteColor]];
     }
@@ -255,7 +254,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)fetchQuote {
     if (self.currentPick) {
         NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
-        [[FinanceClient instance] fetchQuotesForSymbols:symbols callback:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [FinanceClient fetchQuotes:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];
                 if (quotes.count == 1) {
