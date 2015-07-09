@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSCalendar *calendar;
 @property (strong, nonatomic) NSArray *holidays;
+@property (strong, nonatomic) NSDateFormatter *utc;
 
 @end
 
@@ -24,6 +25,9 @@
         instance.holidays = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Market holidays"];
         instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [instance.calendar setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+        instance.utcFormatter = [[NSDateFormatter alloc] init];
+        [instance.utcFormatter setDateFormat:@"yyyy-MM-dd"];
+        [instance.utcFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     }
     return instance;
 }
@@ -38,9 +42,7 @@
     return NO;
 }
 
-- (NSString *)nextDayOfTrade{
-    NSDate *date = [NSDate date];
-
+- (NSString *)nextDayOfTradeFromDate:(NSDate *)date {
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
     if (hour >= 9 || ![self isMarketOpenOnDate:date]) {
         do {
@@ -52,9 +54,7 @@
     return [self dayOfTradeFromDate:date];
 }
 
-- (NSString *)lastDayOfTrade {
-    NSDate *date = [NSDate date];
-
+- (NSString *)lastDayOfTradeFromDate:(NSDate *)date  {
     long hour = [self.calendar components:NSCalendarUnitHour fromDate:date].hour;
     if (hour < 9) {
         do {
@@ -87,21 +87,11 @@
 }
 
 - (NSString *)dayOfTradeFromDate:(NSDate *)date {
-    static NSDateFormatter *formatter;
-    if (!formatter) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-    }
-    return [formatter stringFromDate:date];
+    return [self.utc stringFromDate:date];
 }
 
 - (NSDate *)dateFromDayOfTrade:(NSString *)dayOfTrade {
-    static NSDateFormatter *formatter;
-    if (!formatter) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-    }
-    return [formatter dateFromString:dayOfTrade];
+    return [self.utc dateFromString:dayOfTrade];
 }
 
 

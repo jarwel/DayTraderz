@@ -201,7 +201,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
-        NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTrade];
+        NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
         if (self.nextPick && [nextDayOfTrade isEqualToString:self.nextPick.dayOfTrade]) {
             [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
@@ -287,8 +287,8 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)sortPicksFromObjects:(NSArray *)objects {
-    NSString *lastDayOfTrade = [[DateHelper instance] lastDayOfTrade];
-    NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTrade];
+    NSString *lastDayOfTrade = [[DateHelper instance] lastDayOfTradeFromDate:[NSDate date]];
+    NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
     for (Pick *pick in objects) {
         if (!pick.processed && [lastDayOfTrade isEqualToString:pick.dayOfTrade]) {
             self.currentPick = pick;
