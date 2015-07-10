@@ -14,7 +14,6 @@
 #import "PickViewController.h"
 #import "Account.h"
 #import "DateHelper.h"
-#import "PriceFormatter.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 
@@ -27,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
+@property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 @property (strong, nonatomic) NSMutableArray *picks;
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *nextPick;
@@ -59,7 +59,9 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.losersLabel setText:nil];
     [self.nextPickLabel setText:nil];
     [self.nextPickButton setHidden:YES];
+    
     self.picks = [[NSMutableArray alloc] init];
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
     
     UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
@@ -112,14 +114,14 @@ static NSString * const cellIdentifier = @"PickCell";
             [cell.dateLabel setText:[[DateHelper instance] shortFormatForDayOfTrade:self.currentPick.dayOfTrade]];
             [cell.symbolLabel setText:self.currentPick.symbol];
             if (self.quote.open != 0) {
-                float priceChange = self.quote.price - self.quote.open;
-                float percentChange = priceChange / self.quote.open * 100;
-                float estimatedValue = self.account.value + (self.account.value * percentChange / 100);
+                double priceChange = self.quote.price - self.quote.open;
+                double percentChange = priceChange / self.quote.open * 100;
+                double estimatedValue = self.account.value + (self.account.value * percentChange / 100);
                 [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
                 [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
                 [cell.buyLabel setText:@"BUY"];
-                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [PriceFormatter formatForValue:estimatedValue]]];
-                [cell.changeLabel setText:[PriceFormatter formatForPriceChange:priceChange andPercentChange:percentChange]];
+                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [self.numberFormatter USDstringFromDouble:estimatedValue]]];
+                [cell.changeLabel setText:[ChangeFormatter stringFromChange:priceChange percentChange:percentChange]];
                 [cell.changeLabel setTextColor:[UIColor changeColor:priceChange]];
                 
                 if (self.lastPrice != 0 && self.lastPrice != self.quote.price) {
@@ -142,8 +144,8 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
         [cell.buyLabel setText:@"BUY"];
         [cell.sellLabel setText:@"SELL"];
-        [cell.valueLabel setText:[PriceFormatter formatForValue:pick.value + pick.change]];
-        [cell.changeLabel setText:[PriceFormatter formatForPick:pick]];
+        [cell.valueLabel setText:[self.numberFormatter USDstringFromDouble:pick.value + pick.change]];
+        [cell.changeLabel setText:[ChangeFormatter stringFromPick:pick]];
         [cell.changeLabel setTextColor:[UIColor changeColor:pick.change]];
         [cell.openLabel setTextColor:[UIColor whiteColor]];
         [cell.closeLabel setTextColor:[UIColor whiteColor]];
@@ -222,7 +224,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)refreshViews {
     [self.nameLabel setText:self.account.user.username];
-    [self.valueLabel setText:[PriceFormatter formatForValue:self.account.value]];
+    [self.valueLabel setText:[self.numberFormatter USDstringFromDouble:self.account.value]];
     
     int count = self.account.winners + self.account.losers;
     if (count == 0) {

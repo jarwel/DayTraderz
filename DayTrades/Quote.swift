@@ -9,8 +9,6 @@
 import Foundation
 
 class Quote: NSObject {
-   
-    var json: NSDictionary
     
     lazy var symbol: String = self.parseSymbol()
     lazy var name: String = self.parseName()
@@ -18,6 +16,8 @@ class Quote: NSObject {
     lazy var price: Double = self.parsePrice()
     lazy var priceChange: Double = self.parsePriceChange()
     lazy var percentChange: Double = self.parsePercentChange()
+    
+    var json: NSDictionary
     
     init(json: NSDictionary) {
         self.json = json

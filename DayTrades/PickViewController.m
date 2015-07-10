@@ -10,7 +10,6 @@
 #import "DayTrades-Swift.h"
 #import "ParseClient.h"
 #import "DateHelper.h"
-#import "PriceFormatter.h"
 
 @interface PickViewController ()
 
@@ -79,7 +78,7 @@
         [self.symbolLabel setText:self.quote.symbol];
         [self.nameLabel setText:self.quote.name];
         [self.priceLabel setText:[NSString stringWithFormat:@"%0.2f", self.quote.price]];
-        [self.changeLabel setText:[PriceFormatter formatForQuote:self.quote]];
+        [self.changeLabel setText:[ChangeFormatter stringFromQuote:self.quote]];
         [self.changeLabel setTextColor:[UIColor changeColor:self.quote.priceChange]];
         [self.detailsView setHidden:YES];
         [self.securityView setHidden:NO];

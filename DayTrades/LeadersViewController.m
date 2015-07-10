@@ -11,7 +11,6 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "Account.h"
 #import "ParseClient.h"
-#import "PriceFormatter.h"
 #import "DateHelper.h"
 
 @interface LeadersViewController ()
@@ -20,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *accounts;
+@property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 
 @end
 
@@ -30,6 +30,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.accounts = [[NSMutableArray alloc] init];
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
     
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
@@ -69,7 +70,7 @@ static NSString * const cellIdentifier = @"AccountCell";
         [cell.winnersLabel setTextColor:[UIColor greenColor]];
         [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
         [cell.losersLabel setTextColor:[UIColor redColor]];
-        [cell.valueLabel setText:[PriceFormatter formatForValue:account.value]];
+        [cell.valueLabel setText:[self.numberFormatter USDstringFromDouble:account.value]];
     }
     return cell;
 }
