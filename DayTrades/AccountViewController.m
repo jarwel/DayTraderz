@@ -312,7 +312,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)enableInfiniteScroll {
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
-        [[ParseClient instance] fetchPicksForAccount:self.account withLimit:5 withSkip:skip callback:^(NSArray *objects, NSError *error) {
+        [[ParseClient instance] fetchPicksForAccount:self.account withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
             if (!error) {
                 [self.picks addObjectsFromArray:objects];
                 [self.tableView reloadData];

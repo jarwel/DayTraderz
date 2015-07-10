@@ -141,7 +141,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         NSString *column = [self columnSelected];
         long skip = self.accounts.count;
-        [[ParseClient instance] fetchAccountsSortedByColumn:column withLimit:5 withSkip:skip callback:^(NSArray *objects, NSError *error) {
+        [[ParseClient instance] fetchAccountsSortedByColumn:column withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
             if ([column isEqualToString:[self columnSelected]]) {
                 if (!error) {
                     [self.accounts addObjectsFromArray:objects];
