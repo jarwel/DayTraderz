@@ -217,12 +217,12 @@
 		CA492B741A606CDB00ED13B3 /* DayTrades */ = {
 			isa = PBXGroup;
 			children = (
-				CAD061FA1AA136DC0000C613 /* Images */,
 				CA492BD11A60884200ED13B3 /* Clients */,
 				CA492BA41A606F6500ED13B3 /* Models */,
 				CA492BA11A606F0000ED13B3 /* Views */,
 				CA492B9B1A606DA800ED13B3 /* Controllers */,
 				CA685CA41A89902500727CE1 /* Helpers */,
+				CADFDD661B502A9400E298A8 /* Extensions */,
 				AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */,
 				CA492B791A606CDB00ED13B3 /* AppDelegate.h */,
 				CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */,
@@ -231,6 +231,7 @@
 				CA492B7F1A606CDB00ED13B3 /* Main.storyboard */,
 				CA492B821A606CDB00ED13B3 /* Images.xcassets */,
 				CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */,
+				CAD061FA1AA136DC0000C613 /* Images */,
 				CA492B751A606CDB00ED13B3 /* Supporting Files */,
 				AAA28C391B46F4B700B672C8 /* SVPullToRefresh */,
 			);
@@ -345,8 +346,6 @@
 				CA685CA51A89909600727CE1 /* DateHelper.h */,
 				CA685CA61A89909600727CE1 /* DateHelper.m */,
 				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
-				CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */,
-				CADFDD641B50252700E298A8 /* NSNumberFormatter+USD.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -364,6 +363,15 @@
 				CA99081F1AA2C45500804200 /* close.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CADFDD661B502A9400E298A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA8136E91B4EE74B00B869A4 /* UIColor+Application.swift */,
+				CADFDD641B50252700E298A8 /* NSNumberFormatter+USD.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
