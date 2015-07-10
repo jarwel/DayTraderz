@@ -120,7 +120,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.open]];
                 [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", self.quote.price]];
                 [cell.buyLabel setText:@"BUY"];
-                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [self.numberFormatter USDstringFromDouble:estimatedValue]]];
+                [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [self.numberFormatter USDFromDouble:estimatedValue]]];
                 [cell.changeLabel setText:[ChangeFormatter stringFromChange:priceChange percentChange:percentChange]];
                 [cell.changeLabel setTextColor:[UIColor changeColor:priceChange]];
                 
@@ -144,7 +144,7 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
         [cell.buyLabel setText:@"BUY"];
         [cell.sellLabel setText:@"SELL"];
-        [cell.valueLabel setText:[self.numberFormatter USDstringFromDouble:pick.value + pick.change]];
+        [cell.valueLabel setText:[self.numberFormatter USDFromDouble:pick.value + pick.change]];
         [cell.changeLabel setText:[ChangeFormatter stringFromPick:pick]];
         [cell.changeLabel setTextColor:[UIColor changeColor:pick.change]];
         [cell.openLabel setTextColor:[UIColor whiteColor]];
@@ -224,7 +224,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)refreshViews {
     [self.nameLabel setText:self.account.user.username];
-    [self.valueLabel setText:[self.numberFormatter USDstringFromDouble:self.account.value]];
+    [self.valueLabel setText:[self.numberFormatter USDFromDouble:self.account.value]];
     
     int count = self.account.winners + self.account.losers;
     if (count == 0) {

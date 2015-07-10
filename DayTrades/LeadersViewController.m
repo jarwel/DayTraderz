@@ -70,7 +70,7 @@ static NSString * const cellIdentifier = @"AccountCell";
         [cell.winnersLabel setTextColor:[UIColor greenColor]];
         [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
         [cell.losersLabel setTextColor:[UIColor redColor]];
-        [cell.valueLabel setText:[self.numberFormatter USDstringFromDouble:account.value]];
+        [cell.valueLabel setText:[self.numberFormatter USDFromDouble:account.value]];
     }
     return cell;
 }

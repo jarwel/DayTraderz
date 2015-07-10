@@ -10,7 +10,7 @@ import Foundation
 
 extension NSNumberFormatter {
     
-    func USDstringFromDouble(value: Double) -> String {
+    func USDFromDouble(value: Double) -> String {
         let number: NSNumber = NSNumber(double: value)
         self.numberStyle = .CurrencyStyle
         self.currencyCode = "USD"
