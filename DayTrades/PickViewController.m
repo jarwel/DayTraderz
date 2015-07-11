@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSString *dayOfTrade;
 @property (strong, nonatomic) Quote *quote;
 
@@ -40,6 +41,7 @@
     [self.detailsView setBackgroundColor:[UIColor translucentColor]];
     [self.securityView setBackgroundColor:[UIColor translucentColor]];
     
+    self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
     [self refreshViews];
 }

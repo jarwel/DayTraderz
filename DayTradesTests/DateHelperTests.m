@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "DateHelper.h"
+#import "DayTradesTests-Swift.h"
 
 @interface DateHelperTests : XCTestCase
 
