@@ -10,18 +10,24 @@ import Foundation
 
 extension NSDateFormatter {
   
-    func shortStringFromDayOfTrade(dayOfTrade: DayOfTrade) -> String {
-        let date = dayOfTrade.dateValue()
-        self.dateFormat = "E, MMM d"
+    func shortFromDayOfTrade(dayOfTrade: String) -> String? {
+        self.dateFormat = "yyyy-MM-dd"
         self.timeZone = NSTimeZone(name: "UTC")
-        return self.stringFromDate(date)
+        if let date = self.dateFromString(dayOfTrade) {
+            self.dateFormat = "E, MMM d"
+            return self.stringFromDate(date)
+        }
+        return nil
     }
     
-    func fullStringFromDayOfTrade(dayOfTrade: DayOfTrade) -> String {
-        let date = dayOfTrade.dateValue()
-        self.dateFormat = "EEEE, MMMM d, yyyy"
+    func fullFromDayOfTrade(dayOfTrade: String) -> String? {
+        self.dateFormat = "yyyy-MM-dd"
         self.timeZone = NSTimeZone(name: "UTC")
-        return self.stringFromDate(date)
+        if let date = self.dateFromString(dayOfTrade) {
+            self.dateFormat = "EEEE, MMMM d, yyyy"
+            return self.stringFromDate(date)
+        }
+        return nil
     }
     
 }

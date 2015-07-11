@@ -65,7 +65,7 @@ class Quote: NSObject {
                 }
                 if count > 1 {
                     if let results = query["results"] as? NSArray {
-                        for object : AnyObject in results {
+                        for object: AnyObject in results {
                             if let quote = object as? NSDictionary {
                                 quotes.append(Quote(json: quote))
                             }
