@@ -20,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *picksLabel;
-@property (weak, nonatomic) IBOutlet UILabel *winnersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *losersLabel;
+@property (weak, nonatomic) IBOutlet PickBarView *winnersBarView;
+@property (weak, nonatomic) IBOutlet PickBarView *losersBarView;
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
@@ -34,10 +34,6 @@
 @property (strong, nonatomic) Quote *quote;
 @property (strong, nonatomic) NSTimer *quoteTimer;
 @property (assign, nonatomic) double lastPrice;
-
-- (void)applicationBecameActive;
-- (void)applicationBecameInactive;
-- (void)fetchQuote;
 
 @end
 
@@ -55,14 +51,14 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.nameLabel setText:nil];
     [self.valueLabel setText:nil];
     [self.picksLabel setText:nil];
-    [self.winnersLabel setText:nil];
-    [self.losersLabel setText:nil];
     [self.nextPickLabel setText:nil];
     [self.nextPickButton setHidden:YES];
     
     self.picks = [[NSMutableArray alloc] init];
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.winnersBarView.barColor = [UIColor greenColor];
+    self.losersBarView.barColor = [UIColor redColor];
     
     UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
@@ -76,7 +72,6 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)applicationBecameActive {
     NSLog(@"application became active");
-    
     [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
         if (!error) {
             self.account = (Account *)object;
@@ -91,7 +86,8 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)applicationBecameInactive {
     NSLog(@"application became inactive");
-    
+    [self.winnersBarView resetView];
+    [self.losersBarView resetView];
     [self.quoteTimer invalidate];
 }
 
@@ -230,15 +226,14 @@ static NSString * const cellIdentifier = @"PickCell";
     int count = self.account.winners + self.account.losers;
     if (count == 0) {
         [self.picksLabel setText:@"No Picks"];
-        [self.winnersLabel setText:nil];
-        [self.losersLabel setText:nil];
     }
     else {
         [self.picksLabel setText:[NSString stringWithFormat:@"%d Pick%@", count, count > 1 ? @"s" : @""]];
-        [self.winnersLabel setText:[NSString stringWithFormat:@"+%d", self.account.winners]];
-        [self.winnersLabel setTextColor:[UIColor greenColor]];
-        [self.losersLabel setText:[NSString stringWithFormat:@"-%d", self.account.losers]];
-        [self.losersLabel setTextColor:[UIColor redColor]];
+        self.winnersBarView.picks = self.account.winners;
+        self.winnersBarView.total = count;
+        self.losersBarView.picks = self.account.losers;
+        self.losersBarView .total = count;
+        [self animateBarViews];
     }
     if (self.nextPick) {
         [self.nextPickLabel setText:[NSString stringWithFormat:@"Next Pick: %@", self.nextPick.symbol]];
@@ -249,7 +244,6 @@ static NSString * const cellIdentifier = @"PickCell";
         [self.nextPickButton setTitle:@"Set Next" forState:UIControlStateNormal];
     }
     [self.nextPickButton setHidden:NO];
-    
     [self.tableView reloadData];
 }
 
@@ -300,6 +294,11 @@ static NSString * const cellIdentifier = @"PickCell";
             [self.picks addObject:pick];
         }
     }
+}
+
+- (void)animateBarViews {
+    [self.winnersBarView animate];
+    [self.losersBarView animate];
 }
 
 - (void)flashTextColor:(UIColor *)color onLabel:(UILabel *)label {

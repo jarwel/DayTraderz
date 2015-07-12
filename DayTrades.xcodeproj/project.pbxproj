@@ -15,6 +15,7 @@
 		AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
 		AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
 		AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */; };
+		AABEDC081B51F81300BDD762 /* PickBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC071B51F81300BDD762 /* PickBarView.swift */; };
 		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
@@ -83,6 +84,7 @@
 		AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
 		AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+App.swift"; sourceTree = "<group>"; };
 		AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarTests.swift; sourceTree = "<group>"; };
+		AABEDC071B51F81300BDD762 /* PickBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickBarView.swift; sourceTree = "<group>"; };
 		AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
 		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 				AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */,
 				CA492BC41A607CE100ED13B3 /* PickCell.xib */,
 				CA8136E71B4EE4B800B869A4 /* PickCell.swift */,
+				AABEDC071B51F81300BDD762 /* PickBarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CAD9B9121B506E9000B9CF1D /* DateHelper.swift in Sources */,
+				AABEDC081B51F81300BDD762 /* PickBarView.swift in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
