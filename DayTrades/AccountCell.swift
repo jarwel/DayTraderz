@@ -16,7 +16,7 @@ class AccountCell: UITableViewCell {
     @IBOutlet weak var losersLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-    func clear() {
+    func resetView() {
         self.nameLabel.text = nil
         self.winnersLabel.text = nil
         self.losersLabel.text = nil

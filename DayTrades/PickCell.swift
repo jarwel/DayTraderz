@@ -20,7 +20,7 @@ class PickCell: UITableViewCell {
     @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-    func clear() {
+    func resetView() {
         self.symbolLabel.text = nil
         self.dateLabel.text = nil
         self.openLabel.text = nil

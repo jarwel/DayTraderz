@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="78" width="515" height="45"/>
+                                <rect key="frame" x="16" y="74" width="515" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lOr-0h-9bm"/>
                                 </constraints>
@@ -135,9 +135,9 @@
                             <constraint firstItem="7NY-7p-bsx" firstAttribute="top" secondItem="afo-Qs-2eu" secondAttribute="topMargin" constant="200" id="jS8-gl-xSr"/>
                             <constraint firstItem="ZO4-HI-lgt" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="jeq-IL-NrS"/>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="k7C-OP-wEU"/>
-                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="Udm-GY-JQX" secondAttribute="bottom" constant="11" id="kOe-j2-Ghx"/>
+                            <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="Udm-GY-JQX" secondAttribute="bottom" constant="15" id="kOe-j2-Ghx"/>
                             <constraint firstItem="XbG-j1-Zbe" firstAttribute="top" secondItem="buT-kL-TyP" secondAttribute="bottom" id="ngU-tm-v1L"/>
-                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="14" id="tXh-1g-HVO"/>
+                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="10" id="tXh-1g-HVO"/>
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="leading" secondItem="7NY-7p-bsx" secondAttribute="trailing" constant="10" id="wf9-A4-XyP"/>
                         </constraints>
                         <variation key="default">
