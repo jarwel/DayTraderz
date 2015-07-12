@@ -10,16 +10,19 @@ import Foundation
 
 class MarketHelper: NSObject {
     
-    static func isMarketOpenOnDate(date: NSDate) -> Bool {
+    class func isMarketOpen(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date)
-        let weekday: Int = components.weekday
-        if weekday < 2 || weekday > 6 {
+        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        if hour < 9 || hour >= 16 {
             return false
         }
-        let holidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
-        let string: String = easternDateFormatter().stringFromDate(date)
-        return !holidays.containsObject(string)
+        if hour == 9 {
+            let minute: Int = calendar.components(NSCalendarUnit.CalendarUnitMinute, fromDate: date).minute
+            if minute < 30 {
+                return false
+            }
+        }
+        return isDayOfTrade(date)
     }
     
     class func nextDayOfTrade() -> String? {
@@ -29,13 +32,12 @@ class MarketHelper: NSObject {
     
     class func nextDayOfTradeFromDate(var date: NSDate) -> String? {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date)
-        let hour: Int = components.hour
-        if hour >= 9 || !isMarketOpenOnDate(date) {
+        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        if hour >= 9 || !isDayOfTrade(date) {
             do {
                 date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: 1, toDate: date, options: nil)!
             }
-            while (!isMarketOpenOnDate(date))
+            while (!isDayOfTrade(date))
         }
         let dateFormatter: NSDateFormatter = easternDateFormatter()
         let dayOfTrade: String = easternDateFormatter().stringFromDate(date)
@@ -50,17 +52,27 @@ class MarketHelper: NSObject {
     
     class func lastDayOfTradeFromDate(var date: NSDate) -> String? {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date)
-        let hour: Int = components.hour
-        if hour < 9 || !isMarketOpenOnDate(date) {
+        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        if hour < 9 || !isDayOfTrade(date) {
             do {
                 date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -1, toDate: date, options: nil)!
             }
-            while (!isMarketOpenOnDate(date))
+            while (!isDayOfTrade(date))
         }
         let dateFormatter: NSDateFormatter = easternDateFormatter()
         let dayOfTrade: String = dateFormatter.stringFromDate(date)
         return dayOfTrade
+    }
+    
+    static func isDayOfTrade(date: NSDate) -> Bool {
+        let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
+        let weekday: Int = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        if weekday < 2 || weekday > 6 {
+            return false
+        }
+        let holidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
+        let string: String = easternDateFormatter().stringFromDate(date)
+        return !holidays.containsObject(string)
     }
     
     static func easternDateFormatter() -> NSDateFormatter {

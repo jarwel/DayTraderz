@@ -129,7 +129,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 self.lastPrice = self.quote.price;
             }
         }
-        else if (![MarketHelper isMarketOpenOnDate:[NSDate date]]) {
+        else if (![MarketHelper isMarketOpen:[NSDate date]]) {
             [cell.openLabel setText:@"Market Closed"];
         }
     }
