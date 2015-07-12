@@ -22,16 +22,28 @@ class NSNumberFormatterTests: XCTestCase {
         super.tearDown()
     }
     
-    func testUSDFromDouble() {
-        let value: Double = 10000.00
-        let string: String = numberFormatter!.USDFromDouble(value)
-        XCTAssertEqual("$10,000.00", string)
+    func testCurrencyFromNumber() {
+        let number: NSNumber = 10000.5
+        let string: String = numberFormatter!.currencyFromNumber(number)
+        XCTAssertEqual("$10,000.50", string)
     }
     
-    func testPriceFromDouble() {
-        let value: Double = 0.5
-        let string: String = numberFormatter!.priceFromDouble(value)
+    func testPriceFromNumber() {
+        let number: NSNumber = 0.5
+        let string: String = numberFormatter!.priceFromNumber(number)
         XCTAssertEqual("0.50", string)
+    }
+    
+    func testPriceChangeFromNumber() {
+        let number: NSNumber = +0.5
+        let string: String = numberFormatter!.priceChangeFromNumber(number)
+        XCTAssertEqual("+0.50", string)
+    }
+    
+    func testPercentChangeFromNumber() {
+        let number: NSNumber = 0.5
+        let string: String = numberFormatter!.percentChangeFromNumber(number)
+        XCTAssertEqual("+0.50%", string)
     }
     
 }

@@ -67,7 +67,7 @@ static NSString * const cellIdentifier = @"AccountCell";
         Account *account = [self.accounts objectAtIndex:indexPath.row];
         if (![account.user.username isEqualToString:cell.nameLabel.text]) {
             [cell.nameLabel setText:account.user.username];
-            [cell.valueLabel setText:[self.numberFormatter USDFromDouble:account.value]];
+            [cell.valueLabel setText:[self.numberFormatter currencyFromNumber:[NSNumber numberWithDouble:account.value]]];
             cell.picksBarView.value = account.winners;
             cell.picksBarView.total = account.winners + account.losers;
             if ([self.animated containsObject:account.user.username]) {

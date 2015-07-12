@@ -56,7 +56,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
             }
             symbolLabel.text = quote?.symbol
             nameLabel.text = quote?.name
-            priceLabel.text = numberFormatter.priceFromDouble(quote!.price)
+            priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote!.price))
             changeLabel.text = ChangeFormatter.stringFromQuote(quote!)
             changeLabel.textColor = UIColor.colorForChange(quote!.priceChange)
             detailsView.hidden = true

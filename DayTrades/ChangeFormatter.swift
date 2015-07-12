@@ -23,8 +23,9 @@ class ChangeFormatter: NSObject {
     }
     
     class func stringFromChange(priceChange: Double, percentChange: Double) -> String {
-        let priceChangeFormat: NSString = NSString(format:"%+0.2f", priceChange)
-        let percentChangeFormat: NSString = NSString(format:"%+0.2f%%", percentChange)
+        let numberFormatter: NSNumberFormatter = NSNumberFormatter()
+        let priceChangeFormat: String = numberFormatter.priceChangeFromNumber(NSNumber(double: priceChange))
+        let percentChangeFormat: String = numberFormatter.percentChangeFromNumber(NSNumber(double: percentChange))
         return "\(priceChangeFormat) (\(percentChangeFormat))"
     }
     

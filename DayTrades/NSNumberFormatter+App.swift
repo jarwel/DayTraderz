@@ -10,15 +10,22 @@ import Foundation
 
 extension NSNumberFormatter {
     
-    func USDFromDouble(value: Double) -> String {
-        let number: NSNumber = NSNumber(double: value)
+    func currencyFromNumber(number: NSNumber) -> String {
         self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         self.currencyCode = "USD"
         return self.stringFromNumber(number)!
     }
     
-    func priceFromDouble(value: Double) -> String {
-        return NSString(format:"%0.2f", value) as String
+    func priceFromNumber(number: NSNumber) -> String {
+        return NSString(format:"%0.2f", number.doubleValue) as String
+    }
+    
+    func priceChangeFromNumber(number: NSNumber) -> String {
+        return NSString(format:"%+0.2f", number.doubleValue) as String
+    }
+    
+    func percentChangeFromNumber(number: NSNumber) -> String {
+        return NSString(format:"%+0.2f%%", number.doubleValue) as String
     }
     
 }
