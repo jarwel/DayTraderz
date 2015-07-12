@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DayTrades-Swift.h"
 #import "AppConstants.h"
 #import "SignUpViewController.h"
 #import "LogInViewController.h"
@@ -71,7 +72,7 @@
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            Account *account = [[Account alloc] initForUser:user];
+            Account *account = [Account newForUser:user];
             [account saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];

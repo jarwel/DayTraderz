@@ -17,6 +17,9 @@
 		AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */; };
 		AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC071B51F81300BDD762 /* SingleBarView.swift */; };
 		AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */; };
+		AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC0B1B52C1FC00BDD762 /* Account.swift */; };
+		AABEDC131B52CA9100BDD762 /* Pick.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC121B52CA9100BDD762 /* Pick.swift */; };
+		AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC141B52D0C400BDD762 /* DayQuote.swift */; };
 		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
@@ -25,11 +28,9 @@
 		CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */; };
 		CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */; };
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
-		CA492BA71A606F7E00ED13B3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BA61A606F7E00ED13B3 /* Account.m */; };
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
 		CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PickViewController.m */; };
-		CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BE61A60AD8300ED13B3 /* Pick.m */; };
 		CA492BF81A61D39000ED13B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BED1A61D39000ED13B3 /* AudioToolbox.framework */; };
 		CA492BF91A61D39000ED13B3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEE1A61D39000ED13B3 /* CFNetwork.framework */; };
 		CA492BFA1A61D39000ED13B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEF1A61D39000ED13B3 /* CoreGraphics.framework */; };
@@ -59,7 +60,6 @@
 		CA9908201AA2C45500804200 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CA99081F1AA2C45500804200 /* close.png */; };
 		CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAAB61A01AA40C35002D739B /* background-2.jpg */; };
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
-		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
 		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
 		CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
 		CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
@@ -87,7 +87,10 @@
 		AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarTests.swift; sourceTree = "<group>"; };
 		AABEDC071B51F81300BDD762 /* SingleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBarView.swift; sourceTree = "<group>"; };
 		AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleBarView.swift; sourceTree = "<group>"; };
-		AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
+		AABEDC0B1B52C1FC00BDD762 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		AABEDC111B52C8FB00BDD762 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
+		AABEDC121B52CA9100BDD762 /* Pick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pick.swift; sourceTree = "<group>"; };
+		AABEDC141B52D0C400BDD762 /* DayQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayQuote.swift; sourceTree = "<group>"; };
 		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,15 +106,11 @@
 		CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
 		CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
-		CA492BA51A606F7E00ED13B3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
-		CA492BA61A606F7E00ED13B3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		CA492BC41A607CE100ED13B3 /* PickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickCell.xib; sourceTree = "<group>"; };
 		CA492BCB1A60853700ED13B3 /* PickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
 		CA492BCC1A60853700ED13B3 /* PickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
-		CA492BE51A60AD8300ED13B3 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
-		CA492BE61A60AD8300ED13B3 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
 		CA492BE91A61D2F700ED13B3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		CA492BEB1A61D30500ED13B3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		CA492BED1A61D39000ED13B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -148,8 +147,6 @@
 		CAAB61A01AA40C35002D739B /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
 		CAAE46B71A81747E00B05BAB /* ParseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseClient.h; sourceTree = "<group>"; };
 		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
-		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
-		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
 		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+App.swift"; sourceTree = "<group>"; };
 		CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelper.swift; sourceTree = "<group>"; };
 		CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+App.swift"; sourceTree = "<group>"; };
@@ -231,7 +228,7 @@
 				CA492B9B1A606DA800ED13B3 /* Controllers */,
 				CA685CA41A89902500727CE1 /* Helpers */,
 				CADFDD661B502A9400E298A8 /* Extensions */,
-				AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */,
+				AABEDC111B52C8FB00BDD762 /* DayTrades-Bridging-Header.h */,
 				CA492B791A606CDB00ED13B3 /* AppDelegate.h */,
 				CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */,
 				CA492C161A61E59700ED13B3 /* AppConstants.h */,
@@ -308,13 +305,10 @@
 		CA492BA41A606F6500ED13B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AABEDC0B1B52C1FC00BDD762 /* Account.swift */,
+				AABEDC121B52CA9100BDD762 /* Pick.swift */,
 				CA8136ED1B4F098A00B869A4 /* Quote.swift */,
-				CA492BA51A606F7E00ED13B3 /* Account.h */,
-				CA492BA61A606F7E00ED13B3 /* Account.m */,
-				CA492BE51A60AD8300ED13B3 /* Pick.h */,
-				CA492BE61A60AD8300ED13B3 /* Pick.m */,
-				CAAE46BA1A8193DC00B05BAB /* DayQuote.h */,
-				CAAE46BB1A8193DC00B05BAB /* DayQuote.m */,
+				AABEDC141B52D0C400BDD762 /* DayQuote.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -539,7 +533,6 @@
 				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
-				CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
@@ -550,11 +543,12 @@
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
-				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
-				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
+				AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */,
 				AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
+				AABEDC131B52CA9100BDD762 /* Pick.swift in Sources */,
 				CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */,
+				AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,
 				CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */,
 				CA8136EA1B4EE74B00B869A4 /* UIColor+App.swift in Sources */,

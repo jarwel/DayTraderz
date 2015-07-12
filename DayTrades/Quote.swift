@@ -24,31 +24,45 @@ class Quote: NSObject {
     }
     
     func parseSymbol() -> String {
-        return json["symbol"] as! String
+        if let symbol: AnyObject? = json["symbol"] {
+            return symbol as! String
+        }
+        return ""
     }
     
     func parseName() -> String {
-        return json["Name"] as! String
+        if let name: AnyObject? = json["Name"] {
+            return name as! String
+        }
+        return ""
     }
     
     func parseOpen() -> Double {
-        let open: String = json["Open"] as! String
-        return (open as NSString).doubleValue
+        if let open: AnyObject? = json["Open"] {
+            return (open as! NSString).doubleValue
+        }
+        return 0
     }
     
     func parsePrice() -> Double {
-        let price: String = json["LastTradePriceOnly"] as! String
-        return (price as NSString).doubleValue
+        if let price: AnyObject? = json["LastTradePriceOnly"] {
+            return (price as! NSString).doubleValue
+        }
+        return 0
     }
     
     func parsePriceChange() -> Double {
-        let priceChange: String = json["Change"] as! String
-        return (priceChange as NSString).doubleValue
+        if let priceChange: AnyObject? = json["Change"] {
+            return (priceChange as! NSString).doubleValue
+        }
+        return 0
     }
     
     func parsePercentChange() -> Double {
-        let percentChange: String = json["ChangeinPercent"] as! String
-        return (percentChange as NSString).doubleValue
+        if let percentChange: AnyObject? = json["ChangeinPercent"] {
+            return (percentChange as! NSString).doubleValue
+        }
+        return 0
     }
     
     class func fromData(data: NSData) -> Array<Quote> {

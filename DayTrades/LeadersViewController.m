@@ -9,7 +9,6 @@
 #import "LeadersViewController.h"
 #import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
-#import "Account.h"
 #import "ParseClient.h"
 
 @interface LeadersViewController ()

@@ -100,7 +100,7 @@
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
         NSString *dayOfTrade = [MarketHelper nextDayOfTrade];
-        Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDayOfTrade:dayOfTrade];
+        Pick *pick = [Pick newForAccount:self.account symbol:symbol dayOfTrade:dayOfTrade];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [self.delegate updateNextPick:pick];

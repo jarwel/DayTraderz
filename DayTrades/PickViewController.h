@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Pick.h"
+#import "DayTrades-Swift.h"
 
 @protocol PickViewControllerDelegate <NSObject>
 

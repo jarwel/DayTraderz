@@ -12,7 +12,6 @@
 #import "AppConstants.h"
 #import "ParseClient.h"
 #import "PickViewController.h"
-#import "Account.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 

@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-#import "Account.h"
-#import "Pick.h"
+#import "DayTrades-Swift.h"
 
 @interface ParseClient : NSObject
 
