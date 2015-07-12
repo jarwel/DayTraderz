@@ -120,6 +120,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 }
 
 - (IBAction)onValueChanged:(id)sender {
+    [self.animated removeAllObjects];
     [self fetchAccounts];
 }
 
