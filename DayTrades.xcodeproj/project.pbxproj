@@ -60,10 +60,10 @@
 		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46BB1A8193DC00B05BAB /* DayQuote.m */; };
 		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
-		CAD9B9121B506E9000B9CF1D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* DateHelper.swift */; };
+		CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
 		CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
-		CAE281301B50849B003790CC /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* DateHelper.swift */; };
-		CAE281321B5084C2003790CC /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE281311B5084C2003790CC /* DateHelperTests.swift */; };
+		CAE281301B50849B003790CC /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
+		CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE281311B5084C2003790CC /* MarketHelperTests.swift */; };
 		CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584401AA3E4FA002422DD /* background-1.jpg */; };
 		CAF584471AA3EB47002422DD /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584461AA3EB47002422DD /* background-3.jpg */; };
 /* End PBXBuildFile section */
@@ -149,9 +149,9 @@
 		CAAE46BA1A8193DC00B05BAB /* DayQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayQuote.h; sourceTree = "<group>"; };
 		CAAE46BB1A8193DC00B05BAB /* DayQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayQuote.m; sourceTree = "<group>"; };
 		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+App.swift"; sourceTree = "<group>"; };
-		CAD9B9111B506E9000B9CF1D /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelper.swift; sourceTree = "<group>"; };
 		CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+App.swift"; sourceTree = "<group>"; };
-		CAE281311B5084C2003790CC /* DateHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		CAE281311B5084C2003790CC /* MarketHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelperTests.swift; sourceTree = "<group>"; };
 		CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTradesTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CAF584401AA3E4FA002422DD /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
 		CAF584461AA3EB47002422DD /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */,
-				CAE281311B5084C2003790CC /* DateHelperTests.swift */,
+				CAE281311B5084C2003790CC /* MarketHelperTests.swift */,
 				AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */,
 				AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */,
 				AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */,
@@ -354,7 +354,7 @@
 		CA685CA41A89902500727CE1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CAD9B9111B506E9000B9CF1D /* DateHelper.swift */,
+				CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */,
 				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
 			);
 			name = Helpers;
@@ -545,7 +545,7 @@
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
-				CAD9B9121B506E9000B9CF1D /* DateHelper.swift in Sources */,
+				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* PickBarView.swift in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
@@ -563,9 +563,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */,
-				CAE281301B50849B003790CC /* DateHelper.swift in Sources */,
+				CAE281301B50849B003790CC /* MarketHelper.swift in Sources */,
 				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */,
-				CAE281321B5084C2003790CC /* DateHelperTests.swift in Sources */,
+				CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */,
 				AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */,
 				AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */,
 				AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */,

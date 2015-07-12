@@ -41,7 +41,7 @@
     [self.securityView setBackgroundColor:[UIColor translucentColor]];
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    self.dayOfTrade = [DateHelper nextDayOfTrade];
+    self.dayOfTrade = [MarketHelper nextDayOfTrade];
     [self refreshViews];
 }
 
@@ -99,7 +99,7 @@
 - (IBAction)onConfirmButtonTouched:(id)sender {
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
-        NSString *dayOfTrade = [DateHelper nextDayOfTrade];
+        NSString *dayOfTrade = [MarketHelper nextDayOfTrade];
         Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDayOfTrade:dayOfTrade];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {

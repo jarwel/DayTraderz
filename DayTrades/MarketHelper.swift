@@ -1,5 +1,5 @@
 //
-//  DateHelper.swift
+//  MarketHelper.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/10/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DateHelper: NSObject {
+class MarketHelper: NSObject {
     
     static func isMarketOpenOnDate(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()

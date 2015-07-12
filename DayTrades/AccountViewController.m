@@ -129,7 +129,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 self.lastPrice = self.quote.price;
             }
         }
-        else if (![DateHelper isMarketOpenOnDate:[NSDate date]]) {
+        else if (![MarketHelper isMarketOpenOnDate:[NSDate date]]) {
             [cell.openLabel setText:@"Market Closed"];
         }
     }
@@ -197,7 +197,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
-        NSString *nextDayOfTrade = [DateHelper nextDayOfTrade];
+        NSString *nextDayOfTrade = [MarketHelper nextDayOfTrade];
         if (self.nextPick && [nextDayOfTrade isEqualToString:self.nextPick.dayOfTrade]) {
             [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
@@ -281,8 +281,8 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)sortPicksFromObjects:(NSArray *)objects {
-    NSString *lastDayOfTrade = [DateHelper lastDayOfTrade];
-    NSString *nextDayOfTrade = [DateHelper nextDayOfTrade];
+    NSString *lastDayOfTrade = [MarketHelper lastDayOfTrade];
+    NSString *nextDayOfTrade = [MarketHelper nextDayOfTrade];
     for (Pick *pick in objects) {
         if (!pick.processed && [lastDayOfTrade isEqualToString:pick.dayOfTrade]) {
             self.currentPick = pick;
