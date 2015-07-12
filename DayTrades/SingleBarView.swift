@@ -1,5 +1,5 @@
 //
-//  PickBarView.swift
+//  SingleBarView.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/11/15.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PickBarView: UIView {
+class SingleBarView: UIView {
     
     let subview: UIView = UIView()
     let label: UILabel = UILabel()

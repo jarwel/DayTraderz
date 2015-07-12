@@ -85,7 +85,7 @@
                                     <segue destination="mIB-Vw-XNj" kind="show" identifier="ShowPickSegue" id="afn-rg-LkX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-HI-lgt" customClass="PickBarView" customModule="DayTrades" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-HI-lgt" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
                                 <rect key="frame" x="484" y="110" width="100" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -93,7 +93,7 @@
                                     <constraint firstAttribute="width" constant="100" id="fii-qR-swD"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-tO-8Kh" customClass="PickBarView" customModule="DayTrades" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-tO-8Kh" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
                                 <rect key="frame" x="484" y="135" width="100" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -165,14 +165,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="losersBarView" destination="CLE-tO-8Kh" id="bgx-0B-7uQ"/>
+                        <outlet property="losersBarView" destination="CLE-tO-8Kh" id="Zih-e0-pnX"/>
                         <outlet property="nameLabel" destination="Udm-GY-JQX" id="NUj-m8-bSR"/>
                         <outlet property="nextPickButton" destination="tjc-Xf-oE6" id="Gpn-2W-7nT"/>
                         <outlet property="nextPickLabel" destination="7NY-7p-bsx" id="tqz-xN-wqC"/>
                         <outlet property="picksLabel" destination="iIl-RE-jO6" id="IPr-74-aFm"/>
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
-                        <outlet property="winnersBarView" destination="ZO4-HI-lgt" id="8f2-ba-z0Z"/>
+                        <outlet property="winnersBarView" destination="ZO4-HI-lgt" id="KnM-Ra-OZz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>

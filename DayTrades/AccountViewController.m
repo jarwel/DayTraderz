@@ -20,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *picksLabel;
-@property (weak, nonatomic) IBOutlet PickBarView *winnersBarView;
-@property (weak, nonatomic) IBOutlet PickBarView *losersBarView;
+@property (weak, nonatomic) IBOutlet SingleBarView *winnersBarView;
+@property (weak, nonatomic) IBOutlet SingleBarView *losersBarView;
 @property (weak, nonatomic) IBOutlet UILabel *nextPickLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
