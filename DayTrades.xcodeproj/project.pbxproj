@@ -13,6 +13,9 @@
 		AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
 		AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */; };
 		AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
+		AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
+		AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
+		AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */; };
 		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
@@ -86,6 +89,8 @@
 		AAA28C361B46F49B00B672C8 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterTests.swift; sourceTree = "<group>"; };
 		AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
+		AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+App.swift"; sourceTree = "<group>"; };
+		AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarTests.swift; sourceTree = "<group>"; };
 		AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
 		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +266,7 @@
 			children = (
 				CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */,
 				CAE281311B5084C2003790CC /* DateHelperTests.swift */,
+				AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */,
 				AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */,
 				AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */,
 				CA492B8F1A606CDB00ED13B3 /* Supporting Files */,
@@ -380,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */,
+				AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */,
 				CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */,
 				CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */,
 			);
@@ -503,6 +510,7 @@
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
 				CAAE46BC1A8193DC00B05BAB /* DayQuote.m in Sources */,
 				AAA28C371B46F49B00B672C8 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */,
@@ -527,11 +535,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */,
 				CAE281301B50849B003790CC /* DateHelper.swift in Sources */,
 				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */,
 				CAE281321B5084C2003790CC /* DateHelperTests.swift in Sources */,
 				AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */,
 				AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */,
+				AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */,
 				AABEDBFB1B51D96B00BDD762 /* NSDateFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  NSDateFormatter+AppTest.swift
+//  NSDateFormatterTest.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/11/15.

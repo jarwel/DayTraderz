@@ -11,7 +11,7 @@ import Foundation
 class DateHelper: NSObject {
     
     static func isMarketOpenOnDate(date: NSDate) -> Bool {
-        let calendar: NSCalendar = easternCalendar()
+        let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date)
         let weekday: Int = components.weekday
         if weekday < 2 || weekday > 6 {
@@ -28,7 +28,7 @@ class DateHelper: NSObject {
     }
     
     class func nextDayOfTradeFromDate(var date: NSDate) -> String? {
-        let calendar: NSCalendar = easternCalendar()
+        let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date)
         let hour: Int = components.hour
         if hour >= 9 || !isMarketOpenOnDate(date) {
@@ -49,7 +49,7 @@ class DateHelper: NSObject {
     }
     
     class func lastDayOfTradeFromDate(var date: NSDate) -> String? {
-        let calendar: NSCalendar = easternCalendar()
+        let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let components: NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date)
         let hour: Int = components.hour
         if hour < 9 || !isMarketOpenOnDate(date) {
@@ -61,12 +61,6 @@ class DateHelper: NSObject {
         let dateFormatter: NSDateFormatter = easternDateFormatter()
         let dayOfTrade: String = dateFormatter.stringFromDate(date)
         return dayOfTrade
-    }
-    
-    static func easternCalendar() -> NSCalendar {
-        let calendar: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        calendar.timeZone = NSTimeZone(name: "America/New_York")!
-        return calendar
     }
     
     static func easternDateFormatter() -> NSDateFormatter {
