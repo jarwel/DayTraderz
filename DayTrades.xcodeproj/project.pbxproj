@@ -28,8 +28,6 @@
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
 		CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BCC1A60853700ED13B3 /* PickViewController.m */; };
 		CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BE61A60AD8300ED13B3 /* Pick.m */; };
-		CA492BEA1A61D2F700ED13B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BE91A61D2F700ED13B3 /* Parse.framework */; };
-		CA492BEC1A61D30500ED13B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEB1A61D30500ED13B3 /* Bolts.framework */; };
 		CA492BF81A61D39000ED13B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BED1A61D39000ED13B3 /* AudioToolbox.framework */; };
 		CA492BF91A61D39000ED13B3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEE1A61D39000ED13B3 /* CFNetwork.framework */; };
 		CA492BFA1A61D39000ED13B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BEF1A61D39000ED13B3 /* CoreGraphics.framework */; };
@@ -43,7 +41,6 @@
 		CA492C021A61D39000ED13B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BF71A61D39000ED13B3 /* SystemConfiguration.framework */; };
 		CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C041A61D9A800ED13B3 /* LogInViewController.m */; };
 		CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C061A61D9A800ED13B3 /* SignUpViewController.m */; };
-		CA492C0D1A61DB3C00ED13B3 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C0C1A61DB3C00ED13B3 /* ParseUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CA492C121A61DDAB00ED13B3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C101A61DDAB00ED13B3 /* Accounts.framework */; };
 		CA492C131A61DDAB00ED13B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C111A61DDAB00ED13B3 /* Social.framework */; };
 		CA492C151A61DE1000ED13B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */; };
@@ -178,9 +175,6 @@
 				CA492C001A61D39000ED13B3 /* Security.framework in Frameworks */,
 				CA492C011A61D39000ED13B3 /* StoreKit.framework in Frameworks */,
 				CA492C021A61D39000ED13B3 /* SystemConfiguration.framework in Frameworks */,
-				CA492BEA1A61D2F700ED13B3 /* Parse.framework in Frameworks */,
-				CA492C0D1A61DB3C00ED13B3 /* ParseUI.framework in Frameworks */,
-				CA492BEC1A61D30500ED13B3 /* Bolts.framework in Frameworks */,
 				9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,6 +3,8 @@ platform :ios, '8.3'
 
 target 'DayTrades' do
 
+pod 'Parse'
+pod 'ParseUI'
 pod 'SVPullToRefresh'
 
 end
