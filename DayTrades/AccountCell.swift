@@ -12,15 +12,13 @@ import UIKit
 class AccountCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var winnersLabel: UILabel!
-    @IBOutlet weak var losersLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var picksBarView: DoubleBarView!
     
     func resetView() {
-        self.nameLabel.text = nil
-        self.winnersLabel.text = nil
-        self.losersLabel.text = nil
-        self.valueLabel.text = nil
+        nameLabel.text = nil
+        valueLabel.text = nil
+        picksBarView.resetView()
     }
     
 }

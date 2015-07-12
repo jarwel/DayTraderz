@@ -21,14 +21,14 @@ class PickCell: UITableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     
     func resetView() {
-        self.symbolLabel.text = nil
-        self.dateLabel.text = nil
-        self.openLabel.text = nil
-        self.closeLabel.text = nil
-        self.buyLabel.text = nil
-        self.sellLabel.text = nil
-        self.changeLabel.text = nil
-        self.valueLabel.text = nil
+        symbolLabel.text = nil
+        dateLabel.text = nil
+        openLabel.text = nil
+        closeLabel.text = nil
+        buyLabel.text = nil
+        sellLabel.text = nil
+        changeLabel.text = nil
+        valueLabel.text = nil
     }
     
 }

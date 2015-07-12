@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *accounts;
+@property (strong, nonatomic) NSMutableSet *animated;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 
 @end
@@ -29,7 +30,9 @@ static NSString * const cellIdentifier = @"AccountCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.accounts = [[NSMutableArray alloc] init];
+    self.animated = [[NSMutableSet alloc] init];
     self.numberFormatter = [[NSNumberFormatter alloc] init];
+    
     
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:YES];
@@ -64,12 +67,19 @@ static NSString * const cellIdentifier = @"AccountCell";
     
     if (indexPath.section == 0) {
         Account *account = [self.accounts objectAtIndex:indexPath.row];
-        [cell.nameLabel setText:account.user.username];
-        [cell.winnersLabel setText:[NSString stringWithFormat:@"+%d", account.winners]];
-        [cell.winnersLabel setTextColor:[UIColor greenColor]];
-        [cell.losersLabel setText:[NSString stringWithFormat:@"-%d", account.losers]];
-        [cell.losersLabel setTextColor:[UIColor redColor]];
-        [cell.valueLabel setText:[self.numberFormatter USDFromDouble:account.value]];
+        if (![account.user.username isEqualToString:cell.nameLabel.text]) {
+            [cell.nameLabel setText:account.user.username];
+            [cell.valueLabel setText:[self.numberFormatter USDFromDouble:account.value]];
+            cell.picksBarView.value = account.winners;
+            cell.picksBarView.total = account.winners + account.losers;
+            if ([self.animated containsObject:account.user.username]) {
+                [cell.picksBarView animate:0];
+            }
+            else {
+                [self.animated addObject:account.user.username];
+                [cell.picksBarView animate:1];
+            }
+        }
     }
     return cell;
 }
@@ -142,7 +152,7 @@ static NSString * const cellIdentifier = @"AccountCell";
         long skip = self.accounts.count;
         [[ParseClient instance] fetchAccountsSortedByColumn:column withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
             if ([column isEqualToString:[self columnSelected]]) {
-                if (!error) {
+                if (!error && objects.count > 0) {
                     [self.accounts addObjectsFromArray:objects];
                     [self.tableView reloadData];
                 } else {

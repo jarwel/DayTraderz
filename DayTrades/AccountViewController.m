@@ -229,9 +229,9 @@ static NSString * const cellIdentifier = @"PickCell";
     }
     else {
         [self.picksLabel setText:[NSString stringWithFormat:@"%d Pick%@", count, count > 1 ? @"s" : @""]];
-        self.winnersBarView.picks = self.account.winners;
+        self.winnersBarView.value = self.account.winners;
         self.winnersBarView.total = count;
-        self.losersBarView.picks = self.account.losers;
+        self.losersBarView.value = self.account.losers;
         self.losersBarView .total = count;
         [self animateBarViews];
     }
@@ -297,8 +297,8 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)animateBarViews {
-    [self.winnersBarView animate];
-    [self.losersBarView animate];
+    [self.winnersBarView animate:1];
+    [self.losersBarView animate:1];
 }
 
 - (void)flashTextColor:(UIColor *)color onLabel:(UILabel *)label {
@@ -313,13 +313,13 @@ static NSString * const cellIdentifier = @"PickCell";
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
         [[ParseClient instance] fetchPicksForAccount:self.account withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
-            if (!error) {
+            if (!error && objects.count > 0) {
                 [self.picks addObjectsFromArray:objects];
                 [self.tableView reloadData];
-                [self.tableView.infiniteScrollingView stopAnimating];
             } else {
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
+            [self.tableView.infiniteScrollingView stopAnimating];
         }];
     }];
     [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];

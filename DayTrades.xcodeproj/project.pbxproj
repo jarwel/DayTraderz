@@ -16,6 +16,7 @@
 		AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
 		AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */; };
 		AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC071B51F81300BDD762 /* SingleBarView.swift */; };
+		AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */; };
 		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
@@ -85,6 +86,7 @@
 		AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+App.swift"; sourceTree = "<group>"; };
 		AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarTests.swift; sourceTree = "<group>"; };
 		AABEDC071B51F81300BDD762 /* SingleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBarView.swift; sourceTree = "<group>"; };
+		AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleBarView.swift; sourceTree = "<group>"; };
 		AABFC5E01B4ED87B0094AAF1 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
 		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,8 +237,8 @@
 				CA492C161A61E59700ED13B3 /* AppConstants.h */,
 				CA492C171A61E59700ED13B3 /* AppConstants.m */,
 				CA492B7F1A606CDB00ED13B3 /* Main.storyboard */,
-				CA492B821A606CDB00ED13B3 /* Images.xcassets */,
 				CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */,
+				CA492B821A606CDB00ED13B3 /* Images.xcassets */,
 				CAD061FA1AA136DC0000C613 /* Images */,
 				CA492B751A606CDB00ED13B3 /* Supporting Files */,
 			);
@@ -298,6 +300,7 @@
 				CA492BC41A607CE100ED13B3 /* PickCell.xib */,
 				CA8136E71B4EE4B800B869A4 /* PickCell.swift */,
 				AABEDC071B51F81300BDD762 /* SingleBarView.swift */,
+				AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
 				CA492BA71A606F7E00ED13B3 /* Account.m in Sources */,
 				CA492BE71A60AD8300ED13B3 /* Pick.m in Sources */,
+				AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */,
 				CA492B781A606CDB00ED13B3 /* main.m in Sources */,
 				CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */,
 				CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */,

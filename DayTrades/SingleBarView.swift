@@ -15,38 +15,38 @@ class SingleBarView: UIView {
     let label: UILabel = UILabel()
     
     var barColor: UIColor = UIColor.clearColor()
-    var picks: UInt = 0
+    var value: UInt = 0
     var total: UInt = 0
 
     override func awakeFromNib() {
-        backgroundColor = UIColor.clearColor()
+        resetView()
         addSubview(subview)
         addSubview(label)
-        subview.backgroundColor = UIColor.redColor();
+    }
+    
+    func resetView() {
+        backgroundColor = UIColor.clearColor()
+        subview.frame = CGRectMake(frame.width, 0, 0, frame.height)
         label.frame = CGRectMake(0, 0, self.frame.width - 4, self.frame.height)
         label.textAlignment = NSTextAlignment.Right
         label.font = UIFont.boldSystemFontOfSize(16.0)
         label.textColor = UIColor.blackColor()
-        resetView()
-    }
-    
-    func resetView() {
-        subview.frame = CGRectMake(frame.width, 0, 0, frame.height)
         label.hidden = true
+        label.text = nil
     }
     
-    func animate() {
+    func animate(duration: Double) {
         resetView()
-        if total > 0 {
-            let percent: CGFloat = CGFloat(picks) / CGFloat(total)
+        if total > 0 && total >= value {
+            let percent: CGFloat = CGFloat(value) / CGFloat(total)
             let width: CGFloat = frame.width * percent
             let x: CGFloat = frame.width - width
             subview.backgroundColor = barColor
-            label.text = "\(picks)"
-            UIView.animateWithDuration(1.0, delay: 0.5, options: nil, animations: {
+            label.text = "\(value)"
+            UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
                 self.subview.frame = CGRectMake(x, 0, width, self.frame.height)
-                }, completion: { finished in
-                    self.label.hidden = false;
+            }, completion: { finished in
+                self.label.hidden = false;
             })
         }
     }
