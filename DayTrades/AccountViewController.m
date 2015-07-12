@@ -10,7 +10,6 @@
 #import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
-#import "PickViewController.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 
@@ -117,10 +116,10 @@ static NSString * const cellIdentifier = @"PickCell";
                 [cell.buyLabel setText:@"BUY"];
                 [cell.valueLabel setText:[NSString stringWithFormat:@"%@ (Est)", [self.numberFormatter USDFromDouble:estimatedValue]]];
                 [cell.changeLabel setText:[ChangeFormatter stringFromChange:priceChange percentChange:percentChange]];
-                [cell.changeLabel setTextColor:[UIColor changeColor:priceChange]];
+                [cell.changeLabel setTextColor:[UIColor colorForChange:priceChange]];
                 
                 if (self.lastPrice != 0 && self.lastPrice != self.quote.price) {
-                    UIColor *color = [UIColor changeColor:self.quote.price - self.lastPrice];
+                    UIColor *color = [UIColor colorForChange:self.quote.price - self.lastPrice];
                     [self flashTextColor:color onLabel:cell.closeLabel];
                     [self flashTextColor:color onLabel:cell.valueLabel];
                 }
@@ -141,7 +140,7 @@ static NSString * const cellIdentifier = @"PickCell";
         [cell.sellLabel setText:@"SELL"];
         [cell.valueLabel setText:[self.numberFormatter USDFromDouble:pick.value + pick.change]];
         [cell.changeLabel setText:[ChangeFormatter stringFromPick:pick]];
-        [cell.changeLabel setTextColor:[UIColor changeColor:pick.change]];
+        [cell.changeLabel setTextColor:[UIColor colorForChange:pick.change]];
         [cell.openLabel setTextColor:[UIColor whiteColor]];
         [cell.closeLabel setTextColor:[UIColor whiteColor]];
     }

@@ -12,9 +12,13 @@ extension NSNumberFormatter {
     
     func USDFromDouble(value: Double) -> String {
         let number: NSNumber = NSNumber(double: value)
-        self.numberStyle = .CurrencyStyle
+        self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         self.currencyCode = "USD"
         return self.stringFromNumber(number)!
+    }
+    
+    func priceFromDouble(value: Double) -> String {
+        return NSString(format:"%0.2f", value) as String
     }
     
 }

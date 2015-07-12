@@ -24,8 +24,14 @@ class NSNumberFormatterTests: XCTestCase {
     
     func testUSDFromDouble() {
         let value: Double = 10000.00
-        let string: String? = numberFormatter?.USDFromDouble(value)
-        XCTAssertEqual("$10,000.00", string!)
+        let string: String = numberFormatter!.USDFromDouble(value)
+        XCTAssertEqual("$10,000.00", string)
+    }
+    
+    func testPriceFromDouble() {
+        let value: Double = 0.5
+        let string: String = numberFormatter!.priceFromDouble(value)
+        XCTAssertEqual("0.50", string)
     }
     
 }

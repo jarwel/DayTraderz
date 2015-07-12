@@ -252,7 +252,7 @@
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">
             <objects>
-                <viewController id="mIB-Vw-XNj" customClass="PickViewController" sceneMemberID="viewController">
+                <viewController id="mIB-Vw-XNj" customClass="PickViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e6z-vF-AJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="JYy-Xu-BFU"/>
@@ -285,7 +285,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbd-6r-lky">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbd-6r-lky" userLabel="DayOfTrade">
                                         <rect key="frame" x="0.0" y="46" width="600" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -380,7 +380,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="onConfirmButtonTouched:" destination="mIB-Vw-XNj" eventType="touchUpInside" id="M8l-lj-LlR"/>
+                                            <action selector="onSubmitButtonClicked:" destination="mIB-Vw-XNj" eventType="touchUpInside" id="Dhu-Yw-GZ8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-4n-tNW">
@@ -463,6 +463,7 @@
                     <connections>
                         <outlet property="changeLabel" destination="tLp-zp-EVf" id="mzD-9i-U3K"/>
                         <outlet property="confirmButton" destination="SKJ-a0-Mfp" id="a9Q-qY-DCO"/>
+                        <outlet property="dayOfTradeLabel" destination="Xbd-6r-lky" id="YlJ-Xw-wrC"/>
                         <outlet property="detailsLabel" destination="NFe-MT-v7h" id="gRR-8n-Nqd"/>
                         <outlet property="detailsView" destination="wzZ-b1-FQg" id="eGP-XB-VUZ"/>
                         <outlet property="disclaimerLabel" destination="s4m-4n-tNW" id="eE8-w4-6zg"/>
@@ -470,13 +471,12 @@
                         <outlet property="priceLabel" destination="b7l-lh-o81" id="C3v-QP-nc5"/>
                         <outlet property="securityView" destination="z9k-Dv-NFM" id="tXw-IV-rzL"/>
                         <outlet property="symbolLabel" destination="8Zv-0v-FUK" id="dJG-Lw-UFx"/>
-                        <outlet property="tradeDateLabel" destination="Xbd-6r-lky" id="G1q-nh-HvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdB-40-I2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="bWK-q5-r3w">
                     <connections>
-                        <action selector="onTap:" destination="mIB-Vw-XNj" id="n7q-2Q-FsH"/>
+                        <action selector="onTap:" destination="mIB-Vw-XNj" id="4eu-QH-hyP"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

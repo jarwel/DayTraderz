@@ -39,19 +39,19 @@ class ParseClient: NSObject {
         }
     }
     
-    class func createOrUpdatePick(pick: Pick) {
+    class func createOrUpdatePick(pick: Pick, block: (Bool, NSError?) -> Void) {
         if let query: PFQuery = Pick.query() {
             query.whereKey("account", equalTo: pick.account)
             query.whereKey("dayOfTrade", equalTo: pick.dayOfTrade)
             query.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                 if error != nil {
                     if object == nil {
-                        pick.saveInBackgroundWithBlock(nil)
+                        pick.saveInBackgroundWithBlock(block)
                     }
                     else {
                         object?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
                             if succeeded && error == nil {
-                                pick.saveInBackgroundWithBlock(nil)
+                                pick.saveInBackgroundWithBlock(block)
                             }
                         })
                     }
