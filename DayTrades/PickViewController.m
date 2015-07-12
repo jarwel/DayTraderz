@@ -9,7 +9,6 @@
 #import "PickViewController.h"
 #import "DayTrades-Swift.h"
 #import "ParseClient.h"
-#import "DateHelper.h"
 
 @interface PickViewController ()
 
@@ -42,7 +41,7 @@
     [self.securityView setBackgroundColor:[UIColor translucentColor]];
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    self.dayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
+    self.dayOfTrade = [DateHelper nextDayOfTrade];
     [self refreshViews];
 }
 
@@ -73,7 +72,7 @@
 
 - (void)refreshViews {
     static NSString *text = @"The listed security will be purchased for the full value of your account at the opening price and sold at market close on %@.";
-    NSString *dateFormat = [[DateHelper instance] longFormatForDayOfTrade:self.dayOfTrade];
+    NSString *dateFormat = [self.dateFormatter fullFromDayOfTrade:self.dayOfTrade];
     if (self.quote) {
         NSString *disclaimer = [NSString stringWithFormat:text, dateFormat];
         [self.disclaimerLabel setText:disclaimer];
@@ -100,7 +99,7 @@
 - (IBAction)onConfirmButtonTouched:(id)sender {
     if (self.quote) {
         NSString *symbol = self.quote.symbol;
-        NSString *dayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
+        NSString *dayOfTrade = [DateHelper nextDayOfTrade];
         Pick *pick = [[Pick alloc] initForAccount:self.account withSymbol:symbol withDayOfTrade:dayOfTrade];
         [pick saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {

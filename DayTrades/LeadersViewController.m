@@ -11,7 +11,6 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "Account.h"
 #import "ParseClient.h"
-#import "DateHelper.h"
 
 @interface LeadersViewController ()
 

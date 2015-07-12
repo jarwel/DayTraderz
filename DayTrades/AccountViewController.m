@@ -13,7 +13,6 @@
 #import "ParseClient.h"
 #import "PickViewController.h"
 #import "Account.h"
-#import "DateHelper.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
 
@@ -27,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextPickButton;
 
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSMutableArray *picks;
 @property (strong, nonatomic) Account *account;
 @property (strong, nonatomic) Pick *nextPick;
@@ -62,6 +62,7 @@ static NSString * const cellIdentifier = @"PickCell";
     
     self.picks = [[NSMutableArray alloc] init];
     self.numberFormatter = [[NSNumberFormatter alloc] init];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
     
     UINib *pickCell = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:pickCell forCellReuseIdentifier:cellIdentifier];
@@ -111,7 +112,7 @@ static NSString * const cellIdentifier = @"PickCell";
     
     if (indexPath.section == 0) {
         if (self.currentPick) {
-            [cell.dateLabel setText:[[DateHelper instance] shortFormatForDayOfTrade:self.currentPick.dayOfTrade]];
+            [cell.dateLabel setText:[self.dateFormatter shortFromDayOfTrade:self.currentPick.dayOfTrade]];
             [cell.symbolLabel setText:self.currentPick.symbol];
             if (self.quote.open != 0) {
                 double priceChange = self.quote.price - self.quote.open;
@@ -132,13 +133,13 @@ static NSString * const cellIdentifier = @"PickCell";
                 self.lastPrice = self.quote.price;
             }
         }
-        else if (![[DateHelper instance] isMarketOpenOnDate:[NSDate date]]) {
+        else if (![DateHelper isMarketOpenOnDate:[NSDate date]]) {
             [cell.openLabel setText:@"Market Closed"];
         }
     }
     else if (indexPath.section == 1) {
         Pick *pick = [self.picks objectAtIndex:indexPath.row];
-        [cell.dateLabel setText:[[DateHelper instance] shortFormatForDayOfTrade:pick.dayOfTrade]];
+        [cell.dateLabel setText:[self.dateFormatter shortFromDayOfTrade:pick.dayOfTrade]];
         [cell.symbolLabel setText:pick.symbol];
         [cell.openLabel setText:[NSString stringWithFormat:@"%0.02f", pick.open]];
         [cell.closeLabel setText:[NSString stringWithFormat:@"%0.02f", pick.close]];
@@ -200,7 +201,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"ShowPickSegue"]) {
-        NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
+        NSString *nextDayOfTrade = [DateHelper nextDayOfTrade];
         if (self.nextPick && [nextDayOfTrade isEqualToString:self.nextPick.dayOfTrade]) {
             [self.nextPick deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
@@ -286,8 +287,8 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)sortPicksFromObjects:(NSArray *)objects {
-    NSString *lastDayOfTrade = [[DateHelper instance] lastDayOfTradeFromDate:[NSDate date]];
-    NSString *nextDayOfTrade = [[DateHelper instance] nextDayOfTradeFromDate:[NSDate date]];
+    NSString *lastDayOfTrade = [DateHelper lastDayOfTrade];
+    NSString *nextDayOfTrade = [DateHelper nextDayOfTrade];
     for (Pick *pick in objects) {
         if (!pick.processed && [lastDayOfTrade isEqualToString:pick.dayOfTrade]) {
             self.currentPick = pick;

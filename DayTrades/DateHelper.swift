@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DateHelper {
+class DateHelper: NSObject {
     
     static func isMarketOpenOnDate(date: NSDate) -> Bool {
         let calendar: NSCalendar = easternCalendar()
@@ -17,7 +17,9 @@ class DateHelper {
         if weekday < 2 || weekday > 6 {
             return false
         }
-        return true
+        let holidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
+        let string: String = easternDateFormatter().stringFromDate(date)
+        return !holidays.containsObject(string)
     }
     
     class func nextDayOfTrade() -> String? {

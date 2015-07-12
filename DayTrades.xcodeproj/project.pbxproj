@@ -46,7 +46,6 @@
 		CA492C131A61DDAB00ED13B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C111A61DDAB00ED13B3 /* Social.framework */; };
 		CA492C151A61DE1000ED13B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */; };
 		CA492C181A61E59700ED13B3 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C171A61E59700ED13B3 /* AppConstants.m */; };
-		CA685CA71A89909600727CE1 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685CA61A89909600727CE1 /* DateHelper.m */; };
 		CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E71B4EE4B800B869A4 /* PickCell.swift */; };
 		CA8136EA1B4EE74B00B869A4 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */; };
 		CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
@@ -134,8 +133,6 @@
 		CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CA492C161A61E59700ED13B3 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		CA492C171A61E59700ED13B3 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
-		CA685CA51A89909600727CE1 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
-		CA685CA61A89909600727CE1 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		CA8136E71B4EE4B800B869A4 /* PickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCell.swift; sourceTree = "<group>"; };
 		CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
 		CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceClient.swift; sourceTree = "<group>"; };
@@ -360,8 +357,6 @@
 			children = (
 				CAD9B9111B506E9000B9CF1D /* DateHelper.swift */,
 				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
-				CA685CA51A89909600727CE1 /* DateHelper.h */,
-				CA685CA61A89909600727CE1 /* DateHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -513,7 +508,6 @@
 				CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */,
 				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
-				CA685CA71A89909600727CE1 /* DateHelper.m in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				CAD9B9121B506E9000B9CF1D /* DateHelper.swift in Sources */,
