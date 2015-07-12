@@ -8,7 +8,6 @@
 
 #import "PickViewController.h"
 #import "DayTrades-Swift.h"
-#import "ParseClient.h"
 
 @interface PickViewController ()
 
@@ -52,7 +51,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (![searchText hasPrefix:@"^"]) {
         NSSet *symbols = [[[NSSet alloc] init] setByAddingObject:[searchText uppercaseString]];
-        [FinanceClient fetchQuotes:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [FinanceClient fetchQuotesForSymbols:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
             self.quote = nil;
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];

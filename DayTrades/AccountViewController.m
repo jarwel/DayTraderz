@@ -10,7 +10,6 @@
 #import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
-#import "ParseClient.h"
 #import "PickViewController.h"
 
 @interface AccountViewController () <PickViewControllerDelegate>
@@ -71,7 +70,7 @@ static NSString * const cellIdentifier = @"PickCell";
 
 - (void)applicationBecameActive {
     NSLog(@"application became active");
-    [[ParseClient instance] fetchAccountForUser:PFUser.currentUser callback:^(NSObject *object, NSError *error) {
+    [ParseClient fetchAccountForUser:PFUser.currentUser block:^(NSObject *object, NSError *error) {
         if (!error) {
             self.account = (Account *)object;
             [self fetchPicks];
@@ -128,7 +127,7 @@ static NSString * const cellIdentifier = @"PickCell";
                 self.lastPrice = self.quote.price;
             }
         }
-        else if (![MarketHelper isMarketOpen:[NSDate date]]) {
+        else if (![MarketHelper isMarketOpenOnDate:[NSDate date]]) {
             [cell.openLabel setText:@"Market Closed"];
         }
     }
@@ -249,7 +248,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)fetchQuote {
     if (self.currentPick) {
         NSSet *symbols = [NSSet setWithObjects:self.currentPick.symbol, nil];
-        [FinanceClient fetchQuotes:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [FinanceClient fetchQuotesForSymbols:symbols block:^(NSURLResponse *response, NSData *data, NSError *error) {
             if (!error) {
                 NSArray *quotes = [Quote fromData:data];
                 if (quotes.count == 1) {
@@ -264,7 +263,7 @@ static NSString * const cellIdentifier = @"PickCell";
 }
 
 - (void)fetchPicks {
-    [[ParseClient instance] fetchPicksForAccount:self.account withLimit:10 withSkip:0 callback:^(NSArray *objects, NSError *error) {
+    [ParseClient fetchPicksForAccount:self.account limit:10 skip:0 block:^(NSArray *objects, NSError *error) {
         self.nextPick = nil;
         self.currentPick = nil;
         [self.picks removeAllObjects];
@@ -311,7 +310,7 @@ static NSString * const cellIdentifier = @"PickCell";
 - (void)enableInfiniteScroll {
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         long skip = (self.nextPick ? 1 : 0) + (self.currentPick ? 1 : 0) + self.picks.count;
-        [[ParseClient instance] fetchPicksForAccount:self.account withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
+        [ParseClient fetchPicksForAccount:self.account limit:10 skip:skip block:^(NSArray *objects, NSError *error) {
             if (!error && objects.count > 0) {
                 [self.picks addObjectsFromArray:objects];
                 [self.tableView reloadData];

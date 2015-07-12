@@ -33,25 +33,25 @@ class MarketHelperTests: XCTestCase {
     
     func testIsMarketOpen() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-06T09:30:00")
-        let isMarketOpen: Bool = MarketHelper.isMarketOpen(date!)
+        let isMarketOpen: Bool = MarketHelper.isMarketOpenOnDate(date!)
         XCTAssertTrue(isMarketOpen)
     }
     
     func testIsMarketOpenPreMarket() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-06T09:29:00")
-        let isMarketOpen: Bool = MarketHelper.isMarketOpen(date!)
+        let isMarketOpen: Bool = MarketHelper.isMarketOpenOnDate(date!)
         XCTAssertFalse(isMarketOpen)
     }
     
     func testIsMarketOpenPostMarket() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-06T16:00:00")
-        let isMarketOpen: Bool = MarketHelper.isMarketOpen(date!)
+        let isMarketOpen: Bool = MarketHelper.isMarketOpenOnDate(date!)
         XCTAssertFalse(isMarketOpen)
     }
     
     func testIsMarketOpenOnSaturday() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-11T10:00:00")
-        let isMarketOpen: Bool = MarketHelper.isMarketOpen(date!)
+        let isMarketOpen: Bool = MarketHelper.isMarketOpenOnDate(date!)
         XCTAssertFalse(isMarketOpen)
     }
     

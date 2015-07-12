@@ -22,28 +22,28 @@ class DayQuote {
     }
     
     func parseSymbol() -> String {
-        if let symbol: AnyObject? = json["Symbol"] {
+        if let symbol: AnyObject = json["Symbol"] {
             return symbol as! String
         }
         return ""
     }
 
     func parseDate() -> String {
-        if let date: AnyObject? = json["Date"] {
+        if let date: AnyObject = json["Date"] {
             return date as! String
         }
         return ""
     }
     
     func parseOpen() -> Double {
-        if let open: AnyObject? = json["Open"] {
+        if let open: AnyObject = json["Open"] {
             return (open as! NSString).doubleValue
         }
         return 0
     }
     
     func parseClose() -> Double {
-        if let close: AnyObject? = json["Close"] {
+        if let close: AnyObject = json["Close"] {
             return (close as! NSString).doubleValue
         }
         return 0

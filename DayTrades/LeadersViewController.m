@@ -9,7 +9,6 @@
 #import "LeadersViewController.h"
 #import "DayTrades-Swift.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
-#import "ParseClient.h"
 
 @interface LeadersViewController ()
 
@@ -132,7 +131,7 @@ static NSString * const cellIdentifier = @"AccountCell";
 
 - (void)fetchAccounts {
     NSString *column = [self columnSelected];
-    [[ParseClient instance] fetchAccountsSortedByColumn:column withLimit:15 withSkip:0 callback:^(NSArray *objects, NSError *error) {
+    [ParseClient fetchAccountsSortedByColumn:column limit:15 skip:0 block:^(NSArray *objects, NSError *error) {
         if ([column isEqualToString:[self columnSelected]]) {
             [self.accounts removeAllObjects];
             if (!error) {
@@ -150,7 +149,7 @@ static NSString * const cellIdentifier = @"AccountCell";
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         NSString *column = [self columnSelected];
         long skip = self.accounts.count;
-        [[ParseClient instance] fetchAccountsSortedByColumn:column withLimit:10 withSkip:skip callback:^(NSArray *objects, NSError *error) {
+        [ParseClient fetchAccountsSortedByColumn:column limit:10 skip:skip block:^(NSArray *objects, NSError *error) {
             if ([column isEqualToString:[self columnSelected]]) {
                 if (!error && objects.count > 0) {
                     [self.accounts addObjectsFromArray:objects];

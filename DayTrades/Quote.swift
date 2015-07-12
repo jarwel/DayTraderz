@@ -24,42 +24,42 @@ class Quote: NSObject {
     }
     
     func parseSymbol() -> String {
-        if let symbol: AnyObject? = json["symbol"] {
+        if let symbol: AnyObject = json["symbol"] {
             return symbol as! String
         }
         return ""
     }
     
     func parseName() -> String {
-        if let name: AnyObject? = json["Name"] {
+        if let name: AnyObject = json["Name"] {
             return name as! String
         }
         return ""
     }
     
     func parseOpen() -> Double {
-        if let open: AnyObject? = json["Open"] {
+        if let open: AnyObject = json["Open"] {
             return (open as! NSString).doubleValue
         }
         return 0
     }
     
     func parsePrice() -> Double {
-        if let price: AnyObject? = json["LastTradePriceOnly"] {
+        if let price: AnyObject = json["LastTradePriceOnly"] {
             return (price as! NSString).doubleValue
         }
         return 0
     }
     
     func parsePriceChange() -> Double {
-        if let priceChange: AnyObject? = json["Change"] {
+        if let priceChange: AnyObject = json["Change"] {
             return (priceChange as! NSString).doubleValue
         }
         return 0
     }
     
     func parsePercentChange() -> Double {
-        if let percentChange: AnyObject? = json["ChangeinPercent"] {
+        if let percentChange: AnyObject = json["ChangeinPercent"] {
             return (percentChange as! NSString).doubleValue
         }
         return 0

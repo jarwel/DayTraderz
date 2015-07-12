@@ -20,6 +20,7 @@
 		AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC0B1B52C1FC00BDD762 /* Account.swift */; };
 		AABEDC131B52CA9100BDD762 /* Pick.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC121B52CA9100BDD762 /* Pick.swift */; };
 		AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC141B52D0C400BDD762 /* DayQuote.swift */; };
+		AABEDC171B52D57300BDD762 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC161B52D57300BDD762 /* ParseClient.swift */; };
 		AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */; };
 		CA492B781A606CDB00ED13B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B771A606CDB00ED13B3 /* main.m */; };
 		CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B7A1A606CDB00ED13B3 /* AppDelegate.m */; };
@@ -59,7 +60,6 @@
 		CA9908131AA28A2100804200 /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908121AA28A2100804200 /* leaders.png */; };
 		CA9908201AA2C45500804200 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CA99081F1AA2C45500804200 /* close.png */; };
 		CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAAB61A01AA40C35002D739B /* background-2.jpg */; };
-		CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAE46B81A81747E00B05BAB /* ParseClient.m */; };
 		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
 		CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
 		CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
@@ -91,6 +91,7 @@
 		AABEDC111B52C8FB00BDD762 /* DayTrades-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DayTrades-Bridging-Header.h"; sourceTree = "<group>"; };
 		AABEDC121B52CA9100BDD762 /* Pick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pick.swift; sourceTree = "<group>"; };
 		AABEDC141B52D0C400BDD762 /* DayQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayQuote.swift; sourceTree = "<group>"; };
+		AABEDC161B52D57300BDD762 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		AABFC5E11B4ED87B0094AAF1 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B721A606CDB00ED13B3 /* DayTrades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrades.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,8 +146,6 @@
 		CA9908121AA28A2100804200 /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
 		CA99081F1AA2C45500804200 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		CAAB61A01AA40C35002D739B /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
-		CAAE46B71A81747E00B05BAB /* ParseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseClient.h; sourceTree = "<group>"; };
-		CAAE46B81A81747E00B05BAB /* ParseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseClient.m; sourceTree = "<group>"; };
 		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+App.swift"; sourceTree = "<group>"; };
 		CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelper.swift; sourceTree = "<group>"; };
 		CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+App.swift"; sourceTree = "<group>"; };
@@ -317,8 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */,
-				CAAE46B71A81747E00B05BAB /* ParseClient.h */,
-				CAAE46B81A81747E00B05BAB /* ParseClient.m */,
+				AABEDC161B52D57300BDD762 /* ParseClient.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -535,9 +533,9 @@
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
+				AABEDC171B52D57300BDD762 /* ParseClient.swift in Sources */,
 				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				CA492BCD1A60853700ED13B3 /* PickViewController.m in Sources */,
-				CAAE46B91A81747E00B05BAB /* ParseClient.m in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,

@@ -11,7 +11,6 @@
 #import "AppConstants.h"
 #import "SignUpViewController.h"
 #import "LogInViewController.h"
-#import "ParseClient.h"
 
 @interface AppDelegate ()
 
