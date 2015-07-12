@@ -22,7 +22,7 @@ class ParseClient: NSObject {
         if let query: PFQuery = Pick.query() {
             query.includeKey("account")
             query.whereKey("account", equalTo: account)
-            query.orderByAscending("dayOfTrade")
+            query.orderByDescending("dayOfTrade")
             query.limit = limit
             query.skip = skip
             query.findObjectsInBackgroundWithBlock(block)
