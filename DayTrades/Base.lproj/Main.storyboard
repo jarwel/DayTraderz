@@ -182,7 +182,7 @@
         <!--Leaders View Controller-->
         <scene sceneID="yeQ-z0-n9I">
             <objects>
-                <viewController id="UFK-IR-wzX" customClass="LeadersViewController" sceneMemberID="viewController">
+                <viewController id="UFK-IR-wzX" customClass="LeadersViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pjh-vr-agZ"/>
                         <viewControllerLayoutGuide type="bottom" id="d94-zB-0yL"/>

@@ -25,6 +25,7 @@ class DoubleBarView: UIView {
     }
     
     func resetView() {
+        hidden = true
         backgroundColor = UIColor.redColor()
         subview.frame = CGRectMake(0, 0, frame.width / 2, frame.height)
         subview.backgroundColor = UIColor.greenColor();
@@ -43,6 +44,7 @@ class DoubleBarView: UIView {
     func animate(duration: Double) {
         resetView()
         if total > 0 && total >= value {
+            hidden = false
             let percent: CGFloat = CGFloat(value) / CGFloat(total)
             let width: CGFloat = frame.width * percent
             leftLabel.text = "\(value)"
@@ -54,15 +56,6 @@ class DoubleBarView: UIView {
                 self.rightLabel.hidden = false;
                 self.leftLabel.hidden = false;
             })
-        }
-        else {
-            backgroundColor = UIColor.blackColor()
-            subview.backgroundColor = UIColor.clearColor()
-            rightLabel.text = "- 0 -"
-            rightLabel.textAlignment = NSTextAlignment.Center
-            rightLabel.textColor = UIColor.grayColor()
-            rightLabel.hidden = false;
-            
         }
     }
     

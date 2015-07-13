@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
+		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
 		AABEDBFB1B51D96B00BDD762 /* NSDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */; };
 		AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
 		AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */; };
@@ -28,7 +29,6 @@
 		CA492B811A606CDB00ED13B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA492B7F1A606CDB00ED13B3 /* Main.storyboard */; };
 		CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA492B821A606CDB00ED13B3 /* Images.xcassets */; };
 		CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492B841A606CDB00ED13B3 /* LaunchScreen.xib */; };
-		CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */; };
 		CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BA21A606F2600ED13B3 /* AccountCell.xib */; };
 		CA492BBD1A607BAB00ED13B3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */; };
 		CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA492BC41A607CE100ED13B3 /* PickCell.xib */; };
@@ -82,6 +82,7 @@
 /* Begin PBXFileReference section */
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
+		AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
 		AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterTests.swift; sourceTree = "<group>"; };
 		AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
 		AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+App.swift"; sourceTree = "<group>"; };
@@ -105,8 +106,6 @@
 		CA492B851A606CDB00ED13B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CA492B8B1A606CDB00ED13B3 /* DayTradesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTradesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA492B901A606CDB00ED13B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersViewController.h; sourceTree = "<group>"; };
-		CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersViewController.m; sourceTree = "<group>"; };
 		CA492BA21A606F2600ED13B3 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
@@ -274,14 +273,13 @@
 			isa = PBXGroup;
 			children = (
 				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
+				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
+				CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */,
+				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
 				CA492C031A61D9A800ED13B3 /* LogInViewController.h */,
 				CA492C041A61D9A800ED13B3 /* LogInViewController.m */,
 				CA492C051A61D9A800ED13B3 /* SignUpViewController.h */,
 				CA492C061A61D9A800ED13B3 /* SignUpViewController.m */,
-				CA492B9E1A606E2600ED13B3 /* LeadersViewController.h */,
-				CA492B9F1A606E2600ED13B3 /* LeadersViewController.m */,
-				CA492BBB1A607BAB00ED13B3 /* AccountViewController.h */,
-				CA492BBC1A607BAB00ED13B3 /* AccountViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -532,10 +530,10 @@
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				AABEDC171B52D57300BDD762 /* ParseClient.swift in Sources */,
-				CA492BA01A606E2600ED13B3 /* LeadersViewController.m in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
+				AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */,
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,

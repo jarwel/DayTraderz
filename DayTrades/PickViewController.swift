@@ -13,8 +13,6 @@ import Foundation
 }
 
 class PickViewController: UIViewController, UISearchBarDelegate {
- 
-    weak var delegate: AnyObject?
     
     @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var securityView: UIView!
@@ -30,6 +28,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
+    var delegate: PickViewControllerDelegate?
     var account: Account?
     var quote: Quote?
     
@@ -45,6 +44,10 @@ class PickViewController: UIViewController, UISearchBarDelegate {
         }
         detailsView.backgroundColor = UIColor.translucentColor()
         securityView.backgroundColor = UIColor.translucentColor()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         refreshView()
     }
     
@@ -77,7 +80,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText .hasPrefix("^") {
             let symbols: Set<String> = ["\(searchText.uppercaseString )"]
-            FinanceClient.fetchQuotesForSymbols(symbols, block:{ response, data, error in
+            FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 self.quote = nil
                 if error == nil {
                     let quotes: Array<Quote> = Quote.fromData(data)
