@@ -110,12 +110,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 losersBarView.total = count
                 losersBarView.animate(1)
             }
-            refreshNextPick()
+            refreshNextPickView()
             tableView.reloadData()
         }
     }
     
-    func refreshNextPick() {
+    func refreshNextPickView() {
         if nextPick != nil {
             nextPickLabel.text = "Next Pick: \(nextPick!.symbol)"
             nextPickButton.setTitle("Remove", forState: UIControlState.Normal)
@@ -186,7 +186,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func updateNextPick(pick: Pick?) {
         nextPick = pick
-        refreshNextPick()
+        refreshNextPickView()
     }
     
     func flashTextColor(color: UIColor, label: UILabel) {
@@ -321,7 +321,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 nextPick?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
                         self.nextPick = nil
-                        self.refreshNextPick()
+                        self.refreshNextPickView()
                     }
                 })
                 return false
