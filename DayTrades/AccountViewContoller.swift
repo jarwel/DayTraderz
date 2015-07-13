@@ -58,7 +58,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.allowsSelection = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
         applicationBecameActive()
     }
     
@@ -78,6 +78,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         quoteTimer?.invalidate()
         quoteTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("fetchQuote"), userInfo: nil, repeats: true)
     }
+    
+    func applicationBecameInactive() {
+        println("application became inactive")
+        winnersBarView.resetView()
+        losersBarView.resetView()
+        quoteTimer?.invalidate()
+    }
+
     
     func refreshView() {
         if account != nil {
@@ -104,22 +112,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             if nextPick != nil {
                 nextPickLabel.text = "Next Pick: \(nextPick!.symbol)"
-                nextPickButton.titleLabel?.text = "Remove"
+                nextPickButton.setTitle("Remove", forState: UIControlState.Normal)
             }
             else {
                 nextPickLabel.text = nil
-                nextPickButton.titleLabel?.text = "Set Next"
+                nextPickButton.setTitle("Set Next", forState: UIControlState.Normal)
             }
             nextPickButton.hidden = false
             tableView.reloadData()
         }
-    }
-    
-    func applicationBecameInactive() {
-        println("application became inactive")
-        winnersBarView.resetView()
-        losersBarView.resetView()
-        quoteTimer?.invalidate()
     }
     
     func fetchQuote() {
