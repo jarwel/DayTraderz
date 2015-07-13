@@ -21,7 +21,6 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var disclaimerLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
@@ -52,22 +51,19 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     func refreshView() {
-        let dayOfTrade:String? = MarketHelper.nextDayOfTrade()
-        if dayOfTrade != nil && quote != nil {
-            if let dateFormat: String = dateFormatter.fullFromDayOfTrade(dayOfTrade!) {
-                disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(dateFormat)."
-            }
+        let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
+        let dateFormat: String? = dateFormatter.fullFromDayOfTrade(dayOfTrade)
+        if quote != nil {
+            disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(dateFormat!)."
             symbolLabel.text = quote?.symbol
             nameLabel.text = quote?.name
             priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote!.price))
-            changeLabel.text = ChangeFormatter.stringFromQuote(quote!)
-            changeLabel.textColor = UIColor.colorForChange(quote!.priceChange)
             detailsView.hidden = true
             securityView.hidden = false
         }
         else {
             detailsLabel.text = "Choose a security to buy on"
-            dayOfTradeLabel.text = dayOfTrade
+            dayOfTradeLabel.text = dateFormat!
             securityView.hidden = true
             detailsView.hidden = false
         }
