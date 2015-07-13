@@ -9,7 +9,7 @@
 import Foundation
 
 @objc protocol PickViewControllerDelegate {
-    func updateNextPick(pick: Pick)
+    func updateNextPick(pick: Pick?)
 }
 
 class PickViewController: UIViewController, UISearchBarDelegate {

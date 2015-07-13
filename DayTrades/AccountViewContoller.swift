@@ -110,17 +110,21 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 losersBarView.total = count
                 losersBarView.animate(1)
             }
-            if nextPick != nil {
-                nextPickLabel.text = "Next Pick: \(nextPick!.symbol)"
-                nextPickButton.setTitle("Remove", forState: UIControlState.Normal)
-            }
-            else {
-                nextPickLabel.text = nil
-                nextPickButton.setTitle("Set Next", forState: UIControlState.Normal)
-            }
-            nextPickButton.hidden = false
+            refreshNextPick()
             tableView.reloadData()
         }
+    }
+    
+    func refreshNextPick() {
+        if nextPick != nil {
+            nextPickLabel.text = "Next Pick: \(nextPick!.symbol)"
+            nextPickButton.setTitle("Remove", forState: UIControlState.Normal)
+        }
+        else {
+            nextPickLabel.text = nil
+            nextPickButton.setTitle("Set Next", forState: UIControlState.Normal)
+        }
+        nextPickButton.hidden = false
     }
     
     func fetchQuote() {
@@ -180,9 +184,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         refreshView()
     }
     
-    func updateNextPick(pick: Pick) {
+    func updateNextPick(pick: Pick?) {
         nextPick = pick
-        refreshView()
+        refreshNextPick()
     }
     
     func flashTextColor(color: UIColor, label: UILabel) {
@@ -317,7 +321,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 nextPick?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
                         self.nextPick = nil
-                        self.refreshView()
+                        self.refreshNextPick()
                     }
                 })
                 return false
