@@ -11,53 +11,58 @@ import Foundation
 class ParseClient: NSObject {
   
     class func fetchAccountForUser(user: PFUser, block: (PFObject?, NSError?) -> Void ) {
-        if let query: PFQuery = Account.query() {
-            query.includeKey("user")
-            query.whereKey("user", equalTo: user)
-            query.getFirstObjectInBackgroundWithBlock(block)
-        }
+        let query: PFQuery? = Account.query()
+        query?.includeKey("user")
+        query?.whereKey("user", equalTo: user)
+        query?.getFirstObjectInBackgroundWithBlock(block)
     }
     
     class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
-        if let query: PFQuery = Pick.query() {
-            query.includeKey("account")
-            query.whereKey("account", equalTo: account)
-            query.orderByDescending("dayOfTrade")
-            query.limit = limit
-            query.skip = skip
-            query.findObjectsInBackgroundWithBlock(block)
-        }
+        let query: PFQuery? = Pick.query()
+        query?.includeKey("account")
+        query?.whereKey("account", equalTo: account)
+        query?.orderByDescending("dayOfTrade")
+        query?.limit = limit
+        query?.skip = skip
+        query?.findObjectsInBackgroundWithBlock(block)
     }
     
     class func fetchAccountsSortedByColumn(column: String, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
-        if let query: PFQuery = Account.query() {
-            query.includeKey("user")
-            query.orderByDescending(column)
-            query.limit = limit
-            query.skip = skip
-            query.findObjectsInBackgroundWithBlock(block)
+        let hasWinnersQuery: PFQuery? = Account.query()
+        hasWinnersQuery?.whereKey("winners", greaterThan: 0)
+            
+        let hasLosersQuery: PFQuery? = Account.query()!
+        hasLosersQuery?.whereKey("losers", greaterThan: 0)
+        
+        if hasWinnersQuery != nil && hasLosersQuery != nil {
+            let query: PFQuery? = PFQuery.orQueryWithSubqueries([hasWinnersQuery!, hasLosersQuery!])
+            query?.includeKey("user")
+            query?.orderByDescending("\(column),losers")
+            query?.limit = limit
+            query?.skip = skip
+            query?.findObjectsInBackgroundWithBlock(block)
         }
     }
     
     class func createOrUpdatePick(pick: Pick, block: (Bool, NSError?) -> Void) {
-        if let query: PFQuery = Pick.query() {
-            query.whereKey("account", equalTo: pick.account)
-            query.whereKey("dayOfTrade", equalTo: pick.dayOfTrade)
-            query.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-                if error != nil {
-                    if object == nil {
+        let query: PFQuery? = Pick.query()
+        query?.whereKey("account", equalTo: pick.account)
+        query?.whereKey("dayOfTrade", equalTo: pick.dayOfTrade)
+        query?.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+            if object == nil {
+                pick.saveInBackgroundWithBlock(block)
+            }
+            else {
+                object?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded && error == nil {
                         pick.saveInBackgroundWithBlock(block)
                     }
                     else {
-                        object?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                            if succeeded && error == nil {
-                                pick.saveInBackgroundWithBlock(block)
-                            }
-                        })
+                        println("Error \(error) \(error!.userInfo)")
                     }
-                }
-            })
-        }
+                })
+            }
+        })
     }
     
 }
