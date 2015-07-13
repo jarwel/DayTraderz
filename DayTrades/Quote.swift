@@ -25,7 +25,9 @@ class Quote: NSObject {
     
     func parseSymbol() -> String {
         if let symbol: AnyObject = json["symbol"] {
-            return symbol as! String
+            if !(symbol is NSNull) {
+                return symbol as! String
+            }
         }
         return ""
     }
@@ -39,28 +41,36 @@ class Quote: NSObject {
     
     func parseOpen() -> Double {
         if let open: AnyObject = json["Open"] {
-            return (open as! NSString).doubleValue
+            if !(open is NSNull) {
+                return (open as! NSString).doubleValue
+            }
         }
         return 0
     }
     
     func parsePrice() -> Double {
         if let price: AnyObject = json["LastTradePriceOnly"] {
-            return (price as! NSString).doubleValue
+            if !(price is NSNull) {
+                return (price as! NSString).doubleValue
+            }
         }
         return 0
     }
     
     func parsePriceChange() -> Double {
         if let priceChange: AnyObject = json["Change"] {
-            return (priceChange as! NSString).doubleValue
+            if !(priceChange is NSNull) {
+                return (priceChange as! NSString).doubleValue
+            }
         }
         return 0
     }
     
     func parsePercentChange() -> Double {
         if let percentChange: AnyObject = json["ChangeinPercent"] {
-            return (percentChange as! NSString).doubleValue
+            if !(percentChange is NSNull) {
+                return (percentChange as! NSString).doubleValue
+            }
         }
         return 0
     }

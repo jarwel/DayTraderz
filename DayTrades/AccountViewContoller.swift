@@ -127,7 +127,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if currentPick != nil {
             let symbols: Set<String> = ["\(currentPick!.symbol)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                if error != nil {
+                if error == nil {
                     let quotes: Array<Quote> = Quote.fromData(data)
                     if quotes.count == 1 {
                         self.quote = quotes.first
