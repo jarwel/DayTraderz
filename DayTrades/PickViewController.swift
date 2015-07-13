@@ -79,7 +79,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText .hasPrefix("^") {
-            let symbols: Set<String> = ["\(searchText.uppercaseString )"]
+            let symbols: Set<String> = ["\(searchText.uppercaseString)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 self.quote = nil
                 if error == nil {
@@ -102,7 +102,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
         view.endEditing(true)
     }
     
-    @IBAction func onSubmitButtonClicked(sender: AnyObject) {
+    @IBAction func onSubmitButtonPressed(sender: AnyObject) {
         let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
         if dayOfTrade != nil && quote != nil && account != nil {
             let pick: Pick = Pick.newForAccount(account!, symbol: quote!.symbol, dayOfTrade: dayOfTrade!)

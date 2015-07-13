@@ -31,10 +31,11 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let backgroundImage: UIImage = UIImage(named: "background-3.jpg") {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
-        segmentedControl.backgroundColor = UIColor.translucentColor()
+        
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
         tableView.allowsSelection = false
+        segmentedControl.backgroundColor = UIColor.translucentColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,7 +52,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         let skip: Int = accounts.count
         ParseClient.fetchAccountsSortedByColumn(column, limit: 20, skip: skip) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
-                if objects != nil && objects!.count > 0 && column == self.columnSelected() {
+                if objects != nil && column == self.columnSelected() {
                     self.accounts += objects as! Array<Account>
                     self.refreshView()
                     self.enableInfiniteScroll()
@@ -134,12 +135,6 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    @IBAction func onValueChanged(sender: AnyObject) {
-        accounts.removeAll()
-        areAnimated.removeAll()
-        fetchAccounts()
-    }
-    
     func enableInfiniteScroll() {
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
             let column: String = self.columnSelected()
@@ -148,7 +143,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if error == nil {
                     if objects != nil && objects!.count > 0 && column == self.columnSelected() {
                         self.accounts += objects as! Array<Account>
-                        self.refreshView()
+                        self.tableView.reloadData()
                     }
                 }
                 else {
@@ -159,6 +154,12 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         tableView.infiniteScrollingView.backgroundColor = UIColor.translucentColor()
+    }
+    
+    @IBAction func onValueChanged(sender: AnyObject) {
+        accounts.removeAll()
+        areAnimated.removeAll()
+        fetchAccounts()
     }
     
 }

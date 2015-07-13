@@ -8,7 +8,7 @@
         <!--Account View Controller-->
         <scene sceneID="hFY-rG-yjo">
             <objects>
-                <viewController id="PqU-rN-jni" customClass="AccountViewController" sceneMemberID="viewController">
+                <viewController id="PqU-rN-jni" customClass="AccountViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BHb-NX-zp7"/>
                         <viewControllerLayoutGuide type="bottom" id="XbG-j1-Zbe"/>
@@ -154,7 +154,7 @@
                         <barButtonItem key="leftBarButtonItem" image="logout.png" id="OSx-bm-09M">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="I5Z-Qw-OSt"/>
+                                <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="paQ-kt-RZO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="leaders.png" id="QTk-8j-Mev">
@@ -380,7 +380,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="onSubmitButtonClicked:" destination="mIB-Vw-XNj" eventType="touchUpInside" id="Dhu-Yw-GZ8"/>
+                                            <action selector="onSubmitButtonPressed:" destination="mIB-Vw-XNj" eventType="touchUpInside" id="Sea-we-ZBR"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-4n-tNW">

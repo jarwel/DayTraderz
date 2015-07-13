@@ -10,6 +10,16 @@ import Foundation
 
 class MarketHelper: NSObject {
     
+    class func isMarketOpen() -> Bool {
+        let date: NSDate = NSDate()
+        return isMarketOpenOnDate(date)
+    }
+    
+    class func isMarketClosed() -> Bool {
+        let date: NSDate = NSDate()
+        return !isMarketOpenOnDate(date)
+    }
+    
     class func isMarketOpenOnDate(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
