@@ -297,6 +297,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section > 1 {
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+        }
+        else {
+            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+        }
+    }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let y: CGFloat = tableView.contentSize.height - tableView.bounds.size.height + tableView.infiniteScrollingView.frame.size.height + 1
         if tableView.contentOffset.y >= y {

@@ -124,6 +124,15 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section > 0 {
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+        }
+        else {
+            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+        }
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 && indexPath.row < accounts.count {
             performSegueWithIdentifier("ShowAccountSegue", sender: nil)
