@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */; };
+		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
@@ -43,8 +45,6 @@
 		CA492C001A61D39000ED13B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BF51A61D39000ED13B3 /* Security.framework */; };
 		CA492C011A61D39000ED13B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BF61A61D39000ED13B3 /* StoreKit.framework */; };
 		CA492C021A61D39000ED13B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492BF71A61D39000ED13B3 /* SystemConfiguration.framework */; };
-		CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C041A61D9A800ED13B3 /* LogInViewController.m */; };
-		CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA492C061A61D9A800ED13B3 /* SignUpViewController.m */; };
 		CA492C121A61DDAB00ED13B3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C101A61DDAB00ED13B3 /* Accounts.framework */; };
 		CA492C131A61DDAB00ED13B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C111A61DDAB00ED13B3 /* Social.framework */; };
 		CA492C151A61DE1000ED13B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */; };
@@ -80,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
@@ -122,10 +124,6 @@
 		CA492BF51A61D39000ED13B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA492BF61A61D39000ED13B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CA492BF71A61D39000ED13B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CA492C031A61D9A800ED13B3 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
-		CA492C041A61D9A800ED13B3 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
-		CA492C051A61D9A800ED13B3 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		CA492C061A61D9A800ED13B3 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		CA492C0C1A61DB3C00ED13B3 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		CA492C101A61DDAB00ED13B3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CA492C111A61DDAB00ED13B3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -274,10 +272,8 @@
 				AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */,
 				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
 				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
-				CA492C031A61D9A800ED13B3 /* LogInViewController.h */,
-				CA492C041A61D9A800ED13B3 /* LogInViewController.m */,
-				CA492C051A61D9A800ED13B3 /* SignUpViewController.h */,
-				CA492C061A61D9A800ED13B3 /* SignUpViewController.m */,
+				2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */,
+				2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -525,12 +521,12 @@
 				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
 				CA492B7B1A606CDB00ED13B3 /* AppDelegate.m in Sources */,
+				2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				AABEDC171B52D57300BDD762 /* ParseClient.swift in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
-				CA492C091A61D9A800ED13B3 /* LogInViewController.m in Sources */,
 				AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */,
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
@@ -544,7 +540,7 @@
 				AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */,
 				CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */,
 				CA8136EA1B4EE74B00B869A4 /* UIColor+App.swift in Sources */,
-				CA492C0A1A61D9A800ED13B3 /* SignUpViewController.m in Sources */,
+				2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

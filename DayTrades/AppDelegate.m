@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "DayTrades-Swift.h"
 #import "AppConstants.h"
-#import "SignUpViewController.h"
-#import "LogInViewController.h"
 
 @interface AppDelegate ()
 

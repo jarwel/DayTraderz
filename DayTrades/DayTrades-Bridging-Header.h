@@ -3,5 +3,6 @@
 //
 
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AppConstants.h"
