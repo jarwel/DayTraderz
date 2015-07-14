@@ -40,18 +40,12 @@
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="GK5-7c-0sw"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="GjR-PG-D6l"/>
                     <constraint firstItem="JXi-I6-O7j" firstAttribute="trailing" secondItem="Vcx-QX-cOS" secondAttribute="trailingMargin" id="IZQ-Ty-SvM"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" constant="100" id="Ob3-Xb-DQ1"/>
                     <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" constant="20" id="PzC-lO-Rcg"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="kD0-Xf-mMH"/>
                     <constraint firstAttribute="bottomMargin" secondItem="tyQ-V0-tnG" secondAttribute="bottom" id="o8X-Rx-3Cl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="mNs-cK-8hO" secondAttribute="bottom" constant="0.5" id="yJZ-Zb-bJE"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" id="yt0-2Q-IOB"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="Ob3-Xb-DQ1"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
