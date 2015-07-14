@@ -45,6 +45,9 @@ class SingleBarView: UIView {
             UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
                 self.subview.frame = CGRectMake(x, 0, width, self.frame.height)
             }, completion: { finished in
+                if self.value == 0 {
+                    self.label.textColor = self.barColor
+                }
                 self.label.hidden = false;
             })
         }
