@@ -74,6 +74,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        winnersBarView.resetView()
+        losersBarView.resetView()
         quoteTimer?.invalidate()
     }
     

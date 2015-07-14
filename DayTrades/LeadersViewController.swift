@@ -19,7 +19,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
     var accounts: Array<Account> = Array()
-    var wereAnimated: Set<Account> = Set()
+    var animated: Set<Account> = Set()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,6 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
         
         segmentedControl.backgroundColor = UIColor.translucentColor()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-    }
-    
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -99,11 +92,11 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
             cell.picksBarView.total = account.winners + account.losers
             cell.picksBarView.value = account.winners
-            if wereAnimated.contains(account) {
+            if animated.contains(account) {
                 cell.picksBarView.animate(0)
             }
             else {
-                wereAnimated.insert(account)
+                animated.insert(account)
                 cell.picksBarView.animate(1.0)
             }
         }
@@ -177,7 +170,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func onValueChanged(sender: AnyObject) {
         accounts.removeAll()
-        wereAnimated.removeAll()
+        animated.removeAll()
         tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
         fetchAccounts()
     }
