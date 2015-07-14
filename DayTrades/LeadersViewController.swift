@@ -159,6 +159,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func onValueChanged(sender: AnyObject) {
         accounts.removeAll()
         areAnimated.removeAll()
+        tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
         fetchAccounts()
     }
     
