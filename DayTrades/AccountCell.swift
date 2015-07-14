@@ -14,6 +14,13 @@ class AccountCell: UITableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var picksBarView: DoubleBarView!
     
+    override func awakeFromNib() {
+        let view: UIView = UIView()
+        view.backgroundColor = UIColor.blueColor()
+        selectedBackgroundView = view
+        backgroundColor = UIColor.translucentColor()
+    }
+    
     func resetView() {
         nameLabel.text = nil
         valueLabel.text = nil

@@ -61,6 +61,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         fetchAccount()
@@ -71,7 +75,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         quoteTimer?.invalidate()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func applicationBecameActive() {
@@ -290,10 +293,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             headerView.contentView.backgroundColor = UIColor.darkGrayColor()
             headerView.textLabel.textColor = UIColor.whiteColor()
         }
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.translucentColor()
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

@@ -19,7 +19,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
     var accounts: Array<Account> = Array()
-    var areAnimated: Set<Account> = Set()
+    var wereAnimated: Set<Account> = Set()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,13 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
         
         segmentedControl.backgroundColor = UIColor.translucentColor()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,11 +99,11 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
             cell.picksBarView.total = account.winners + account.losers
             cell.picksBarView.value = account.winners
-            if areAnimated.contains(account) {
+            if wereAnimated.contains(account) {
                 cell.picksBarView.animate(0)
             }
             else {
-                areAnimated.insert(account)
+                wereAnimated.insert(account)
                 cell.picksBarView.animate(1.0)
             }
         }
@@ -124,12 +131,10 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-       cell.backgroundColor = UIColor.translucentColor()
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowAccountSegue", sender: nil)
+        if indexPath.section == 0 && indexPath.row < accounts.count {
+            performSegueWithIdentifier("ShowAccountSegue", sender: nil)
+        }
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -172,7 +177,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func onValueChanged(sender: AnyObject) {
         accounts.removeAll()
-        areAnimated.removeAll()
+        wereAnimated.removeAll()
         tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
         fetchAccounts()
     }

@@ -19,6 +19,10 @@ class PickCell: UITableViewCell {
     @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
+    override func awakeFromNib() {
+        backgroundColor = UIColor.translucentColor()
+    }
+    
     func resetView() {
         symbolLabel.text = nil
         dateLabel.text = nil
