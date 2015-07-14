@@ -7,783 +7,765 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01EEAF6A344947B328CBCC5B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009E66020CE300731BF4757B /* SystemConfiguration.framework */; };
-		0213E89D9825E2DDB113CEF9 /* PFObject+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 60EBBEFA2989CCE5F2646EAD /* PFObject+Subclass.h */; };
-		041F881A88E9427FE5D8C2F7 /* PFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 879C8267B0273960D46D96AB /* PFImageView.m */; };
-		08FFFBED6590204A1145AA72 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4335C5795D2B1CB7668E2102 /* UIScrollView+SVPullToRefresh.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0AA397F69AD92F56E0BA8AC3 /* Pods-DayTrades-ParseUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337FA031148C4CC7FE37B40 /* Pods-DayTrades-ParseUI-dummy.m */; };
-		185C004296AB7E68156DE8B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9CA246CA195B7C726403EC /* Foundation.framework */; };
-		191A57135B0F1EA1D8E3C447 /* PFPrimaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C15559F6F5CF2ED147B72259 /* PFPrimaryButton.h */; };
-		1BA074445DC0622C9E1B7F07 /* PFDismissButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 84344751A5B332428A079CFB /* PFDismissButton.h */; };
-		1E1FCB64885E2974DAA11837 /* PFProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227DE83CFC288E011FFE4476 /* PFProductTableViewController.m */; };
-		21D1ED9D52CDA154C95BA480 /* PFTextButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF2FED121699AC6A5B446FF /* PFTextButton.h */; };
-		2332F71C226AC8699C0F9FC0 /* BFCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A399455CC2CF7F8C4ABD413 /* BFCancellationToken.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2577B229D56895A4F5DBC710 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E6C8D939AB39B5B02E288 /* UIScrollView+SVInfiniteScrolling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2584FE8530572A5DCF6FE323 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9CA246CA195B7C726403EC /* Foundation.framework */; };
-		27A7206E157C43E3CFA03852 /* PFNullability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0105DAB74F8210196F77A4 /* PFNullability.h */; };
-		2834F9A6273D2D5D777CF96E /* PFPrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F1659FCA4F8B05ACF6CE93 /* PFPrimaryButton.m */; };
-		335FBCB2B7E41B30048B9FBE /* BFCancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EF62F71E447A9AF4D8AD28 /* BFCancellationToken.h */; };
-		3BA0ABF2DE037A19AB6E0D37 /* PFPurchaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 659ED335038AD4CB1991A09E /* PFPurchaseTableViewCell.h */; };
-		3CDD583B3DB3A6D4F3EC9496 /* PFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B50FFB901D639965422ECA8F /* PFNetworkActivityIndicatorManager.h */; };
-		4B9EECDFDC70CEBB9F0C3DB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C79DBCD65A80D988F0F4D9 /* QuartzCore.framework */; };
-		4C712B3A41583887719A4602 /* PFCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 4335649796B1EDB209A610B7 /* PFCloud.h */; };
-		4E73702FDD5D540A0F770F8A /* PFActivityIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D6B596075EE78612C28AC9DD /* PFActivityIndicatorTableViewCell.h */; };
-		4E87CAC082B2A5900EC6AC0C /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = B48384C62D62688A0A03A554 /* PFSession.h */; };
-		4EC26CAC49D1407D55DD23D6 /* PFRect.m in Sources */ = {isa = PBXBuildFile; fileRef = AC467D372E3D18DAC7820B04 /* PFRect.m */; };
-		4EF43E0D3D68D8397BB85539 /* PFDismissButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A843E18B1895667DF2243F8 /* PFDismissButton.m */; };
-		4F025C97267B164775FE0CDF /* PFLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B773DE5AC115DA2D5B491BA /* PFLoadingView.h */; };
-		52433F595994944B8C197739 /* PFResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D96D62C7E97FC70A79840 /* PFResources.m */; };
-		542381A62DAE313C5A9E9E61 /* PFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EAEAE7802E71BE8DDC5E3784 /* PFObject.h */; };
-		59199A28730D47C23549111A /* PFRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = D3326BB3F26CA38EFDD19C20 /* PFRelation.h */; };
-		5B7A1084AB33455F62F9C853 /* PFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 66765F75657A0C02999EDE20 /* PFTextField.h */; };
-		5BA90E4074F5C5B5FADEEC53 /* PFProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = DE50033FB2C0AD9CAF8626AA /* PFProduct.h */; };
-		5CF072641B69258687EFC456 /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5FD4419EF8EAC417B9799 /* PFQueryCollectionViewController.m */; };
-		60B5D32AB3789AFB6C9259B6 /* Parse.h in Headers */ = {isa = PBXBuildFile; fileRef = 59647435433840D9B086F064 /* Parse.h */; };
-		60E44571BFAD30DBCA6E6E5E /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA4BC222CA2B42DE136CBE6 /* BFExecutor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		65B1FB6D9CD6A449EB41145B /* PFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54CB702C5D3F88E2CF94C3 /* PFImage.m */; };
-		65BDDC38FEB4D08C2A97AB62 /* PFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BD807C5F3BEC2E934113C /* PFTextField.m */; };
-		669A90E2D14A3CC3B6817154 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 442AC5D737FFA4220674796E /* UIKit.framework */; };
-		6A958C88529CBC428D9D675A /* Pods-DayTrades-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D782E9A60DB04692D180C071 /* Pods-DayTrades-dummy.m */; };
-		6C9DD0914376AD6817E09360 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D4DB3FAF96A4225EAEDD12 /* BFTaskCompletionSource.h */; };
-		6D2D55B1090C578ED433EFE0 /* PFResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1FA7F45A147FF2FF0E0A31 /* PFResources.h */; };
-		6D2FC77D9FF0A12B89A9C381 /* PFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9223EBF6FA1FCDCFD15C3804 /* PFConstants.h */; };
-		6F7316ECBF23713C08A03687 /* PFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E150D92B58D7C40D3330B7E /* PFImage.h */; };
-		6F9DA4A4A28496190D145F2D /* PFImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC6CA4AAC3FDCA32E761F1D /* PFImageView.h */; };
-		7074DE7EE8B4428207D28D53 /* PFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 29850785F5174AFD074C2E36 /* PFImageCache.h */; };
-		70BD944FE0D04011DC64E9EF /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC645AE77D4E0F97AE346D /* PFCollectionViewCell.m */; };
-		715C76A41CD11770D287F61D /* PFConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 14B6800C04926AC95AFFD0B5 /* PFConfig.h */; };
-		725041528843ABE113C04FD0 /* PFColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B7320D7D8B985E5788E5E18 /* PFColor.h */; };
-		732E9253C8140C592011B7E6 /* PFLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3603749BB43DCEE20F2DDBF /* PFLogInViewController.m */; };
-		756894FA89B72F0EBB1AB373 /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 43198AFAE96D9B1CC2CF22C0 /* BFExecutor.h */; };
-		7762041391E33A3E1B2EAF57 /* PFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7173630281301E1C9DB168 /* PFColor.m */; };
-		77D91A6F9F4F2922C744085D /* Pods-DayTrades-SVPullToRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CFC4C57337C46C94EE2FBE /* Pods-DayTrades-SVPullToRefresh-dummy.m */; };
-		7C3DCE66CED90B548D143CD0 /* PFACL.h in Headers */ = {isa = PBXBuildFile; fileRef = F1A67B82854DCED4C44C18E0 /* PFACL.h */; };
-		7EA3D6F2C0CCB1EDE5E5EB0D /* BFCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 553324E2CC3F9323CF12B001 /* BFCancellationTokenRegistration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8140C6161F384CDD9DAC7519 /* PFSignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD43DAD886CEEC9E2D5EB4A /* PFSignUpView.m */; };
-		82E9C128D3D342AFCCD139CF /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = 004ACAB9C84A30ED631AC983 /* Bolts.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		82F715C51CE6D597B14E46AB /* PF_Twitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 09E6F41B523A7464C071C690 /* PF_Twitter.h */; };
-		839ADC24952605785168F6B2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3648B29DC3B9F677F22584 /* CFNetwork.framework */; };
-		83D207C995E27415E8B9C5CD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA397DA5CA5B999B9D194823 /* CoreLocation.framework */; };
-		841C112B466AD9F05548632E /* PFLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B2FDF06068E50EC19FF7D4 /* PFLogInView.m */; };
-		878FD5A533677732303957EC /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = BED4793BEA251D943B312EAC /* PFUser.h */; };
-		882D7C9D259D9D016262F483 /* PFTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D51ECC9955F52B81FD0178 /* PFTextButton.m */; };
-		89AE5C2D7D36C4CD1D7A41E6 /* PFLogInView.h in Headers */ = {isa = PBXBuildFile; fileRef = E8F52C9C431A4991CBF53F01 /* PFLogInView.h */; };
-		8DEC5990687FAD6817A333D2 /* ParseUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CEF0C24B1AECD0198E83DC /* ParseUI.h */; };
-		90164BE229FFB149026B79FC /* BFCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC431D453DF4FBF9AAB65BD /* BFCancellationTokenRegistration.h */; };
-		988DE1303D089541D3222604 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9CA246CA195B7C726403EC /* Foundation.framework */; };
-		9AF21971C968789EC8E65799 /* PFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 793776D91AD9C1CA992EFB7C /* PFAlertView.h */; };
-		9B585E8127F5CAC03EC348CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9CA246CA195B7C726403EC /* Foundation.framework */; };
-		9D35F4057BF37D568464B3E0 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4DA68B154FA6FC2B5F6F4 /* BFTask.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9E8584F80ED3997893F929B0 /* PFTwitterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B205F8363EE5A0114610A06 /* PFTwitterUtils.h */; };
-		9E93D7E4CF67B550DA2D75DD /* PFPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EE6F1411CBA4FF03D22AA9 /* PFPurchaseTableViewCell.m */; };
-		A000A466201A2BCDA4C4FC65 /* Pods-DayTrades-Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F28AE45B06975C4E5731FB46 /* Pods-DayTrades-Bolts-dummy.m */; };
-		A0315ABFC1FB79E2EA4A1FCB /* PFActivityIndicatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C58CE8FC8E4932D18EEC26A /* PFActivityIndicatorTableViewCell.m */; };
-		A08CD594B221B6105B11850C /* SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 9497103C7B3EFA9D194EE792 /* SVPullToRefresh.h */; };
-		A1871747D78A1A5A0B2A63F0 /* PFQueryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C1ED55025F1A432FF5E78995 /* PFQueryTableViewController.h */; };
-		A2049A559DB697C18B39913E /* PFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86221D548EE9269328EAA74D /* PFLoadingView.m */; };
-		A3D913406D3C247B16304791 /* PFActionButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9735AC50FB201D2C89B58FD7 /* PFActionButton.h */; };
-		A408C71541EC362709D7F65C /* ParseUIConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D234E43D41CA7D6DD92162 /* ParseUIConstants.h */; };
-		A415EBF4B8BD6C35252CF7C0 /* PFSignUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB0FB79C9CC1C9B4D8AB450 /* PFSignUpView.h */; };
-		A4D15A44AD43BD0733F02853 /* PFCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E1E7C8CBBBA97279A5ADC5 /* PFCollectionViewCell.h */; };
-		A603B9DF078D197E7346BD7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C79DBCD65A80D988F0F4D9 /* QuartzCore.framework */; };
-		A810DCC8F74570FF3082AD19 /* PFTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DB19AB96FFF9014FE6D651 /* PFTableViewCell.h */; };
-		AB9115FF290C059F1F20A4DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78301668CB36996714FC1E1F /* CoreGraphics.framework */; };
-		B16593CDA7F9259CD83EE3B9 /* PFLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 00EC98434EC513435EFAAEE8 /* PFLocalization.h */; };
-		B3C3C280974B1EDE53364ACE /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F368B8ECF1A127042FCC3F8 /* Bolts.h */; };
-		B45CA1CA55114B99CEEE6C2D /* PFRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A48D1AC405334FFAB36EFF4 /* PFRole.h */; };
-		B752E9660122C16216D8F1F7 /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = E07AC257E48047F9789C55F6 /* BoltsVersion.h */; };
-		BB1F4203E4168E9BD7B18813 /* PFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB6A57ACB23AC6168B4598 /* PFTableViewCell.m */; };
-		BC424417ECFC03B3459342D0 /* PFInstallation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B8B5973296AF52D56A49A7F /* PFInstallation.h */; };
-		BDF78E41839E4B153B707D41 /* PFProductTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AFE90C388F309BC302DEDA /* PFProductTableViewController.h */; };
-		C413D3F576BDAEA9293C72A4 /* Pods-DayTrades-Parse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 807107341665B3D7973B7856 /* Pods-DayTrades-Parse-dummy.m */; };
-		C6999AFE3B589CD5878418AB /* BFCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD478626EAAC8CC71251F9A5 /* BFCancellationTokenSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C96B1345D0BA1D0BFAB5F68E /* PFLogInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1D475DDD31FA36344B0F70 /* PFLogInViewController.h */; };
-		CB193FF8A5D984DEF2E92F0E /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A663AECF1D907783FDF7EE9 /* BFTaskCompletionSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		CC11B83606239767353A5A72 /* UIScrollView+SVInfiniteScrolling.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F5DCB1E31649D92A1825DA /* UIScrollView+SVInfiniteScrolling.h */; };
-		CC945CEEE17E4A49C03494B1 /* PFSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = A00037F613B42A75392F30D3 /* PFSubclassing.h */; };
-		CF2D4BD1D4CAE148238AFACF /* PFSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C8F21F69D96ED657C187CD /* PFSignUpViewController.m */; };
-		D24D541BA104D0804F96B8C8 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = D1304CFD149635A4730D57B8 /* Empty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D287543D64D66E6E20FFBA7E /* PFQueryCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D558CAE2D9C67CE473E09E /* PFQueryCollectionViewController.h */; };
-		D3B8E6F43E3CBDB5A08A3106 /* PFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E9D47ABA98A4BCB4D9C3A4 /* PFAlertView.m */; };
-		D78D5ADDE93F7AD3462AD5C3 /* PFSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B75787C3B5C8A919A1BF7317 /* PFSignUpViewController.h */; };
-		D8CE9A408784033D2CCD5A93 /* PFGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = B123C69F1749B6130CE93BCD /* PFGeoPoint.h */; };
-		DB3D0F746255EE248D5058FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C79DBCD65A80D988F0F4D9 /* QuartzCore.framework */; };
-		DE269C4457E6E9D82A075EE4 /* BFCancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EEA51124CB86F9C5E006411 /* BFCancellationTokenSource.h */; };
-		DE8AD038D2FA3CCC7A26C948 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 64CBA7F2D933F1D3F742965B /* PFActivityIndicatorCollectionReusableView.h */; };
-		DE8D86D09F3EB9523B3DD710 /* PFPurchase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AEE2D94F5AF270BFDDBC807 /* PFPurchase.h */; };
-		E047DFDD34AE5DC87A78CD0D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D82E54A74746C8D7405C94 /* StoreKit.framework */; };
-		E2CF8B8AB953FEA09F08E672 /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C15DF1CC9BD2F987DD48FDB /* BFTask.h */; };
-		E2F1F42E5B30D275AC8AE210 /* PFAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 765B106EC64AE162F5346855 /* PFAnalytics.h */; };
-		E557EBA31016E473D6D8816B /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DF6E86178A3C4F9E2A712D85 /* PFAnonymousUtils.h */; };
-		E678863114D872F55FE910E3 /* PFFile.h in Headers */ = {isa = PBXBuildFile; fileRef = F84FB3BA88C311D0EE9D2163 /* PFFile.h */; };
-		E731F2AA9FEC1F60F054BE17 /* PFActivityIndicatorCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A349A61A7F44DFF9FA446205 /* PFActivityIndicatorCollectionReusableView.m */; };
-		E8B5BD5DDB4EAF0BF86CDD8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78301668CB36996714FC1E1F /* CoreGraphics.framework */; };
-		ECE5E1DA7FB70C001F239D38 /* UIScrollView+SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 66ADBF4E74DC1F667869B3C5 /* UIScrollView+SVPullToRefresh.h */; };
-		EE81539DBA743F8F299A37EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D234CDA2A442A22D06025BF1 /* AudioToolbox.framework */; };
-		EF664EC5421EF908A04D62D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8D54093B18E8186E2545D5 /* Security.framework */; };
-		F16334B918C484071ADA03DC /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C33ED9BB0EFDE57D15EBA8C2 /* PFImageCache.m */; };
-		F1EF14D98503A202C81D4A76 /* PFRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8B865151E340BF7FD73468 /* PFRect.h */; };
-		F3D4C6B086C881F639A29953 /* PFPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 094373AD4DA6854016157890 /* PFPush.h */; };
-		F697E958FC94A3295FA6DB8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9CA246CA195B7C726403EC /* Foundation.framework */; };
-		F9D5D137A41F505EFD8772B6 /* PFActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E884E42B17397541B8EC4DF0 /* PFActionButton.m */; };
-		FCADC96490C1385BB6CF5861 /* PFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C2FC40DE6D09AB8D76E564 /* PFQuery.h */; };
-		FDC42CDF31124363AEF0F635 /* PFQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7458B925390957C3FA599B1 /* PFQueryTableViewController.m */; };
+		0553FFD3F5487C87C1AA1AB2 /* PFPurchaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BC2D2CF883D8E56A6269BE4 /* PFPurchaseTableViewCell.h */; };
+		05C49B3D27672F238466B4E3 /* PFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 43AD7B0F2A9788F2454D7831 /* PFImageCache.h */; };
+		0877439B08C269D373373923 /* PFSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8E5A943307C60DE9550A7 /* PFSignUpViewController.m */; };
+		0AF087226E921883145D6EDE /* Pods-DayTrades-Parse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49109C3AA0174848785BA877 /* Pods-DayTrades-Parse-dummy.m */; };
+		0BC497DB962ABDF7D6D83247 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817F4A26A3440739A7F5D38 /* QuartzCore.framework */; };
+		10D7529E41AA96972C79ED8D /* BFCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 29024BD4732C2F06BFF77A3C /* BFCancellationTokenSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1188A0D90386FCDB229B82CD /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 3170C4CA6E20726E9522E55E /* BoltsVersion.h */; };
+		160F7F75C4F6E3C5E1032616 /* PFRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9126CE564F703A326157AACA /* PFRelation.h */; };
+		16B841D536E4C086DBC775B6 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF7907636F18590E9820885 /* PFActivityIndicatorCollectionReusableView.h */; };
+		189880110315FC1D695E2B44 /* PF_Twitter.h in Headers */ = {isa = PBXBuildFile; fileRef = BD34BEAD4F54CDE5993626E8 /* PF_Twitter.h */; };
+		1AFE9793C2AD6D32C58DBDC7 /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 12F871F7E7FECB6CF45675AC /* PFUser.h */; };
+		1C7E6D078A199712E530228C /* PFCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C22057BD051B761C7C8D05E1 /* PFCollectionViewCell.h */; };
+		1DBC6D7DA417BEBE7E33EA45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03BA76D497654E395E7DAD7 /* UIKit.framework */; };
+		1EE869A38D07DF350940383E /* PFTextButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FA3DE8BB1F0725A9F4D7D37 /* PFTextButton.h */; };
+		20B2134558E30677A9BFA822 /* PFACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 028F98EF53DC5014E827CAD5 /* PFACL.h */; };
+		20C91F4B9E0C21DC91C39B4A /* PFActivityIndicatorCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39146A07181E18D38FCA92BB /* PFActivityIndicatorCollectionReusableView.m */; };
+		22C7628DF9872964D070DE7C /* PFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 52888F71D3044B14A6E07B3E /* PFNetworkActivityIndicatorManager.h */; };
+		24E8470A2D1B4595583D6645 /* BFCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E97081F30F5BD9AEFF71F3 /* BFCancellationToken.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		25DE5DC8285FA43D5B43641D /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15516EF30F3E8E9F9E736AD7 /* BFExecutor.h */; };
+		28285E198C76C4AAC3AB3B97 /* PFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4833FAFEA119E009ACEABDF1 /* PFColor.m */; };
+		2A6F63C80BD1C9782B6DA389 /* PFRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 308DFADB03EE2DBE447657AB /* PFRect.m */; };
+		2ADAC0F6934A2A08550ED21B /* PFActivityIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 57185FDF724207BF4C86AB3E /* PFActivityIndicatorTableViewCell.h */; };
+		2B740CA5BD9F64F8390E8C50 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F16639E14DC5DB4F427D1C /* UIScrollView+SVPullToRefresh.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2B9F863E3C201E868AEBE310 /* PFPrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 995D6E90B9E7CBAA63510DD9 /* PFPrimaryButton.m */; };
+		2C2D9EBC01BCFEF1C17B6D0B /* PFPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 793FD37A30F31257D101BFBB /* PFPush.h */; };
+		2DDD3030FD0EEDC4BDF186E6 /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B631325A7E35CF0A936A5 /* BFTask.h */; };
+		30AE03CFDE5B1412BB215051 /* PFFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 0150EABA12DBE66A8D5C464D /* PFFile.h */; };
+		317AAE0652FBCD5578BED2D0 /* PFRole.h in Headers */ = {isa = PBXBuildFile; fileRef = D261E86301A31D9EF7A2D514 /* PFRole.h */; };
+		32A6C24677E9610112CF5E7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BD7DE8038EF056A0C0E378 /* AudioToolbox.framework */; };
+		33992214B9D0892D6F780B72 /* SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC47B1AD15174E99169F9F4 /* SVPullToRefresh.h */; };
+		3506BCCA05102B51C0E8387E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817F4A26A3440739A7F5D38 /* QuartzCore.framework */; };
+		36363F3F13EA6B23F0DD78A6 /* ParseUIConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0E1CB01A7C033A7928A645 /* ParseUIConstants.h */; };
+		37D543CABDD9D3BDEF51D850 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD249499E7032CFDB59279AE /* SystemConfiguration.framework */; };
+		3972F6F398264B3E6AACC0A5 /* PFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D6543C7ECB2282C7ECAFDF /* PFLoadingView.m */; };
+		437814B1B76A838748705DF3 /* PFGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E2FF1C6A61D0B4DB1D96E51 /* PFGeoPoint.h */; };
+		44DF158EC46C4DCF35E55518 /* PFActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 953F141F4BDF5C258374F384 /* PFActionButton.m */; };
+		45944F1B53A3E773B014A724 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DD2A0071EF4741E05C772 /* Foundation.framework */; };
+		45B2684E6AA0A52418B61478 /* PFQueryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8E196C504B6B2729932CF3 /* PFQueryTableViewController.h */; };
+		4859334A801FE50483BA532E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DD2A0071EF4741E05C772 /* Foundation.framework */; };
+		49D1EADAF3796A38EE271186 /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = F52E52D5D3F4DDD6C6080B89 /* Bolts.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4B5AB400A1548186D33E7DCC /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = CABAC7FDF781BF0A30222791 /* UIScrollView+SVInfiniteScrolling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4ECE82995A88CA73EFE2F9AF /* PFQueryCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8672913177E88C5A931A8F7B /* PFQueryCollectionViewController.h */; };
+		50F2B964ED15A671EF5526BA /* PFLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = E7C7DC298AD9AE1DBD7C1BD7 /* PFLocalization.h */; };
+		53471A0A52B5B57D41DA0921 /* PFTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B01BAC9139E0FCDAE49463D /* PFTextButton.m */; };
+		535172B0B66C3697C371DB56 /* PFLogInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 61BB577B9C5B0E5F0A67A644 /* PFLogInViewController.h */; };
+		57D892B4B16997A540EE5E13 /* PFPrimaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = F731775948DBE4053C2B88F4 /* PFPrimaryButton.h */; };
+		590689F7DAD473DAAD87E820 /* PFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DF3B51C20371FC9895A3A9B /* PFObject.h */; };
+		5CFAF244A726D05E736DDF13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817F4A26A3440739A7F5D38 /* QuartzCore.framework */; };
+		5F5154E47A24433055AFC825 /* PFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1233EA46C731A20910048CF /* PFImageView.m */; };
+		63999282A222BB6B4C3455E5 /* Pods-DayTrades-SVPullToRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 155132CBFC4B8667A7BFAEEC /* Pods-DayTrades-SVPullToRefresh-dummy.m */; };
+		65C49A53EEC804BB98BBF477 /* UIScrollView+SVInfiniteScrolling.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A2CFC4F69D51A08A8083B6B /* UIScrollView+SVInfiniteScrolling.h */; };
+		6A821221E0ABFDC7106924FC /* PFLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D59076D7B7E9837635A651 /* PFLogInViewController.m */; };
+		6F6F1B9E7EFFAE2C0CF9AD9F /* PFLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = F47B7DFC42098A195C00428F /* PFLoadingView.h */; };
+		7095304ECEABB20A8E692EE3 /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B156BF794A58C18A7513DF89 /* BFTaskCompletionSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		74F1186A5359ADB16AC8DD21 /* PFCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = E8D2506258DE1CCD7AEF4606 /* PFCloud.h */; };
+		76FAC12B4627E08A375F5B3D /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC445F1E2C9AF6D27049935 /* PFAnonymousUtils.h */; };
+		7A687CBA01376620F1215E76 /* PFQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B17142476B24C6C64D79C7 /* PFQueryTableViewController.m */; };
+		7B824C7159EB80D31B45AE08 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364F61459CFBF5ECA1CFA2DF /* StoreKit.framework */; };
+		7BB0AE509F86DA44A166DF55 /* PFRect.h in Headers */ = {isa = PBXBuildFile; fileRef = D41DFF0C232F0404868B4DF3 /* PFRect.h */; };
+		7C1FAD04F7395941FAA2931B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82A1F232DDA27159EA2E543 /* Security.framework */; };
+		7D8E0C4B78CA58E44D603DA0 /* PFInstallation.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EA49B19B1C23E75CB2D38F /* PFInstallation.h */; };
+		7D9A45C89626C980063D009A /* PFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14DED50B60BFD8D10B43AAC /* PFTableViewCell.m */; };
+		7DB0B96F518596D36A22AD37 /* PFSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = 775D4C412E5FD37EB00A2CF8 /* PFSubclassing.h */; };
+		811C4EE57D4D63E41D124F5B /* PFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D43EFEB67E79A1E430F589D5 /* PFTextField.m */; };
+		82E37646D3F11FCDA42922F8 /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 66144B3B77CDB3E1FE8E59E4 /* Bolts.h */; };
+		83DD0686965C1750BA6DF415 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DD2A0071EF4741E05C772 /* Foundation.framework */; };
+		84694B20A0AE1469A4B1EE53 /* PFResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2AD22A01842A9BB0BAC5B7 /* PFResources.m */; };
+		8D616249AD296165898E4BB2 /* PFSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A03D83A84CCA6EA63425A0DF /* PFSignUpViewController.h */; };
+		9003BE8B8C374AB010474CB6 /* PFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C329311E06F0A0FAF3684D39 /* PFAlertView.m */; };
+		913217D82411599831EE0D47 /* PFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 281AC5451C1CBCD675095C71 /* PFQuery.h */; };
+		97F8AF9E7847E4F59C73CA12 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9F966D049F924DE3AE5D32 /* BFTaskCompletionSource.h */; };
+		9AC9610C0D3FE79B7F43F53A /* BFCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 751FF9F784867501D9BAB9A0 /* BFCancellationTokenRegistration.h */; };
+		9C070C28EFE9DACD85C508CE /* PFObject+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B2D11B5A0F5FB6A194672DE /* PFObject+Subclass.h */; };
+		A1EC39CC3BF8B329192DB737 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF24641314D5A9017739871 /* CFNetwork.framework */; };
+		A22D168FE0F672466213D7CB /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = E85C3C3D754C1DBF826E2555 /* PFSession.h */; };
+		A5EE74C5DC4625D782E9F33F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01A2E548853584933235B05 /* CoreLocation.framework */; };
+		A5FAD909E86FFDF173C48605 /* PFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A82AF3A567A2C83407E168C /* PFImage.h */; };
+		A6C44377BFB500DCC5AF5449 /* PFLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708E034029E8145EB38B96C5 /* PFLogInView.m */; };
+		A6C7B068C613AF99176B9F8B /* BFCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 27175FBEE1540A4BA6420241 /* BFCancellationTokenRegistration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A6C7B65D073FD4781ED37C0B /* PFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = C929E5FFA97B11500AD517E0 /* PFAlertView.h */; };
+		A8765E621B878ADA6EB42F60 /* Pods-DayTrades-Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AC366BF57661B10B3E68E7 /* Pods-DayTrades-Bolts-dummy.m */; };
+		ACB92CC9AB6BB471C1A77D7A /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4783E3D8C5EDE9285FC38B79 /* BFTask.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AD06226A5F89FAD16A75A2D6 /* Pods-DayTrades-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F591D3BC0D93D31F76509E9 /* Pods-DayTrades-dummy.m */; };
+		AD1D1AE6A8E12E15438F0235 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E237F30E68EEBA37D2567CB1 /* CoreGraphics.framework */; };
+		AF797A0812857A843D06EB13 /* PFActivityIndicatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A088D6396F510E29A8F5B /* PFActivityIndicatorTableViewCell.m */; };
+		B0DCD0BF8233D77D3A99B8C9 /* PFResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 9642DCDC0CBDFEDA85D4AFAB /* PFResources.h */; };
+		B350C73B4B1ECE72A0E84F5D /* PFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 61085FF5477F2758E3A634CC /* PFImage.m */; };
+		B4513980056B590BA3C448CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DD2A0071EF4741E05C772 /* Foundation.framework */; };
+		BE70619607D00526A6341ADB /* PFDismissButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B485D5F964572352B8AFE6D /* PFDismissButton.h */; };
+		C2B2C0C46FCA3457D4F8789F /* PFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = F432490BECD7B8CE16D3F41B /* PFTextField.h */; };
+		C7521982FDEDE766957C0570 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2938BAE54931C3EB65238 /* PFImageCache.m */; };
+		C93CEBF84726C71F9BDAF2F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E237F30E68EEBA37D2567CB1 /* CoreGraphics.framework */; };
+		CD421B172889A4194766ED92 /* BFCancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 27D83E39156E26CD4D651AC3 /* BFCancellationToken.h */; };
+		CD5EF3DDB75CE64CA149EEFF /* PFPurchase.h in Headers */ = {isa = PBXBuildFile; fileRef = ED151B3F686C1CA852CFC2FE /* PFPurchase.h */; };
+		CEEB12A140F39C7F2B752EC5 /* PFSignUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = A513299FBC299CFECA92BB88 /* PFSignUpView.h */; };
+		D125A100DEF85394EEA1DA4F /* PFSignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C12DC8AA632BCDE7BC04B /* PFSignUpView.m */; };
+		D6D30EC38EC0EFC2565CE185 /* PFTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D80FD0A390DC8FF0636A4D4E /* PFTableViewCell.h */; };
+		D7CBDE8FEE307BA150238358 /* PFProductTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04640D80BBDFB1EEA6104675 /* PFProductTableViewController.h */; };
+		D9E3780B5120E8A092653788 /* PFLogInView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1E029BF3ACFA204239E5CE /* PFLogInView.h */; };
+		DCA1E05357975B6E23EAA75B /* Pods-DayTrades-ParseUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF05D1502A13ED775536148 /* Pods-DayTrades-ParseUI-dummy.m */; };
+		E0D8A780FA8D7E5B7B6243B1 /* PFAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 653102D34DE508696B8C9667 /* PFAnalytics.h */; };
+		E0E123C609388157C89A48C6 /* ParseUI.h in Headers */ = {isa = PBXBuildFile; fileRef = D38EF0600125836F45EBBDA9 /* ParseUI.h */; };
+		E1CD7688328A2AED6396D7B7 /* PFProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7CA19ACD83BEEDFD5F9B61 /* PFProduct.h */; };
+		E28129F05D2A4357B946ABEE /* PFImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55BA47C63D9E364ED9C0FD4E /* PFImageView.h */; };
+		E4D34B9A85925ADA8EFA46DB /* BFCancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = FF137386D7FF46B073312884 /* BFCancellationTokenSource.h */; };
+		E760038226EE9812342444DA /* PFDismissButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F42526273340C61AF92E959C /* PFDismissButton.m */; };
+		EA37C6B9779DA2B2EF11135E /* PFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = DF51E08FDEC08B99C4578C10 /* PFConstants.h */; };
+		EAB027B5755347F525733BC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DD2A0071EF4741E05C772 /* Foundation.framework */; };
+		EB9B6837EE4817BCE024079D /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10E7E8E70D3460046EC4CB6 /* PFQueryCollectionViewController.m */; };
+		ECB19BDA3C2F291FA32B0599 /* PFProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C8B31ED39E5D74FBD9BB2D /* PFProductTableViewController.m */; };
+		EE3139FCC78FFF380D070AAF /* UIScrollView+SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AB44E2D7AA1ADD749BA4D02 /* UIScrollView+SVPullToRefresh.h */; };
+		EF9B616E9EB70242FFEA6283 /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CC4DB44D6FDF568A1DC86F /* PFCollectionViewCell.m */; };
+		F225AD2BE45C2D60EE104233 /* Parse.h in Headers */ = {isa = PBXBuildFile; fileRef = B117AF0D5252F3DCDD75EF39 /* Parse.h */; };
+		F51604640F788C34951A32FB /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 07044D43124BD5D3243DB8C5 /* Empty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6EA8117EB1A58B219E2F2CF /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B5F36BC2AFA87718539462 /* BFExecutor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F8CBCFDC22AA3A7CC47C6695 /* PFNullability.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD0D2B617E0214A17C041D5 /* PFNullability.h */; };
+		F8F0EEF0D5AE5401CCBD44AE /* PFTwitterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B4008669956040637871B193 /* PFTwitterUtils.h */; };
+		F9B2CA616182FDB7F763AFAA /* PFActionButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 32683D71834A6A92815BD122 /* PFActionButton.h */; };
+		FC678A2CA995B5681087DC03 /* PFColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 502ED3700530EB54CFD95F7C /* PFColor.h */; };
+		FCE6CBAE11FB8388A9076BEB /* PFConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4F53722BD60BC04E605E45 /* PFConfig.h */; };
+		FE71B6F71C1EA38CEC960351 /* PFPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 551601112BC5708542B3F16F /* PFPurchaseTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		06E4251BA3C11321FE573463 /* PBXContainerItemProxy */ = {
+		32F3EC7958C5C0CE969CD6C1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4950E11E877A658869FF583D;
-			remoteInfo = "Pods-DayTrades-Parse";
+			remoteGlobalIDString = 4ABA2B94612342885B3C5230;
+			remoteInfo = "Pods-DayTrades-Bolts";
 		};
-		40F6E645E3CD4ADDD2AE4BA5 /* PBXContainerItemProxy */ = {
+		396D11FE868FE65312E42201 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 362132A948637182EE563E70;
+			remoteGlobalIDString = 4ABA2B94612342885B3C5230;
+			remoteInfo = "Pods-DayTrades-Bolts";
+		};
+		549BCB0B9284B3B97F198B47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2307F1BA3F0A9AFD7588AFB8;
 			remoteInfo = "Pods-DayTrades-SVPullToRefresh";
 		};
-		4E74F9761A944819BB5A6105 /* PBXContainerItemProxy */ = {
+		5BF5D3CA172474BEE40D63EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F06A750C20595897D4243E71;
-			remoteInfo = "Pods-DayTrades-Bolts";
-		};
-		5559DE3D30B3EC555EC06BE5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4950E11E877A658869FF583D;
+			remoteGlobalIDString = CF7268B5BF7DA16ECBC947C5;
 			remoteInfo = "Pods-DayTrades-Parse";
 		};
-		CE17D06F6A3E580D8017B49E /* PBXContainerItemProxy */ = {
+		9113B6375D1B7827D2B5A6B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F06A750C20595897D4243E71;
-			remoteInfo = "Pods-DayTrades-Bolts";
-		};
-		EEAAEE8984085B0AFB31931D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7F09E35E2C7432511DD97B8A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 073A3220A5B8D9C98486B0AA;
+			remoteGlobalIDString = 6BD4041D01D2D71D0A56B7E3;
 			remoteInfo = "Pods-DayTrades-ParseUI";
+		};
+		CA0017E2D4B4551683C0C702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF7268B5BF7DA16ECBC947C5;
+			remoteInfo = "Pods-DayTrades-Parse";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		004ACAB9C84A30ED631AC983 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
-		009E66020CE300731BF4757B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		00EC98434EC513435EFAAEE8 /* PFLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLocalization.h; path = ParseUI/Classes/Internal/PFLocalization.h; sourceTree = "<group>"; };
-		02F1659FCA4F8B05ACF6CE93 /* PFPrimaryButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPrimaryButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFPrimaryButton.m; sourceTree = "<group>"; };
-		03F5DCB1E31649D92A1825DA /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVInfiniteScrolling.h"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		094373AD4DA6854016157890 /* PFPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse.framework/Headers/PFPush.h; sourceTree = "<group>"; };
-		09E6F41B523A7464C071C690 /* PF_Twitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PF_Twitter.h; path = Parse.framework/Headers/PF_Twitter.h; sourceTree = "<group>"; };
-		11E5FD4419EF8EAC417B9799 /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryCollectionViewController.m; path = ParseUI/Classes/QueryCollectionViewController/PFQueryCollectionViewController.m; sourceTree = "<group>"; };
-		122BD807C5F3BEC2E934113C /* PFTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTextField.m; path = ParseUI/Classes/Views/PFTextField.m; sourceTree = "<group>"; };
-		14B6800C04926AC95AFFD0B5 /* PFConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig.h; path = Parse.framework/Headers/PFConfig.h; sourceTree = "<group>"; };
-		1A1FA7F45A147FF2FF0E0A31 /* PFResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFResources.h; path = ParseUI/Generated/PFResources.h; sourceTree = "<group>"; };
-		1CA4BC222CA2B42DE136CBE6 /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
-		227DE83CFC288E011FFE4476 /* PFProductTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductTableViewController.m; path = ParseUI/Classes/ProductTableViewController/PFProductTableViewController.m; sourceTree = "<group>"; };
-		23EE6F1411CBA4FF03D22AA9 /* PFPurchaseTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchaseTableViewCell.m; path = ParseUI/Classes/Cells/PFPurchaseTableViewCell.m; sourceTree = "<group>"; };
-		24F5536D54692C971951EF13 /* Pods-DayTrades-SVPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-SVPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
-		29850785F5174AFD074C2E36 /* PFImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImageCache.h; path = ParseUI/Classes/Internal/PFImageCache.h; sourceTree = "<group>"; };
-		2A48D1AC405334FFAB36EFF4 /* PFRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse.framework/Headers/PFRole.h; sourceTree = "<group>"; };
-		2B205F8363EE5A0114610A06 /* PFTwitterUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTwitterUtils.h; path = Parse.framework/Headers/PFTwitterUtils.h; sourceTree = "<group>"; };
-		2B54CB702C5D3F88E2CF94C3 /* PFImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImage.m; path = ParseUI/Classes/Internal/Extensions/PFImage.m; sourceTree = "<group>"; };
-		2B8D54093B18E8186E2545D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		2DB0FB79C9CC1C9B4D8AB450 /* PFSignUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSignUpView.h; path = ParseUI/Classes/SignUpViewController/PFSignUpView.h; sourceTree = "<group>"; };
-		37574E338B918835B62B8FF7 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		39F42BC3325976E91DEF4A46 /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
-		3B8B5973296AF52D56A49A7F /* PFInstallation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallation.h; path = Parse.framework/Headers/PFInstallation.h; sourceTree = "<group>"; };
-		3D42109CC6D7B24C2D67603D /* Pods-DayTrades-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DayTrades-resources.sh"; sourceTree = "<group>"; };
-		3E5120CBCBE46C68FED06986 /* libParse.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libParse.a; sourceTree = "<group>"; };
-		3EC431D453DF4FBF9AAB65BD /* BFCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenRegistration.h; path = Bolts/Common/BFCancellationTokenRegistration.h; sourceTree = "<group>"; };
-		3F0105DAB74F8210196F77A4 /* PFNullability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNullability.h; path = Parse.framework/Headers/PFNullability.h; sourceTree = "<group>"; };
-		3F368B8ECF1A127042FCC3F8 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
-		40EF62F71E447A9AF4D8AD28 /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
-		42D51ECC9955F52B81FD0178 /* PFTextButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTextButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFTextButton.m; sourceTree = "<group>"; };
-		43198AFAE96D9B1CC2CF22C0 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
-		4335649796B1EDB209A610B7 /* PFCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCloud.h; path = Parse.framework/Headers/PFCloud.h; sourceTree = "<group>"; };
-		4335C5795D2B1CB7668E2102 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
-		43C8F21F69D96ED657C187CD /* PFSignUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSignUpViewController.m; path = ParseUI/Classes/SignUpViewController/PFSignUpViewController.m; sourceTree = "<group>"; };
-		442AC5D737FFA4220674796E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		46BFBE985B59186C5C22FB47 /* libPods-DayTrades-Bolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-Bolts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A843E18B1895667DF2243F8 /* PFDismissButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDismissButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFDismissButton.m; sourceTree = "<group>"; };
-		4B7320D7D8B985E5788E5E18 /* PFColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFColor.h; path = ParseUI/Classes/Internal/Extensions/PFColor.h; sourceTree = "<group>"; };
-		4BC6CA4AAC3FDCA32E761F1D /* PFImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImageView.h; path = ParseUI/Classes/Views/PFImageView.h; sourceTree = "<group>"; };
-		4E3648B29DC3B9F677F22584 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		4FE117AEE7352EAFDF9B2DFD /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-SVPullToRefresh-Private.xcconfig"; sourceTree = "<group>"; };
-		5166A55499EFB28DD19A7C19 /* Pods-DayTrades-Bolts-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Bolts-Private.xcconfig"; sourceTree = "<group>"; };
-		5337FA031148C4CC7FE37B40 /* Pods-DayTrades-ParseUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-ParseUI-dummy.m"; sourceTree = "<group>"; };
-		553324E2CC3F9323CF12B001 /* BFCancellationTokenRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenRegistration.m; path = Bolts/Common/BFCancellationTokenRegistration.m; sourceTree = "<group>"; };
-		57C0B26B89C4638102465624 /* Pods-DayTrades-Parse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-Parse-prefix.pch"; sourceTree = "<group>"; };
-		59647435433840D9B086F064 /* Parse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse.framework/Headers/Parse.h; sourceTree = "<group>"; };
-		5AEE2D94F5AF270BFDDBC807 /* PFPurchase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse.framework/Headers/PFPurchase.h; sourceTree = "<group>"; };
-		60EBBEFA2989CCE5F2646EAD /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse.framework/Headers/PFObject+Subclass.h"; sourceTree = "<group>"; };
-		62E1E7C8CBBBA97279A5ADC5 /* PFCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCollectionViewCell.h; path = ParseUI/Classes/Cells/PFCollectionViewCell.h; sourceTree = "<group>"; };
-		63D82E54A74746C8D7405C94 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		64CBA7F2D933F1D3F742965B /* PFActivityIndicatorCollectionReusableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActivityIndicatorCollectionReusableView.h; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorCollectionReusableView.h; sourceTree = "<group>"; };
-		659ED335038AD4CB1991A09E /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchaseTableViewCell.h; path = ParseUI/Classes/Cells/PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
-		662880540E4527EDC3FB227E /* Pods-DayTrades-ParseUI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-ParseUI.xcconfig"; sourceTree = "<group>"; };
-		66765F75657A0C02999EDE20 /* PFTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTextField.h; path = ParseUI/Classes/Views/PFTextField.h; sourceTree = "<group>"; };
-		66ADBF4E74DC1F667869B3C5 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		6A399455CC2CF7F8C4ABD413 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
-		6D3D96D62C7E97FC70A79840 /* PFResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFResources.m; path = ParseUI/Generated/PFResources.m; sourceTree = "<group>"; };
-		6D777FBD594276E71FE694BE /* Pods-DayTrades-Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Bolts.xcconfig"; sourceTree = "<group>"; };
-		72D234E43D41CA7D6DD92162 /* ParseUIConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseUIConstants.h; path = ParseUI/Other/ParseUIConstants.h; sourceTree = "<group>"; };
-		73CEF0C24B1AECD0198E83DC /* ParseUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseUI.h; path = ParseUI/Other/ParseUI.h; sourceTree = "<group>"; };
-		75DB19AB96FFF9014FE6D651 /* PFTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTableViewCell.h; path = ParseUI/Classes/Cells/PFTableViewCell.h; sourceTree = "<group>"; };
-		765B106EC64AE162F5346855 /* PFAnalytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalytics.h; path = Parse.framework/Headers/PFAnalytics.h; sourceTree = "<group>"; };
-		77B2FDF06068E50EC19FF7D4 /* PFLogInView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLogInView.m; path = ParseUI/Classes/LogInViewController/PFLogInView.m; sourceTree = "<group>"; };
-		78301668CB36996714FC1E1F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		793776D91AD9C1CA992EFB7C /* PFAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAlertView.h; path = ParseUI/Classes/Internal/Extensions/PFAlertView.h; sourceTree = "<group>"; };
-		7C58CE8FC8E4932D18EEC26A /* PFActivityIndicatorTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActivityIndicatorTableViewCell.m; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorTableViewCell.m; sourceTree = "<group>"; };
-		7DD3D2B4A1562A80F4C19889 /* Pods-DayTrades-ParseUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-ParseUI-prefix.pch"; sourceTree = "<group>"; };
-		7E2A26C8D58A65B3E6F6FC45 /* Pods-DayTrades-SVPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-SVPullToRefresh.xcconfig"; sourceTree = "<group>"; };
-		8057CAF7627AAE3DD4009BD6 /* libPods-DayTrades-Parse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-Parse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		807107341665B3D7973B7856 /* Pods-DayTrades-Parse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-Parse-dummy.m"; sourceTree = "<group>"; };
-		84344751A5B332428A079CFB /* PFDismissButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDismissButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFDismissButton.h; sourceTree = "<group>"; };
-		86221D548EE9269328EAA74D /* PFLoadingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLoadingView.m; path = ParseUI/Classes/Internal/Views/PFLoadingView.m; sourceTree = "<group>"; };
-		86483D8FFA6E4AEE07157B6B /* Pods-DayTrades-Parse-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Parse-Private.xcconfig"; sourceTree = "<group>"; };
-		86C2FC40DE6D09AB8D76E564 /* PFQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse.framework/Headers/PFQuery.h; sourceTree = "<group>"; };
-		879C8267B0273960D46D96AB /* PFImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImageView.m; path = ParseUI/Classes/Views/PFImageView.m; sourceTree = "<group>"; };
-		883EDE96BDBEBC0C8B510181 /* Pods-DayTrades-ParseUI-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-ParseUI-Private.xcconfig"; sourceTree = "<group>"; };
-		89D4DB3FAF96A4225EAEDD12 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
-		8B773DE5AC115DA2D5B491BA /* PFLoadingView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLoadingView.h; path = ParseUI/Classes/Internal/Views/PFLoadingView.h; sourceTree = "<group>"; };
-		8C15DF1CC9BD2F987DD48FDB /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
-		8E150D92B58D7C40D3330B7E /* PFImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImage.h; path = ParseUI/Classes/Internal/Extensions/PFImage.h; sourceTree = "<group>"; };
-		904E6C8D939AB39B5B02E288 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		9223EBF6FA1FCDCFD15C3804 /* PFConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConstants.h; path = Parse.framework/Headers/PFConstants.h; sourceTree = "<group>"; };
-		93BC645AE77D4E0F97AE346D /* PFCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCollectionViewCell.m; path = ParseUI/Classes/Cells/PFCollectionViewCell.m; sourceTree = "<group>"; };
-		9497103C7B3EFA9D194EE792 /* SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVPullToRefresh.h; path = SVPullToRefresh/SVPullToRefresh.h; sourceTree = "<group>"; };
-		94C807B478A050A5BD9C1CE3 /* libPods-DayTrades-SVPullToRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-SVPullToRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9735AC50FB201D2C89B58FD7 /* PFActionButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActionButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFActionButton.h; sourceTree = "<group>"; };
-		9A663AECF1D907783FDF7EE9 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
-		9A8B865151E340BF7FD73468 /* PFRect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRect.h; path = ParseUI/Classes/Internal/Extensions/PFRect.h; sourceTree = "<group>"; };
-		9BA4DA68B154FA6FC2B5F6F4 /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
-		9C1D475DDD31FA36344B0F70 /* PFLogInViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogInViewController.h; path = ParseUI/Classes/LogInViewController/PFLogInViewController.h; sourceTree = "<group>"; };
-		9D22144BC0D9C249F5C8393B /* Pods-DayTrades-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DayTrades-acknowledgements.plist"; sourceTree = "<group>"; };
-		9EEA51124CB86F9C5E006411 /* BFCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenSource.h; path = Bolts/Common/BFCancellationTokenSource.h; sourceTree = "<group>"; };
-		A00037F613B42A75392F30D3 /* PFSubclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSubclassing.h; path = Parse.framework/Headers/PFSubclassing.h; sourceTree = "<group>"; };
-		A1D558CAE2D9C67CE473E09E /* PFQueryCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryCollectionViewController.h; path = ParseUI/Classes/QueryCollectionViewController/PFQueryCollectionViewController.h; sourceTree = "<group>"; };
-		A2AA5504283D117C0182408F /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = ParseUI/Resources/Localization/en.lproj; sourceTree = "<group>"; };
-		A349A61A7F44DFF9FA446205 /* PFActivityIndicatorCollectionReusableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActivityIndicatorCollectionReusableView.m; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorCollectionReusableView.m; sourceTree = "<group>"; };
-		A5E9D47ABA98A4BCB4D9C3A4 /* PFAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAlertView.m; path = ParseUI/Classes/Internal/Extensions/PFAlertView.m; sourceTree = "<group>"; };
-		A6719B628AE53A1D57C49D83 /* Pods-DayTrades-Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-Bolts-prefix.pch"; sourceTree = "<group>"; };
-		ABDC997132BC062A2E6D0B6B /* libPods-DayTrades-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC467D372E3D18DAC7820B04 /* PFRect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRect.m; path = ParseUI/Classes/Internal/Extensions/PFRect.m; sourceTree = "<group>"; };
-		B123C69F1749B6130CE93BCD /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse.framework/Headers/PFGeoPoint.h; sourceTree = "<group>"; };
-		B1AFE90C388F309BC302DEDA /* PFProductTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProductTableViewController.h; path = ParseUI/Classes/ProductTableViewController/PFProductTableViewController.h; sourceTree = "<group>"; };
-		B48384C62D62688A0A03A554 /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse.framework/Headers/PFSession.h; sourceTree = "<group>"; };
-		B4B438321B6B27E9CBDA1272 /* Pods-DayTrades.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades.release.xcconfig"; sourceTree = "<group>"; };
-		B50FFB901D639965422ECA8F /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse.framework/Headers/PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		B7458B925390957C3FA599B1 /* PFQueryTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryTableViewController.m; path = ParseUI/Classes/QueryTableViewController/PFQueryTableViewController.m; sourceTree = "<group>"; };
-		B75787C3B5C8A919A1BF7317 /* PFSignUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSignUpViewController.h; path = ParseUI/Classes/SignUpViewController/PFSignUpViewController.h; sourceTree = "<group>"; };
-		BC957B2AE80F29BD3AF13C0F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BED4793BEA251D943B312EAC /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse.framework/Headers/PFUser.h; sourceTree = "<group>"; };
-		C15559F6F5CF2ED147B72259 /* PFPrimaryButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPrimaryButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFPrimaryButton.h; sourceTree = "<group>"; };
-		C1ED55025F1A432FF5E78995 /* PFQueryTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryTableViewController.h; path = ParseUI/Classes/QueryTableViewController/PFQueryTableViewController.h; sourceTree = "<group>"; };
-		C33ED9BB0EFDE57D15EBA8C2 /* PFImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = ParseUI/Classes/Internal/PFImageCache.m; sourceTree = "<group>"; };
-		C3CFC4C57337C46C94EE2FBE /* Pods-DayTrades-SVPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-SVPullToRefresh-dummy.m"; sourceTree = "<group>"; };
-		CAFB6A57ACB23AC6168B4598 /* PFTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTableViewCell.m; path = ParseUI/Classes/Cells/PFTableViewCell.m; sourceTree = "<group>"; };
-		D1304CFD149635A4730D57B8 /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
-		D234CDA2A442A22D06025BF1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		D3326BB3F26CA38EFDD19C20 /* PFRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelation.h; path = Parse.framework/Headers/PFRelation.h; sourceTree = "<group>"; };
-		D3603749BB43DCEE20F2DDBF /* PFLogInViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLogInViewController.m; path = ParseUI/Classes/LogInViewController/PFLogInViewController.m; sourceTree = "<group>"; };
-		D3C79DBCD65A80D988F0F4D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		D6B596075EE78612C28AC9DD /* PFActivityIndicatorTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActivityIndicatorTableViewCell.h; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorTableViewCell.h; sourceTree = "<group>"; };
-		D782E9A60DB04692D180C071 /* Pods-DayTrades-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-dummy.m"; sourceTree = "<group>"; };
-		DA852992970347508EF7CF6B /* Pods-DayTrades-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DayTrades-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DBD2C6A82E6CDD424CE98E55 /* Pods-DayTrades-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-environment.h"; sourceTree = "<group>"; };
-		DBD43DAD886CEEC9E2D5EB4A /* PFSignUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSignUpView.m; path = ParseUI/Classes/SignUpViewController/PFSignUpView.m; sourceTree = "<group>"; };
-		DDF2FED121699AC6A5B446FF /* PFTextButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTextButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFTextButton.h; sourceTree = "<group>"; };
-		DE50033FB2C0AD9CAF8626AA /* PFProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProduct.h; path = Parse.framework/Headers/PFProduct.h; sourceTree = "<group>"; };
-		DF6E86178A3C4F9E2A712D85 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse.framework/Headers/PFAnonymousUtils.h; sourceTree = "<group>"; };
-		E07AC257E48047F9789C55F6 /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = Bolts/Common/BoltsVersion.h; sourceTree = "<group>"; };
-		E884E42B17397541B8EC4DF0 /* PFActionButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActionButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFActionButton.m; sourceTree = "<group>"; };
-		E8F52C9C431A4991CBF53F01 /* PFLogInView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogInView.h; path = ParseUI/Classes/LogInViewController/PFLogInView.h; sourceTree = "<group>"; };
-		EAEAE7802E71BE8DDC5E3784 /* PFObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObject.h; path = Parse.framework/Headers/PFObject.h; sourceTree = "<group>"; };
-		EC7173630281301E1C9DB168 /* PFColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFColor.m; path = ParseUI/Classes/Internal/Extensions/PFColor.m; sourceTree = "<group>"; };
-		EC9CA246CA195B7C726403EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F1A67B82854DCED4C44C18E0 /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse.framework/Headers/PFACL.h; sourceTree = "<group>"; };
-		F1A9E3EA7D30ABBFCD9C5989 /* Pods-DayTrades-Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Parse.xcconfig"; sourceTree = "<group>"; };
-		F28AE45B06975C4E5731FB46 /* Pods-DayTrades-Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-Bolts-dummy.m"; sourceTree = "<group>"; };
-		F84FB3BA88C311D0EE9D2163 /* PFFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFile.h; path = Parse.framework/Headers/PFFile.h; sourceTree = "<group>"; };
-		FA397DA5CA5B999B9D194823 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		FD478626EAAC8CC71251F9A5 /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
+		00D6543C7ECB2282C7ECAFDF /* PFLoadingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLoadingView.m; path = ParseUI/Classes/Internal/Views/PFLoadingView.m; sourceTree = "<group>"; };
+		0150EABA12DBE66A8D5C464D /* PFFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFile.h; path = Parse.framework/Headers/PFFile.h; sourceTree = "<group>"; };
+		028F98EF53DC5014E827CAD5 /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse.framework/Headers/PFACL.h; sourceTree = "<group>"; };
+		04640D80BBDFB1EEA6104675 /* PFProductTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProductTableViewController.h; path = ParseUI/Classes/ProductTableViewController/PFProductTableViewController.h; sourceTree = "<group>"; };
+		07044D43124BD5D3243DB8C5 /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
+		0AF05D1502A13ED775536148 /* Pods-DayTrades-ParseUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-ParseUI-dummy.m"; sourceTree = "<group>"; };
+		0B485D5F964572352B8AFE6D /* PFDismissButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDismissButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFDismissButton.h; sourceTree = "<group>"; };
+		0CF24641314D5A9017739871 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		0DD388C6011509D4A7FC7375 /* Pods-DayTrades-SVPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-SVPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
+		0F6A088D6396F510E29A8F5B /* PFActivityIndicatorTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActivityIndicatorTableViewCell.m; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorTableViewCell.m; sourceTree = "<group>"; };
+		0FA3DE8BB1F0725A9F4D7D37 /* PFTextButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTextButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFTextButton.h; sourceTree = "<group>"; };
+		119DD2A0071EF4741E05C772 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		12F871F7E7FECB6CF45675AC /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse.framework/Headers/PFUser.h; sourceTree = "<group>"; };
+		155132CBFC4B8667A7BFAEEC /* Pods-DayTrades-SVPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-SVPullToRefresh-dummy.m"; sourceTree = "<group>"; };
+		15516EF30F3E8E9F9E736AD7 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
+		1ADAACBB263A72403E402A35 /* libPods-DayTrades-Bolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-Bolts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1E029BF3ACFA204239E5CE /* PFLogInView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogInView.h; path = ParseUI/Classes/LogInViewController/PFLogInView.h; sourceTree = "<group>"; };
+		1BC47B1AD15174E99169F9F4 /* SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVPullToRefresh.h; path = SVPullToRefresh/SVPullToRefresh.h; sourceTree = "<group>"; };
+		1E2FF1C6A61D0B4DB1D96E51 /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse.framework/Headers/PFGeoPoint.h; sourceTree = "<group>"; };
+		264C12DC8AA632BCDE7BC04B /* PFSignUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSignUpView.m; path = ParseUI/Classes/SignUpViewController/PFSignUpView.m; sourceTree = "<group>"; };
+		27175FBEE1540A4BA6420241 /* BFCancellationTokenRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenRegistration.m; path = Bolts/Common/BFCancellationTokenRegistration.m; sourceTree = "<group>"; };
+		27D83E39156E26CD4D651AC3 /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
+		281AC5451C1CBCD675095C71 /* PFQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse.framework/Headers/PFQuery.h; sourceTree = "<group>"; };
+		29024BD4732C2F06BFF77A3C /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
+		2932AC258C51C9AB2EF27FCE /* Pods-DayTrades-ParseUI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-ParseUI.xcconfig"; sourceTree = "<group>"; };
+		2AB44E2D7AA1ADD749BA4D02 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		2B2D11B5A0F5FB6A194672DE /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse.framework/Headers/PFObject+Subclass.h"; sourceTree = "<group>"; };
+		2C7CA19ACD83BEEDFD5F9B61 /* PFProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProduct.h; path = Parse.framework/Headers/PFProduct.h; sourceTree = "<group>"; };
+		308DFADB03EE2DBE447657AB /* PFRect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRect.m; path = ParseUI/Classes/Internal/Extensions/PFRect.m; sourceTree = "<group>"; };
+		3170C4CA6E20726E9522E55E /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = Bolts/Common/BoltsVersion.h; sourceTree = "<group>"; };
+		32683D71834A6A92815BD122 /* PFActionButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActionButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFActionButton.h; sourceTree = "<group>"; };
+		364F61459CFBF5ECA1CFA2DF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		38AC84148B3F286299641F54 /* Pods-DayTrades-Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Parse.xcconfig"; sourceTree = "<group>"; };
+		39146A07181E18D38FCA92BB /* PFActivityIndicatorCollectionReusableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActivityIndicatorCollectionReusableView.m; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorCollectionReusableView.m; sourceTree = "<group>"; };
+		3C9BEC80F3F79426D5BE8BAD /* libParse.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libParse.a; sourceTree = "<group>"; };
+		40D59076D7B7E9837635A651 /* PFLogInViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLogInViewController.m; path = ParseUI/Classes/LogInViewController/PFLogInViewController.m; sourceTree = "<group>"; };
+		41884F322753F1FB2F64A888 /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-SVPullToRefresh-Private.xcconfig"; sourceTree = "<group>"; };
+		41BB9DBC0BE8C93B130DEC50 /* Pods-DayTrades-Parse-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Parse-Private.xcconfig"; sourceTree = "<group>"; };
+		41D8E5A943307C60DE9550A7 /* PFSignUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSignUpViewController.m; path = ParseUI/Classes/SignUpViewController/PFSignUpViewController.m; sourceTree = "<group>"; };
+		43AD7B0F2A9788F2454D7831 /* PFImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImageCache.h; path = ParseUI/Classes/Internal/PFImageCache.h; sourceTree = "<group>"; };
+		44AC366BF57661B10B3E68E7 /* Pods-DayTrades-Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-Bolts-dummy.m"; sourceTree = "<group>"; };
+		4783E3D8C5EDE9285FC38B79 /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
+		4833FAFEA119E009ACEABDF1 /* PFColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFColor.m; path = ParseUI/Classes/Internal/Extensions/PFColor.m; sourceTree = "<group>"; };
+		48C1749EDBEC43D469925178 /* Pods-DayTrades-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DayTrades-resources.sh"; sourceTree = "<group>"; };
+		49109C3AA0174848785BA877 /* Pods-DayTrades-Parse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-Parse-dummy.m"; sourceTree = "<group>"; };
+		4A82AF3A567A2C83407E168C /* PFImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImage.h; path = ParseUI/Classes/Internal/Extensions/PFImage.h; sourceTree = "<group>"; };
+		4D0E1CB01A7C033A7928A645 /* ParseUIConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseUIConstants.h; path = ParseUI/Other/ParseUIConstants.h; sourceTree = "<group>"; };
+		4FF7907636F18590E9820885 /* PFActivityIndicatorCollectionReusableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActivityIndicatorCollectionReusableView.h; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorCollectionReusableView.h; sourceTree = "<group>"; };
+		502ED3700530EB54CFD95F7C /* PFColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFColor.h; path = ParseUI/Classes/Internal/Extensions/PFColor.h; sourceTree = "<group>"; };
+		52888F71D3044B14A6E07B3E /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse.framework/Headers/PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		551601112BC5708542B3F16F /* PFPurchaseTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchaseTableViewCell.m; path = ParseUI/Classes/Cells/PFPurchaseTableViewCell.m; sourceTree = "<group>"; };
+		55BA47C63D9E364ED9C0FD4E /* PFImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFImageView.h; path = ParseUI/Classes/Views/PFImageView.h; sourceTree = "<group>"; };
+		57185FDF724207BF4C86AB3E /* PFActivityIndicatorTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFActivityIndicatorTableViewCell.h; path = ParseUI/Classes/Internal/Cells/PFActivityIndicatorTableViewCell.h; sourceTree = "<group>"; };
+		57CC4DB44D6FDF568A1DC86F /* PFCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCollectionViewCell.m; path = ParseUI/Classes/Cells/PFCollectionViewCell.m; sourceTree = "<group>"; };
+		59B5F36BC2AFA87718539462 /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
+		5B01BAC9139E0FCDAE49463D /* PFTextButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTextButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFTextButton.m; sourceTree = "<group>"; };
+		61085FF5477F2758E3A634CC /* PFImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImage.m; path = ParseUI/Classes/Internal/Extensions/PFImage.m; sourceTree = "<group>"; };
+		61BB577B9C5B0E5F0A67A644 /* PFLogInViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogInViewController.h; path = ParseUI/Classes/LogInViewController/PFLogInViewController.h; sourceTree = "<group>"; };
+		653102D34DE508696B8C9667 /* PFAnalytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalytics.h; path = Parse.framework/Headers/PFAnalytics.h; sourceTree = "<group>"; };
+		66144B3B77CDB3E1FE8E59E4 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
+		66D82D7C5DC33E191FFE1CEE /* Pods-DayTrades-SVPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-SVPullToRefresh.xcconfig"; sourceTree = "<group>"; };
+		6A2CFC4F69D51A08A8083B6B /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVInfiniteScrolling.h"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		6DF3B51C20371FC9895A3A9B /* PFObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObject.h; path = Parse.framework/Headers/PFObject.h; sourceTree = "<group>"; };
+		708E034029E8145EB38B96C5 /* PFLogInView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLogInView.m; path = ParseUI/Classes/LogInViewController/PFLogInView.m; sourceTree = "<group>"; };
+		751FF9F784867501D9BAB9A0 /* BFCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenRegistration.h; path = Bolts/Common/BFCancellationTokenRegistration.h; sourceTree = "<group>"; };
+		775D4C412E5FD37EB00A2CF8 /* PFSubclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSubclassing.h; path = Parse.framework/Headers/PFSubclassing.h; sourceTree = "<group>"; };
+		793FD37A30F31257D101BFBB /* PFPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse.framework/Headers/PFPush.h; sourceTree = "<group>"; };
+		7C9F966D049F924DE3AE5D32 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
+		7D8E196C504B6B2729932CF3 /* PFQueryTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryTableViewController.h; path = ParseUI/Classes/QueryTableViewController/PFQueryTableViewController.h; sourceTree = "<group>"; };
+		7F4F53722BD60BC04E605E45 /* PFConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig.h; path = Parse.framework/Headers/PFConfig.h; sourceTree = "<group>"; };
+		8672913177E88C5A931A8F7B /* PFQueryCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryCollectionViewController.h; path = ParseUI/Classes/QueryCollectionViewController/PFQueryCollectionViewController.h; sourceTree = "<group>"; };
+		87ECD513F9101E1DE3180AF2 /* Pods-DayTrades-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DayTrades-acknowledgements.markdown"; sourceTree = "<group>"; };
+		88D3F1DC09A685CAFC00E53B /* Pods-DayTrades-Parse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-Parse-prefix.pch"; sourceTree = "<group>"; };
+		8A5687BBA385EAE6DCB5FE2B /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = ParseUI/Resources/Localization/en.lproj; sourceTree = "<group>"; };
+		8AC445F1E2C9AF6D27049935 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse.framework/Headers/PFAnonymousUtils.h; sourceTree = "<group>"; };
+		8B2AD22A01842A9BB0BAC5B7 /* PFResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFResources.m; path = ParseUI/Generated/PFResources.m; sourceTree = "<group>"; };
+		8BC2D2CF883D8E56A6269BE4 /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchaseTableViewCell.h; path = ParseUI/Classes/Cells/PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
+		90183347D827A1FBB02FE4E2 /* Pods-DayTrades-ParseUI-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-ParseUI-Private.xcconfig"; sourceTree = "<group>"; };
+		9126CE564F703A326157AACA /* PFRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelation.h; path = Parse.framework/Headers/PFRelation.h; sourceTree = "<group>"; };
+		953F141F4BDF5C258374F384 /* PFActionButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFActionButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFActionButton.m; sourceTree = "<group>"; };
+		9642DCDC0CBDFEDA85D4AFAB /* PFResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFResources.h; path = ParseUI/Generated/PFResources.h; sourceTree = "<group>"; };
+		96C8B31ED39E5D74FBD9BB2D /* PFProductTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductTableViewController.m; path = ParseUI/Classes/ProductTableViewController/PFProductTableViewController.m; sourceTree = "<group>"; };
+		995D6E90B9E7CBAA63510DD9 /* PFPrimaryButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPrimaryButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFPrimaryButton.m; sourceTree = "<group>"; };
+		9F591D3BC0D93D31F76509E9 /* Pods-DayTrades-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DayTrades-dummy.m"; sourceTree = "<group>"; };
+		A03D83A84CCA6EA63425A0DF /* PFSignUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSignUpViewController.h; path = ParseUI/Classes/SignUpViewController/PFSignUpViewController.h; sourceTree = "<group>"; };
+		A1FC571C058A0BEBB381B2C3 /* Pods-DayTrades-ParseUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-ParseUI-prefix.pch"; sourceTree = "<group>"; };
+		A34C1307D092940C9A13367B /* libPods-DayTrades-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B17142476B24C6C64D79C7 /* PFQueryTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryTableViewController.m; path = ParseUI/Classes/QueryTableViewController/PFQueryTableViewController.m; sourceTree = "<group>"; };
+		A3B7120F6745D3560EF37D56 /* Pods-DayTrades-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-environment.h"; sourceTree = "<group>"; };
+		A513299FBC299CFECA92BB88 /* PFSignUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSignUpView.h; path = ParseUI/Classes/SignUpViewController/PFSignUpView.h; sourceTree = "<group>"; };
+		A817F4A26A3440739A7F5D38 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		A82A1F232DDA27159EA2E543 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		AA82E8CE78313B28EC4803D8 /* Pods-DayTrades-Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DayTrades-Bolts-prefix.pch"; sourceTree = "<group>"; };
+		AD249499E7032CFDB59279AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		B117AF0D5252F3DCDD75EF39 /* Parse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse.framework/Headers/Parse.h; sourceTree = "<group>"; };
+		B156BF794A58C18A7513DF89 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
+		B353BEBBDA3D2D4C0D59D238 /* libPods-DayTrades-Parse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-Parse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4008669956040637871B193 /* PFTwitterUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTwitterUtils.h; path = Parse.framework/Headers/PFTwitterUtils.h; sourceTree = "<group>"; };
+		B4B9641ABA350D6B4A89F3B4 /* libPods-DayTrades.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAF10EB9294D1682B6CDAA31 /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
+		BD34BEAD4F54CDE5993626E8 /* PF_Twitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PF_Twitter.h; path = Parse.framework/Headers/PF_Twitter.h; sourceTree = "<group>"; };
+		C10E7E8E70D3460046EC4CB6 /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryCollectionViewController.m; path = ParseUI/Classes/QueryCollectionViewController/PFQueryCollectionViewController.m; sourceTree = "<group>"; };
+		C1BD7DE8038EF056A0C0E378 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		C22057BD051B761C7C8D05E1 /* PFCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCollectionViewCell.h; path = ParseUI/Classes/Cells/PFCollectionViewCell.h; sourceTree = "<group>"; };
+		C329311E06F0A0FAF3684D39 /* PFAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAlertView.m; path = ParseUI/Classes/Internal/Extensions/PFAlertView.m; sourceTree = "<group>"; };
+		C5E97081F30F5BD9AEFF71F3 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
+		C8EA49B19B1C23E75CB2D38F /* PFInstallation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallation.h; path = Parse.framework/Headers/PFInstallation.h; sourceTree = "<group>"; };
+		C929E5FFA97B11500AD517E0 /* PFAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAlertView.h; path = ParseUI/Classes/Internal/Extensions/PFAlertView.h; sourceTree = "<group>"; };
+		CABAC7FDF781BF0A30222791 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		D01A2E548853584933235B05 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		D08E91EFACF7E286D27C3A27 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D14DED50B60BFD8D10B43AAC /* PFTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTableViewCell.m; path = ParseUI/Classes/Cells/PFTableViewCell.m; sourceTree = "<group>"; };
+		D261E86301A31D9EF7A2D514 /* PFRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse.framework/Headers/PFRole.h; sourceTree = "<group>"; };
+		D38EF0600125836F45EBBDA9 /* ParseUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseUI.h; path = ParseUI/Other/ParseUI.h; sourceTree = "<group>"; };
+		D41DFF0C232F0404868B4DF3 /* PFRect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRect.h; path = ParseUI/Classes/Internal/Extensions/PFRect.h; sourceTree = "<group>"; };
+		D43EFEB67E79A1E430F589D5 /* PFTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTextField.m; path = ParseUI/Classes/Views/PFTextField.m; sourceTree = "<group>"; };
+		D80FD0A390DC8FF0636A4D4E /* PFTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTableViewCell.h; path = ParseUI/Classes/Cells/PFTableViewCell.h; sourceTree = "<group>"; };
+		DF51E08FDEC08B99C4578C10 /* PFConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConstants.h; path = Parse.framework/Headers/PFConstants.h; sourceTree = "<group>"; };
+		E237F30E68EEBA37D2567CB1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		E2C2938BAE54931C3EB65238 /* PFImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = ParseUI/Classes/Internal/PFImageCache.m; sourceTree = "<group>"; };
+		E686D233E6B8740F7752F8FF /* Pods-DayTrades.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades.release.xcconfig"; sourceTree = "<group>"; };
+		E7C7DC298AD9AE1DBD7C1BD7 /* PFLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLocalization.h; path = ParseUI/Classes/Internal/PFLocalization.h; sourceTree = "<group>"; };
+		E7FA58EFB7B4C5D66E6603D0 /* Pods-DayTrades-Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Bolts.xcconfig"; sourceTree = "<group>"; };
+		E85C3C3D754C1DBF826E2555 /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse.framework/Headers/PFSession.h; sourceTree = "<group>"; };
+		E8D2506258DE1CCD7AEF4606 /* PFCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCloud.h; path = Parse.framework/Headers/PFCloud.h; sourceTree = "<group>"; };
+		EAB3E5B9F622B316ED6B9068 /* Pods-DayTrades-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DayTrades-acknowledgements.plist"; sourceTree = "<group>"; };
+		ED151B3F686C1CA852CFC2FE /* PFPurchase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse.framework/Headers/PFPurchase.h; sourceTree = "<group>"; };
+		F03BA76D497654E395E7DAD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F1233EA46C731A20910048CF /* PFImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFImageView.m; path = ParseUI/Classes/Views/PFImageView.m; sourceTree = "<group>"; };
+		F260A89C09FF54B9173E0CBC /* libPods-DayTrades-SVPullToRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTrades-SVPullToRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F16639E14DC5DB4F427D1C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		F42526273340C61AF92E959C /* PFDismissButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDismissButton.m; path = ParseUI/Classes/Internal/Views/Buttons/PFDismissButton.m; sourceTree = "<group>"; };
+		F432490BECD7B8CE16D3F41B /* PFTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTextField.h; path = ParseUI/Classes/Views/PFTextField.h; sourceTree = "<group>"; };
+		F47B7DFC42098A195C00428F /* PFLoadingView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLoadingView.h; path = ParseUI/Classes/Internal/Views/PFLoadingView.h; sourceTree = "<group>"; };
+		F52E52D5D3F4DDD6C6080B89 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
+		F731775948DBE4053C2B88F4 /* PFPrimaryButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPrimaryButton.h; path = ParseUI/Classes/Internal/Views/Buttons/PFPrimaryButton.h; sourceTree = "<group>"; };
+		F77D8E13AD0E3D79DEA5115A /* Pods-DayTrades-Bolts-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DayTrades-Bolts-Private.xcconfig"; sourceTree = "<group>"; };
+		FAD0D2B617E0214A17C041D5 /* PFNullability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNullability.h; path = Parse.framework/Headers/PFNullability.h; sourceTree = "<group>"; };
+		FC9B631325A7E35CF0A936A5 /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
+		FF137386D7FF46B073312884 /* BFCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenSource.h; path = Bolts/Common/BFCancellationTokenSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		007D9EE3079A73FA63519C93 /* Frameworks */ = {
+		3865A46BB81CC9A39D094217 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9115FF290C059F1F20A4DC /* CoreGraphics.framework in Frameworks */,
-				988DE1303D089541D3222604 /* Foundation.framework in Frameworks */,
-				A603B9DF078D197E7346BD7E /* QuartzCore.framework in Frameworks */,
-				669A90E2D14A3CC3B6817154 /* UIKit.framework in Frameworks */,
+				32A6C24677E9610112CF5E7E /* AudioToolbox.framework in Frameworks */,
+				A1EC39CC3BF8B329192DB737 /* CFNetwork.framework in Frameworks */,
+				AD1D1AE6A8E12E15438F0235 /* CoreGraphics.framework in Frameworks */,
+				A5EE74C5DC4625D782E9F33F /* CoreLocation.framework in Frameworks */,
+				EAB027B5755347F525733BC1 /* Foundation.framework in Frameworks */,
+				0BC497DB962ABDF7D6D83247 /* QuartzCore.framework in Frameworks */,
+				7C1FAD04F7395941FAA2931B /* Security.framework in Frameworks */,
+				7B824C7159EB80D31B45AE08 /* StoreKit.framework in Frameworks */,
+				37D543CABDD9D3BDEF51D850 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15F861DF4C51877F9F1C3258 /* Frameworks */ = {
+		83A4473A5EA9EE2268C6A834 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE81539DBA743F8F299A37EF /* AudioToolbox.framework in Frameworks */,
-				839ADC24952605785168F6B2 /* CFNetwork.framework in Frameworks */,
-				E8B5BD5DDB4EAF0BF86CDD8C /* CoreGraphics.framework in Frameworks */,
-				83D207C995E27415E8B9C5CD /* CoreLocation.framework in Frameworks */,
-				2584FE8530572A5DCF6FE323 /* Foundation.framework in Frameworks */,
-				DB3D0F746255EE248D5058FD /* QuartzCore.framework in Frameworks */,
-				EF664EC5421EF908A04D62D8 /* Security.framework in Frameworks */,
-				E047DFDD34AE5DC87A78CD0D /* StoreKit.framework in Frameworks */,
-				01EEAF6A344947B328CBCC5B /* SystemConfiguration.framework in Frameworks */,
+				83DD0686965C1750BA6DF415 /* Foundation.framework in Frameworks */,
+				3506BCCA05102B51C0E8387E /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F1FF81B1D58032ECD3765A7 /* Frameworks */ = {
+		8FEA5AF1752E2DC500769FD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				185C004296AB7E68156DE8B0 /* Foundation.framework in Frameworks */,
+				4859334A801FE50483BA532E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70551EA79355EB41994E334D /* Frameworks */ = {
+		A1931E83EC7CC48B09A5E5CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B585E8127F5CAC03EC348CA /* Foundation.framework in Frameworks */,
-				4B9EECDFDC70CEBB9F0C3DB6 /* QuartzCore.framework in Frameworks */,
+				45944F1B53A3E773B014A724 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7CF16E7B2707B124A04202B /* Frameworks */ = {
+		A4D99F4DA43C23216C22C7AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F697E958FC94A3295FA6DB8C /* Foundation.framework in Frameworks */,
+				C93CEBF84726C71F9BDAF2F8 /* CoreGraphics.framework in Frameworks */,
+				B4513980056B590BA3C448CB /* Foundation.framework in Frameworks */,
+				5CFAF244A726D05E736DDF13 /* QuartzCore.framework in Frameworks */,
+				1DBC6D7DA417BEBE7E33EA45 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0156E6E59449ED5F79886EE7 /* Parse */ = {
+		00DABF753DCA99FB9B16B477 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D1304CFD149635A4730D57B8 /* Empty.m */,
-				F1A67B82854DCED4C44C18E0 /* PFACL.h */,
-				765B106EC64AE162F5346855 /* PFAnalytics.h */,
-				DF6E86178A3C4F9E2A712D85 /* PFAnonymousUtils.h */,
-				4335649796B1EDB209A610B7 /* PFCloud.h */,
-				14B6800C04926AC95AFFD0B5 /* PFConfig.h */,
-				9223EBF6FA1FCDCFD15C3804 /* PFConstants.h */,
-				F84FB3BA88C311D0EE9D2163 /* PFFile.h */,
-				B123C69F1749B6130CE93BCD /* PFGeoPoint.h */,
-				3B8B5973296AF52D56A49A7F /* PFInstallation.h */,
-				B50FFB901D639965422ECA8F /* PFNetworkActivityIndicatorManager.h */,
-				3F0105DAB74F8210196F77A4 /* PFNullability.h */,
-				EAEAE7802E71BE8DDC5E3784 /* PFObject.h */,
-				60EBBEFA2989CCE5F2646EAD /* PFObject+Subclass.h */,
-				DE50033FB2C0AD9CAF8626AA /* PFProduct.h */,
-				5AEE2D94F5AF270BFDDBC807 /* PFPurchase.h */,
-				094373AD4DA6854016157890 /* PFPush.h */,
-				86C2FC40DE6D09AB8D76E564 /* PFQuery.h */,
-				D3326BB3F26CA38EFDD19C20 /* PFRelation.h */,
-				2A48D1AC405334FFAB36EFF4 /* PFRole.h */,
-				B48384C62D62688A0A03A554 /* PFSession.h */,
-				A00037F613B42A75392F30D3 /* PFSubclassing.h */,
-				2B205F8363EE5A0114610A06 /* PFTwitterUtils.h */,
-				BED4793BEA251D943B312EAC /* PFUser.h */,
-				09E6F41B523A7464C071C690 /* PF_Twitter.h */,
-				59647435433840D9B086F064 /* Parse.h */,
-				24320FBB59F4C9DA74AD4ECC /* Frameworks */,
-				6A0E8F9671F5A1DDD9FD8344 /* Support Files */,
-			);
-			path = Parse;
-			sourceTree = "<group>";
-		};
-		24320FBB59F4C9DA74AD4ECC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3E5120CBCBE46C68FED06986 /* libParse.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2855C855E6F8FA132AE4BC47 = {
-			isa = PBXGroup;
-			children = (
-				BC957B2AE80F29BD3AF13C0F /* Podfile */,
-				FA0E6219E7A134996E4CE01F /* Frameworks */,
-				383E50240B67CFEF5AE95742 /* Pods */,
-				AA21EFB30C631F16D01D36B6 /* Products */,
-				A26ADEB48FE2E65ACFF78423 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		383E50240B67CFEF5AE95742 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A91FCBDA38330ACF382ED9E0 /* Bolts */,
-				0156E6E59449ED5F79886EE7 /* Parse */,
-				E2E0F1B2F67BACD29AE70EBC /* ParseUI */,
-				8E5155B86B225801FB91322C /* SVPullToRefresh */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		40CC374EBB3D2472A8FB302D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A2AA5504283D117C0182408F /* en.lproj */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		58498A50B2B72FD0F622DB3C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				662880540E4527EDC3FB227E /* Pods-DayTrades-ParseUI.xcconfig */,
-				883EDE96BDBEBC0C8B510181 /* Pods-DayTrades-ParseUI-Private.xcconfig */,
-				5337FA031148C4CC7FE37B40 /* Pods-DayTrades-ParseUI-dummy.m */,
-				7DD3D2B4A1562A80F4C19889 /* Pods-DayTrades-ParseUI-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-DayTrades-ParseUI";
-			sourceTree = "<group>";
-		};
-		5FE46B0CAAAFEB3C9E53EBD9 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6D777FBD594276E71FE694BE /* Pods-DayTrades-Bolts.xcconfig */,
-				5166A55499EFB28DD19A7C19 /* Pods-DayTrades-Bolts-Private.xcconfig */,
-				F28AE45B06975C4E5731FB46 /* Pods-DayTrades-Bolts-dummy.m */,
-				A6719B628AE53A1D57C49D83 /* Pods-DayTrades-Bolts-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-DayTrades-Bolts";
-			sourceTree = "<group>";
-		};
-		6A0E8F9671F5A1DDD9FD8344 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F1A9E3EA7D30ABBFCD9C5989 /* Pods-DayTrades-Parse.xcconfig */,
-				86483D8FFA6E4AEE07157B6B /* Pods-DayTrades-Parse-Private.xcconfig */,
-				807107341665B3D7973B7856 /* Pods-DayTrades-Parse-dummy.m */,
-				57C0B26B89C4638102465624 /* Pods-DayTrades-Parse-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-DayTrades-Parse";
-			sourceTree = "<group>";
-		};
-		8E5155B86B225801FB91322C /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				9497103C7B3EFA9D194EE792 /* SVPullToRefresh.h */,
-				03F5DCB1E31649D92A1825DA /* UIScrollView+SVInfiniteScrolling.h */,
-				904E6C8D939AB39B5B02E288 /* UIScrollView+SVInfiniteScrolling.m */,
-				66ADBF4E74DC1F667869B3C5 /* UIScrollView+SVPullToRefresh.h */,
-				4335C5795D2B1CB7668E2102 /* UIScrollView+SVPullToRefresh.m */,
-				BD056F5BFEDF824D9B0F575B /* Support Files */,
-			);
-			path = SVPullToRefresh;
-			sourceTree = "<group>";
-		};
-		9B73BEB95920D6CD17DB0EDA /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				40EF62F71E447A9AF4D8AD28 /* BFCancellationToken.h */,
-				6A399455CC2CF7F8C4ABD413 /* BFCancellationToken.m */,
-				3EC431D453DF4FBF9AAB65BD /* BFCancellationTokenRegistration.h */,
-				553324E2CC3F9323CF12B001 /* BFCancellationTokenRegistration.m */,
-				9EEA51124CB86F9C5E006411 /* BFCancellationTokenSource.h */,
-				FD478626EAAC8CC71251F9A5 /* BFCancellationTokenSource.m */,
-				43198AFAE96D9B1CC2CF22C0 /* BFExecutor.h */,
-				1CA4BC222CA2B42DE136CBE6 /* BFExecutor.m */,
-				8C15DF1CC9BD2F987DD48FDB /* BFTask.h */,
-				9BA4DA68B154FA6FC2B5F6F4 /* BFTask.m */,
-				89D4DB3FAF96A4225EAEDD12 /* BFTaskCompletionSource.h */,
-				9A663AECF1D907783FDF7EE9 /* BFTaskCompletionSource.m */,
-				3F368B8ECF1A127042FCC3F8 /* Bolts.h */,
-				004ACAB9C84A30ED631AC983 /* Bolts.m */,
-				E07AC257E48047F9789C55F6 /* BoltsVersion.h */,
-			);
-			name = Tasks;
-			sourceTree = "<group>";
-		};
-		9E1B8008BF49E2E68ABCA4A8 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D234CDA2A442A22D06025BF1 /* AudioToolbox.framework */,
-				4E3648B29DC3B9F677F22584 /* CFNetwork.framework */,
-				78301668CB36996714FC1E1F /* CoreGraphics.framework */,
-				FA397DA5CA5B999B9D194823 /* CoreLocation.framework */,
-				EC9CA246CA195B7C726403EC /* Foundation.framework */,
-				D3C79DBCD65A80D988F0F4D9 /* QuartzCore.framework */,
-				2B8D54093B18E8186E2545D5 /* Security.framework */,
-				63D82E54A74746C8D7405C94 /* StoreKit.framework */,
-				009E66020CE300731BF4757B /* SystemConfiguration.framework */,
-				442AC5D737FFA4220674796E /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A26ADEB48FE2E65ACFF78423 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CEC1688CEE1D4DC4D8825319 /* Pods-DayTrades */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		A91FCBDA38330ACF382ED9E0 /* Bolts */ = {
-			isa = PBXGroup;
-			children = (
-				5FE46B0CAAAFEB3C9E53EBD9 /* Support Files */,
-				9B73BEB95920D6CD17DB0EDA /* Tasks */,
-			);
-			path = Bolts;
-			sourceTree = "<group>";
-		};
-		AA21EFB30C631F16D01D36B6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				37574E338B918835B62B8FF7 /* libPods-DayTrades.a */,
-				46BFBE985B59186C5C22FB47 /* libPods-DayTrades-Bolts.a */,
-				8057CAF7627AAE3DD4009BD6 /* libPods-DayTrades-Parse.a */,
-				ABDC997132BC062A2E6D0B6B /* libPods-DayTrades-ParseUI.a */,
-				94C807B478A050A5BD9C1CE3 /* libPods-DayTrades-SVPullToRefresh.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BD056F5BFEDF824D9B0F575B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7E2A26C8D58A65B3E6F6FC45 /* Pods-DayTrades-SVPullToRefresh.xcconfig */,
-				4FE117AEE7352EAFDF9B2DFD /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */,
-				C3CFC4C57337C46C94EE2FBE /* Pods-DayTrades-SVPullToRefresh-dummy.m */,
-				24F5536D54692C971951EF13 /* Pods-DayTrades-SVPullToRefresh-prefix.pch */,
+				66D82D7C5DC33E191FFE1CEE /* Pods-DayTrades-SVPullToRefresh.xcconfig */,
+				41884F322753F1FB2F64A888 /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */,
+				155132CBFC4B8667A7BFAEEC /* Pods-DayTrades-SVPullToRefresh-dummy.m */,
+				0DD388C6011509D4A7FC7375 /* Pods-DayTrades-SVPullToRefresh-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-DayTrades-SVPullToRefresh";
 			sourceTree = "<group>";
 		};
-		CEC1688CEE1D4DC4D8825319 /* Pods-DayTrades */ = {
+		0FB29F840AE2F927F9743171 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA852992970347508EF7CF6B /* Pods-DayTrades-acknowledgements.markdown */,
-				9D22144BC0D9C249F5C8393B /* Pods-DayTrades-acknowledgements.plist */,
-				D782E9A60DB04692D180C071 /* Pods-DayTrades-dummy.m */,
-				DBD2C6A82E6CDD424CE98E55 /* Pods-DayTrades-environment.h */,
-				3D42109CC6D7B24C2D67603D /* Pods-DayTrades-resources.sh */,
-				39F42BC3325976E91DEF4A46 /* Pods-DayTrades.debug.xcconfig */,
-				B4B438321B6B27E9CBDA1272 /* Pods-DayTrades.release.xcconfig */,
+				2932AC258C51C9AB2EF27FCE /* Pods-DayTrades-ParseUI.xcconfig */,
+				90183347D827A1FBB02FE4E2 /* Pods-DayTrades-ParseUI-Private.xcconfig */,
+				0AF05D1502A13ED775536148 /* Pods-DayTrades-ParseUI-dummy.m */,
+				A1FC571C058A0BEBB381B2C3 /* Pods-DayTrades-ParseUI-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-DayTrades-ParseUI";
+			sourceTree = "<group>";
+		};
+		24302C25ABB85829FB7EC0B7 = {
+			isa = PBXGroup;
+			children = (
+				D08E91EFACF7E286D27C3A27 /* Podfile */,
+				AFCE661B50470CA8980694B9 /* Frameworks */,
+				750FF8DE3FB7E1CE5128EE7B /* Pods */,
+				69573BD4D3ED4047F19AD70B /* Products */,
+				5A7D2AB789976F73FDB81519 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		3616894520BD8185B793CFFF /* Bolts */ = {
+			isa = PBXGroup;
+			children = (
+				CB74C6CDCF8907277B39EAE4 /* Support Files */,
+				9BD4C80ADEEEFAE2AF5BC6E2 /* Tasks */,
+			);
+			path = Bolts;
+			sourceTree = "<group>";
+		};
+		45572234A6DE332AE8D4265D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C9BEC80F3F79426D5BE8BAD /* libParse.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4869A77F06879F7CA6A3532D /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				1BC47B1AD15174E99169F9F4 /* SVPullToRefresh.h */,
+				6A2CFC4F69D51A08A8083B6B /* UIScrollView+SVInfiniteScrolling.h */,
+				CABAC7FDF781BF0A30222791 /* UIScrollView+SVInfiniteScrolling.m */,
+				2AB44E2D7AA1ADD749BA4D02 /* UIScrollView+SVPullToRefresh.h */,
+				F3F16639E14DC5DB4F427D1C /* UIScrollView+SVPullToRefresh.m */,
+				00DABF753DCA99FB9B16B477 /* Support Files */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		4F5923A6F5DD471EE8D4E3EB /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				07044D43124BD5D3243DB8C5 /* Empty.m */,
+				028F98EF53DC5014E827CAD5 /* PFACL.h */,
+				653102D34DE508696B8C9667 /* PFAnalytics.h */,
+				8AC445F1E2C9AF6D27049935 /* PFAnonymousUtils.h */,
+				E8D2506258DE1CCD7AEF4606 /* PFCloud.h */,
+				7F4F53722BD60BC04E605E45 /* PFConfig.h */,
+				DF51E08FDEC08B99C4578C10 /* PFConstants.h */,
+				0150EABA12DBE66A8D5C464D /* PFFile.h */,
+				1E2FF1C6A61D0B4DB1D96E51 /* PFGeoPoint.h */,
+				C8EA49B19B1C23E75CB2D38F /* PFInstallation.h */,
+				52888F71D3044B14A6E07B3E /* PFNetworkActivityIndicatorManager.h */,
+				FAD0D2B617E0214A17C041D5 /* PFNullability.h */,
+				6DF3B51C20371FC9895A3A9B /* PFObject.h */,
+				2B2D11B5A0F5FB6A194672DE /* PFObject+Subclass.h */,
+				2C7CA19ACD83BEEDFD5F9B61 /* PFProduct.h */,
+				ED151B3F686C1CA852CFC2FE /* PFPurchase.h */,
+				793FD37A30F31257D101BFBB /* PFPush.h */,
+				281AC5451C1CBCD675095C71 /* PFQuery.h */,
+				9126CE564F703A326157AACA /* PFRelation.h */,
+				D261E86301A31D9EF7A2D514 /* PFRole.h */,
+				E85C3C3D754C1DBF826E2555 /* PFSession.h */,
+				775D4C412E5FD37EB00A2CF8 /* PFSubclassing.h */,
+				B4008669956040637871B193 /* PFTwitterUtils.h */,
+				12F871F7E7FECB6CF45675AC /* PFUser.h */,
+				BD34BEAD4F54CDE5993626E8 /* PF_Twitter.h */,
+				B117AF0D5252F3DCDD75EF39 /* Parse.h */,
+				45572234A6DE332AE8D4265D /* Frameworks */,
+				8645842CD6D605FCDC8135A8 /* Support Files */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		5A7D2AB789976F73FDB81519 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0E5D2E2C0E13BBC32E8D231 /* Pods-DayTrades */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		69573BD4D3ED4047F19AD70B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4B9641ABA350D6B4A89F3B4 /* libPods-DayTrades.a */,
+				1ADAACBB263A72403E402A35 /* libPods-DayTrades-Bolts.a */,
+				B353BEBBDA3D2D4C0D59D238 /* libPods-DayTrades-Parse.a */,
+				A34C1307D092940C9A13367B /* libPods-DayTrades-ParseUI.a */,
+				F260A89C09FF54B9173E0CBC /* libPods-DayTrades-SVPullToRefresh.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		750FF8DE3FB7E1CE5128EE7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3616894520BD8185B793CFFF /* Bolts */,
+				4F5923A6F5DD471EE8D4E3EB /* Parse */,
+				E82E1FB9AB4604D1FEAFC626 /* ParseUI */,
+				4869A77F06879F7CA6A3532D /* SVPullToRefresh */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8645842CD6D605FCDC8135A8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				38AC84148B3F286299641F54 /* Pods-DayTrades-Parse.xcconfig */,
+				41BB9DBC0BE8C93B130DEC50 /* Pods-DayTrades-Parse-Private.xcconfig */,
+				49109C3AA0174848785BA877 /* Pods-DayTrades-Parse-dummy.m */,
+				88D3F1DC09A685CAFC00E53B /* Pods-DayTrades-Parse-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-DayTrades-Parse";
+			sourceTree = "<group>";
+		};
+		9BD4C80ADEEEFAE2AF5BC6E2 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				27D83E39156E26CD4D651AC3 /* BFCancellationToken.h */,
+				C5E97081F30F5BD9AEFF71F3 /* BFCancellationToken.m */,
+				751FF9F784867501D9BAB9A0 /* BFCancellationTokenRegistration.h */,
+				27175FBEE1540A4BA6420241 /* BFCancellationTokenRegistration.m */,
+				FF137386D7FF46B073312884 /* BFCancellationTokenSource.h */,
+				29024BD4732C2F06BFF77A3C /* BFCancellationTokenSource.m */,
+				15516EF30F3E8E9F9E736AD7 /* BFExecutor.h */,
+				59B5F36BC2AFA87718539462 /* BFExecutor.m */,
+				FC9B631325A7E35CF0A936A5 /* BFTask.h */,
+				4783E3D8C5EDE9285FC38B79 /* BFTask.m */,
+				7C9F966D049F924DE3AE5D32 /* BFTaskCompletionSource.h */,
+				B156BF794A58C18A7513DF89 /* BFTaskCompletionSource.m */,
+				66144B3B77CDB3E1FE8E59E4 /* Bolts.h */,
+				F52E52D5D3F4DDD6C6080B89 /* Bolts.m */,
+				3170C4CA6E20726E9522E55E /* BoltsVersion.h */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		AFCE661B50470CA8980694B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C69947C406458FDCD21A43DC /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0E5D2E2C0E13BBC32E8D231 /* Pods-DayTrades */ = {
+			isa = PBXGroup;
+			children = (
+				87ECD513F9101E1DE3180AF2 /* Pods-DayTrades-acknowledgements.markdown */,
+				EAB3E5B9F622B316ED6B9068 /* Pods-DayTrades-acknowledgements.plist */,
+				9F591D3BC0D93D31F76509E9 /* Pods-DayTrades-dummy.m */,
+				A3B7120F6745D3560EF37D56 /* Pods-DayTrades-environment.h */,
+				48C1749EDBEC43D469925178 /* Pods-DayTrades-resources.sh */,
+				BAF10EB9294D1682B6CDAA31 /* Pods-DayTrades.debug.xcconfig */,
+				E686D233E6B8740F7752F8FF /* Pods-DayTrades.release.xcconfig */,
 			);
 			name = "Pods-DayTrades";
 			path = "Target Support Files/Pods-DayTrades";
 			sourceTree = "<group>";
 		};
-		E2E0F1B2F67BACD29AE70EBC /* ParseUI */ = {
+		C1923A5B5DA345B3C104A65D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9735AC50FB201D2C89B58FD7 /* PFActionButton.h */,
-				E884E42B17397541B8EC4DF0 /* PFActionButton.m */,
-				64CBA7F2D933F1D3F742965B /* PFActivityIndicatorCollectionReusableView.h */,
-				A349A61A7F44DFF9FA446205 /* PFActivityIndicatorCollectionReusableView.m */,
-				D6B596075EE78612C28AC9DD /* PFActivityIndicatorTableViewCell.h */,
-				7C58CE8FC8E4932D18EEC26A /* PFActivityIndicatorTableViewCell.m */,
-				793776D91AD9C1CA992EFB7C /* PFAlertView.h */,
-				A5E9D47ABA98A4BCB4D9C3A4 /* PFAlertView.m */,
-				62E1E7C8CBBBA97279A5ADC5 /* PFCollectionViewCell.h */,
-				93BC645AE77D4E0F97AE346D /* PFCollectionViewCell.m */,
-				4B7320D7D8B985E5788E5E18 /* PFColor.h */,
-				EC7173630281301E1C9DB168 /* PFColor.m */,
-				84344751A5B332428A079CFB /* PFDismissButton.h */,
-				4A843E18B1895667DF2243F8 /* PFDismissButton.m */,
-				8E150D92B58D7C40D3330B7E /* PFImage.h */,
-				2B54CB702C5D3F88E2CF94C3 /* PFImage.m */,
-				29850785F5174AFD074C2E36 /* PFImageCache.h */,
-				C33ED9BB0EFDE57D15EBA8C2 /* PFImageCache.m */,
-				4BC6CA4AAC3FDCA32E761F1D /* PFImageView.h */,
-				879C8267B0273960D46D96AB /* PFImageView.m */,
-				8B773DE5AC115DA2D5B491BA /* PFLoadingView.h */,
-				86221D548EE9269328EAA74D /* PFLoadingView.m */,
-				00EC98434EC513435EFAAEE8 /* PFLocalization.h */,
-				E8F52C9C431A4991CBF53F01 /* PFLogInView.h */,
-				77B2FDF06068E50EC19FF7D4 /* PFLogInView.m */,
-				9C1D475DDD31FA36344B0F70 /* PFLogInViewController.h */,
-				D3603749BB43DCEE20F2DDBF /* PFLogInViewController.m */,
-				C15559F6F5CF2ED147B72259 /* PFPrimaryButton.h */,
-				02F1659FCA4F8B05ACF6CE93 /* PFPrimaryButton.m */,
-				B1AFE90C388F309BC302DEDA /* PFProductTableViewController.h */,
-				227DE83CFC288E011FFE4476 /* PFProductTableViewController.m */,
-				659ED335038AD4CB1991A09E /* PFPurchaseTableViewCell.h */,
-				23EE6F1411CBA4FF03D22AA9 /* PFPurchaseTableViewCell.m */,
-				A1D558CAE2D9C67CE473E09E /* PFQueryCollectionViewController.h */,
-				11E5FD4419EF8EAC417B9799 /* PFQueryCollectionViewController.m */,
-				C1ED55025F1A432FF5E78995 /* PFQueryTableViewController.h */,
-				B7458B925390957C3FA599B1 /* PFQueryTableViewController.m */,
-				9A8B865151E340BF7FD73468 /* PFRect.h */,
-				AC467D372E3D18DAC7820B04 /* PFRect.m */,
-				1A1FA7F45A147FF2FF0E0A31 /* PFResources.h */,
-				6D3D96D62C7E97FC70A79840 /* PFResources.m */,
-				2DB0FB79C9CC1C9B4D8AB450 /* PFSignUpView.h */,
-				DBD43DAD886CEEC9E2D5EB4A /* PFSignUpView.m */,
-				B75787C3B5C8A919A1BF7317 /* PFSignUpViewController.h */,
-				43C8F21F69D96ED657C187CD /* PFSignUpViewController.m */,
-				75DB19AB96FFF9014FE6D651 /* PFTableViewCell.h */,
-				CAFB6A57ACB23AC6168B4598 /* PFTableViewCell.m */,
-				DDF2FED121699AC6A5B446FF /* PFTextButton.h */,
-				42D51ECC9955F52B81FD0178 /* PFTextButton.m */,
-				66765F75657A0C02999EDE20 /* PFTextField.h */,
-				122BD807C5F3BEC2E934113C /* PFTextField.m */,
-				73CEF0C24B1AECD0198E83DC /* ParseUI.h */,
-				72D234E43D41CA7D6DD92162 /* ParseUIConstants.h */,
-				40CC374EBB3D2472A8FB302D /* Resources */,
-				58498A50B2B72FD0F622DB3C /* Support Files */,
+				8A5687BBA385EAE6DCB5FE2B /* en.lproj */,
 			);
-			path = ParseUI;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		FA0E6219E7A134996E4CE01F /* Frameworks */ = {
+		C69947C406458FDCD21A43DC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9E1B8008BF49E2E68ABCA4A8 /* iOS */,
+				C1BD7DE8038EF056A0C0E378 /* AudioToolbox.framework */,
+				0CF24641314D5A9017739871 /* CFNetwork.framework */,
+				E237F30E68EEBA37D2567CB1 /* CoreGraphics.framework */,
+				D01A2E548853584933235B05 /* CoreLocation.framework */,
+				119DD2A0071EF4741E05C772 /* Foundation.framework */,
+				A817F4A26A3440739A7F5D38 /* QuartzCore.framework */,
+				A82A1F232DDA27159EA2E543 /* Security.framework */,
+				364F61459CFBF5ECA1CFA2DF /* StoreKit.framework */,
+				AD249499E7032CFDB59279AE /* SystemConfiguration.framework */,
+				F03BA76D497654E395E7DAD7 /* UIKit.framework */,
 			);
-			name = Frameworks;
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CB74C6CDCF8907277B39EAE4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7FA58EFB7B4C5D66E6603D0 /* Pods-DayTrades-Bolts.xcconfig */,
+				F77D8E13AD0E3D79DEA5115A /* Pods-DayTrades-Bolts-Private.xcconfig */,
+				44AC366BF57661B10B3E68E7 /* Pods-DayTrades-Bolts-dummy.m */,
+				AA82E8CE78313B28EC4803D8 /* Pods-DayTrades-Bolts-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-DayTrades-Bolts";
+			sourceTree = "<group>";
+		};
+		E82E1FB9AB4604D1FEAFC626 /* ParseUI */ = {
+			isa = PBXGroup;
+			children = (
+				32683D71834A6A92815BD122 /* PFActionButton.h */,
+				953F141F4BDF5C258374F384 /* PFActionButton.m */,
+				4FF7907636F18590E9820885 /* PFActivityIndicatorCollectionReusableView.h */,
+				39146A07181E18D38FCA92BB /* PFActivityIndicatorCollectionReusableView.m */,
+				57185FDF724207BF4C86AB3E /* PFActivityIndicatorTableViewCell.h */,
+				0F6A088D6396F510E29A8F5B /* PFActivityIndicatorTableViewCell.m */,
+				C929E5FFA97B11500AD517E0 /* PFAlertView.h */,
+				C329311E06F0A0FAF3684D39 /* PFAlertView.m */,
+				C22057BD051B761C7C8D05E1 /* PFCollectionViewCell.h */,
+				57CC4DB44D6FDF568A1DC86F /* PFCollectionViewCell.m */,
+				502ED3700530EB54CFD95F7C /* PFColor.h */,
+				4833FAFEA119E009ACEABDF1 /* PFColor.m */,
+				0B485D5F964572352B8AFE6D /* PFDismissButton.h */,
+				F42526273340C61AF92E959C /* PFDismissButton.m */,
+				4A82AF3A567A2C83407E168C /* PFImage.h */,
+				61085FF5477F2758E3A634CC /* PFImage.m */,
+				43AD7B0F2A9788F2454D7831 /* PFImageCache.h */,
+				E2C2938BAE54931C3EB65238 /* PFImageCache.m */,
+				55BA47C63D9E364ED9C0FD4E /* PFImageView.h */,
+				F1233EA46C731A20910048CF /* PFImageView.m */,
+				F47B7DFC42098A195C00428F /* PFLoadingView.h */,
+				00D6543C7ECB2282C7ECAFDF /* PFLoadingView.m */,
+				E7C7DC298AD9AE1DBD7C1BD7 /* PFLocalization.h */,
+				1B1E029BF3ACFA204239E5CE /* PFLogInView.h */,
+				708E034029E8145EB38B96C5 /* PFLogInView.m */,
+				61BB577B9C5B0E5F0A67A644 /* PFLogInViewController.h */,
+				40D59076D7B7E9837635A651 /* PFLogInViewController.m */,
+				F731775948DBE4053C2B88F4 /* PFPrimaryButton.h */,
+				995D6E90B9E7CBAA63510DD9 /* PFPrimaryButton.m */,
+				04640D80BBDFB1EEA6104675 /* PFProductTableViewController.h */,
+				96C8B31ED39E5D74FBD9BB2D /* PFProductTableViewController.m */,
+				8BC2D2CF883D8E56A6269BE4 /* PFPurchaseTableViewCell.h */,
+				551601112BC5708542B3F16F /* PFPurchaseTableViewCell.m */,
+				8672913177E88C5A931A8F7B /* PFQueryCollectionViewController.h */,
+				C10E7E8E70D3460046EC4CB6 /* PFQueryCollectionViewController.m */,
+				7D8E196C504B6B2729932CF3 /* PFQueryTableViewController.h */,
+				A3B17142476B24C6C64D79C7 /* PFQueryTableViewController.m */,
+				D41DFF0C232F0404868B4DF3 /* PFRect.h */,
+				308DFADB03EE2DBE447657AB /* PFRect.m */,
+				9642DCDC0CBDFEDA85D4AFAB /* PFResources.h */,
+				8B2AD22A01842A9BB0BAC5B7 /* PFResources.m */,
+				A513299FBC299CFECA92BB88 /* PFSignUpView.h */,
+				264C12DC8AA632BCDE7BC04B /* PFSignUpView.m */,
+				A03D83A84CCA6EA63425A0DF /* PFSignUpViewController.h */,
+				41D8E5A943307C60DE9550A7 /* PFSignUpViewController.m */,
+				D80FD0A390DC8FF0636A4D4E /* PFTableViewCell.h */,
+				D14DED50B60BFD8D10B43AAC /* PFTableViewCell.m */,
+				0FA3DE8BB1F0725A9F4D7D37 /* PFTextButton.h */,
+				5B01BAC9139E0FCDAE49463D /* PFTextButton.m */,
+				F432490BECD7B8CE16D3F41B /* PFTextField.h */,
+				D43EFEB67E79A1E430F589D5 /* PFTextField.m */,
+				D38EF0600125836F45EBBDA9 /* ParseUI.h */,
+				4D0E1CB01A7C033A7928A645 /* ParseUIConstants.h */,
+				C1923A5B5DA345B3C104A65D /* Resources */,
+				0FB29F840AE2F927F9743171 /* Support Files */,
+			);
+			path = ParseUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		58F8898FFC9C898269360F48 /* Headers */ = {
+		02BBBC27DB8E8905E59261FA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A08CD594B221B6105B11850C /* SVPullToRefresh.h in Headers */,
-				CC11B83606239767353A5A72 /* UIScrollView+SVInfiniteScrolling.h in Headers */,
-				ECE5E1DA7FB70C001F239D38 /* UIScrollView+SVPullToRefresh.h in Headers */,
+				33992214B9D0892D6F780B72 /* SVPullToRefresh.h in Headers */,
+				65C49A53EEC804BB98BBF477 /* UIScrollView+SVInfiniteScrolling.h in Headers */,
+				EE3139FCC78FFF380D070AAF /* UIScrollView+SVPullToRefresh.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CD743A03E38292953B625002 /* Headers */ = {
+		0D9FD963761C51C6671D592A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D913406D3C247B16304791 /* PFActionButton.h in Headers */,
-				DE8AD038D2FA3CCC7A26C948 /* PFActivityIndicatorCollectionReusableView.h in Headers */,
-				4E73702FDD5D540A0F770F8A /* PFActivityIndicatorTableViewCell.h in Headers */,
-				9AF21971C968789EC8E65799 /* PFAlertView.h in Headers */,
-				A4D15A44AD43BD0733F02853 /* PFCollectionViewCell.h in Headers */,
-				725041528843ABE113C04FD0 /* PFColor.h in Headers */,
-				1BA074445DC0622C9E1B7F07 /* PFDismissButton.h in Headers */,
-				6F7316ECBF23713C08A03687 /* PFImage.h in Headers */,
-				7074DE7EE8B4428207D28D53 /* PFImageCache.h in Headers */,
-				6F9DA4A4A28496190D145F2D /* PFImageView.h in Headers */,
-				4F025C97267B164775FE0CDF /* PFLoadingView.h in Headers */,
-				B16593CDA7F9259CD83EE3B9 /* PFLocalization.h in Headers */,
-				89AE5C2D7D36C4CD1D7A41E6 /* PFLogInView.h in Headers */,
-				C96B1345D0BA1D0BFAB5F68E /* PFLogInViewController.h in Headers */,
-				191A57135B0F1EA1D8E3C447 /* PFPrimaryButton.h in Headers */,
-				BDF78E41839E4B153B707D41 /* PFProductTableViewController.h in Headers */,
-				3BA0ABF2DE037A19AB6E0D37 /* PFPurchaseTableViewCell.h in Headers */,
-				D287543D64D66E6E20FFBA7E /* PFQueryCollectionViewController.h in Headers */,
-				A1871747D78A1A5A0B2A63F0 /* PFQueryTableViewController.h in Headers */,
-				F1EF14D98503A202C81D4A76 /* PFRect.h in Headers */,
-				6D2D55B1090C578ED433EFE0 /* PFResources.h in Headers */,
-				A415EBF4B8BD6C35252CF7C0 /* PFSignUpView.h in Headers */,
-				D78D5ADDE93F7AD3462AD5C3 /* PFSignUpViewController.h in Headers */,
-				A810DCC8F74570FF3082AD19 /* PFTableViewCell.h in Headers */,
-				21D1ED9D52CDA154C95BA480 /* PFTextButton.h in Headers */,
-				5B7A1084AB33455F62F9C853 /* PFTextField.h in Headers */,
-				8DEC5990687FAD6817A333D2 /* ParseUI.h in Headers */,
-				A408C71541EC362709D7F65C /* ParseUIConstants.h in Headers */,
+				F9B2CA616182FDB7F763AFAA /* PFActionButton.h in Headers */,
+				16B841D536E4C086DBC775B6 /* PFActivityIndicatorCollectionReusableView.h in Headers */,
+				2ADAC0F6934A2A08550ED21B /* PFActivityIndicatorTableViewCell.h in Headers */,
+				A6C7B65D073FD4781ED37C0B /* PFAlertView.h in Headers */,
+				1C7E6D078A199712E530228C /* PFCollectionViewCell.h in Headers */,
+				FC678A2CA995B5681087DC03 /* PFColor.h in Headers */,
+				BE70619607D00526A6341ADB /* PFDismissButton.h in Headers */,
+				A5FAD909E86FFDF173C48605 /* PFImage.h in Headers */,
+				05C49B3D27672F238466B4E3 /* PFImageCache.h in Headers */,
+				E28129F05D2A4357B946ABEE /* PFImageView.h in Headers */,
+				6F6F1B9E7EFFAE2C0CF9AD9F /* PFLoadingView.h in Headers */,
+				50F2B964ED15A671EF5526BA /* PFLocalization.h in Headers */,
+				D9E3780B5120E8A092653788 /* PFLogInView.h in Headers */,
+				535172B0B66C3697C371DB56 /* PFLogInViewController.h in Headers */,
+				57D892B4B16997A540EE5E13 /* PFPrimaryButton.h in Headers */,
+				D7CBDE8FEE307BA150238358 /* PFProductTableViewController.h in Headers */,
+				0553FFD3F5487C87C1AA1AB2 /* PFPurchaseTableViewCell.h in Headers */,
+				4ECE82995A88CA73EFE2F9AF /* PFQueryCollectionViewController.h in Headers */,
+				45B2684E6AA0A52418B61478 /* PFQueryTableViewController.h in Headers */,
+				7BB0AE509F86DA44A166DF55 /* PFRect.h in Headers */,
+				B0DCD0BF8233D77D3A99B8C9 /* PFResources.h in Headers */,
+				CEEB12A140F39C7F2B752EC5 /* PFSignUpView.h in Headers */,
+				8D616249AD296165898E4BB2 /* PFSignUpViewController.h in Headers */,
+				D6D30EC38EC0EFC2565CE185 /* PFTableViewCell.h in Headers */,
+				1EE869A38D07DF350940383E /* PFTextButton.h in Headers */,
+				C2B2C0C46FCA3457D4F8789F /* PFTextField.h in Headers */,
+				E0E123C609388157C89A48C6 /* ParseUI.h in Headers */,
+				36363F3F13EA6B23F0DD78A6 /* ParseUIConstants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D388E7057CF337C1BAD0589A /* Headers */ = {
+		5DF0C59FECB7D4336D316F4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C3DCE66CED90B548D143CD0 /* PFACL.h in Headers */,
-				E2F1F42E5B30D275AC8AE210 /* PFAnalytics.h in Headers */,
-				E557EBA31016E473D6D8816B /* PFAnonymousUtils.h in Headers */,
-				4C712B3A41583887719A4602 /* PFCloud.h in Headers */,
-				715C76A41CD11770D287F61D /* PFConfig.h in Headers */,
-				6D2FC77D9FF0A12B89A9C381 /* PFConstants.h in Headers */,
-				E678863114D872F55FE910E3 /* PFFile.h in Headers */,
-				D8CE9A408784033D2CCD5A93 /* PFGeoPoint.h in Headers */,
-				BC424417ECFC03B3459342D0 /* PFInstallation.h in Headers */,
-				3CDD583B3DB3A6D4F3EC9496 /* PFNetworkActivityIndicatorManager.h in Headers */,
-				27A7206E157C43E3CFA03852 /* PFNullability.h in Headers */,
-				0213E89D9825E2DDB113CEF9 /* PFObject+Subclass.h in Headers */,
-				542381A62DAE313C5A9E9E61 /* PFObject.h in Headers */,
-				5BA90E4074F5C5B5FADEEC53 /* PFProduct.h in Headers */,
-				DE8D86D09F3EB9523B3DD710 /* PFPurchase.h in Headers */,
-				F3D4C6B086C881F639A29953 /* PFPush.h in Headers */,
-				FCADC96490C1385BB6CF5861 /* PFQuery.h in Headers */,
-				59199A28730D47C23549111A /* PFRelation.h in Headers */,
-				B45CA1CA55114B99CEEE6C2D /* PFRole.h in Headers */,
-				4E87CAC082B2A5900EC6AC0C /* PFSession.h in Headers */,
-				CC945CEEE17E4A49C03494B1 /* PFSubclassing.h in Headers */,
-				9E8584F80ED3997893F929B0 /* PFTwitterUtils.h in Headers */,
-				878FD5A533677732303957EC /* PFUser.h in Headers */,
-				82F715C51CE6D597B14E46AB /* PF_Twitter.h in Headers */,
-				60B5D32AB3789AFB6C9259B6 /* Parse.h in Headers */,
+				20B2134558E30677A9BFA822 /* PFACL.h in Headers */,
+				E0D8A780FA8D7E5B7B6243B1 /* PFAnalytics.h in Headers */,
+				76FAC12B4627E08A375F5B3D /* PFAnonymousUtils.h in Headers */,
+				74F1186A5359ADB16AC8DD21 /* PFCloud.h in Headers */,
+				FCE6CBAE11FB8388A9076BEB /* PFConfig.h in Headers */,
+				EA37C6B9779DA2B2EF11135E /* PFConstants.h in Headers */,
+				30AE03CFDE5B1412BB215051 /* PFFile.h in Headers */,
+				437814B1B76A838748705DF3 /* PFGeoPoint.h in Headers */,
+				7D8E0C4B78CA58E44D603DA0 /* PFInstallation.h in Headers */,
+				22C7628DF9872964D070DE7C /* PFNetworkActivityIndicatorManager.h in Headers */,
+				F8CBCFDC22AA3A7CC47C6695 /* PFNullability.h in Headers */,
+				9C070C28EFE9DACD85C508CE /* PFObject+Subclass.h in Headers */,
+				590689F7DAD473DAAD87E820 /* PFObject.h in Headers */,
+				E1CD7688328A2AED6396D7B7 /* PFProduct.h in Headers */,
+				CD5EF3DDB75CE64CA149EEFF /* PFPurchase.h in Headers */,
+				2C2D9EBC01BCFEF1C17B6D0B /* PFPush.h in Headers */,
+				913217D82411599831EE0D47 /* PFQuery.h in Headers */,
+				160F7F75C4F6E3C5E1032616 /* PFRelation.h in Headers */,
+				317AAE0652FBCD5578BED2D0 /* PFRole.h in Headers */,
+				A22D168FE0F672466213D7CB /* PFSession.h in Headers */,
+				7DB0B96F518596D36A22AD37 /* PFSubclassing.h in Headers */,
+				F8F0EEF0D5AE5401CCBD44AE /* PFTwitterUtils.h in Headers */,
+				1AFE9793C2AD6D32C58DBDC7 /* PFUser.h in Headers */,
+				189880110315FC1D695E2B44 /* PF_Twitter.h in Headers */,
+				F225AD2BE45C2D60EE104233 /* Parse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F001E15440B656B42DD7B17B /* Headers */ = {
+		D602D252465BDDCC4373B2CB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335FBCB2B7E41B30048B9FBE /* BFCancellationToken.h in Headers */,
-				90164BE229FFB149026B79FC /* BFCancellationTokenRegistration.h in Headers */,
-				DE269C4457E6E9D82A075EE4 /* BFCancellationTokenSource.h in Headers */,
-				756894FA89B72F0EBB1AB373 /* BFExecutor.h in Headers */,
-				E2CF8B8AB953FEA09F08E672 /* BFTask.h in Headers */,
-				6C9DD0914376AD6817E09360 /* BFTaskCompletionSource.h in Headers */,
-				B3C3C280974B1EDE53364ACE /* Bolts.h in Headers */,
-				B752E9660122C16216D8F1F7 /* BoltsVersion.h in Headers */,
+				CD421B172889A4194766ED92 /* BFCancellationToken.h in Headers */,
+				9AC9610C0D3FE79B7F43F53A /* BFCancellationTokenRegistration.h in Headers */,
+				E4D34B9A85925ADA8EFA46DB /* BFCancellationTokenSource.h in Headers */,
+				25DE5DC8285FA43D5B43641D /* BFExecutor.h in Headers */,
+				2DDD3030FD0EEDC4BDF186E6 /* BFTask.h in Headers */,
+				97F8AF9E7847E4F59C73CA12 /* BFTaskCompletionSource.h in Headers */,
+				82E37646D3F11FCDA42922F8 /* Bolts.h in Headers */,
+				1188A0D90386FCDB229B82CD /* BoltsVersion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		073A3220A5B8D9C98486B0AA /* Pods-DayTrades-ParseUI */ = {
+		2307F1BA3F0A9AFD7588AFB8 /* Pods-DayTrades-SVPullToRefresh */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10E612796D24464A2F2B45C1 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-ParseUI" */;
+			buildConfigurationList = 3E6D74755821A232B1063401 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-SVPullToRefresh" */;
 			buildPhases = (
-				83BDFF7F63B3BBF1A1DE7A27 /* Sources */,
-				007D9EE3079A73FA63519C93 /* Frameworks */,
-				CD743A03E38292953B625002 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A62C06BD3ACDC96BF8830E54 /* PBXTargetDependency */,
-			);
-			name = "Pods-DayTrades-ParseUI";
-			productName = "Pods-DayTrades-ParseUI";
-			productReference = ABDC997132BC062A2E6D0B6B /* libPods-DayTrades-ParseUI.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		362132A948637182EE563E70 /* Pods-DayTrades-SVPullToRefresh */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5DB20AD9568215C8732B3620 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-SVPullToRefresh" */;
-			buildPhases = (
-				DDECD6577FC99F1537AF51E1 /* Sources */,
-				70551EA79355EB41994E334D /* Frameworks */,
-				58F8898FFC9C898269360F48 /* Headers */,
+				B9CC2D68A8AA8C251744BD32 /* Sources */,
+				83A4473A5EA9EE2268C6A834 /* Frameworks */,
+				02BBBC27DB8E8905E59261FA /* Headers */,
 			);
 			buildRules = (
 			);
@@ -791,54 +773,16 @@
 			);
 			name = "Pods-DayTrades-SVPullToRefresh";
 			productName = "Pods-DayTrades-SVPullToRefresh";
-			productReference = 94C807B478A050A5BD9C1CE3 /* libPods-DayTrades-SVPullToRefresh.a */;
+			productReference = F260A89C09FF54B9173E0CBC /* libPods-DayTrades-SVPullToRefresh.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		4950E11E877A658869FF583D /* Pods-DayTrades-Parse */ = {
+		4ABA2B94612342885B3C5230 /* Pods-DayTrades-Bolts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2193831CA2A8C859A641B8A0 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Parse" */;
+			buildConfigurationList = B0F2D7B90C84DE5D82ECAD28 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Bolts" */;
 			buildPhases = (
-				CE998B0613408DEBF02FFA5C /* Sources */,
-				15F861DF4C51877F9F1C3258 /* Frameworks */,
-				D388E7057CF337C1BAD0589A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				876FF60E82767F3858F679B2 /* PBXTargetDependency */,
-			);
-			name = "Pods-DayTrades-Parse";
-			productName = "Pods-DayTrades-Parse";
-			productReference = 8057CAF7627AAE3DD4009BD6 /* libPods-DayTrades-Parse.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		A940AD71D8BCF461B7A25634 /* Pods-DayTrades */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 084B4BFF8C8E707E973E2876 /* Build configuration list for PBXNativeTarget "Pods-DayTrades" */;
-			buildPhases = (
-				313BADDAFF51A0A9897CCBFF /* Sources */,
-				3F1FF81B1D58032ECD3765A7 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1E87BFF6B25D9E216F977CE2 /* PBXTargetDependency */,
-				6C061A85AB14F4E5A2162CDE /* PBXTargetDependency */,
-				191774277369A231AE7522E0 /* PBXTargetDependency */,
-				1CCDE9F4D54D7CD23143F242 /* PBXTargetDependency */,
-			);
-			name = "Pods-DayTrades";
-			productName = "Pods-DayTrades";
-			productReference = 37574E338B918835B62B8FF7 /* libPods-DayTrades.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F06A750C20595897D4243E71 /* Pods-DayTrades-Bolts */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B22DA57654EFA36DBE093CC /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Bolts" */;
-			buildPhases = (
-				82EAFDBBF1B7CBCDD82D9F92 /* Sources */,
-				E7CF16E7B2707B124A04202B /* Frameworks */,
-				F001E15440B656B42DD7B17B /* Headers */,
+				30DA2B58466E922491BA3824 /* Sources */,
+				8FEA5AF1752E2DC500769FD5 /* Frameworks */,
+				D602D252465BDDCC4373B2CB /* Headers */,
 			);
 			buildRules = (
 			);
@@ -846,225 +790,215 @@
 			);
 			name = "Pods-DayTrades-Bolts";
 			productName = "Pods-DayTrades-Bolts";
-			productReference = 46BFBE985B59186C5C22FB47 /* libPods-DayTrades-Bolts.a */;
+			productReference = 1ADAACBB263A72403E402A35 /* libPods-DayTrades-Bolts.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6BD4041D01D2D71D0A56B7E3 /* Pods-DayTrades-ParseUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8DC788D5130E1EA6322A85 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-ParseUI" */;
+			buildPhases = (
+				7376418F2E13B9D0E03BA057 /* Sources */,
+				A4D99F4DA43C23216C22C7AF /* Frameworks */,
+				0D9FD963761C51C6671D592A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5913A4E50A16B4708D4A0F66 /* PBXTargetDependency */,
+			);
+			name = "Pods-DayTrades-ParseUI";
+			productName = "Pods-DayTrades-ParseUI";
+			productReference = A34C1307D092940C9A13367B /* libPods-DayTrades-ParseUI.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B7A9D78FC1F0D15759D6FC47 /* Pods-DayTrades */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42DFD88071E77057D36F4962 /* Build configuration list for PBXNativeTarget "Pods-DayTrades" */;
+			buildPhases = (
+				C50A52A314B2DF8B8E7287D9 /* Sources */,
+				A1931E83EC7CC48B09A5E5CB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E768908515736D899D933742 /* PBXTargetDependency */,
+				22E95EDBEF94BC9856C282C3 /* PBXTargetDependency */,
+				F50869357F9D7894C0FB8672 /* PBXTargetDependency */,
+				639144B2A57E6EEDE58E5B66 /* PBXTargetDependency */,
+			);
+			name = "Pods-DayTrades";
+			productName = "Pods-DayTrades";
+			productReference = B4B9641ABA350D6B4A89F3B4 /* libPods-DayTrades.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CF7268B5BF7DA16ECBC947C5 /* Pods-DayTrades-Parse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45AB729DACEA4F01AE7040A1 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Parse" */;
+			buildPhases = (
+				9AC15C06ADC2183F3234FE1F /* Sources */,
+				3865A46BB81CC9A39D094217 /* Frameworks */,
+				5DF0C59FECB7D4336D316F4E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D00ADA395911FC2BF2ED11D1 /* PBXTargetDependency */,
+			);
+			name = "Pods-DayTrades-Parse";
+			productName = "Pods-DayTrades-Parse";
+			productReference = B353BEBBDA3D2D4C0D59D238 /* libPods-DayTrades-Parse.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7F09E35E2C7432511DD97B8A /* Project object */ = {
+		D168D1E2B0EBD91FD29FD2D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = B4A9942A1C9D0C3C792047F1 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = E0086B4AE35B005C6949766A /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2855C855E6F8FA132AE4BC47;
-			productRefGroup = AA21EFB30C631F16D01D36B6 /* Products */;
+			mainGroup = 24302C25ABB85829FB7EC0B7;
+			productRefGroup = 69573BD4D3ED4047F19AD70B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A940AD71D8BCF461B7A25634 /* Pods-DayTrades */,
-				F06A750C20595897D4243E71 /* Pods-DayTrades-Bolts */,
-				4950E11E877A658869FF583D /* Pods-DayTrades-Parse */,
-				073A3220A5B8D9C98486B0AA /* Pods-DayTrades-ParseUI */,
-				362132A948637182EE563E70 /* Pods-DayTrades-SVPullToRefresh */,
+				B7A9D78FC1F0D15759D6FC47 /* Pods-DayTrades */,
+				4ABA2B94612342885B3C5230 /* Pods-DayTrades-Bolts */,
+				CF7268B5BF7DA16ECBC947C5 /* Pods-DayTrades-Parse */,
+				6BD4041D01D2D71D0A56B7E3 /* Pods-DayTrades-ParseUI */,
+				2307F1BA3F0A9AFD7588AFB8 /* Pods-DayTrades-SVPullToRefresh */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		313BADDAFF51A0A9897CCBFF /* Sources */ = {
+		30DA2B58466E922491BA3824 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A958C88529CBC428D9D675A /* Pods-DayTrades-dummy.m in Sources */,
+				24E8470A2D1B4595583D6645 /* BFCancellationToken.m in Sources */,
+				A6C7B068C613AF99176B9F8B /* BFCancellationTokenRegistration.m in Sources */,
+				10D7529E41AA96972C79ED8D /* BFCancellationTokenSource.m in Sources */,
+				F6EA8117EB1A58B219E2F2CF /* BFExecutor.m in Sources */,
+				ACB92CC9AB6BB471C1A77D7A /* BFTask.m in Sources */,
+				7095304ECEABB20A8E692EE3 /* BFTaskCompletionSource.m in Sources */,
+				49D1EADAF3796A38EE271186 /* Bolts.m in Sources */,
+				A8765E621B878ADA6EB42F60 /* Pods-DayTrades-Bolts-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82EAFDBBF1B7CBCDD82D9F92 /* Sources */ = {
+		7376418F2E13B9D0E03BA057 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2332F71C226AC8699C0F9FC0 /* BFCancellationToken.m in Sources */,
-				7EA3D6F2C0CCB1EDE5E5EB0D /* BFCancellationTokenRegistration.m in Sources */,
-				C6999AFE3B589CD5878418AB /* BFCancellationTokenSource.m in Sources */,
-				60E44571BFAD30DBCA6E6E5E /* BFExecutor.m in Sources */,
-				9D35F4057BF37D568464B3E0 /* BFTask.m in Sources */,
-				CB193FF8A5D984DEF2E92F0E /* BFTaskCompletionSource.m in Sources */,
-				82E9C128D3D342AFCCD139CF /* Bolts.m in Sources */,
-				A000A466201A2BCDA4C4FC65 /* Pods-DayTrades-Bolts-dummy.m in Sources */,
+				44DF158EC46C4DCF35E55518 /* PFActionButton.m in Sources */,
+				20C91F4B9E0C21DC91C39B4A /* PFActivityIndicatorCollectionReusableView.m in Sources */,
+				AF797A0812857A843D06EB13 /* PFActivityIndicatorTableViewCell.m in Sources */,
+				9003BE8B8C374AB010474CB6 /* PFAlertView.m in Sources */,
+				EF9B616E9EB70242FFEA6283 /* PFCollectionViewCell.m in Sources */,
+				28285E198C76C4AAC3AB3B97 /* PFColor.m in Sources */,
+				E760038226EE9812342444DA /* PFDismissButton.m in Sources */,
+				B350C73B4B1ECE72A0E84F5D /* PFImage.m in Sources */,
+				C7521982FDEDE766957C0570 /* PFImageCache.m in Sources */,
+				5F5154E47A24433055AFC825 /* PFImageView.m in Sources */,
+				3972F6F398264B3E6AACC0A5 /* PFLoadingView.m in Sources */,
+				A6C44377BFB500DCC5AF5449 /* PFLogInView.m in Sources */,
+				6A821221E0ABFDC7106924FC /* PFLogInViewController.m in Sources */,
+				2B9F863E3C201E868AEBE310 /* PFPrimaryButton.m in Sources */,
+				ECB19BDA3C2F291FA32B0599 /* PFProductTableViewController.m in Sources */,
+				FE71B6F71C1EA38CEC960351 /* PFPurchaseTableViewCell.m in Sources */,
+				EB9B6837EE4817BCE024079D /* PFQueryCollectionViewController.m in Sources */,
+				7A687CBA01376620F1215E76 /* PFQueryTableViewController.m in Sources */,
+				2A6F63C80BD1C9782B6DA389 /* PFRect.m in Sources */,
+				84694B20A0AE1469A4B1EE53 /* PFResources.m in Sources */,
+				D125A100DEF85394EEA1DA4F /* PFSignUpView.m in Sources */,
+				0877439B08C269D373373923 /* PFSignUpViewController.m in Sources */,
+				7D9A45C89626C980063D009A /* PFTableViewCell.m in Sources */,
+				53471A0A52B5B57D41DA0921 /* PFTextButton.m in Sources */,
+				811C4EE57D4D63E41D124F5B /* PFTextField.m in Sources */,
+				DCA1E05357975B6E23EAA75B /* Pods-DayTrades-ParseUI-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83BDFF7F63B3BBF1A1DE7A27 /* Sources */ = {
+		9AC15C06ADC2183F3234FE1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9D5D137A41F505EFD8772B6 /* PFActionButton.m in Sources */,
-				E731F2AA9FEC1F60F054BE17 /* PFActivityIndicatorCollectionReusableView.m in Sources */,
-				A0315ABFC1FB79E2EA4A1FCB /* PFActivityIndicatorTableViewCell.m in Sources */,
-				D3B8E6F43E3CBDB5A08A3106 /* PFAlertView.m in Sources */,
-				70BD944FE0D04011DC64E9EF /* PFCollectionViewCell.m in Sources */,
-				7762041391E33A3E1B2EAF57 /* PFColor.m in Sources */,
-				4EF43E0D3D68D8397BB85539 /* PFDismissButton.m in Sources */,
-				65B1FB6D9CD6A449EB41145B /* PFImage.m in Sources */,
-				F16334B918C484071ADA03DC /* PFImageCache.m in Sources */,
-				041F881A88E9427FE5D8C2F7 /* PFImageView.m in Sources */,
-				A2049A559DB697C18B39913E /* PFLoadingView.m in Sources */,
-				841C112B466AD9F05548632E /* PFLogInView.m in Sources */,
-				732E9253C8140C592011B7E6 /* PFLogInViewController.m in Sources */,
-				2834F9A6273D2D5D777CF96E /* PFPrimaryButton.m in Sources */,
-				1E1FCB64885E2974DAA11837 /* PFProductTableViewController.m in Sources */,
-				9E93D7E4CF67B550DA2D75DD /* PFPurchaseTableViewCell.m in Sources */,
-				5CF072641B69258687EFC456 /* PFQueryCollectionViewController.m in Sources */,
-				FDC42CDF31124363AEF0F635 /* PFQueryTableViewController.m in Sources */,
-				4EC26CAC49D1407D55DD23D6 /* PFRect.m in Sources */,
-				52433F595994944B8C197739 /* PFResources.m in Sources */,
-				8140C6161F384CDD9DAC7519 /* PFSignUpView.m in Sources */,
-				CF2D4BD1D4CAE148238AFACF /* PFSignUpViewController.m in Sources */,
-				BB1F4203E4168E9BD7B18813 /* PFTableViewCell.m in Sources */,
-				882D7C9D259D9D016262F483 /* PFTextButton.m in Sources */,
-				65BDDC38FEB4D08C2A97AB62 /* PFTextField.m in Sources */,
-				0AA397F69AD92F56E0BA8AC3 /* Pods-DayTrades-ParseUI-dummy.m in Sources */,
+				F51604640F788C34951A32FB /* Empty.m in Sources */,
+				0AF087226E921883145D6EDE /* Pods-DayTrades-Parse-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE998B0613408DEBF02FFA5C /* Sources */ = {
+		B9CC2D68A8AA8C251744BD32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D24D541BA104D0804F96B8C8 /* Empty.m in Sources */,
-				C413D3F576BDAEA9293C72A4 /* Pods-DayTrades-Parse-dummy.m in Sources */,
+				63999282A222BB6B4C3455E5 /* Pods-DayTrades-SVPullToRefresh-dummy.m in Sources */,
+				4B5AB400A1548186D33E7DCC /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				2B740CA5BD9F64F8390E8C50 /* UIScrollView+SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDECD6577FC99F1537AF51E1 /* Sources */ = {
+		C50A52A314B2DF8B8E7287D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77D91A6F9F4F2922C744085D /* Pods-DayTrades-SVPullToRefresh-dummy.m in Sources */,
-				2577B229D56895A4F5DBC710 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
-				08FFFBED6590204A1145AA72 /* UIScrollView+SVPullToRefresh.m in Sources */,
+				AD06226A5F89FAD16A75A2D6 /* Pods-DayTrades-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		191774277369A231AE7522E0 /* PBXTargetDependency */ = {
+		22E95EDBEF94BC9856C282C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-DayTrades-ParseUI";
-			target = 073A3220A5B8D9C98486B0AA /* Pods-DayTrades-ParseUI */;
-			targetProxy = EEAAEE8984085B0AFB31931D /* PBXContainerItemProxy */;
+			name = "Pods-DayTrades-Parse";
+			target = CF7268B5BF7DA16ECBC947C5 /* Pods-DayTrades-Parse */;
+			targetProxy = 5BF5D3CA172474BEE40D63EB /* PBXContainerItemProxy */;
 		};
-		1CCDE9F4D54D7CD23143F242 /* PBXTargetDependency */ = {
+		5913A4E50A16B4708D4A0F66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DayTrades-Parse";
+			target = CF7268B5BF7DA16ECBC947C5 /* Pods-DayTrades-Parse */;
+			targetProxy = CA0017E2D4B4551683C0C702 /* PBXContainerItemProxy */;
+		};
+		639144B2A57E6EEDE58E5B66 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-DayTrades-SVPullToRefresh";
-			target = 362132A948637182EE563E70 /* Pods-DayTrades-SVPullToRefresh */;
-			targetProxy = 40F6E645E3CD4ADDD2AE4BA5 /* PBXContainerItemProxy */;
+			target = 2307F1BA3F0A9AFD7588AFB8 /* Pods-DayTrades-SVPullToRefresh */;
+			targetProxy = 549BCB0B9284B3B97F198B47 /* PBXContainerItemProxy */;
 		};
-		1E87BFF6B25D9E216F977CE2 /* PBXTargetDependency */ = {
+		D00ADA395911FC2BF2ED11D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-DayTrades-Bolts";
-			target = F06A750C20595897D4243E71 /* Pods-DayTrades-Bolts */;
-			targetProxy = 4E74F9761A944819BB5A6105 /* PBXContainerItemProxy */;
+			target = 4ABA2B94612342885B3C5230 /* Pods-DayTrades-Bolts */;
+			targetProxy = 396D11FE868FE65312E42201 /* PBXContainerItemProxy */;
 		};
-		6C061A85AB14F4E5A2162CDE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-DayTrades-Parse";
-			target = 4950E11E877A658869FF583D /* Pods-DayTrades-Parse */;
-			targetProxy = 5559DE3D30B3EC555EC06BE5 /* PBXContainerItemProxy */;
-		};
-		876FF60E82767F3858F679B2 /* PBXTargetDependency */ = {
+		E768908515736D899D933742 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-DayTrades-Bolts";
-			target = F06A750C20595897D4243E71 /* Pods-DayTrades-Bolts */;
-			targetProxy = CE17D06F6A3E580D8017B49E /* PBXContainerItemProxy */;
+			target = 4ABA2B94612342885B3C5230 /* Pods-DayTrades-Bolts */;
+			targetProxy = 32F3EC7958C5C0CE969CD6C1 /* PBXContainerItemProxy */;
 		};
-		A62C06BD3ACDC96BF8830E54 /* PBXTargetDependency */ = {
+		F50869357F9D7894C0FB8672 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-DayTrades-Parse";
-			target = 4950E11E877A658869FF583D /* Pods-DayTrades-Parse */;
-			targetProxy = 06E4251BA3C11321FE573463 /* PBXContainerItemProxy */;
+			name = "Pods-DayTrades-ParseUI";
+			target = 6BD4041D01D2D71D0A56B7E3 /* Pods-DayTrades-ParseUI */;
+			targetProxy = 9113B6375D1B7827D2B5A6B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2973577DE38FDBB323F67533 /* Debug */ = {
+		0060F584CF2CB197D36439AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39F42BC3325976E91DEF4A46 /* Pods-DayTrades.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		33CED2460D18CCA81A7EB4A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 883EDE96BDBEBC0C8B510181 /* Pods-DayTrades-ParseUI-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-ParseUI/Pods-DayTrades-ParseUI-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		51BC29C07365803E68650C90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6D2E0E42E89D51FA55B09549 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 883EDE96BDBEBC0C8B510181 /* Pods-DayTrades-ParseUI-Private.xcconfig */;
+			baseConfigurationReference = 90183347D827A1FBB02FE4E2 /* Pods-DayTrades-ParseUI-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-ParseUI/Pods-DayTrades-ParseUI-prefix.pch";
@@ -1078,39 +1012,7 @@
 			};
 			name = Debug;
 		};
-		862D0FB07C8793500AA8DB5D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86483D8FFA6E4AEE07157B6B /* Pods-DayTrades-Parse-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Parse/Pods-DayTrades-Parse-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8763D8BF74BE80634EE647A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4B438321B6B27E9CBDA1272 /* Pods-DayTrades.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		91643DA3E6900092B27ADEEA /* Debug */ = {
+		0B58831B10DA104B308EC098 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1149,57 +1051,43 @@
 			};
 			name = Debug;
 		};
-		9B047B57A5FB81A9BAAA3E7A /* Release */ = {
+		21E580DAEE94B6983C2D2628 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FE117AEE7352EAFDF9B2DFD /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */;
 			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-SVPullToRefresh/Pods-DayTrades-SVPullToRefresh-prefix.pch";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		BA4649C8994AE221C955BDA3 /* Debug */ = {
+		46F0977C474134C9284D054C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FE117AEE7352EAFDF9B2DFD /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-SVPullToRefresh/Pods-DayTrades-SVPullToRefresh-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		BD56FED1D87370F8389359B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5166A55499EFB28DD19A7C19 /* Pods-DayTrades-Bolts-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Bolts/Pods-DayTrades-Bolts-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D078D45D6165984699DFC9DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5166A55499EFB28DD19A7C19 /* Pods-DayTrades-Bolts-Private.xcconfig */;
+			baseConfigurationReference = F77D8E13AD0E3D79DEA5115A /* Pods-DayTrades-Bolts-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Bolts/Pods-DayTrades-Bolts-prefix.pch";
@@ -1213,9 +1101,9 @@
 			};
 			name = Release;
 		};
-		E1C68A625A63926C92B8B0ED /* Release */ = {
+		867B0F9F9676B9CED57353D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86483D8FFA6E4AEE07157B6B /* Pods-DayTrades-Parse-Private.xcconfig */;
+			baseConfigurationReference = 41BB9DBC0BE8C93B130DEC50 /* Pods-DayTrades-Parse-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Parse/Pods-DayTrades-Parse-prefix.pch";
@@ -1229,64 +1117,176 @@
 			};
 			name = Release;
 		};
+		92205058A48E03E7835C88B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90183347D827A1FBB02FE4E2 /* Pods-DayTrades-ParseUI-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-ParseUI/Pods-DayTrades-ParseUI-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		99A8DBA8F5DA2CB8B7C6EC98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41BB9DBC0BE8C93B130DEC50 /* Pods-DayTrades-Parse-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Parse/Pods-DayTrades-Parse-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A85ACD4D15C221EED83AB10A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E686D233E6B8740F7752F8FF /* Pods-DayTrades.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A9411951069688183B1B4BA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F77D8E13AD0E3D79DEA5115A /* Pods-DayTrades-Bolts-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-Bolts/Pods-DayTrades-Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BC338BEA4F0D0F07557518FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41884F322753F1FB2F64A888 /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-SVPullToRefresh/Pods-DayTrades-SVPullToRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C5BBEBF54CC39FE5BF515CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41884F322753F1FB2F64A888 /* Pods-DayTrades-SVPullToRefresh-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DayTrades-SVPullToRefresh/Pods-DayTrades-SVPullToRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D9BB1D41C0D81A718E70D523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF10EB9294D1682B6CDAA31 /* Pods-DayTrades.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		084B4BFF8C8E707E973E2876 /* Build configuration list for PBXNativeTarget "Pods-DayTrades" */ = {
+		3E6D74755821A232B1063401 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-SVPullToRefresh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2973577DE38FDBB323F67533 /* Debug */,
-				8763D8BF74BE80634EE647A2 /* Release */,
+				C5BBEBF54CC39FE5BF515CA7 /* Debug */,
+				BC338BEA4F0D0F07557518FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10E612796D24464A2F2B45C1 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-ParseUI" */ = {
+		42DFD88071E77057D36F4962 /* Build configuration list for PBXNativeTarget "Pods-DayTrades" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D2E0E42E89D51FA55B09549 /* Debug */,
-				33CED2460D18CCA81A7EB4A6 /* Release */,
+				D9BB1D41C0D81A718E70D523 /* Debug */,
+				A85ACD4D15C221EED83AB10A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2193831CA2A8C859A641B8A0 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Parse" */ = {
+		45AB729DACEA4F01AE7040A1 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Parse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				862D0FB07C8793500AA8DB5D /* Debug */,
-				E1C68A625A63926C92B8B0ED /* Release */,
+				99A8DBA8F5DA2CB8B7C6EC98 /* Debug */,
+				867B0F9F9676B9CED57353D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DB20AD9568215C8732B3620 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-SVPullToRefresh" */ = {
+		B0F2D7B90C84DE5D82ECAD28 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Bolts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4649C8994AE221C955BDA3 /* Debug */,
-				9B047B57A5FB81A9BAAA3E7A /* Release */,
+				A9411951069688183B1B4BA6 /* Debug */,
+				46F0977C474134C9284D054C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B22DA57654EFA36DBE093CC /* Build configuration list for PBXNativeTarget "Pods-DayTrades-Bolts" */ = {
+		DC8DC788D5130E1EA6322A85 /* Build configuration list for PBXNativeTarget "Pods-DayTrades-ParseUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD56FED1D87370F8389359B8 /* Debug */,
-				D078D45D6165984699DFC9DB /* Release */,
+				0060F584CF2CB197D36439AD /* Debug */,
+				92205058A48E03E7835C88B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4A9942A1C9D0C3C792047F1 /* Build configuration list for PBXProject "Pods" */ = {
+		E0086B4AE35B005C6949766A /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91643DA3E6900092B27ADEEA /* Debug */,
-				51BC29C07365803E68650C90 /* Release */,
+				0B58831B10DA104B308EC098 /* Debug */,
+				21E580DAEE94B6983C2D2628 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7F09E35E2C7432511DD97B8A /* Project object */;
+	rootObject = D168D1E2B0EBD91FD29FD2D1 /* Project object */;
 }
