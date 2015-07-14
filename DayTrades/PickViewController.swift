@@ -101,7 +101,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBAction func onSubmitButtonPressed(sender: AnyObject) {
         let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
         if dayOfTrade != nil && quote != nil && account != nil {
-            let pick: Pick = Pick.newForAccount(account!, symbol: quote!.symbol, dayOfTrade: dayOfTrade!)
+            let pick: Pick = Pick(account: account!, symbol: quote!.symbol, dayOfTrade: dayOfTrade!)
             ParseClient.createOrUpdatePick(pick, block: { (succeeded: Bool, error: NSError?) -> Void in
                 self.delegate?.updateNextPick(pick)
                 self.navigationController?.popViewControllerAnimated(true)

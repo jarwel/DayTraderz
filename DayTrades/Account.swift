@@ -15,6 +15,18 @@ class Account: PFObject, PFSubclassing {
     @NSManaged var winners: UInt
     @NSManaged var losers: UInt
     
+    convenience init(user: PFUser) {
+        self.init()
+        self.user = user
+        self.value = 10000.00
+        self.winners = 0
+        self.losers = 0
+    }
+    
+    class func parseClassName() -> String {
+        return "Account"
+    }
+    
     static func newForUser(user: PFUser) -> Account {
         let account: Account = Account()
         account.user = user
@@ -23,10 +35,6 @@ class Account: PFObject, PFSubclassing {
         account.losers = 0
         return account
     }
-    
-    class func parseClassName() -> String {
-        return "Account"
-    }
-    
+
 }
 

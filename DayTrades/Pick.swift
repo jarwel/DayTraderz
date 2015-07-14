@@ -20,13 +20,12 @@ class Pick: PFObject, PFSubclassing {
     @NSManaged var change: Double;
     @NSManaged var processed: Bool;
     
-    static func newForAccount(account: Account, symbol: String, dayOfTrade: String ) -> Pick {
-        let pick: Pick = Pick()
-        pick.account = account
-        pick.user = account.user;
-        pick.symbol = symbol;
-        pick.dayOfTrade = dayOfTrade;
-        return pick
+    convenience init(account: Account, symbol: String, dayOfTrade: String) {
+        self.init()
+        self.user = account.user
+        self.account = account
+        self.symbol = symbol
+        self.dayOfTrade = dayOfTrade
     }
     
     class func parseClassName() -> String {
