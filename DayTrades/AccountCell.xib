@@ -20,17 +20,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="54.5" y="8" width="137.5" height="27"/>
+                        <rect key="frame" x="54.5" y="8" width="147.5" height="27"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-I6-O7j" customClass="DoubleBarView" customModule="DayTrades" customModuleProvider="target">
-                        <rect key="frame" x="212" y="12" width="100" height="20"/>
+                        <rect key="frame" x="217" y="12" width="95" height="20"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="V4s-ni-PiG"/>
-                            <constraint firstAttribute="width" constant="100" id="sSY-uC-Spc"/>
+                            <constraint firstAttribute="width" constant="95" id="sSY-uC-Spc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -40,7 +40,7 @@
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="GK5-7c-0sw"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="GjR-PG-D6l"/>
                     <constraint firstItem="JXi-I6-O7j" firstAttribute="trailing" secondItem="Vcx-QX-cOS" secondAttribute="trailingMargin" id="IZQ-Ty-SvM"/>
-                    <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" constant="20" id="PzC-lO-Rcg"/>
+                    <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" constant="15" id="PzC-lO-Rcg"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="kD0-Xf-mMH"/>
                     <constraint firstAttribute="bottomMargin" secondItem="tyQ-V0-tnG" secondAttribute="bottom" id="o8X-Rx-3Cl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="mNs-cK-8hO" secondAttribute="bottom" constant="0.5" id="yJZ-Zb-bJE"/>

@@ -474,19 +474,19 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhd-mt-htp" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="484" y="110" width="100" height="20"/>
+                                <rect key="frame" x="509" y="110" width="75" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NLv-Xg-Jed"/>
-                                    <constraint firstAttribute="width" constant="100" id="mee-Pw-iFB"/>
+                                    <constraint firstAttribute="width" constant="75" id="mee-Pw-iFB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGD-fL-agg" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="484" y="135" width="100" height="20"/>
+                                <rect key="frame" x="509" y="135" width="75" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="4ae-lL-kmp"/>
-                                    <constraint firstAttribute="width" constant="100" id="oUh-XV-Mkn"/>
+                                    <constraint firstAttribute="width" constant="75" id="oUh-XV-Mkn"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4r-v2-AK9">
@@ -516,7 +516,7 @@
                             <constraint firstItem="Dhd-mt-htp" firstAttribute="top" secondItem="HFr-49-KBp" secondAttribute="bottom" constant="8" id="nDL-wY-CaF"/>
                             <constraint firstItem="HFr-49-KBp" firstAttribute="leading" secondItem="lVW-l5-kMh" secondAttribute="trailing" id="uPI-co-52G"/>
                             <constraint firstItem="YGD-fL-agg" firstAttribute="top" secondItem="Dhd-mt-htp" secondAttribute="bottom" constant="5" id="vCU-uM-yyU"/>
-                            <constraint firstItem="YGD-fL-agg" firstAttribute="leading" secondItem="O4r-v2-AK9" secondAttribute="trailing" id="z5r-M9-owa"/>
+                            <constraint firstItem="YGD-fL-agg" firstAttribute="leading" secondItem="O4r-v2-AK9" secondAttribute="trailing" constant="25" id="z5r-M9-owa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1nT-Qd-hjh"/>
