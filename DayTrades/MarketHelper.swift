@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MarketHelper: NSObject {
+class MarketHelper {
     
     class func isMarketOpen() -> Bool {
         let date: NSDate = NSDate()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChangeFormatter: NSObject {
+class ChangeFormatter {
     
     class func stringFromQuote(quote: Quote) -> String {
         let priceChange: Double = quote.priceChange

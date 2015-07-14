@@ -114,8 +114,10 @@
 
 - (UIViewController *)homeViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *accountViewController = [storyboard instantiateViewControllerWithIdentifier:@"AppController"];
-    return accountViewController;
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"AppController"];
+    AccountViewController *accountViewController = [navigationController.childViewControllers firstObject];
+    accountViewController.account = [ParseClient fetchOrCreateAccount];
+    return navigationController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

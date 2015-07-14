@@ -14,8 +14,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
-    @IBOutlet weak var nextPickLabel: UILabel!
-    @IBOutlet weak var nextPickButton: UIButton!
+    @IBOutlet weak var nextPickLabel: UILabel?
+    @IBOutlet weak var nextPickButton: UIButton?
     @IBOutlet weak var winnersBarView: SingleBarView!
     @IBOutlet weak var losersBarView: SingleBarView!
     
@@ -48,8 +48,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         nameLabel.text = nil
         valueLabel.text = nil
         picksLabel.text = nil
-        nextPickLabel.text = nil
-        nextPickButton.hidden = true
+        nextPickLabel?.text = nil
+        nextPickButton?.hidden = true
         winnersBarView.barColor = UIColor.greenColor()
         losersBarView.barColor = UIColor.redColor()
         
@@ -59,22 +59,24 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        applicationBecameActive()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchAccount()
+        quoteTimer?.invalidate()
+        quoteTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("fetchQuote"), userInfo: nil, repeats: true)
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        quoteTimer?.invalidate()
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func applicationBecameActive() {
         println("application became active")
-        if let user: PFUser = PFUser.currentUser() {
-            ParseClient.fetchAccountForUser(user, block: { (object: PFObject?, error: NSError?) -> Void in
-                if error == nil && object != nil {
-                    self.account = object as? Account
-                    self.fetchPicks()
-                }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
-                }
-            })
-        }
+        fetchAccount()
         quoteTimer?.invalidate()
         quoteTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("fetchQuote"), userInfo: nil, repeats: true)
     }
@@ -85,7 +87,18 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         losersBarView.resetView()
         quoteTimer?.invalidate()
     }
-
+    
+    func fetchAccount() {
+        account?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+            if error == nil && object != nil {
+                self.account = object as! Account?
+                self.fetchPicks()
+            }
+            else {
+                println("Error \(error) \(error!.userInfo)")
+            }
+        })
+    }
     
     func refreshView() {
         if account != nil {
@@ -117,14 +130,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func refreshNextPickView() {
         if nextPick != nil {
-            nextPickLabel.text = "Next Pick: \(nextPick!.symbol)"
-            nextPickButton.setTitle("Remove", forState: UIControlState.Normal)
+            nextPickLabel?.text = "Next Pick: \(nextPick!.symbol)"
+            nextPickButton?.setTitle("Remove", forState: UIControlState.Normal)
         }
         else {
-            nextPickLabel.text = nil
-            nextPickButton.setTitle("Set Next", forState: UIControlState.Normal)
+            nextPickLabel?.text = nil
+            nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
         }
-        nextPickButton.hidden = false
+        nextPickButton?.hidden = false
     }
     
     func fetchQuote() {
@@ -337,7 +350,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 pickViewController.account = account;
             }
         }
-
     }
 
     @IBAction func onLogOutButtonTouched(sender: AnyObject) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Quote: NSObject {
+class Quote {
     
     lazy var symbol: String = self.parseSymbol()
     lazy var name: String = self.parseName()

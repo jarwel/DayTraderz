@@ -34,7 +34,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
-        tableView.allowsSelection = false
+        
         segmentedControl.backgroundColor = UIColor.translucentColor()
     }
     
@@ -128,6 +128,10 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
        cell.backgroundColor = UIColor.translucentColor()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowAccountSegue", sender: nil)
+    }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let y: CGFloat = tableView.contentSize.height - tableView.bounds.size.height + tableView.infiniteScrollingView.frame.size.height + 1
         if tableView.contentOffset.y >= y {
@@ -154,6 +158,16 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         tableView.infiniteScrollingView.backgroundColor = UIColor.translucentColor()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowAccountSegue" {
+            if let accountViewController: AccountViewController = segue.destinationViewController as? AccountViewController {
+                let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
+                let account: Account = accounts[indexPath.row]
+                accountViewController.account = account
+            }
+        }
     }
     
     @IBAction func onValueChanged(sender: AnyObject) {
