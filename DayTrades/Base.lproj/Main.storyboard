@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kh1-p2-uee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kh1-p2-uee">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -116,7 +116,6 @@
                             <constraint firstItem="CLE-tO-8Kh" firstAttribute="top" secondItem="ZO4-HI-lgt" secondAttribute="bottom" constant="5" id="0jA-dr-5a3"/>
                             <constraint firstItem="7NY-7p-bsx" firstAttribute="top" secondItem="CLE-tO-8Kh" secondAttribute="bottom" constant="41" id="4Dw-DH-J8U"/>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="17" id="4Ul-LO-dPT"/>
-                            <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="-351.5" id="7k2-Cf-ogI"/>
                             <constraint firstItem="CLE-tO-8Kh" firstAttribute="leading" secondItem="HQR-bm-eRQ" secondAttribute="trailing" id="8mV-y9-oFp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tjc-Xf-oE6" secondAttribute="trailing" constant="-8" id="9D6-Xu-wca"/>
                             <constraint firstAttribute="trailingMargin" secondItem="buT-kL-TyP" secondAttribute="trailing" constant="-16" id="Aiw-be-vww"/>
@@ -124,15 +123,11 @@
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="top" secondItem="CLE-tO-8Kh" secondAttribute="bottom" constant="39" id="FUz-Od-dcS"/>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="leading" secondItem="Udm-GY-JQX" secondAttribute="trailing" id="Jps-VC-ggr"/>
                             <constraint firstItem="ZO4-HI-lgt" firstAttribute="top" secondItem="iIl-RE-jO6" secondAttribute="bottom" constant="8" id="LKD-TM-gMd"/>
-                            <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="20" id="Nsn-tU-kn4"/>
                             <constraint firstItem="7NY-7p-bsx" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="Sfn-p3-Jxn"/>
-                            <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="10" id="V1i-zi-76T"/>
                             <constraint firstItem="Udm-GY-JQX" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="b9A-yK-dS6"/>
                             <constraint firstItem="buT-kL-TyP" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" constant="-16" id="d6y-UO-jia"/>
-                            <constraint firstItem="7NY-7p-bsx" firstAttribute="top" secondItem="afo-Qs-2eu" secondAttribute="top" id="e4F-aX-fgD"/>
                             <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="16" id="hQB-DZ-PYi"/>
                             <constraint firstItem="CLE-tO-8Kh" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="iz4-qK-H66"/>
-                            <constraint firstItem="7NY-7p-bsx" firstAttribute="top" secondItem="afo-Qs-2eu" secondAttribute="topMargin" constant="200" id="jS8-gl-xSr"/>
                             <constraint firstItem="ZO4-HI-lgt" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="jeq-IL-NrS"/>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="trailing" secondItem="afo-Qs-2eu" secondAttribute="trailingMargin" id="k7C-OP-wEU"/>
                             <constraint firstItem="HQR-bm-eRQ" firstAttribute="top" secondItem="Udm-GY-JQX" secondAttribute="bottom" constant="15" id="kOe-j2-Ghx"/>
@@ -140,15 +135,6 @@
                             <constraint firstItem="Udm-GY-JQX" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="10" id="tXh-1g-HVO"/>
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="leading" secondItem="7NY-7p-bsx" secondAttribute="trailing" constant="10" id="wf9-A4-XyP"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="V1i-zi-76T"/>
-                                <exclude reference="e4F-aX-fgD"/>
-                                <exclude reference="jS8-gl-xSr"/>
-                                <exclude reference="7k2-Cf-ogI"/>
-                                <exclude reference="Nsn-tU-kn4"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
                         <barButtonItem key="leftBarButtonItem" image="logout.png" id="OSx-bm-09M">
@@ -230,14 +216,8 @@
                             <constraint firstItem="JDN-fv-OhP" firstAttribute="top" secondItem="VYj-un-ige" secondAttribute="bottom" constant="25" id="Nzc-0i-ASg"/>
                             <constraint firstItem="d94-zB-0yL" firstAttribute="top" secondItem="JDN-fv-OhP" secondAttribute="bottom" id="QNT-GC-a4O"/>
                             <constraint firstItem="VYj-un-ige" firstAttribute="leading" secondItem="jPX-6J-z6g" secondAttribute="leadingMargin" constant="-8" id="kWk-Ft-UeW"/>
-                            <constraint firstItem="VYj-un-ige" firstAttribute="top" secondItem="pjh-vr-agZ" secondAttribute="bottom" constant="100" id="tiI-th-S9v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="uDL-bw-zAR"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="tiI-th-S9v"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QCh-vn-y9G"/>
                     <connections>
@@ -426,7 +406,6 @@
                         <constraints>
                             <constraint firstItem="lGm-6V-uD8" firstAttribute="top" secondItem="e6z-vF-AJ8" secondAttribute="bottom" id="6vp-UV-XKN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lGm-6V-uD8" secondAttribute="trailing" constant="-16" id="CJH-On-I69"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z9k-Dv-NFM" secondAttribute="trailing" id="O9i-aE-gm1"/>
                             <constraint firstItem="lGm-6V-uD8" firstAttribute="leading" secondItem="Kxd-Lf-fip" secondAttribute="leadingMargin" constant="-16" id="P5d-uM-Lwq"/>
                             <constraint firstItem="z9k-Dv-NFM" firstAttribute="leading" secondItem="Kxd-Lf-fip" secondAttribute="leadingMargin" constant="-16" id="WUZ-tI-4BB"/>
                             <constraint firstItem="wzZ-b1-FQg" firstAttribute="leading" secondItem="Kxd-Lf-fip" secondAttribute="leadingMargin" constant="-16" id="ZIm-hS-KUw"/>
@@ -435,11 +414,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wzZ-b1-FQg" secondAttribute="trailing" constant="-16" id="iAQ-CD-EUi"/>
                             <constraint firstItem="z9k-Dv-NFM" firstAttribute="top" secondItem="lGm-6V-uD8" secondAttribute="bottom" id="zS2-zl-3zm"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="O9i-aE-gm1"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bWK-q5-r3w" appends="YES" id="hji-ZE-r0O"/>
                         </connections>

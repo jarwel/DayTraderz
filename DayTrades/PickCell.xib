@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -24,7 +24,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffR-lc-WnD">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Change" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBV-CJ-ife">
@@ -93,7 +93,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="FmP-1o-JNQ" firstAttribute="trailing" secondItem="50I-6e-Fuj" secondAttribute="trailingMargin" id="0Kp-aN-7Qc"/>
-                    <constraint firstItem="FmP-1o-JNQ" firstAttribute="leading" secondItem="gyd-TS-gf0" secondAttribute="trailing" id="9bV-Kh-rOd"/>
                     <constraint firstItem="FmP-1o-JNQ" firstAttribute="leading" secondItem="UA7-2q-UPr" secondAttribute="trailing" id="AUS-do-xPn"/>
                     <constraint firstItem="gyd-TS-gf0" firstAttribute="leading" secondItem="LF8-08-rh8" secondAttribute="trailing" id="Aet-QP-76t"/>
                     <constraint firstItem="ScM-rV-4C1" firstAttribute="leading" secondItem="6oS-9Y-Ssc" secondAttribute="trailing" constant="2" id="Ax9-kt-1Hb"/>
@@ -111,23 +110,12 @@
                     <constraint firstItem="LF8-08-rh8" firstAttribute="width" secondItem="FmP-1o-JNQ" secondAttribute="width" id="bvz-jX-mXu"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UA7-2q-UPr" secondAttribute="bottom" id="dnj-Re-kBR"/>
                     <constraint firstItem="UA7-2q-UPr" firstAttribute="leading" secondItem="gyd-TS-gf0" secondAttribute="trailing" constant="2" id="gJ9-EL-cEY"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="UA7-2q-UPr" secondAttribute="trailing" id="i1z-Ta-bsO"/>
                     <constraint firstAttribute="bottomMargin" secondItem="FmP-1o-JNQ" secondAttribute="bottom" id="mGD-8x-1Eg"/>
-                    <constraint firstItem="TBV-CJ-ife" firstAttribute="leading" secondItem="6oS-9Y-Ssc" secondAttribute="trailing" id="pDq-cJ-j4h"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ScM-rV-4C1" secondAttribute="trailing" id="sME-RK-ONF"/>
                     <constraint firstItem="TBV-CJ-ife" firstAttribute="leading" secondItem="ScM-rV-4C1" secondAttribute="trailing" id="tKR-ZY-cDt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="TBV-CJ-ife" secondAttribute="trailing" id="u94-Tq-k6a"/>
                     <constraint firstItem="TBV-CJ-ife" firstAttribute="top" secondItem="50I-6e-Fuj" secondAttribute="topMargin" id="wzk-0n-jJC"/>
                     <constraint firstItem="ScM-rV-4C1" firstAttribute="top" secondItem="50I-6e-Fuj" secondAttribute="topMargin" id="ykR-9y-gbN"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="sME-RK-ONF"/>
-                        <exclude reference="i1z-Ta-bsO"/>
-                        <exclude reference="pDq-cJ-j4h"/>
-                        <exclude reference="9bV-Kh-rOd"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
