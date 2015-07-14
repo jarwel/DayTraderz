@@ -13,40 +13,45 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h0g-BL-VcS" id="Vcx-QX-cOS">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
-                        <rect key="frame" x="8" y="8" width="102" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
+                        <rect key="frame" x="8" y="8" width="46.5" height="27"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-I6-O7j" customClass="DoubleBarView" customModule="DayTrades" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
+                        <rect key="frame" x="54.5" y="8" width="137.5" height="27"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-I6-O7j" customClass="DoubleBarView" customModule="DayTrades" customModuleProvider="target">
                         <rect key="frame" x="212" y="12" width="100" height="20"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="gNm-ZY-d0w"/>
+                            <constraint firstAttribute="height" constant="20" id="V4s-ni-PiG"/>
+                            <constraint firstAttribute="width" constant="100" id="sSY-uC-Spc"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="110" y="8" width="102" height="27"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" id="I7C-MJ-yN9"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="KuT-CA-lNM"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="MfA-28-bBF"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="JXi-I6-O7j" secondAttribute="bottom" constant="3" id="QAH-yt-cGZ"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="bottom" secondItem="Vcx-QX-cOS" secondAttribute="bottomMargin" id="UFv-Wz-ijb"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="VGj-FY-DJP"/>
-                    <constraint firstItem="JXi-I6-O7j" firstAttribute="trailing" secondItem="Vcx-QX-cOS" secondAttribute="trailingMargin" id="WWz-Oi-wTs"/>
-                    <constraint firstItem="mNs-cK-8hO" firstAttribute="width" secondItem="tyQ-V0-tnG" secondAttribute="width" id="isA-BU-0yl"/>
-                    <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" id="kuM-qs-Mtt"/>
-                    <constraint firstItem="mNs-cK-8hO" firstAttribute="bottom" secondItem="Vcx-QX-cOS" secondAttribute="bottomMargin" id="maT-3P-PjH"/>
-                    <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="ohP-Lc-lV5"/>
-                    <constraint firstItem="JXi-I6-O7j" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="uqA-nc-h86"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JXi-I6-O7j" secondAttribute="bottom" constant="3.5" id="2ST-F9-q89"/>
+                    <constraint firstItem="JXi-I6-O7j" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="4" id="GEG-ka-GyO"/>
+                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="GK5-7c-0sw"/>
+                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="GjR-PG-D6l"/>
+                    <constraint firstItem="JXi-I6-O7j" firstAttribute="trailing" secondItem="Vcx-QX-cOS" secondAttribute="trailingMargin" id="IZQ-Ty-SvM"/>
+                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" constant="100" id="Ob3-Xb-DQ1"/>
+                    <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" constant="20" id="PzC-lO-Rcg"/>
+                    <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" id="kD0-Xf-mMH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tyQ-V0-tnG" secondAttribute="bottom" id="o8X-Rx-3Cl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mNs-cK-8hO" secondAttribute="bottom" constant="0.5" id="yJZ-Zb-bJE"/>
+                    <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" id="yt0-2Q-IOB"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ob3-Xb-DQ1"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
