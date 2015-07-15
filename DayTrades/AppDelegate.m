@@ -23,17 +23,15 @@
     [Parse setApplicationId:@"nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M" clientKey:@"lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO"];
     [Account registerSubclass];
     [Pick registerSubclass];
-    
+
     UIViewController *currentViewController = [self currentViewController];
     [self.window setRootViewController:currentViewController];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logIn) name:LogInNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:LogOutNotification object:nil];
-    
     if ([PFUser currentUser]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
     }
-    
     return YES;
 }
 

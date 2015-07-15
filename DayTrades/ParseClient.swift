@@ -15,8 +15,10 @@ class ParseClient: NSObject {
             let account: Account = Account(user: user)
             account.saveInBackgroundWithBlock(block)
         }
-        println("user is missing")
-        block(false, NSError())
+        else {
+            println("user is missing")
+            block(false, NSError())
+        }
     }
     
    
@@ -27,8 +29,10 @@ class ParseClient: NSObject {
             query?.whereKey("user", equalTo: user)
             query?.getFirstObjectInBackgroundWithBlock(block)
         }
-        println("user is missing")
-        block(nil, NSError())
+        else {
+            println("user is missing")
+            block(nil, NSError())
+        }
     }
     
     class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
