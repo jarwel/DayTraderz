@@ -9,22 +9,26 @@
 import Foundation
 
 class ParseClient: NSObject {
-  
-    class func fetchOrCreateAccount() -> Account? {
+    
+    class func createAccount(block: (Bool, NSError?) -> Void ){
+        if let user: PFUser = PFUser.currentUser() {
+            let account: Account = Account(user: user)
+            account.saveInBackgroundWithBlock(block)
+        }
+        println("user is missing")
+        block(false, NSError())
+    }
+    
+   
+    class func fetchAccount(block: (PFObject?, NSError?) -> Void ) {
         if let user: PFUser = PFUser.currentUser() {
             let query: PFQuery? = Account.query()
             query?.includeKey("user")
             query?.whereKey("user", equalTo: user)
-            if let object: PFObject? = query?.getFirstObject() {
-                return object as! Account?
-            }
-            else {
-                let account: Account = Account(user: user)
-                account.save()
-                return account
-            }
+            query?.getFirstObjectInBackgroundWithBlock(block)
         }
-        return nil
+        println("user is missing")
+        block(nil, NSError())
     }
     
     class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {

@@ -27,14 +27,5 @@ class Account: PFObject, PFSubclassing {
         return "Account"
     }
     
-    static func newForUser(user: PFUser) -> Account {
-        let account: Account = Account()
-        account.user = user
-        account.value = 10000.00
-        account.winners = 0
-        account.losers = 0
-        return account
-    }
-
 }
 

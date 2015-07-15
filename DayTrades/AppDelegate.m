@@ -12,6 +12,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) Account *account;
+
 @end
 
 @implementation AppDelegate
@@ -27,6 +29,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logIn) name:LogInNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:LogOutNotification object:nil];
+    
+    if ([PFUser currentUser]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
+    }
+    
     return YES;
 }
 
@@ -69,29 +76,32 @@
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            Account *account = [Account newForUser:user];
-            [account saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [ParseClient createAccount:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:LogInNotification object:nil];
                 }
             }];
         }
     }];
-    
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
 }
 
 - (void)logIn {
-    UIViewController *currentViewController = [self currentViewController];
-    [self.window setRootViewController:currentViewController];
+    [ParseClient fetchAccount:^(PFObject *object, NSError *error) {
+        if (object) {
+            self.account = (Account *)object;
+            UIViewController *currentViewController = [self currentViewController];
+            [self.window setRootViewController:currentViewController];
+        }
+    }];
 }
 
 - (void)logOut {
     [PFUser logOut];
-    UIViewController *currentViewController = [self currentViewController];
-    [self.window setRootViewController:currentViewController];
+    self.account = nil;
+    [self.window setRootViewController:[self currentViewController]];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
 }
 
@@ -116,7 +126,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"AppController"];
     AccountViewController *accountViewController = [navigationController.childViewControllers firstObject];
-    accountViewController.account = [ParseClient fetchOrCreateAccount];
+    accountViewController.account = self.account;
     return navigationController;
 }
 

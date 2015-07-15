@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9076" y="-5150"/>
+            <point key="canvasLocation" x="-10924" y="-7059"/>
         </scene>
         <!--Leaders View Controller-->
         <scene sceneID="yeQ-z0-n9I">
@@ -203,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8241" y="-5150"/>
+            <point key="canvasLocation" x="-10089" y="-7059"/>
         </scene>
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">
@@ -378,6 +378,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="lGm-6V-uD8" firstAttribute="top" secondItem="e6z-vF-AJ8" secondAttribute="bottom" id="6vp-UV-XKN"/>
@@ -414,7 +415,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-9076" y="-4338"/>
+            <point key="canvasLocation" x="-10924" y="-6247"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pK-OU-KbM">
@@ -432,7 +433,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkN-tB-fAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9908" y="-5150"/>
+            <point key="canvasLocation" x="-11756" y="-7059"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="lHS-dm-deC">
@@ -531,7 +532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYm-eA-bh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7424" y="-5150"/>
+            <point key="canvasLocation" x="-9272" y="-7059"/>
         </scene>
     </scenes>
     <resources>
