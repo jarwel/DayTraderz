@@ -93,18 +93,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         quoteTimer?.invalidate()
     }
     
-    func fetchAccount() {
-        account?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-            if error == nil && object != nil {
-                self.account = object as! Account?
-                self.fetchPicks()
-            }
-            else {
-                println("Error \(error) \(error!.userInfo)")
-            }
-        })
-    }
-    
     func refreshView() {
         if account != nil {
             nameLabel.text = account?.user.username
@@ -143,6 +131,18 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
         }
         nextPickButton?.hidden = false
+    }
+    
+    func fetchAccount() {
+        account?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+            if error == nil && object != nil {
+                self.account = object as! Account?
+                self.fetchPicks()
+            }
+            else {
+                println("Error \(error) \(error!.userInfo)")
+            }
+        })
     }
     
     func fetchQuote() {
@@ -363,7 +363,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     @IBAction func onLogOutButtonTouched(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName(LogOutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(Notification.SignOut.description, object: nil)
     }
     
 }
