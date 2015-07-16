@@ -275,7 +275,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 2 {
-            return max(tableView.frame.size.height - 2 * headerHeight - (CGFloat(picks.count) * cellHeight), 0)
+            return max(tableView.frame.size.height - (2 * headerHeight) - (CGFloat(picks.count + 1) * cellHeight), 0)
         }
         return cellHeight
     }
