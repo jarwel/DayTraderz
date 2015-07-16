@@ -127,7 +127,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else {
             nextPickLabel?.text = nil
-            nextPickButton?.setTitle("Next Pick", forState: UIControlState.Normal)
+            nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
         }
         nextPickButton?.hidden = false
     }
