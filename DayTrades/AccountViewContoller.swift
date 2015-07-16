@@ -133,15 +133,17 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchAccount() {
-        account?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-            if error == nil && object != nil {
-                self.account = object as! Account?
-                self.fetchPicks()
-            }
-            else {
-                println("Error \(error) \(error!.userInfo)")
-            }
-        })
+        if account != nil {
+            ParseClient.refreshAccount(account!, block: { (object: PFObject?, error: NSError?) -> Void in
+                if error == nil && object != nil {
+                    self.account = object as! Account?
+                    self.fetchPicks()
+                }
+                else {
+                    println("Error \(error) \(error!.userInfo)")
+                }
+            })
+        }
     }
     
     func fetchQuote() {
@@ -341,7 +343,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if identifier == "ShowPickSegue" {
             let nextDayOfTrade:String? = MarketHelper.nextDayOfTrade()
             if nextPick != nil && nextPick?.dayOfTrade == nextDayOfTrade {
-                nextPick?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
+                ParseClient.deletePick(nextPick!, block: { (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
                         self.nextPick = nil
                         self.refreshNextPickView()

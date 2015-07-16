@@ -11,6 +11,7 @@
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
 		2F3B03861B5601E100EB9B93 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
+		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
@@ -83,6 +84,7 @@
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */,
 				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
+				2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
+				2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
 				AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */,
 				AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */,

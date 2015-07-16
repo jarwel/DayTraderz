@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ParseClient: NSObject {
+class ParseClient {
     
     class func createAccount(block: (Bool, NSError?) -> Void ){
         if let user: PFUser = PFUser.currentUser() {
             let account: Account = Account(user: user)
-            account.saveInBackgroundWithBlock(block)
+            account.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
         }
         else {
             println("user is missing")
@@ -27,12 +27,16 @@ class ParseClient: NSObject {
             let query: PFQuery? = Account.query()
             query?.includeKey("user")
             query?.whereKey("user", equalTo: user)
-            query?.getFirstObjectInBackgroundWithBlock(block)
+            query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
         }
         else {
             println("user is missing")
             block(nil, NSError())
         }
+    }
+    
+    class func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
+        account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
     class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
@@ -42,7 +46,7 @@ class ParseClient: NSObject {
         query?.orderByDescending("dayOfTrade")
         query?.limit = limit
         query?.skip = skip
-        query?.findObjectsInBackgroundWithBlock(block)
+        query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
     class func fetchAccountsSortedByColumn(column: String, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
@@ -58,7 +62,7 @@ class ParseClient: NSObject {
             query?.orderByDescending("\(column),losers")
             query?.limit = limit
             query?.skip = skip
-            query?.findObjectsInBackgroundWithBlock(block)
+            query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
         }
     }
     
@@ -67,13 +71,14 @@ class ParseClient: NSObject {
         query?.whereKey("account", equalTo: pick.account)
         query?.whereKey("dayOfTrade", equalTo: pick.dayOfTrade)
         query?.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+            ParseErrorHandler.handleError(error)
             if object == nil {
-                pick.saveInBackgroundWithBlock(block)
+                pick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
             }
             else {
                 object?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded && error == nil {
-                        pick.saveInBackgroundWithBlock(block)
+                        pick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
                     }
                     else {
                         println("Error \(error) \(error!.userInfo)")
@@ -81,6 +86,10 @@ class ParseClient: NSObject {
                 })
             }
         })
+    }
+    
+    class func deletePick(pick: Pick, block: (Bool, NSError?) -> Void) {
+        pick.deleteInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
 }
