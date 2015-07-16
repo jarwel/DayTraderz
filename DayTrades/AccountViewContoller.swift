@@ -49,6 +49,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         valueLabel.text = nil
         picksLabel.text = nil
         nextPickLabel?.text = nil
+        nextPickButton?.setAttributedTitle(nil, forState: UIControlState.Normal)
         nextPickButton?.hidden = true
         winnersBarView.barColor = UIColor.greenColor()
         losersBarView.barColor = UIColor.redColor()
@@ -116,7 +117,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 losersBarView.total = count
                 losersBarView.animate(1)
             }
-            refreshNextPickView()
             tableView.reloadData()
         }
     }
@@ -199,6 +199,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.picks.append(pick)
             }
         }
+        refreshNextPickView()
         refreshView()
     }
     
