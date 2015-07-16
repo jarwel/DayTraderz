@@ -49,7 +49,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         valueLabel.text = nil
         picksLabel.text = nil
         nextPickLabel?.text = nil
-        nextPickButton?.setAttributedTitle(nil, forState: UIControlState.Normal)
         nextPickButton?.hidden = true
         winnersBarView.barColor = UIColor.greenColor()
         losersBarView.barColor = UIColor.redColor()
@@ -128,7 +127,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else {
             nextPickLabel?.text = nil
-            nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
+            nextPickButton?.setTitle("Next Pick", forState: UIControlState.Normal)
         }
         nextPickButton?.hidden = false
     }
