@@ -22,7 +22,7 @@ class PickCell: UITableViewCell {
     override func awakeFromNib() {
         backgroundColor = UIColor.translucentColor()
         let view: UIView = UIView()
-        view.backgroundColor = UIColor.selectedTableCellColor()
+        view.backgroundColor = UIColor.selectedColor()
         selectedBackgroundView = view
     }
     
