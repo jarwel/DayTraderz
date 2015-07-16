@@ -105,7 +105,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 1 {
-            return max(tableView.frame.size.height - headerHeight - (CGFloat(accounts.count) * cellHeight), 0)
+            return max(1 + tableView.frame.size.height - headerHeight - (CGFloat(accounts.count) * cellHeight), 0)
         }
         return cellHeight
     }
