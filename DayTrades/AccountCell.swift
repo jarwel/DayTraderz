@@ -15,10 +15,10 @@ class AccountCell: UITableViewCell {
     @IBOutlet weak var picksBarView: DoubleBarView!
     
     override func awakeFromNib() {
-        let view: UIView = UIView()
-        view.backgroundColor = UIColor.blueColor()
-        selectedBackgroundView = view
         backgroundColor = UIColor.translucentColor()
+        let view: UIView = UIView()
+        view.backgroundColor = UIColor.selectedTableCellColor()
+        selectedBackgroundView = view
     }
     
     func resetView() {
