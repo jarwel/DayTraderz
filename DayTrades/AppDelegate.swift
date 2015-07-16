@@ -20,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
         Pick.registerSubclass()
         
         window?.rootViewController = currentViewController()
+        if let user: PFUser = PFUser.currentUser() {
+            logIn();
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logIn"), name: Notification.LogIn.description, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logOut"), name: Notification.SignOut.description, object: nil)
-        if let user: PFUser = PFUser.currentUser() {
-            NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogIn.description, object: nil)
-        }
         return true
     }
     
