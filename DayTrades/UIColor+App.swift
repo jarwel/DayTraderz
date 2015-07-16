@@ -16,7 +16,7 @@ extension UIColor {
     }
     
     class func selectedTableCellColor() -> UIColor {
-        return UIColor(red: 0, green: 0, blue: 100, alpha: 0.5)
+        return UIColor(red: 0, green: 0, blue: 80, alpha: 0.5)
     }
     
     class func colorForChange(change: Double) -> UIColor {
