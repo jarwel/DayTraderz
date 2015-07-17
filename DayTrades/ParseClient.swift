@@ -39,20 +39,10 @@ class ParseClient {
         account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
-        let query: PFQuery? = Pick.query()
-        query?.includeKey("account")
-        query?.whereKey("account", equalTo: account)
-        query?.orderByDescending("dayOfTrade")
-        query?.limit = limit
-        query?.skip = skip
-        query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
-    }
-    
     class func fetchAccountsSortedByColumn(column: String, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
         let hasWinnersQuery: PFQuery? = Account.query()
         hasWinnersQuery?.whereKey("winners", greaterThan: 0)
-            
+        
         let hasLosersQuery: PFQuery? = Account.query()!
         hasLosersQuery?.whereKey("losers", greaterThan: 0)
         
@@ -64,6 +54,16 @@ class ParseClient {
             query?.skip = skip
             query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
         }
+    }
+    
+    class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
+        let query: PFQuery? = Pick.query()
+        query?.includeKey("account")
+        query?.whereKey("account", equalTo: account)
+        query?.orderByDescending("dayOfTrade")
+        query?.limit = limit
+        query?.skip = skip
+        query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
     class func createOrUpdatePick(pick: Pick, block: (Bool, NSError?) -> Void) {
@@ -90,6 +90,12 @@ class ParseClient {
     
     class func deletePick(pick: Pick, block: (Bool, NSError?) -> Void) {
         pick.deleteInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+    }
+    
+    class func fetchSecurityForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
+        let query: PFQuery? = Security.query()
+        query?.whereKey("symbol", equalTo: symbol)
+        query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
     }
     
 }

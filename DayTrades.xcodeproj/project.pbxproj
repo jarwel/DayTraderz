@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F07BE451B594C1400BB99CD /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Security.swift */; };
 		2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */; };
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F07BE441B594C1400BB99CD /* Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			children = (
 				AABEDC0B1B52C1FC00BDD762 /* Account.swift */,
 				AABEDC121B52CA9100BDD762 /* Pick.swift */,
+				2F07BE441B594C1400BB99CD /* Security.swift */,
 				CA8136ED1B4F098A00B869A4 /* Quote.swift */,
 				AABEDC141B52D0C400BDD762 /* DayQuote.swift */,
 			);
@@ -532,6 +535,7 @@
 				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
 				2FCB935F1B5849B9000A9B1F /* SecurityViewController.swift in Sources */,
+				2F07BE451B594C1400BB99CD /* Security.swift in Sources */,
 				2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,

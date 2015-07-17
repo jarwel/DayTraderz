@@ -14,6 +14,8 @@ class DayQuote {
     lazy var date: String? = self.parseDate()
     lazy var open: Double = self.parseOpen()
     lazy var close: Double = self.parseClose()
+    lazy var high: Double = self.parseHigh()
+    lazy var low: Double = self.parseLow()
     
     var json: NSDictionary
     
@@ -52,6 +54,24 @@ class DayQuote {
         if let open: AnyObject = json["Close"] {
             if !(open is NSNull) {
                 return (open as! NSString).doubleValue
+            }
+        }
+        return 0
+    }
+    
+    func parseHigh() -> Double {
+        if let high: AnyObject = json["High"] {
+            if !(high is NSNull) {
+                return (high as! NSString).doubleValue
+            }
+        }
+        return 0
+    }
+    
+    func parseLow() -> Double {
+        if let low: AnyObject = json["Low"] {
+            if !(low is NSNull) {
+                return (low as! NSString).doubleValue
             }
         }
         return 0

@@ -43,6 +43,16 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchAccounts()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowAccountSegue" {
+            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
+            if indexPath.row < accounts.count {
+                let accountViewController: AccountViewController = segue.destinationViewController as! AccountViewController
+                accountViewController.account = accounts[indexPath.row]
+            }
+        }
+    }
+    
     func refreshView() {
         tableView.reloadData()
     }
@@ -165,16 +175,6 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         tableView.infiniteScrollingView.backgroundColor = UIColor.translucentColor()
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowAccountSegue" {
-            if let accountViewController: AccountViewController = segue.destinationViewController as? AccountViewController {
-                let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
-                let account: Account = accounts[indexPath.row]
-                accountViewController.account = account
-            }
-        }
     }
     
     @IBAction func onValueChanged(sender: AnyObject) {

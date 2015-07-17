@@ -78,6 +78,39 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         quoteTimer?.invalidate()
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "ShowPickSegue" {
+            let nextDayOfTrade:String? = MarketHelper.nextDayOfTrade()
+            if nextPick != nil && nextPick?.dayOfTrade == nextDayOfTrade {
+                ParseClient.deletePick(nextPick!, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded {
+                        self.nextPick = nil
+                        self.refreshNextPickView()
+                    }
+                })
+                return false
+            }
+        }
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowPickSegue" {
+            if let pickViewController: PickViewController = segue.destinationViewController as? PickViewController {
+                pickViewController.delegate = self
+                pickViewController.account = account;
+            }
+        }
+        if segue.identifier == "ShowSecuritySegue" {
+            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
+            if indexPath.row < picks.count {
+                let securityViewController: SecurityViewController = segue.destinationViewController as! SecurityViewController
+                let pick: Pick = picks[indexPath.row]
+                securityViewController.symbol = pick.symbol
+            }
+        }
+    }
+    
     func applicationBecameActive() {
         println("application became active")
         fetchAccount()
@@ -345,31 +378,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         tableView.infiniteScrollingView.backgroundColor = UIColor.translucentColor()
-    }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        if identifier == "ShowPickSegue" {
-            let nextDayOfTrade:String? = MarketHelper.nextDayOfTrade()
-            if nextPick != nil && nextPick?.dayOfTrade == nextDayOfTrade {
-                ParseClient.deletePick(nextPick!, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
-                        self.nextPick = nil
-                        self.refreshNextPickView()
-                    }
-                })
-                return false
-            }
-        }
-        return true
-    }
-                
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowPickSegue" {
-            if let pickViewController: PickViewController = segue.destinationViewController as? PickViewController {
-                pickViewController.delegate = self
-                pickViewController.account = account;
-            }
-        }
     }
 
     @IBAction func onLogOutButtonTouched(sender: AnyObject) {

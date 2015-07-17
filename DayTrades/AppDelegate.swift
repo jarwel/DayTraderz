@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
         Parse.setApplicationId("nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M", clientKey: "lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO")
         Account.registerSubclass()
         Pick.registerSubclass()
+        Security.registerSubclass()
         
         window?.rootViewController = currentViewController()
         if let user: PFUser = PFUser.currentUser() {

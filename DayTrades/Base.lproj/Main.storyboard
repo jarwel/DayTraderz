@@ -162,32 +162,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBQ-Fc-QvR">
+                                <rect key="frame" x="16" y="72" width="568" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="XQZ-h3-XgZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ7-hi-YB5">
+                                <rect key="frame" x="16" y="111" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ep6-IZ-uOF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-ND-dB6" customClass="PriceChart" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="284" height="255"/>
+                                <rect key="frame" x="16" y="140" width="568" height="250"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="255" id="6Pf-Am-gtM"/>
-                                    <constraint firstAttribute="width" constant="284" id="JTh-b1-PcP"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="255" id="Sg7-eV-Vxc"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="284" id="r3U-FD-GsF"/>
+                                    <constraint firstAttribute="height" constant="250" id="X87-Sw-8Lk"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="Cpe-FF-ATh"/>
-                            <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" constant="8" id="F2V-gt-qlE"/>
-                            <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" constant="8" id="FUN-x6-G5N"/>
-                            <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="fog-4d-QcA"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="26d-wi-NMA"/>
+                            <constraint firstItem="SJ7-hi-YB5" firstAttribute="trailing" secondItem="ypy-35-k5G" secondAttribute="trailingMargin" id="Fee-XV-qqB"/>
+                            <constraint firstItem="SJ7-hi-YB5" firstAttribute="top" secondItem="wBQ-Fc-QvR" secondAttribute="bottom" constant="8" id="JRk-7X-O9c"/>
+                            <constraint firstItem="SJ7-hi-YB5" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="Nct-9V-vKL"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="trailing" secondItem="ypy-35-k5G" secondAttribute="trailingMargin" id="XiE-do-Jdk"/>
+                            <constraint firstItem="wBQ-Fc-QvR" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="kFr-aB-jc1"/>
+                            <constraint firstItem="wBQ-Fc-QvR" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" constant="8" id="rZY-le-u4Z"/>
+                            <constraint firstItem="wBQ-Fc-QvR" firstAttribute="trailing" secondItem="ypy-35-k5G" secondAttribute="trailingMargin" id="xYR-tp-C5M"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="SJ7-hi-YB5" secondAttribute="bottom" constant="8" id="zwJ-cJ-8BK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="wBQ-Fc-QvR" id="6aL-4W-WQh"/>
+                        <outlet property="picksLabel" destination="SJ7-hi-YB5" id="gnr-nV-VHg"/>
                         <outlet property="priceChart" destination="sIe-ND-dB6" id="Yv2-jQ-ZdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhs-aO-f0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10210" y="-7719"/>
+            <point key="canvasLocation" x="-9314" y="-7059"/>
         </scene>
         <!--Leaders View Controller-->
         <scene sceneID="yeQ-z0-n9I">
@@ -243,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10101" y="-7059"/>
+            <point key="canvasLocation" x="-10924" y="-6219"/>
         </scene>
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">
@@ -455,7 +477,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-10924" y="-6247"/>
+            <point key="canvasLocation" x="-10030" y="-7715"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pK-OU-KbM">
@@ -568,15 +590,19 @@
                         <outlet property="tableView" destination="54w-JG-jYi" id="FVM-z9-bRD"/>
                         <outlet property="valueLabel" destination="O4r-v2-AK9" id="te3-Ov-kkG"/>
                         <outlet property="winnersBarView" destination="Dhd-mt-htp" id="uZz-tc-QbW"/>
+                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowSecuritySegue" id="ftp-CR-Fu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYm-eA-bh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9272" y="-7059"/>
+            <point key="canvasLocation" x="-10030" y="-6219"/>
         </scene>
     </scenes>
     <resources>
         <image name="leaders.png" width="24" height="24"/>
         <image name="logout.png" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ftp-CR-Fu5"/>
+    </inferredMetricsTieBreakers>
 </document>

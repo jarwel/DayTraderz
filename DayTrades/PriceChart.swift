@@ -10,32 +10,38 @@ import Foundation
 
 class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
     
+    var plot: CPTTradingRangePlot?
     var plotSpace: CPTXYPlotSpace?
-    var scatterPlot: CPTScatterPlot?
     var quotes: Array<DayQuote> = Array()
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = UIColor.darkGrayColor()
+        
         hostedGraph = CPTXYGraph(frame: frame)
         hostedGraph.paddingLeft = 0
         hostedGraph.paddingTop = 0
         hostedGraph.paddingRight = 0
         hostedGraph.paddingBottom = 0
-        hostedGraph.masksToBorder = false
+        hostedGraph.masksToBorder = true
         
-        scatterPlot = CPTScatterPlot(frame: frame)
-        scatterPlot?.dataSource = self
+        plot = CPTTradingRangePlot(frame: frame)
+        plot?.dataSource = self
+        plot?.plotStyle = CPTTradingRangePlotStyle.CandleStick
+        plot?.increaseFill = CPTFill(color: CPTColor.redColor())
+        plot?.decreaseFill = CPTFill(color: CPTColor.greenColor())
+
+        let increaseLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
+        increaseLineStyle.lineColor = CPTColor.redColor()
+        plot?.increaseLineStyle = increaseLineStyle
         
-        let lineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
-        lineStyle.lineColor = CPTColor.greenColor()
-        scatterPlot!.dataLineStyle = lineStyle
-        
-        let areaGradient: CPTGradient = CPTGradient(beginningColor: CPTColor.greenColor(), endingColor: CPTColor.clearColor())
-        areaGradient.angle = -90
-        scatterPlot?.areaFill = CPTFill(gradient: areaGradient)
+        let decreaseLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
+        decreaseLineStyle.lineColor = CPTColor.greenColor()
+        plot?.decreaseLineStyle = decreaseLineStyle
         
         plotSpace = hostedGraph.defaultPlotSpace as? CPTXYPlotSpace
-        hostedGraph.addPlot(scatterPlot, toPlotSpace:hostedGraph.defaultPlotSpace)
+        hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
     }
     
     func reloadDataForSymbol(symbol: String, start: String, end: String) {
@@ -50,17 +56,20 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         }
     }
     func reloadDataForQuotes(quotes: Array<DayQuote> ) {
-        self.quotes = quotes
-        var low: Double = DBL_MAX
-        var high: Double = DBL_MIN
-        for quote: DayQuote in quotes {
-            low = min(low, quote.close)
-            high = max(high, quote.close)
+        if quotes.count > 0 {
+            self.quotes = quotes
+            var minRange: Double = DBL_MAX
+            var maxRanage: Double = DBL_MIN
+            for quote: DayQuote in quotes {
+                minRange = min(minRange, quote.open, quote.close, quote.high, quote.low)
+                maxRanage = max(maxRanage, quote.open, quote.close, quote.high, quote.low)
+            }
+            minRange = minRange * 0.995
+            maxRanage = maxRanage * 1.005
+            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count))
+            plotSpace?.yRange = CPTPlotRange(location: CPTDecimalFromDouble(minRange), length: CPTDecimalFromDouble(maxRanage - minRange))
+            hostedGraph.reloadData()
         }
-        plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count))
-        plotSpace?.yRange = CPTPlotRange(location: CPTDecimalFromDouble(low), length: CPTDecimalFromDouble(high - low))
-        scatterPlot?.areaBaseValue = CPTDecimalFromDouble(low)
-        hostedGraph.reloadData()
     }
     
     func numberOfRecordsForPlot(plot: CPTPlot!) -> UInt {
@@ -71,8 +80,22 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         if Int(fieldEnum) == CPTScatterPlotField.X.rawValue {
             return idx
         }
-        let quote: DayQuote = quotes[Int(idx)]
-        return quote.close
+        if (idx > 0) {
+            let quote: DayQuote = quotes[Int(idx) - 1]
+            if Int(fieldEnum) == CPTTradingRangePlotField.Open.rawValue {
+                return quote.open
+            }
+            if Int(fieldEnum) == CPTTradingRangePlotField.Close.rawValue {
+                return quote.close
+            }
+            if Int(fieldEnum) == CPTTradingRangePlotField.High.rawValue {
+                return quote.high
+            }
+            if Int(fieldEnum) == CPTTradingRangePlotField.Low.rawValue {
+                return quote.low
+            }
+        }
+        return nil
     }
 
 }
