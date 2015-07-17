@@ -55,7 +55,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
-        tableView.allowsSelection = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
@@ -305,6 +304,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else {
             cell.selectionStyle = UITableViewCellSelectionStyle.Default
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && currentPick != nil {
+            performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
+        }
+        if indexPath.section == 1 && indexPath.row < picks.count {
+            performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
         }
     }
     

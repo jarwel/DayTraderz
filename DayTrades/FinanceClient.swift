@@ -15,8 +15,8 @@ class FinanceClient {
         sendRequestWithQuery(query, block: block);
     }
     
-    class func fetchDayQuoteForSymbol(symbol: String, dayOfTrade: String, block: (NSURLResponse!, NSData!, NSError!) -> Void ) {
-        let query: String = String(format: "select * from yahoo.finance.historicaldata where symbol = '%@' and startDate = '%@' and endDate = '%@'", symbol, dayOfTrade, dayOfTrade)
+    class func fetchDayQuotesForSymbol(symbol: String, start: String, end: String, block: (NSURLResponse!, NSData!, NSError!) -> Void ) {
+        let query: String = String(format: "select * from yahoo.finance.historicaldata where symbol = '%@' and startDate = '%@' and endDate = '%@'", symbol, start, end)
         sendRequestWithQuery(query, block: block);
     }
     
@@ -25,6 +25,7 @@ class FinanceClient {
         let path: String = String(format: "http://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded!)
         let url = NSURL(string: path)
         let request = NSURLRequest(URL: url!)
+        println(url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: block)
     }
 

@@ -143,11 +143,51 @@
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                         <outlet property="winnersBarView" destination="ZO4-HI-lgt" id="KnM-Ra-OZz"/>
+                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowSecuritySegue" id="iZB-ej-Mwb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10924" y="-7059"/>
+        </scene>
+        <!--Security View Controller-->
+        <scene sceneID="uYj-S2-t01">
+            <objects>
+                <viewController id="3d8-EV-PAL" customClass="SecurityViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z95-zq-RNl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ryv-nD-nEm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ypy-35-k5G">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-ND-dB6" customClass="PriceChart" customModule="DayTrades" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="284" height="255"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="255" id="6Pf-Am-gtM"/>
+                                    <constraint firstAttribute="width" constant="284" id="JTh-b1-PcP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="255" id="Sg7-eV-Vxc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="284" id="r3U-FD-GsF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="Cpe-FF-ATh"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" constant="8" id="F2V-gt-qlE"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" constant="8" id="FUN-x6-G5N"/>
+                            <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" id="fog-4d-QcA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="priceChart" destination="sIe-ND-dB6" id="Yv2-jQ-ZdW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhs-aO-f0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10210" y="-7719"/>
         </scene>
         <!--Leaders View Controller-->
         <scene sceneID="yeQ-z0-n9I">
@@ -203,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10089" y="-7059"/>
+            <point key="canvasLocation" x="-10101" y="-7059"/>
         </scene>
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">

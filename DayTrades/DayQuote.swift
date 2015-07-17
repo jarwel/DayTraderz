@@ -10,8 +10,8 @@ import Foundation
 
 class DayQuote {
     
-    lazy var symbol: String = self.parseSymbol()
-    lazy var date: String = self.parseDate()
+    lazy var symbol: String? = self.parseSymbol()
+    lazy var date: String? = self.parseDate()
     lazy var open: Double = self.parseOpen()
     lazy var close: Double = self.parseClose()
     
@@ -21,50 +21,68 @@ class DayQuote {
         self.json = json
     }
     
-    func parseSymbol() -> String {
+    func parseSymbol() -> String? {
         if let symbol: AnyObject = json["Symbol"] {
-            return symbol as! String
-        }
-        return ""
-    }
-
-    func parseDate() -> String {
-        if let date: AnyObject = json["Date"] {
-            return date as! String
-        }
-        return ""
-    }
-    
-    func parseOpen() -> Double {
-        if let open: AnyObject = json["Open"] {
-            return (open as! NSString).doubleValue
-        }
-        return 0
-    }
-    
-    func parseClose() -> Double {
-        if let close: AnyObject = json["Close"] {
-            return (close as! NSString).doubleValue
-        }
-        return 0
-    }
-    
-    class func fromData(data: NSData) -> DayQuote? {
-        let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
-        if let query = json["query"] as? NSDictionary {
-            if let count = query["count"] as? Int {
-                if count == 1 {
-                    if let results = query["results"] as? NSDictionary {
-                        if let quote = results["quote"] as? NSDictionary {
-                            return DayQuote(json: quote)
-                        }
-                    }
-                }
+            if !(symbol is NSNull) {
+                return symbol as? String
             }
         }
         return nil
     }
 
-
+    func parseDate() -> String? {
+        if let date: AnyObject = json["Date"] {
+            if !(date is NSNull) {
+                return date as? String
+            }
+        }
+        return nil
+    }
+    
+    func parseOpen() -> Double {
+        if let open: AnyObject = json["Open"] {
+            if !(open is NSNull) {
+                return (open as! NSString).doubleValue
+            }
+        }
+        return 0
+    }
+    
+    func parseClose() -> Double {
+        if let open: AnyObject = json["Close"] {
+            if !(open is NSNull) {
+                return (open as! NSString).doubleValue
+            }
+        }
+        return 0
+    }
+    
+    class func fromData(data: NSData) -> Array<DayQuote> {
+        var quotes: Array<DayQuote> = Array()
+        let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+        if let query = json["query"] as? NSDictionary {
+            if let count = query["count"] as? Int {
+                if count == 1 {
+                    if let results = query["results"] as? NSDictionary {
+                        if let object = results["quote"] as? NSDictionary {
+                            quotes.append(DayQuote(json: object))
+                        }
+                    }
+                }
+                if count > 1 {
+                    if let results = query["results"] as? NSDictionary {
+                        if let objects = results["quote"] as? NSArray {
+                            for object: AnyObject in objects {
+                                if let json = object as? NSDictionary {
+                                    quotes.append(DayQuote(json: json))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return quotes
+    }
     
 }

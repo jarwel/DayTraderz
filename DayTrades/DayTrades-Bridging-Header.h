@@ -4,4 +4,5 @@
 
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "CorePlot-CocoaTouch.h"
 #import "UIScrollView+SVInfiniteScrolling.h"

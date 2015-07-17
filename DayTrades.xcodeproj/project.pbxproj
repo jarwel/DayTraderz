@@ -11,6 +11,8 @@
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
 		2F3B03861B5601E100EB9B93 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
+		2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* PriceChart.swift */; };
+		2FCB935F1B5849B9000A9B1F /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
@@ -84,6 +86,8 @@
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		2FCB935C1B584925000A9B1F /* PriceChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChart.swift; sourceTree = "<group>"; };
+		2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FCB93591B584735000A9B1F /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				2FCB935C1B584925000A9B1F /* PriceChart.swift */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
 		59F02336F8B1912D0948963B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 				CA492BD11A60884200ED13B3 /* Clients */,
 				CA492BA41A606F6500ED13B3 /* Models */,
 				CA492BA11A606F0000ED13B3 /* Views */,
+				2FCB93591B584735000A9B1F /* Charts */,
 				CA492B9B1A606DA800ED13B3 /* Controllers */,
 				CA685CA41A89902500727CE1 /* Helpers */,
 				CADFDD661B502A9400E298A8 /* Extensions */,
@@ -266,6 +279,7 @@
 			children = (
 				AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */,
 				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
+				2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */,
 				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
 				2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */,
 				2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */,
@@ -517,6 +531,7 @@
 				CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */,
 				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
+				2FCB935F1B5849B9000A9B1F /* SecurityViewController.swift in Sources */,
 				2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
@@ -529,6 +544,7 @@
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
 				2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
+				2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */,
 				AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */,
 				AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */,
 				AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */,

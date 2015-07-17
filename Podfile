@@ -5,6 +5,7 @@ target 'DayTrades' do
 
 pod 'Parse'
 pod 'ParseUI'
+pod 'CorePlot'
 pod 'SVPullToRefresh'
 
 end

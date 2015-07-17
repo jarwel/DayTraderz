@@ -10,8 +10,8 @@ import Foundation
 
 class Quote {
     
-    lazy var symbol: String = self.parseSymbol()
-    lazy var name: String = self.parseName()
+    lazy var symbol: String? = self.parseSymbol()
+    lazy var name: String? = self.parseName()
     lazy var open: Double = self.parseOpen()
     lazy var price: Double = self.parsePrice()
     lazy var priceChange: Double = self.parsePriceChange()
@@ -23,20 +23,22 @@ class Quote {
         self.json = json
     }
     
-    func parseSymbol() -> String {
+    func parseSymbol() -> String? {
         if let symbol: AnyObject = json["symbol"] {
             if !(symbol is NSNull) {
-                return symbol as! String
+                return symbol as? String
             }
         }
-        return ""
+        return nil
     }
     
-    func parseName() -> String {
-        if let name: AnyObject = json["Name"] {
-            return name as! String
+    func parseName() -> String? {
+        if let name: AnyObject = json["symbol"] {
+            if !(name is NSNull) {
+                return name as? String
+            }
         }
-        return ""
+        return nil
     }
     
     func parseOpen() -> Double {
@@ -82,16 +84,18 @@ class Quote {
             if let count = query["count"] as? Int {
                 if count == 1 {
                     if let results = query["results"] as? NSDictionary {
-                        if let quote = results["quote"] as? NSDictionary {
-                            quotes.append(Quote(json: quote))
+                        if let json = results["quote"] as? NSDictionary {
+                            quotes.append(Quote(json: json))
                         }
                     }
                 }
                 if count > 1 {
-                    if let results = query["results"] as? NSArray {
-                        for object: AnyObject in results {
-                            if let quote = object as? NSDictionary {
-                                quotes.append(Quote(json: quote))
+                    if let results = query["results"] as? NSDictionary {
+                        if let objects = results["quote"] as? NSArray {
+                            for object: AnyObject in objects {
+                                if let json = object as? NSDictionary {
+                                    quotes.append(Quote(json: json))
+                                }
                             }
                         }
                     }
