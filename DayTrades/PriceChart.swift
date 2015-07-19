@@ -36,8 +36,8 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         let plot: CPTTradingRangePlot = CPTTradingRangePlot(frame: frame)
         plot.dataSource = self
         plot.plotStyle = CPTTradingRangePlotStyle.CandleStick
-        plot.increaseFill = CPTFill(color: CPTColor.redColor())
-        plot.decreaseFill = CPTFill(color: CPTColor.greenColor())
+        plot.increaseFill = CPTFill(color: CPTColor.greenColor())
+        plot.decreaseFill = CPTFill(color: CPTColor.redColor())
         hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
         
         plotSpace = hostedGraph.defaultPlotSpace as? CPTXYPlotSpace
@@ -51,7 +51,7 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
     func reloadDataForSymbol(symbol: String, start: String, end: String) {
         FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
             if error == nil {
-                let quotes: Array<DayQuote> = DayQuote.fromData(data)
+                let quotes: Array<DayQuote> = DayQuote.fromData(data).reverse()
                 self.reloadDataForQuotes(quotes)
             }
             else {
@@ -67,6 +67,8 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
             var minRange: Double = DBL_MAX
             var maxRange: Double = DBL_MIN
             for quote: DayQuote in quotes {
+                let date:String = quote.date!
+                
                 minRange = min(minRange, quote.open, quote.close, quote.high, quote.low)
                 maxRange = max(maxRange, quote.open, quote.close, quote.high, quote.low)
             }
