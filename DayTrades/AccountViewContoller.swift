@@ -214,15 +214,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func refreshPicks(picks: Array<Pick>) {
-        let lastDayOfTrade: String? = MarketHelper.lastDayOfTrade()
-        let nextDayOfTrade: String? = MarketHelper.nextDayOfTrade()
+        let previousDayOfTrade: String = MarketHelper.previousDayOfTrade()
+        let nextDayOfTrade: String = MarketHelper.nextDayOfTrade()
         
         nextPick = nil;
         currentPick = nil;
         self.picks.removeAll()
         
         for pick: Pick in picks {
-            if !pick.processed && lastDayOfTrade == pick.dayOfTrade {
+            if !pick.processed && previousDayOfTrade == pick.dayOfTrade {
                 currentPick = pick;
             }
             else if nextDayOfTrade == pick.dayOfTrade {

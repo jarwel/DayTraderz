@@ -14,6 +14,8 @@ class SecurityViewController: UIViewController {
     @IBOutlet weak var picksLabel: UILabel!
     @IBOutlet weak var priceChart: PriceChart!
 
+    let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
+    
     var symbol: String?
     
     override func viewDidLoad() {
@@ -24,6 +26,8 @@ class SecurityViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let start: String = startDayOfTrade()
+        let end: String = endDateOfTrade()
         if symbol != nil {
             ParseClient.fetchSecurityForSymbol(symbol!, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let security: Security = object as? Security {
@@ -34,13 +38,22 @@ class SecurityViewController: UIViewController {
                         self.nameLabel.text = security.symbol
                     }
                     self.picksLabel.text = "Picked \(security.picks) times"
-                    self.priceChart.reloadDataForSymbol(security.symbol, start: "2015-06-01", end: "2015-06-30");
+                    self.priceChart.reloadDataForSymbol(security.symbol, start: start, end: end);
                 }
                 else {
                     self.nameLabel.text = self.symbol
                 }
             });
         }
+    }
+    
+    func startDayOfTrade() -> String {
+        let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -60, toDate: NSDate(), options: nil)!
+        return MarketHelper.previousDayOfTradeFromDate(date)
+    }
+    
+    func endDateOfTrade() -> String {
+        return MarketHelper.previousDayOfTradeFromDate(NSDate())
     }
     
 }

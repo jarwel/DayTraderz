@@ -25,6 +25,7 @@ class FinanceClient {
         let path: String = String(format: "http://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded!)
         let url = NSURL(string: path)
         let request = NSURLRequest(URL: url!)
+        println(url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: block)
     }
 

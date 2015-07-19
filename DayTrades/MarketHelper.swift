@@ -35,12 +35,12 @@ class MarketHelper {
         return isDayOfTrade(date)
     }
     
-    class func nextDayOfTrade() -> String? {
+    class func nextDayOfTrade() -> String {
         let date: NSDate = NSDate()
         return nextDayOfTradeFromDate(date)
     }
     
-    class func nextDayOfTradeFromDate(var date: NSDate) -> String? {
+    class func nextDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
         if hour >= 9 || !isDayOfTrade(date) {
@@ -55,12 +55,12 @@ class MarketHelper {
 
     }
     
-    class func lastDayOfTrade() -> String? {
+    class func previousDayOfTrade() -> String {
         let date: NSDate = NSDate()
-        return lastDayOfTradeFromDate(date)
+        return previousDayOfTradeFromDate(date)
     }
     
-    class func lastDayOfTradeFromDate(var date: NSDate) -> String? {
+    class func previousDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
         if hour < 9 || !isDayOfTrade(date) {

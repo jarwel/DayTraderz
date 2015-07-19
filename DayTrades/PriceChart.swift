@@ -17,7 +17,7 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.darkGrayColor()
+        backgroundColor = UIColor.whiteColor()
         
         hostedGraph = CPTXYGraph(frame: frame)
         hostedGraph.paddingLeft = 0
@@ -31,14 +31,6 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         plot?.plotStyle = CPTTradingRangePlotStyle.CandleStick
         plot?.increaseFill = CPTFill(color: CPTColor.redColor())
         plot?.decreaseFill = CPTFill(color: CPTColor.greenColor())
-
-        let increaseLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
-        increaseLineStyle.lineColor = CPTColor.redColor()
-        plot?.increaseLineStyle = increaseLineStyle
-        
-        let decreaseLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
-        decreaseLineStyle.lineColor = CPTColor.greenColor()
-        plot?.decreaseLineStyle = decreaseLineStyle
         
         plotSpace = hostedGraph.defaultPlotSpace as? CPTXYPlotSpace
         hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
