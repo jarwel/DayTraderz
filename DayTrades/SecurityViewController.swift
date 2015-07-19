@@ -17,6 +17,7 @@ class SecurityViewController: UIViewController {
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
     var symbol: String?
+    var dayOfTrades: Array<String> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
