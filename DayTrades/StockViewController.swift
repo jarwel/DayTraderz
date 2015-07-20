@@ -10,6 +10,7 @@ import Foundation
 
 class StockViewController: UIViewController {
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
     @IBOutlet weak var priceChart: PriceChart!
@@ -22,6 +23,10 @@ class StockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let backgroundImage: UIImage = UIImage(named: "background-2.jpg") {
+            view.backgroundColor = UIColor(patternImage: backgroundImage)
+        }
+        topView.backgroundColor = UIColor.translucentColor()
         nameLabel.text = nil
         picksLabel.text = nil
     }
@@ -79,6 +84,10 @@ class StockViewController: UIViewController {
     
     func endDateOfTrade() -> String {
         return MarketHelper.previousDayOfTradeFromDate(NSDate())
+    }
+    
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
+        
     }
     
 }
