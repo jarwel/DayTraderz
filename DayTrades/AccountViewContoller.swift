@@ -128,11 +128,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func refreshView() {
-        if account != nil {
-            nameLabel.text = account?.user.username
-            valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account!.value))
+        if let account: Account = self.account {
+            nameLabel.text = account.user.username
+            valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
         
-            let count: UInt = account!.winners + account!.losers;
+            let count: UInt = account.winners + account.losers;
             if count == 0 {
                 picksLabel.text = "No Picks"
             }
@@ -143,10 +143,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 else {
                     picksLabel.text = "\(count) Picks"
                 }
-                winnersBarView.value = account!.winners
+                winnersBarView.value = account.winners
                 winnersBarView.total = count
                 winnersBarView.animate(1)
-                losersBarView.value = account!.losers
+                losersBarView.value = account.losers
                 losersBarView.total = count
                 losersBarView.animate(1)
             }
@@ -155,8 +155,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func refreshNextPickView() {
-        if nextPick != nil {
-            nextPickLabel?.text = "Next Pick: \(nextPick!.symbol)"
+        if let nextPick: Pick = self.nextPick {
+            nextPickLabel?.text = "Next Pick: \(nextPick.symbol)"
             nextPickButton?.setTitle("Remove", forState: UIControlState.Normal)
         }
         else {
@@ -169,12 +169,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fetchAccount() {
         if account != nil {
             ParseClient.refreshAccount(account!, block: { (object: PFObject?, error: NSError?) -> Void in
-                if error == nil && object != nil {
-                    self.account = object as! Account?
+                if let object: PFObject = object {
+                    self.account = object as? Account
                     self.fetchPicks()
                 }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
                 }
             })
         }
@@ -184,15 +184,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if currentPick != nil {
             let symbols: Set<String> = ["\(currentPick!.symbol)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                if error == nil {
+                if let data: NSData = data {
                     let quotes: Array<Quote> = Quote.fromData(data)
                     if quotes.count == 1 {
                         self.quote = quotes.first
                         self.tableView.reloadData()
                     }
                 }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
                 }
             })
         }
@@ -201,15 +201,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fetchPicks() {
         if account != nil {
             ParseClient.fetchPicksForAccount(account!, limit: 10, skip: 0, block: { (objects: [AnyObject]?,error:  NSError?) -> Void in
-                if error == nil && objects != nil {
+                if let objects: [AnyObject] = objects {
                     if let picks: Array<Pick> = objects as? Array<Pick> {
                         self.sortPicks(picks)
                         self.fetchQuote()
                         self.enableInfiniteScroll()
                     }
                 }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
                 }
             })
         }
@@ -365,7 +365,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func enableInfiniteScroll() {
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
-            if self.account != nil {
+            if let account: Account = self.account {
                 var skip: Int = self.picks.count
                 if let nextPick: Pick = self.nextPick {
                     skip++
@@ -373,15 +373,13 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let currentPick: Pick = self.currentPick {
                     skip++
                 }
-                ParseClient.fetchPicksForAccount(self.account!, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
-                    if error == nil {
-                        if objects != nil && objects!.count > 0 {
-                            self.picks += objects as! Array<Pick>
-                            self.tableView.reloadData()
-                        }
+                ParseClient.fetchPicksForAccount(account, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+                    if let objects: [AnyObject] = objects {
+                        self.picks += objects as! Array<Pick>
+                        self.tableView.reloadData()
                     }
-                    else {
-                        println("Error \(error) \(error!.userInfo)")
+                    if let error: NSError = error {
+                        println("Error \(error) \(error.userInfo)")
                     }
                     self.tableView.infiniteScrollingView.stopAnimating()
                 })
