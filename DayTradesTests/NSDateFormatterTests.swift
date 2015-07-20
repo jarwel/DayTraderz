@@ -33,7 +33,7 @@ class NSDateFormatterTests: XCTestCase {
     }
     
     func testChartTextFromDayOfTrade() {
-        let text: String? = dateFormatter!.pickTextFromDayOfTrade("2015-07-09")
+        let text: String? = dateFormatter!.chartTextFromDayOfTrade("2015-07-09")
         XCTAssertEqual(text!, "Jul09");
     }
     

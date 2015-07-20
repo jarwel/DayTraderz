@@ -81,26 +81,26 @@ class MarketHelperTests: XCTestCase {
     
     func testNextDayOfTrade() {
         let date: NSDate? = utcFormatter!.dateFromString("2015-07-09T04:29:00")
-        let dayOfTrade: String? = MarketHelper.nextDayOfTradeFromDate(date!)
-        XCTAssertEqual("2015-07-09", dayOfTrade!)
+        let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
+        XCTAssertEqual("2015-07-09", dayOfTrade)
     }
     
     func testNextDayOfTradeTwo() {
         let date: NSDate? = utcFormatter!.dateFromString("2015-07-12T06:15:28")
-        let dayOfTrade: String? = MarketHelper.nextDayOfTradeFromDate(date!)
-        XCTAssertEqual("2015-07-13", dayOfTrade!)
+        let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
+        XCTAssertEqual("2015-07-13", dayOfTrade)
     }
     
     func testNextDayOfTradeBeforeOpen() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-09T08:59:59")
-        let dayOfTrade: String? = MarketHelper.nextDayOfTradeFromDate(date!)
-        XCTAssertEqual("2015-07-09", dayOfTrade!)
+        let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
+        XCTAssertEqual("2015-07-09", dayOfTrade)
     }
     
     func testNextDayOfTradeAfterOpen() {
         let date: NSDate? = easternFormatter!.dateFromString("2015-07-09T09:00:00")
-        let dayOfTrade: String? = MarketHelper.nextDayOfTradeFromDate(date!)
-        XCTAssertEqual("2015-07-10", dayOfTrade!)
+        let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
+        XCTAssertEqual("2015-07-10", dayOfTrade)
     }
     
 }
