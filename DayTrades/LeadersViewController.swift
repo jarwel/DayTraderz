@@ -14,7 +14,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let headerHeight: CGFloat = 22
-    let cellHeight: CGFloat = 44
+    let cellHeight: CGFloat = 45
     let cellIdentifier: String = "AccountCell"
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
@@ -55,7 +55,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fetchAccounts() {
         let column: String = columnSelected()
         let skip: Int = accounts.count
-        ParseClient.fetchAccountsSortedByColumn(column, limit: 20, skip: skip) { (objects: [AnyObject]?, error: NSError?) -> Void in
+        ParseClient.fetchAccountsSortedByColumn(column, limit: 15, skip: skip) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 if objects != nil && column == self.columnSelected() {
                     self.accounts += objects as! Array<Account>
@@ -93,6 +93,16 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if indexPath.section == 0 && indexPath.row < accounts.count {
             let account: Account = accounts[indexPath.row]
+            switch indexPath.row {
+            case 0:
+                cell.placeImageView.image = UIImage(named: "first-place.png")?.tintedWithGoldColor()
+            case 1:
+                cell.placeImageView.image = UIImage(named: "second-place.png")?.tintedWithSilverColor()
+            case 2:
+                cell.placeImageView.image = UIImage(named: "third-place.png")?.tintedWithBronzeColor()
+            default:
+                cell.placeImageView.image = nil
+            }
             cell.nameLabel.text = account.user.username
             cell.valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
             cell.picksBarView.total = account.winners + account.losers

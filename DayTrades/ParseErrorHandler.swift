@@ -16,10 +16,10 @@ class ParseErrorHandler {
         }
         
         switch(error!.code) {
-            case PFErrorCode.ErrorInvalidSessionToken.rawValue:
-                handleInvalidSessionTokenError()
-            default:
-                println("missing error handler for error code \(error!.code)")
+        case PFErrorCode.ErrorInvalidSessionToken.rawValue:
+            handleInvalidSessionTokenError()
+        default:
+            println("missing error handler for error code \(error!.code)")
         }
     }
     

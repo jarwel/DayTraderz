@@ -10,10 +10,11 @@ import Foundation
 
 class AccountCell: UITableViewCell {
     
+    @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var picksBarView: DoubleBarView!
-    
+
     override func awakeFromNib() {
         backgroundColor = UIColor.translucentColor()
         let view: UIView = UIView()
@@ -22,6 +23,7 @@ class AccountCell: UITableViewCell {
     }
     
     func resetView() {
+        placeImageView.image = nil
         nameLabel.text = nil
         valueLabel.text = nil
         picksBarView.resetView()
