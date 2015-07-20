@@ -95,11 +95,11 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let account: Account = accounts[indexPath.row]
             switch indexPath.row {
             case 0:
-                cell.placeImageView.image = UIImage(named: "first-place.png")?.tintedWithGoldColor()
+                cell.placeImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
             case 1:
-                cell.placeImageView.image = UIImage(named: "second-place.png")?.tintedWithSilverColor()
+                cell.placeImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
             case 2:
-                cell.placeImageView.image = UIImage(named: "third-place.png")?.tintedWithBronzeColor()
+                cell.placeImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
             default:
                 cell.placeImageView.image = nil
             }
