@@ -24,6 +24,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var disclaimerLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
+    let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
@@ -69,7 +70,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if !searchText .hasPrefix("^") {
+        if !searchText .hasPrefix("^") && !disabledSymbols.containsObject(searchText.uppercaseString){
             let symbols: Set<String> = ["\(searchText.uppercaseString)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 self.quote = nil

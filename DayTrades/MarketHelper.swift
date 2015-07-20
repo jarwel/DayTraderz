@@ -10,6 +10,8 @@ import Foundation
 
 class MarketHelper {
     
+    static let marketHolidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
+    
     class func isMarketOpen() -> Bool {
         let date: NSDate = NSDate()
         return isMarketOpenOnDate(date)
@@ -80,9 +82,8 @@ class MarketHelper {
         if weekday < 2 || weekday > 6 {
             return false
         }
-        let holidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
         let string: String = easternDateFormatter().stringFromDate(date)
-        return !holidays.containsObject(string)
+        return !marketHolidays.containsObject(string)
     }
     
     static func easternDateFormatter() -> NSDateFormatter {
