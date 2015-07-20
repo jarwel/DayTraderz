@@ -34,6 +34,26 @@ extension UIImage {
             UIColor.whiteColor()])
     }
     
+    func tintedWithBlueColor() -> UIImage {
+        return tintedWithLinearGradientColors([
+            UIColor.blueColor(),
+            UIColor.blueColor()])
+    }
+    
+    func tintedWithRedColor() -> UIImage {
+        return tintedWithLinearGradientColors([
+            UIColor.redColor(),
+            UIColor.redColor()])
+    }
+    
+    func tintedWithWhiteColor() -> UIImage {
+        return tintedWithLinearGradientColors([
+            UIColor.lightGrayColor(),
+            UIColor.whiteColor(),
+            UIColor.whiteColor(),
+            UIColor.whiteColor()])
+    }
+    
     func tintedWithLinearGradientColors(colors: Array<UIColor>) -> UIImage {
         let scale: CGFloat = self.scale
         UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scale, self.size.height * scale))

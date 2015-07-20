@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F07BE451B594C1400BB99CD /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
+		2F2FE9E71B5DA9EF00D4BC79 /* ribbon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2FE9E41B5DA9EF00D4BC79 /* ribbon-2.png */; };
+		2F2FE9E81B5DA9EF00D4BC79 /* ribbon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2FE9E51B5DA9EF00D4BC79 /* ribbon-1.png */; };
 		2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */; };
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
@@ -30,6 +32,7 @@
 		2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* PriceChart.swift */; };
 		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
+		2FE66F661B5DB04100B7B378 /* ribbon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F651B5DB04100B7B378 /* ribbon-3.png */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
@@ -101,6 +104,8 @@
 /* Begin PBXFileReference section */
 		288957F0CE5B4976A0116D29 /* Pods-DayTradesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F07BE441B594C1400BB99CD /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		2F2FE9E41B5DA9EF00D4BC79 /* ribbon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon-2.png"; sourceTree = "<group>"; };
+		2F2FE9E51B5DA9EF00D4BC79 /* ribbon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon-1.png"; sourceTree = "<group>"; };
 		2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		2FCB935C1B584925000A9B1F /* PriceChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChart.swift; sourceTree = "<group>"; };
 		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
+		2FE66F651B5DB04100B7B378 /* ribbon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon-3.png"; sourceTree = "<group>"; };
 		6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTradesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -390,6 +396,9 @@
 		CAD061FA1AA136DC0000C613 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2F2FE9E51B5DA9EF00D4BC79 /* ribbon-1.png */,
+				2F2FE9E41B5DA9EF00D4BC79 /* ribbon-2.png */,
+				2FE66F651B5DB04100B7B378 /* ribbon-3.png */,
 				2FBB51F51B5D768500077723 /* trophy-1.png */,
 				2FBB51F71B5D768F00077723 /* trophy-2.png */,
 				2FBB51F91B5D769600077723 /* trophy-3.png */,
@@ -512,10 +521,13 @@
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA9908201AA2C45500804200 /* close.png in Resources */,
 				CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */,
+				2FE66F661B5DB04100B7B378 /* ribbon-3.png in Resources */,
+				2F2FE9E81B5DA9EF00D4BC79 /* ribbon-1.png in Resources */,
 				CA492B831A606CDB00ED13B3 /* Images.xcassets in Resources */,
 				CA98EF791AA55BD20058A3EF /* background-5.jpg in Resources */,
 				CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */,
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
+				2F2FE9E71B5DA9EF00D4BC79 /* ribbon-2.png in Resources */,
 				CA9908131AA28A2100804200 /* leaders.png in Resources */,
 				2FBB51FA1B5D769600077723 /* trophy-3.png in Resources */,
 			);

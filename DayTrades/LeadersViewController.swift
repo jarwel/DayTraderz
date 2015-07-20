@@ -95,11 +95,26 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let account: Account = accounts[indexPath.row]
             switch indexPath.row {
             case 0:
-                cell.placeImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
+                if segmentedControl.selectedSegmentIndex == 1 {
+                    cell.placeImageView.image = UIImage(named: "ribbon-1.png")?.tintedWithBlueColor()
+                }
+                else {
+                    cell.placeImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
+                }
             case 1:
-                cell.placeImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
+                if segmentedControl.selectedSegmentIndex == 1 {
+                    cell.placeImageView.image = UIImage(named: "ribbon-2.png")?.tintedWithRedColor()
+                }
+                else {
+                    cell.placeImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
+                }
             case 2:
-                cell.placeImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
+                if segmentedControl.selectedSegmentIndex == 1 {
+                    cell.placeImageView.image = UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor()
+                }
+                else {
+                    cell.placeImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
+                }
             default:
                 cell.placeImageView.image = nil
             }
