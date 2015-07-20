@@ -52,9 +52,9 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     
     func refreshView() {
         let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
-        let dateFormat: String? = dateFormatter.fullFromDayOfTrade(dayOfTrade)
+        let text: String? = dateFormatter.fullTextFromDayOfTrade(dayOfTrade)
         if quote != nil {
-            disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(dateFormat!)."
+            disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(text!)."
             symbolLabel.text = quote?.symbol
             nameLabel.text = quote?.name
             priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote!.price))
@@ -63,7 +63,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
         }
         else {
             detailsLabel.text = "Choose a security to buy on"
-            dayOfTradeLabel.text = dateFormat!
+            dayOfTradeLabel.text = text!
             securityView.hidden = true
             detailsView.hidden = false
         }

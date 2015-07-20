@@ -21,15 +21,20 @@ class NSDateFormatterTests: XCTestCase {
         dateFormatter = nil
         super.tearDown()
     }
+    
+    func testFullTextFromDayOfTrade() {
+        let text: String? = dateFormatter!.fullTextFromDayOfTrade("2015-07-09")
+        XCTAssertEqual(text!, "Thursday, July 9, 2015");
+    }
 
-    func testShortFromDayOfTrade() {
-        let string: String? = dateFormatter!.shortFromDayOfTrade("2015-07-09")
-        XCTAssertEqual(string!, "Thu, Jul 9");
+    func testShortTextFromDayOfTrade() {
+        let text: String? = dateFormatter!.pickTextFromDayOfTrade("2015-07-09")
+        XCTAssertEqual(text!, "Thu, Jul 9");
     }
     
-    func testFullFromDayOfTrade() {
-        let string: String? = dateFormatter!.fullFromDayOfTrade("2015-07-09")
-        XCTAssertEqual(string!, "Thursday, July 9, 2015");
+    func testChartTextFromDayOfTrade() {
+        let text: String? = dateFormatter!.pickTextFromDayOfTrade("2015-07-09")
+        XCTAssertEqual(text!, "Jul09");
     }
     
 }

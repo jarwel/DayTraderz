@@ -10,7 +10,19 @@ import Foundation
 
 extension NSDateFormatter {
   
-    func shortFromDayOfTrade(dayOfTrade: String?) -> String? {
+    func fullTextFromDayOfTrade(dayOfTrade: String?) -> String? {
+        if dayOfTrade != nil {
+            self.dateFormat = "yyyy-MM-dd"
+            self.timeZone = NSTimeZone(name: "UTC")
+            if let date = self.dateFromString(dayOfTrade!) {
+                self.dateFormat = "EEEE, MMMM d, yyyy"
+                return self.stringFromDate(date)
+            }
+        }
+        return nil
+    }
+    
+    func pickTextFromDayOfTrade(dayOfTrade: String?) -> String? {
         if dayOfTrade != nil {
             self.dateFormat = "yyyy-MM-dd"
             self.timeZone = NSTimeZone(name: "UTC")
@@ -22,12 +34,12 @@ extension NSDateFormatter {
         return nil
     }
     
-    func fullFromDayOfTrade(dayOfTrade: String?) -> String? {
+    func chartTextFromDayOfTrade(dayOfTrade: String?) -> String? {
         if dayOfTrade != nil {
             self.dateFormat = "yyyy-MM-dd"
             self.timeZone = NSTimeZone(name: "UTC")
             if let date = self.dateFromString(dayOfTrade!) {
-                self.dateFormat = "EEEE, MMMM d, yyyy"
+                self.dateFormat = "MMMdd"
                 return self.stringFromDate(date)
             }
         }

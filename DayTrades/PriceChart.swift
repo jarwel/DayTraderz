@@ -10,15 +10,13 @@ import Foundation
 
 class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
     
-    let axisOffset:Int = 6
+    let dateFormatter: NSDateFormatter = NSDateFormatter()
     
     var plot: CPTTradingRangePlot?
     var plotSpace: CPTXYPlotSpace?
-    var xAxis: CPTXYAxis?
-    var yAxis: CPTXYAxis?
+    var axisSet: CPTXYAxisSet?
     
     var quotes: Array<DayQuote> = Array()
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,9 +27,8 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         hostedGraph.paddingTop = 0
         hostedGraph.paddingRight = 0
         hostedGraph.paddingBottom = 30
-        hostedGraph.masksToBorder = false
-        
         hostedGraph.plotAreaFrame.masksToBorder = false
+        hostedGraph.plotAreaFrame.paddingBottom = 5
         
         let plot: CPTTradingRangePlot = CPTTradingRangePlot(frame: frame)
         plot.dataSource = self
@@ -41,23 +38,18 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
         hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
         
         plotSpace = hostedGraph.defaultPlotSpace as? CPTXYPlotSpace
+        axisSet = hostedGraph.axisSet as? CPTXYAxisSet
         
-        let axisSet: CPTXYAxisSet = hostedGraph.axisSet as! CPTXYAxisSet
-        xAxis = axisSet.xAxis
-        yAxis?.delegate = self
-        yAxis = axisSet.yAxis
-    }
-    
-    func reloadDataForSymbol(symbol: String, start: String, end: String) {
-        FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
-            if error == nil {
-                let quotes: Array<DayQuote> = DayQuote.fromData(data).reverse()
-                self.reloadDataForQuotes(quotes)
-            }
-            else {
-                println("Error \(error) \(error!.userInfo)")
-            }
-        }
+        let gridLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
+        gridLineStyle.dashPattern = [2, 2]
+        gridLineStyle.lineColor = CPTColor.lightGrayColor()
+ 
+        axisSet?.xAxis.labelingPolicy = CPTAxisLabelingPolicy.None
+        axisSet?.xAxis.majorGridLineStyle = gridLineStyle
+        
+        axisSet?.yAxis.labelingPolicy = CPTAxisLabelingPolicy.Automatic
+        axisSet?.yAxis.majorGridLineStyle = gridLineStyle
+        axisSet?.yAxis.preferredNumberOfMajorTicks = 5
     }
     
     func reloadDataForQuotes(quotes: Array<DayQuote> ) {
@@ -66,56 +58,35 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource {
             
             var minRange: Double = DBL_MAX
             var maxRange: Double = DBL_MIN
-            for quote: DayQuote in quotes {
-                let date:String = quote.date!
-                
+            var majorTickLocations: Set<Int> = Set()
+            var axisLabels: Set<CPTAxisLabel> = Set()
+            
+            for index: Int in 1...quotes.count {
+                let quote: DayQuote = quotes[index - 1]
                 minRange = min(minRange, quote.open, quote.close, quote.high, quote.low)
                 maxRange = max(maxRange, quote.open, quote.close, quote.high, quote.low)
+                if index == 5 || (index - 5) % 10 == 0 {
+                    let text: String? = dateFormatter.chartTextFromDayOfTrade(quote.date)
+                    let axisLabel: CPTAxisLabel = CPTAxisLabel(text: text, textStyle: CPTTextStyle())
+                    axisLabel.tickLocation = NSNumber(integer: index).decimalValue
+                    axisLabels.insert(axisLabel)
+                    majorTickLocations.insert(index)
+                }
             }
-            
-            xAxis?.orthogonalCoordinateDecimal = NSNumber(double: minRange).decimalValue
-            yAxis?.orthogonalCoordinateDecimal = NSNumber(integer: quotes.count + axisOffset).decimalValue
-            yAxis?.preferredNumberOfMajorTicks = 5
-            
-            let gridLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
-            gridLineStyle.dashPattern = [2, 2]
-            gridLineStyle.lineColor = CPTColor.lightGrayColor()
-            yAxis?.majorGridLineStyle = gridLineStyle
             
             minRange = minRange * 0.995
             maxRange = maxRange * 1.005
-            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count + axisOffset))
+            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count + 6))
             plotSpace?.yRange = CPTPlotRange(location: CPTDecimalFromDouble(minRange), length: CPTDecimalFromDouble(maxRange - minRange))
-            configureAxis()
+            
+            axisSet?.xAxis.orthogonalCoordinateDecimal = NSNumber(double: minRange).decimalValue
+            axisSet?.xAxis.majorTickLocations = majorTickLocations
+            axisSet?.xAxis.axisLabels = axisLabels
+            
+            axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: quotes.count + 6).decimalValue
+            
             hostedGraph.reloadData()
         }
-    }
-    
-    func configureAxis() {
-        xAxis?.labelingPolicy = CPTAxisLabelingPolicy.None
-        yAxis?.labelingPolicy = CPTAxisLabelingPolicy.Automatic
-        
-        let textStyle: CPTMutableTextStyle = CPTMutableTextStyle()
-        textStyle.color = CPTColor.blueColor()
-        
-        var tickLocations: Set<Int> = Set()
-        var axisLabels: Set<CPTAxisLabel> = Set()
-        
-        for index: Int in 0...quotes.count - 1 {
-            let quote: DayQuote = quotes[index]
-            let date: String = quote.date!
-            if date.rangeOfString("-15-") != nil {
-                let axisLabel: CPTAxisLabel = CPTAxisLabel(text: date, textStyle: CPTTextStyle())
-                axisLabel.tickLocation = NSNumber(integer: index).decimalValue
-                axisLabels.insert(axisLabel)
-                tickLocations.insert(index)
-            }
-            
-        }
-        
-        xAxis?.majorTickLocations = tickLocations
-        xAxis?.axisLabels = axisLabels
-        
     }
     
     func numberOfRecordsForPlot(plot: CPTPlot!) -> UInt {

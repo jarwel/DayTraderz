@@ -27,8 +27,6 @@ class SecurityViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let start: String = startDayOfTrade()
-        let end: String = endDateOfTrade()
         if symbol != nil {
             ParseClient.fetchSecurityForSymbol(symbol!, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let security: Security = object as? Security {
@@ -39,12 +37,23 @@ class SecurityViewController: UIViewController {
                         self.nameLabel.text = security.symbol
                     }
                     self.picksLabel.text = "Picked \(security.picks) times"
-                    self.priceChart.reloadDataForSymbol(security.symbol, start: start, end: end);
                 }
                 else {
                     self.nameLabel.text = self.symbol
                 }
             });
+            
+            let start: String = startDayOfTrade()
+            let end: String = endDateOfTrade()
+            FinanceClient.fetchDayQuotesForSymbol(symbol!, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
+                if error == nil {
+                    let quotes: Array<DayQuote> = DayQuote.fromData(data).reverse()
+                    self.priceChart.reloadDataForQuotes(quotes)
+                }
+                else {
+                    println("Error \(error) \(error!.userInfo)")
+                }
+            }
         }
     }
     

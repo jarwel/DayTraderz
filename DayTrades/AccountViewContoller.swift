@@ -266,7 +266,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if indexPath.section == 0 {
             if currentPick != nil {
-                cell.dateLabel.text = dateFormatter.shortFromDayOfTrade(currentPick!.dayOfTrade)
+                cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(currentPick!.dayOfTrade)
                 cell.symbolLabel.text = currentPick!.symbol
                 if account != nil && quote != nil && quote!.open > 0 {
                     let priceChange: Double = quote!.price - quote!.open
@@ -292,7 +292,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else if indexPath.section == 1 && indexPath.row < picks.count {
             let pick: Pick = picks[indexPath.row]
-            cell.dateLabel.text = dateFormatter.shortFromDayOfTrade(pick.dayOfTrade)
+            cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(pick.dayOfTrade)
             cell.symbolLabel.text = pick.symbol
             cell.openLabel.text = numberFormatter.priceFromNumber(pick.open)
             cell.closeLabel.text = numberFormatter.priceFromNumber(pick.close)
