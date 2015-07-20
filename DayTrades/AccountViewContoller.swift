@@ -56,7 +56,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
         
-        fetchAccount()
+        if let account: Account = self.account {
+            fetchPicks()
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
@@ -68,7 +70,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        refreshView()
+        tableView.reloadData()
         quoteTimer?.invalidate()
         quoteTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("fetchQuote"), userInfo: nil, repeats: true)
     }
@@ -201,7 +203,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             ParseClient.fetchPicksForAccount(account!, limit: 10, skip: 0, block: { (objects: [AnyObject]?,error:  NSError?) -> Void in
                 if error == nil && objects != nil {
                     if let picks: Array<Pick> = objects as? Array<Pick> {
-                        self.refreshPicks(picks)
+                        self.sortPicks(picks)
                         self.fetchQuote()
                         self.enableInfiniteScroll()
                     }
@@ -213,7 +215,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func refreshPicks(picks: Array<Pick>) {
+    func sortPicks(picks: Array<Pick>) {
         let previousDayOfTrade: String = MarketHelper.previousDayOfTrade()
         let nextDayOfTrade: String = MarketHelper.nextDayOfTrade()
         

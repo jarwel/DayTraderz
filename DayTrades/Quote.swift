@@ -24,54 +24,54 @@ class Quote {
     }
     
     func parseSymbol() -> String? {
-        if let symbol: AnyObject = json["symbol"] {
-            if !(symbol is NSNull) {
-                return symbol as? String
+        if let value: AnyObject = json["symbol"] {
+            if !(value is NSNull) {
+                return value as? String
             }
         }
         return nil
     }
     
     func parseName() -> String? {
-        if let name: AnyObject = json["symbol"] {
-            if !(name is NSNull) {
-                return name as? String
+        if let value: AnyObject = json["Name"] {
+            if !(value is NSNull) {
+                return value as? String
             }
         }
         return nil
     }
     
     func parseOpen() -> Double {
-        if let open: AnyObject = json["Open"] {
-            if !(open is NSNull) {
-                return (open as! NSString).doubleValue
+        if let value: AnyObject = json["Open"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
     }
     
     func parsePrice() -> Double {
-        if let price: AnyObject = json["LastTradePriceOnly"] {
-            if !(price is NSNull) {
-                return (price as! NSString).doubleValue
+        if let value: AnyObject = json["LastTradePriceOnly"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
     }
     
     func parsePriceChange() -> Double {
-        if let priceChange: AnyObject = json["Change"] {
-            if !(priceChange is NSNull) {
-                return (priceChange as! NSString).doubleValue
+        if let value: AnyObject = json["Change"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
     }
     
     func parsePercentChange() -> Double {
-        if let percentChange: AnyObject = json["ChangeinPercent"] {
-            if !(percentChange is NSNull) {
-                return (percentChange as! NSString).doubleValue
+        if let value: AnyObject = json["ChangeinPercent"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0

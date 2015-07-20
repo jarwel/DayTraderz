@@ -24,45 +24,45 @@ class DayQuote {
     }
     
     func parseSymbol() -> String? {
-        if let symbol: AnyObject = json["Symbol"] {
-            if !(symbol is NSNull) {
-                return symbol as? String
+        if let value: AnyObject = json["Symbol"] {
+            if !(value is NSNull) {
+                return value as? String
             }
         }
         return nil
     }
 
     func parseDate() -> String? {
-        if let date: AnyObject = json["Date"] {
-            if !(date is NSNull) {
-                return date as? String
+        if let value: AnyObject = json["Date"] {
+            if !(value is NSNull) {
+                return value as? String
             }
         }
         return nil
     }
     
     func parseOpen() -> Double {
-        if let open: AnyObject = json["Open"] {
-            if !(open is NSNull) {
-                return (open as! NSString).doubleValue
+        if let value: AnyObject = json["Open"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
     }
     
     func parseClose() -> Double {
-        if let open: AnyObject = json["Close"] {
-            if !(open is NSNull) {
-                return (open as! NSString).doubleValue
+        if let value: AnyObject = json["Close"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
     }
     
     func parseHigh() -> Double {
-        if let high: AnyObject = json["High"] {
-            if !(high is NSNull) {
-                return (high as! NSString).doubleValue
+        if let value: AnyObject = json["High"] {
+            if !(value is NSNull) {
+                return (value as! NSString).doubleValue
             }
         }
         return 0
