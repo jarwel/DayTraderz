@@ -267,9 +267,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.resetView()
         
         if indexPath.section == 0 {
-            if currentPick != nil {
-                cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(currentPick!.dayOfTrade)
-                cell.symbolLabel.text = currentPick!.symbol
+            if let currentPick: Pick = self.currentPick {
+                cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(currentPick.dayOfTrade)
+                cell.symbolLabel.text = currentPick.symbol
                 if account != nil && quote != nil && quote!.open > 0 {
                     let priceChange: Double = quote!.price - quote!.open
                     let percentChange: Double = priceChange / quote!.open * 100
@@ -334,17 +334,22 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section > 1 {
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        if indexPath.section == 0 {
+            if let currentPick: Pick = self.currentPick {
+               cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            }
         }
-        else {
+        if indexPath.section == 1 {
             cell.selectionStyle = UITableViewCellSelectionStyle.Default
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0 && currentPick != nil {
-            performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
+        if let currentPick: Pick = self.currentPick {
+            if indexPath.section == 0 {
+                performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
+            }
         }
         if indexPath.section == 1 && indexPath.row < picks.count {
             performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
@@ -362,8 +367,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
             if self.account != nil {
                 var skip: Int = self.picks.count
-                if self.nextPick != nil { skip++ }
-                if self.currentPick != nil { skip++ }
+                if let nextPick: Pick = self.nextPick {
+                    skip++
+                }
+                if let currentPick: Pick = self.currentPick {
+                    skip++
+                }
                 ParseClient.fetchPicksForAccount(self.account!, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
                     if error == nil {
                         if objects != nil && objects!.count > 0 {
