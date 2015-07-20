@@ -1,5 +1,5 @@
 //
-//  SecurityViewController.swift
+//  StockViewController.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/16/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SecurityViewController: UIViewController {
+class StockViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
@@ -17,7 +17,7 @@ class SecurityViewController: UIViewController {
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
     var symbol: String?
-    var security: Security?
+    var stock: Stock?
     var dayOfTrades: Array<String> = Array()
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class SecurityViewController: UIViewController {
         if let symbol: String = self.symbol {
             ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if error == nil {
-                    self.security = object as? Security
+                    self.stock = object as? Stock
                     self.refreshView()
                 }
                 else {
@@ -53,18 +53,18 @@ class SecurityViewController: UIViewController {
     }
     
     func refreshView() {
-        if let security:Security = self.security{
-            if let name: String = security.name {
-                self.nameLabel.text = "\(security.name!) (\(security.symbol))"
+        if let stock: Stock = self.stock {
+            if let name: String = stock.name {
+                self.nameLabel.text = "\(stock.name!) (\(stock.symbol))"
             }
             else {
-                self.nameLabel.text = security.symbol
+                self.nameLabel.text = stock.symbol
             }
-            if (security.picks == 1) {
+            if (stock.picks == 1) {
                 self.picksLabel.text = "Picked 1 time"
             }
             else {
-                 self.picksLabel.text = "Picked \(security.picks) times"
+                 self.picksLabel.text = "Picked \(stock.picks) times"
             }
         }
         else {

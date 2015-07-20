@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F07BE451B594C1400BB99CD /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Security.swift */; };
+		2F07BE451B594C1400BB99CD /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
 		2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */; };
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
 		2F3B03861B5601E100EB9B93 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
+		2F4D4AC61B5C9B16006D36F2 /* PickViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */; };
+		2F4D4AC71B5C9B62006D36F2 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
+		2F4D4AC81B5C9D07006D36F2 /* Pick.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC121B52CA9100BDD762 /* Pick.swift */; };
+		2F4D4AC91B5C9DAC006D36F2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC0B1B52C1FC00BDD762 /* Account.swift */; };
+		2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136ED1B4F098A00B869A4 /* Quote.swift */; };
+		2F4D4ACB1B5C9DC0006D36F2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC161B52D57300BDD762 /* ParseClient.swift */; };
+		2F4D4ACC1B5C9DC3006D36F2 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
+		2F4D4ACD1B5C9DCF006D36F2 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */; };
+		2F4D4ACE1B5C9DEC006D36F2 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
+		2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
+		2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
 		2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* PriceChart.swift */; };
-		2FCB935F1B5849B9000A9B1F /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */; };
+		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
@@ -70,6 +81,7 @@
 		CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE281311B5084C2003790CC /* MarketHelperTests.swift */; };
 		CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584401AA3E4FA002422DD /* background-1.jpg */; };
 		CAF584471AA3EB47002422DD /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584461AA3EB47002422DD /* background-3.jpg */; };
+		D3E6E8165B2F75DAF011AF0F /* libPods-DayTradesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,15 +95,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F07BE441B594C1400BB99CD /* Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		288957F0CE5B4976A0116D29 /* Pods-DayTradesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F07BE441B594C1400BB99CD /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewControllerTests.swift; sourceTree = "<group>"; };
 		2FCB935C1B584925000A9B1F /* PriceChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChart.swift; sourceTree = "<group>"; };
-		2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
+		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
+		6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTradesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
+		9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewContoller.swift; sourceTree = "<group>"; };
@@ -182,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E6E8165B2F75DAF011AF0F /* libPods-DayTradesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +218,8 @@
 			children = (
 				7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */,
 				F11C4197EF82A525DD1494EB /* Pods-DayTrades.release.xcconfig */,
+				9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */,
+				288957F0CE5B4976A0116D29 /* Pods-DayTradesTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -259,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */,
+				2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */,
 				CAE281311B5084C2003790CC /* MarketHelperTests.swift */,
 				AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */,
 				AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */,
@@ -281,7 +301,7 @@
 			children = (
 				AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */,
 				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
-				2FCB935E1B5849B9000A9B1F /* SecurityViewController.swift */,
+				2FCB935E1B5849B9000A9B1F /* StockViewController.swift */,
 				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
 				2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */,
 				2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */,
@@ -307,7 +327,7 @@
 			children = (
 				AABEDC0B1B52C1FC00BDD762 /* Account.swift */,
 				AABEDC121B52CA9100BDD762 /* Pick.swift */,
-				2F07BE441B594C1400BB99CD /* Security.swift */,
+				2F07BE441B594C1400BB99CD /* Stock.swift */,
 				CA8136ED1B4F098A00B869A4 /* Quote.swift */,
 				AABEDC141B52D0C400BDD762 /* DayQuote.swift */,
 			);
@@ -344,6 +364,7 @@
 				CA492C0C1A61DB3C00ED13B3 /* ParseUI.framework */,
 				CA492BEB1A61D30500ED13B3 /* Bolts.framework */,
 				BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */,
+				6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -410,9 +431,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA492B981A606CDB00ED13B3 /* Build configuration list for PBXNativeTarget "DayTradesTests" */;
 			buildPhases = (
+				2B0F35B6A49464327676EF28 /* Check Pods Manifest.lock */,
 				CA492B871A606CDB00ED13B3 /* Sources */,
 				CA492B881A606CDB00ED13B3 /* Frameworks */,
 				CA492B891A606CDB00ED13B3 /* Resources */,
+				B756C176DE67C9F4036305D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -493,6 +516,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2B0F35B6A49464327676EF28 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		68E1B7A0826C09FAECC5BB27 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +544,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B756C176DE67C9F4036305D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF73B9DA4F1FF493ACAB7805 /* Check Pods Manifest.lock */ = {
@@ -534,8 +587,8 @@
 				CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */,
 				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
-				2FCB935F1B5849B9000A9B1F /* SecurityViewController.swift in Sources */,
-				2F07BE451B594C1400BB99CD /* Security.swift in Sources */,
+				2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */,
+				2F07BE451B594C1400BB99CD /* Stock.swift in Sources */,
 				2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */,
 				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
@@ -565,11 +618,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */,
+				2F4D4ACC1B5C9DC3006D36F2 /* FinanceClient.swift in Sources */,
+				2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */,
 				CAE281301B50849B003790CC /* MarketHelper.swift in Sources */,
+				2F4D4ACB1B5C9DC0006D36F2 /* ParseClient.swift in Sources */,
+				2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */,
 				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */,
+				2F4D4ACD1B5C9DCF006D36F2 /* UIColor+App.swift in Sources */,
+				2F4D4AC71B5C9B62006D36F2 /* PickViewController.swift in Sources */,
+				2F4D4AC61B5C9B16006D36F2 /* PickViewControllerTests.swift in Sources */,
+				2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */,
+				2F4D4AC91B5C9DAC006D36F2 /* Account.swift in Sources */,
 				CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */,
 				AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */,
 				AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */,
+				2F4D4AC81B5C9D07006D36F2 /* Pick.swift in Sources */,
+				2F4D4ACE1B5C9DEC006D36F2 /* ParseErrorHandler.swift in Sources */,
 				AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */,
 				AABEDBFB1B51D96B00BDD762 /* NSDateFormatterTests.swift in Sources */,
 			);
@@ -728,6 +792,7 @@
 		};
 		CA492B991A606CDB00ED13B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -750,6 +815,7 @@
 		};
 		CA492B9A1A606CDB00ED13B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 288957F0CE5B4976A0116D29 /* Pods-DayTradesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

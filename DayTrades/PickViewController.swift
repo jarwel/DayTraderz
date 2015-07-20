@@ -70,7 +70,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if !searchText .hasPrefix("^") && !disabledSymbols.containsObject(searchText.uppercaseString){
+        if isValidSymbol(searchText) {
             let symbols: Set<String> = ["\(searchText.uppercaseString)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 self.quote = nil
@@ -92,6 +92,16 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
+    }
+    
+    func isValidSymbol(text: String) -> Bool {
+        if text.hasPrefix("^") {
+            return false
+        }
+        if (disabledSymbols.containsObject(text.uppercaseString)) {
+            return false
+        }
+        return true
     }
     
     @IBAction func onSubmitButtonPressed(sender: AnyObject) {

@@ -12,5 +12,7 @@ end
 
 target 'DayTradesTests' do
 
+pod 'Parse'
+
 end
 

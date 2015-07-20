@@ -93,7 +93,7 @@ class ParseClient {
     }
     
     class func fetchSecurityForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
-        let query: PFQuery? = Security.query()
+        let query: PFQuery? = Stock.query()
         query?.whereKey("symbol", equalTo: symbol)
         query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
     }

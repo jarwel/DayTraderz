@@ -104,12 +104,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 pickViewController.account = account;
             }
         }
-        if segue.identifier == "ShowSecuritySegue" {
+        if segue.identifier == "ShowStockSegue" {
             let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
             if indexPath.row < picks.count {
-                let securityViewController: SecurityViewController = segue.destinationViewController as! SecurityViewController
+                let stockViewController: StockViewController = segue.destinationViewController as! StockViewController
                 let pick: Pick = picks[indexPath.row]
-                securityViewController.symbol = pick.symbol
+                stockViewController.symbol = pick.symbol
             }
         }
     }
@@ -349,11 +349,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let currentPick: Pick = self.currentPick {
             if indexPath.section == 0 {
-                performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
+                performSegueWithIdentifier("ShowStockSegue", sender: nil)
             }
         }
         if indexPath.section == 1 && indexPath.row < picks.count {
-            performSegueWithIdentifier("ShowSecuritySegue", sender: nil)
+            performSegueWithIdentifier("ShowStockSegue", sender: nil)
         }
     }
     

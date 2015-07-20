@@ -143,7 +143,7 @@
                         <outlet property="tableView" destination="buT-kL-TyP" id="FNy-mY-dXJ"/>
                         <outlet property="valueLabel" destination="HQR-bm-eRQ" id="cvH-zx-dYf"/>
                         <outlet property="winnersBarView" destination="ZO4-HI-lgt" id="KnM-Ra-OZz"/>
-                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowSecuritySegue" id="iZB-ej-Mwb"/>
+                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowStockSegue" id="iZB-ej-Mwb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -590,7 +590,7 @@
                         <outlet property="tableView" destination="54w-JG-jYi" id="FVM-z9-bRD"/>
                         <outlet property="valueLabel" destination="O4r-v2-AK9" id="te3-Ov-kkG"/>
                         <outlet property="winnersBarView" destination="Dhd-mt-htp" id="uZz-tc-QbW"/>
-                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowSecuritySegue" id="ftp-CR-Fu5"/>
+                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowStockSegue" id="ftp-CR-Fu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYm-eA-bh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -603,6 +603,6 @@
         <image name="logout.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ftp-CR-Fu5"/>
+        <segue reference="iZB-ej-Mwb"/>
     </inferredMetricsTieBreakers>
 </document>
