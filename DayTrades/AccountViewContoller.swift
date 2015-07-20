@@ -55,6 +55,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
+        tableView.allowsSelection = false
         
         if let account: Account = self.account {
             fetchPicks()
@@ -334,14 +335,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.userInteractionEnabled = false
         if indexPath.section == 0 {
             if let currentPick: Pick = self.currentPick {
-               cell.selectionStyle = UITableViewCellSelectionStyle.Default
+                cell.userInteractionEnabled = true
             }
         }
         if indexPath.section == 1 {
-            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            cell.userInteractionEnabled = true
         }
     }
     

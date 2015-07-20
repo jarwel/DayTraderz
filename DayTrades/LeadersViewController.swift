@@ -131,10 +131,10 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > 0 {
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.userInteractionEnabled = false
         }
         else {
-            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            cell.userInteractionEnabled = true
         }
     }
     
