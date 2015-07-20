@@ -41,12 +41,12 @@ class SecurityViewController: UIViewController {
             let start: String = startDayOfTrade()
             let end: String = endDateOfTrade()
             FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
-                if error == nil {
+                if let data: NSData = data {
                     let quotes: Array<DayQuote> = DayQuote.fromData(data).reverse()
                     self.priceChart.reloadDataForQuotes(quotes)
                 }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
                 }
             }
         }
