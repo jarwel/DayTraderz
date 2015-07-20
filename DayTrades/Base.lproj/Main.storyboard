@@ -150,15 +150,15 @@
             </objects>
             <point key="canvasLocation" x="-10924" y="-7059"/>
         </scene>
-        <!--Security View Controller-->
+        <!--Stock View Controller-->
         <scene sceneID="uYj-S2-t01">
             <objects>
-                <viewController id="3d8-EV-PAL" customClass="SecurityViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3d8-EV-PAL" customClass="StockViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z95-zq-RNl"/>
                         <viewControllerLayoutGuide type="bottom" id="ryv-nD-nEm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ypy-35-k5G">
+                    <view key="view" contentMode="scaleToFill" id="ypy-35-k5G" customClass="Sto">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

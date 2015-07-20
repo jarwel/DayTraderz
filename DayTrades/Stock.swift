@@ -17,4 +17,5 @@ class Stock: PFObject, PFSubclassing {
     class func parseClassName() -> String {
         return "Stock"
     }
+    
 }

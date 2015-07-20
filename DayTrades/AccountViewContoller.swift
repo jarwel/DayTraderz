@@ -55,7 +55,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false
         
         if let account: Account = self.account {
             fetchPicks()
