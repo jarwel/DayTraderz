@@ -22,7 +22,7 @@
 	<string>1</string>
 	<key>Disabled symbols</key>
 	<array>
-		<string>GNRBF</string>
+		<string>GRNBF</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
