@@ -36,10 +36,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if navigationController != nil {
-            navigationController!.navigationBar.barStyle = UIBarStyle.Black
-            navigationController!.navigationBar.translucent = true
-            navigationController!.navigationBar.tintColor = UIColor .whiteColor()
+        if let navigationController = self.navigationController {
+            navigationController.navigationBar.barStyle = UIBarStyle.Black
+            navigationController.navigationBar.translucent = true
+            navigationController.navigationBar.tintColor = UIColor .whiteColor()
         }
         if let backgroundImage: UIImage = UIImage(named: "background-1.jpg") {
             view.backgroundColor = UIColor(patternImage: backgroundImage)

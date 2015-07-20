@@ -33,11 +33,6 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if navigationController != nil {
-            navigationController!.navigationBar.barStyle = UIBarStyle.Black
-            navigationController!.navigationBar.translucent = true
-            navigationController!.navigationBar.tintColor = UIColor .whiteColor()
-        }
         if let backgroundImage: UIImage = UIImage(named: "background-2.jpg") {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
@@ -51,13 +46,13 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     func refreshView() {
-        let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
+        let dayOfTrade: String = MarketHelper.nextDayOfTrade()
         let text: String? = dateFormatter.fullTextFromDayOfTrade(dayOfTrade)
-        if quote != nil {
+        if let quote: Quote = quote {
             disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(text!)."
-            symbolLabel.text = quote?.symbol
-            nameLabel.text = quote?.name
-            priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote!.price))
+            symbolLabel.text = quote.symbol
+            nameLabel.text = quote.name
+            priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote.price))
             detailsView.hidden = true
             securityView.hidden = false
         }
@@ -78,7 +73,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
             let symbols: Set<String> = ["\(searchText.uppercaseString)"]
             FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 self.quote = nil
-                if error == nil {
+                if let data: NSData = data {
                     let quotes: Array<Quote> = Quote.fromData(data)
                     if let quote = quotes.first {
                         if quote.symbol == searchBar.text.uppercaseString {
@@ -86,7 +81,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
                         }
                     }
                 }
-                else {
+                if let error: NSError = error {
                     println("Error \(error) \(error.userInfo)")
                 }
                 self.refreshView()
@@ -99,14 +94,15 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func onSubmitButtonPressed(sender: AnyObject) {
-        let dayOfTrade: String? = MarketHelper.nextDayOfTrade()
-        if dayOfTrade != nil && account != nil && quote != nil && quote?.symbol != nil {
-            let pick: Pick = Pick(account: account!, symbol: quote!.symbol!, dayOfTrade: dayOfTrade!)
-            ParseClient.createOrUpdatePick(pick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                self.delegate?.updateNextPick(pick)
-                self.navigationController?.popViewControllerAnimated(true)
-            })
-            
+        if let account: Account = self.account {
+            if let quote: Quote = self.quote {
+                let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+                let pick: Pick = Pick(account: account, symbol: quote.symbol!, dayOfTrade: dayOfTrade)
+                ParseClient.createOrUpdatePick(pick, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    self.delegate?.updateNextPick(pick)
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
+            }
         }
     }
 
