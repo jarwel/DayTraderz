@@ -31,12 +31,12 @@ class DoubleBarView: UIView {
         subview.backgroundColor = UIColor.greenColor();
         leftLabel.frame = CGRectMake(4, 0, self.frame.width - 4, self.frame.height)
         leftLabel.textAlignment = NSTextAlignment.Left
-        leftLabel.font = UIFont.boldSystemFontOfSize(16.0)
+        leftLabel.font = UIFont.boldSystemFontOfSize(15.0)
         leftLabel.textColor = UIColor.blackColor()
         leftLabel.text = nil
         rightLabel.frame = CGRectMake(0, 0, self.frame.width - 4, self.frame.height)
         rightLabel.textAlignment = NSTextAlignment.Right
-        rightLabel.font = UIFont.boldSystemFontOfSize(16.0)
+        rightLabel.font = UIFont.boldSystemFontOfSize(15.0)
         rightLabel.textColor = UIColor.blackColor()
         rightLabel.text = nil
     }
