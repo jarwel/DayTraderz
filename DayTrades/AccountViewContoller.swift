@@ -82,15 +82,16 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if identifier == "ShowPickSegue" {
-            let nextDayOfTrade:String? = MarketHelper.nextDayOfTrade()
-            if nextPick != nil && nextPick?.dayOfTrade == nextDayOfTrade {
-                ParseClient.deletePick(nextPick!, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
-                        self.nextPick = nil
-                        self.refreshNextPickView()
-                    }
-                })
-                return false
+            if let nextPick: Pick = self.nextPick {
+                if nextPick.dayOfTrade == MarketHelper.nextDayOfTrade() {
+                    ParseClient.deletePick(nextPick, block: { (succeeded: Bool, error: NSError?) -> Void in
+                        if succeeded {
+                            self.nextPick = nil
+                            self.refreshNextPickView()
+                        }
+                    })
+                    return false
+                }
             }
         }
         return true
@@ -104,11 +105,18 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         if segue.identifier == "ShowStockSegue" {
-            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
-            if indexPath.row < picks.count {
-                let stockViewController: StockViewController = segue.destinationViewController as! StockViewController
-                let pick: Pick = picks[indexPath.row]
-                stockViewController.symbol = pick.symbol
+            if let stockViewController: StockViewController = segue.destinationViewController as? StockViewController {
+                if let indexPath: NSIndexPath = tableView.indexPathForSelectedRow() {
+                    if indexPath.section == 0 {
+                        if let currentPick = self.currentPick {
+                            stockViewController.symbol = currentPick.symbol
+                        }
+                    }
+                    else if indexPath.section == 1 && indexPath.row < picks.count {
+                        let pick: Pick = picks[indexPath.row]
+                        stockViewController.symbol = pick.symbol
+                    }
+                }
             }
         }
     }
@@ -346,8 +354,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let currentPick: Pick = self.currentPick {
-            if indexPath.section == 0 {
+        if indexPath.section == 0 {
+            if let currentPick: Pick = self.currentPick {
                 performSegueWithIdentifier("ShowStockSegue", sender: nil)
             }
         }
@@ -367,10 +375,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
             if let account: Account = self.account {
                 var skip: Int = self.picks.count
-                if let nextPick: Pick = self.nextPick {
+                if let nextPick = self.nextPick {
                     skip++
                 }
-                if let currentPick: Pick = self.currentPick {
+                if let currentPick = self.currentPick {
                     skip++
                 }
                 ParseClient.fetchPicksForAccount(account, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in

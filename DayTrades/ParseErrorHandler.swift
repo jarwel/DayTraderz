@@ -15,7 +15,7 @@ class ParseErrorHandler {
             return
         }
         
-        switch(error!.code) {
+        switch error!.code {
         case PFErrorCode.ErrorInvalidSessionToken.rawValue:
             handleInvalidSessionTokenError()
         default:
