@@ -11,27 +11,15 @@ import Foundation
 class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
     
     let dateFormatter: NSDateFormatter = NSDateFormatter()
-    let gridLineStyle: CPTLineStyle
-    let labelTextStyle: CPTTextStyle
+   
+    lazy var gridLineStyle: CPTLineStyle = self.initGridLineStyle()
+    lazy var labelTextStyle: CPTTextStyle = self.initLabelTextStyle()
     
     var plot: CPTTradingRangePlot?
     var plotSpace: CPTXYPlotSpace?
     var axisSet: CPTXYAxisSet?
     
     var quotes: Array<DayQuote> = Array()
-    
-    required init(coder aDecoder: NSCoder) {
-        
-        let gridLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
-        gridLineStyle.dashPattern = [2, 2]
-        gridLineStyle.lineColor = CPTColor.lightGrayColor()
-        self.gridLineStyle = gridLineStyle
-        
-        let labelTextStyle: CPTMutableTextStyle = CPTMutableTextStyle()
-        labelTextStyle.color = CPTColor.whiteColor()
-        self.labelTextStyle = labelTextStyle
-        super.init(coder: aDecoder)
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -151,6 +139,19 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         }
     
         return false
+    }
+    
+    func initGridLineStyle() -> CPTLineStyle {
+        let lineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
+        lineStyle.dashPattern = [2, 2]
+        lineStyle.lineColor = CPTColor.lightGrayColor()
+        return lineStyle
+    }
+    
+    func initLabelTextStyle() -> CPTTextStyle {
+        let textStyle: CPTMutableTextStyle = CPTMutableTextStyle()
+        textStyle.color = CPTColor.whiteColor()
+        return textStyle
     }
 
 }
