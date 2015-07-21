@@ -1,5 +1,5 @@
 //
-//  PriceChart.swift
+//  StockChart.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/16/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PriceChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
+class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
     
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let gridLineStyle: CPTLineStyle
@@ -21,10 +21,12 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
     var quotes: Array<DayQuote> = Array()
     
     required init(coder aDecoder: NSCoder) {
+        
         let gridLineStyle: CPTMutableLineStyle = CPTMutableLineStyle()
         gridLineStyle.dashPattern = [2, 2]
         gridLineStyle.lineColor = CPTColor.lightGrayColor()
         self.gridLineStyle = gridLineStyle
+        
         let labelTextStyle: CPTMutableTextStyle = CPTMutableTextStyle()
         labelTextStyle.color = CPTColor.whiteColor()
         self.labelTextStyle = labelTextStyle
@@ -131,8 +133,6 @@ class PriceChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         }
         
         if axis == axisSet?.yAxis {
-            println("update yAxis")
-            
             var axisLabels: Set<NSObject> = Set()
             var offset: CGFloat = 0
             for location: NSObject in locations {

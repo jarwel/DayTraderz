@@ -13,7 +13,7 @@ class StockViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
-    @IBOutlet weak var priceChart: PriceChart!
+    @IBOutlet weak var stockChart: StockChart!
 
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
@@ -48,7 +48,7 @@ class StockViewController: UIViewController {
             FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
                 if let data: NSData = data {
                     let quotes: Array<DayQuote> = DayQuote.fromData(data).reverse()
-                    self.priceChart.reloadDataForQuotes(quotes)
+                    self.stockChart.reloadDataForQuotes(quotes)
                 }
                 if let error: NSError = error {
                     println("Error \(error) \(error.userInfo)")

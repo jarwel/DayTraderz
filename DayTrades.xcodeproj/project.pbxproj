@@ -26,7 +26,7 @@
 		2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
 		2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
 		2FBB51FC1B5D80F200077723 /* UIImage+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB51FB1B5D80F200077723 /* UIImage+App.swift */; };
-		2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* PriceChart.swift */; };
+		2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* StockChart.swift */; };
 		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		2FE66F661B5DB04100B7B378 /* ribbon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F651B5DB04100B7B378 /* ribbon-3.png */; };
@@ -112,7 +112,7 @@
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewControllerTests.swift; sourceTree = "<group>"; };
 		2FBB51FB1B5D80F200077723 /* UIImage+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+App.swift"; sourceTree = "<group>"; };
-		2FCB935C1B584925000A9B1F /* PriceChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChart.swift; sourceTree = "<group>"; };
+		2FCB935C1B584925000A9B1F /* StockChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChart.swift; sourceTree = "<group>"; };
 		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
 		2FE66F651B5DB04100B7B378 /* ribbon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon-3.png"; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		2FCB93591B584735000A9B1F /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				2FCB935C1B584925000A9B1F /* PriceChart.swift */,
+				2FCB935C1B584925000A9B1F /* StockChart.swift */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -629,7 +629,7 @@
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
 				2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
-				2FCB935D1B584925000A9B1F /* PriceChart.swift in Sources */,
+				2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */,
 				AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */,
 				AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */,
 				AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */,
