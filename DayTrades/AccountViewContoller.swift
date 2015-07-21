@@ -16,6 +16,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var picksLabel: UILabel!
     @IBOutlet weak var nextPickLabel: UILabel?
     @IBOutlet weak var nextPickButton: UIButton?
+    @IBOutlet weak var leftImageView: UIImageView!
+    @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var winnersBarView: SingleBarView!
     @IBOutlet weak var losersBarView: SingleBarView!
     
@@ -58,6 +60,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let account: Account = self.account {
             fetchPicks()
+            fetchAwards()
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
@@ -179,12 +182,48 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             ParseClient.refreshAccount(account!, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let object: PFObject = object {
                     self.account = object as? Account
+                    self.fetchAwards()
                     self.fetchPicks()
                 }
                 if let error: NSError = error {
                     println("Error \(error) \(error.userInfo)")
                 }
             })
+        }
+    }
+    
+    func fetchAwards() {
+        ParseClient.fetchAccountsSortedByColumn("value", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let accounts: Array<Account> = objects as? Array<Account> {
+                if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
+                    self.leftImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
+                }
+                else if accounts.count > 1 && accounts[1].objectId == self.account?.objectId {
+                    self.leftImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
+                }
+                else if accounts.count > 2 && accounts[2].objectId == self.account?.objectId {
+                    self.leftImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
+                }
+            }
+            if let error: NSError = error {
+                println("Error \(error) \(error.userInfo)")
+            }
+        }
+        ParseClient.fetchAccountsSortedByColumn("winners", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let accounts: Array<Account> = objects as? Array<Account> {
+                if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
+                    self.rightImageView.image = UIImage(named: "ribbon-1.png")?.tintedWithBlueColor()
+                }
+                else if accounts.count > 1 && accounts[1].objectId == self.account?.objectId {
+                    self.rightImageView.image = UIImage(named: "ribbon-2.png")?.tintedWithRedColor()
+                }
+                else if accounts.count > 2 && accounts[2].objectId == self.account?.objectId {
+                    self.rightImageView.image = UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor()
+                }
+            }
+            if let error: NSError = error {
+                println("Error \(error) \(error.userInfo)")
+            }
         }
     }
     
