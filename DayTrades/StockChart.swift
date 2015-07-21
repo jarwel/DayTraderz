@@ -75,18 +75,18 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             minRange = minRange * 0.995
             maxRange = maxRange * 1.005
             
-            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count))
+            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count + 1))
             plotSpace?.yRange = CPTPlotRange(location: CPTDecimalFromDouble(minRange), length: CPTDecimalFromDouble(maxRange - minRange))
             
             axisSet?.xAxis.orthogonalCoordinateDecimal = NSNumber(double: minRange).decimalValue
-            axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: quotes.count).decimalValue
+            axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: quotes.count + 1).decimalValue
             
             hostedGraph.reloadData()
         }
     }
     
     func numberOfRecordsForPlot(plot: CPTPlot!) -> UInt {
-        return UInt(quotes.count)
+        return UInt(quotes.count + 1)
     }
     
     func numberForPlot(plot: CPTPlot!, field fieldEnum: UInt, recordIndex idx: UInt) -> AnyObject! {
