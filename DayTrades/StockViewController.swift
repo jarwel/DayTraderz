@@ -78,7 +78,7 @@ class StockViewController: UIViewController {
     }
     
     func startDayOfTrade() -> String {
-        let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -60, toDate: NSDate(), options: nil)!
+        let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -45, toDate: NSDate(), options: nil)!
         return MarketHelper.previousDayOfTradeFromDate(date)
     }
     

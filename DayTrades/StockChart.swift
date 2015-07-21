@@ -116,7 +116,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingTop = 10
+            hostedGraph.paddingTop = 15
             hostedGraph.paddingBottom = 30
         }
         
@@ -134,7 +134,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingLeft = 10
+            hostedGraph.paddingLeft = 15
             hostedGraph.paddingRight = 9 * offset
         }
     
