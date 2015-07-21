@@ -75,26 +75,26 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             minRange = minRange * 0.995
             maxRange = maxRange * 1.005
             
-            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(0), length: CPTDecimalFromInteger(quotes.count + 1))
+            plotSpace?.xRange = CPTPlotRange(location: CPTDecimalFromInteger(-1 * quotes.count), length: CPTDecimalFromInteger(quotes.count + 1))
             plotSpace?.yRange = CPTPlotRange(location: CPTDecimalFromDouble(minRange), length: CPTDecimalFromDouble(maxRange - minRange))
             
             axisSet?.xAxis.orthogonalCoordinateDecimal = NSNumber(double: minRange).decimalValue
-            axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: quotes.count + 1).decimalValue
+            axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: 1).decimalValue
             
             hostedGraph.reloadData()
         }
     }
     
     func numberOfRecordsForPlot(plot: CPTPlot!) -> UInt {
-        return UInt(quotes.count + 1)
+        return UInt(quotes.count)
     }
     
     func numberForPlot(plot: CPTPlot!, field fieldEnum: UInt, recordIndex idx: UInt) -> AnyObject! {
         if Int(fieldEnum) == CPTScatterPlotField.X.rawValue {
-            return idx
+            return -1 * Int(idx)
         }
-        if (idx > 0) {
-            let quote: DayQuote = quotes[Int(idx) - 1]
+        if (idx >= 0) {
+            let quote: DayQuote = quotes[Int(idx)]
             if Int(fieldEnum) == CPTTradingRangePlotField.Open.rawValue {
                 return quote.open
             }
@@ -117,8 +117,8 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             var axisLabels: Set<NSObject> = Set()
             for location: NSObject in locations {
                 let tickLocation: NSDecimalNumber = location as! NSDecimalNumber
-                if tickLocation.integerValue > 0 && tickLocation.integerValue < quotes.count + 1 {
-                    let quote: DayQuote = quotes[tickLocation.integerValue - 1]
+                if tickLocation.integerValue <= 0 && tickLocation.integerValue > -1 * quotes.count {
+                    let quote: DayQuote = quotes[-1 * tickLocation.integerValue]
                     if let text: String? = dateFormatter.chartTextFromDayOfTrade(quote.date) {
                         let axisLabel: CPTAxisLabel = CPTAxisLabel(text: text, textStyle: labelTextStyle)
                         axisLabel.tickLocation = tickLocation.decimalValue
@@ -128,7 +128,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingTop = 5
+            hostedGraph.paddingTop = 10
             hostedGraph.paddingBottom = 30
         }
         
@@ -146,7 +146,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingLeft = 5
+            hostedGraph.paddingLeft = 10
             hostedGraph.paddingRight = 9 * offset
         }
     
