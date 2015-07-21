@@ -228,10 +228,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-ND-dB6" customClass="StockChart" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="129" width="600" height="275"/>
+                                <rect key="frame" x="0.0" y="129" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="275" id="HeD-2L-SDa"/>
+                                    <constraint firstAttribute="height" constant="250" id="HeD-2L-SDa"/>
                                 </constraints>
                             </view>
                         </subviews>
