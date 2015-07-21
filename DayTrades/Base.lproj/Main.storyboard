@@ -196,43 +196,18 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-ND-dB6" customClass="StockChart" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="129" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="129" width="600" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="HeD-2L-SDa"/>
+                                    <constraint firstAttribute="height" constant="275" id="HeD-2L-SDa"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJV-yQ-B6a">
-                                <rect key="frame" x="0.0" y="379" width="600" height="56"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="Lg4-RT-a1G"/>
-                                    <constraint firstAttribute="height" constant="56" id="gGS-5I-PbT"/>
-                                    <constraint firstAttribute="height" constant="40" id="i0o-zA-huh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Pick Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="i0o-zA-huh"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="onSubmitButtonTouched:" destination="3d8-EV-PAL" eventType="touchUpInside" id="rNe-8X-u1s"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GJV-yQ-B6a" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" constant="-16" id="Dwz-Im-RI4"/>
                             <constraint firstItem="sIe-ND-dB6" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" constant="-16" id="JKZ-8P-rRi"/>
                             <constraint firstItem="sIe-ND-dB6" firstAttribute="top" secondItem="dxE-eN-g34" secondAttribute="bottom" id="QvG-gU-T0i"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GJV-yQ-B6a" secondAttribute="trailing" constant="-16" id="WCM-mv-Cym"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sIe-ND-dB6" secondAttribute="trailing" constant="-16" id="i8R-NN-amX"/>
-                            <constraint firstItem="GJV-yQ-B6a" firstAttribute="top" secondItem="sIe-ND-dB6" secondAttribute="bottom" id="kRH-Zn-YuJ"/>
                             <constraint firstItem="dxE-eN-g34" firstAttribute="leading" secondItem="ypy-35-k5G" secondAttribute="leadingMargin" constant="-16" id="mdB-ue-5nk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dxE-eN-g34" secondAttribute="trailing" constant="-16" id="qI9-iQ-LXr"/>
                             <constraint firstItem="dxE-eN-g34" firstAttribute="top" secondItem="Z95-zq-RNl" secondAttribute="bottom" id="tH3-PU-WHC"/>
