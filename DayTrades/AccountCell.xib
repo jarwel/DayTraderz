@@ -76,9 +76,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="awardImageView" destination="g4C-HK-3LT" id="WP4-98-8TN"/>
                 <outlet property="nameLabel" destination="mNs-cK-8hO" id="icg-KE-DgE"/>
                 <outlet property="picksBarView" destination="JXi-I6-O7j" id="dAl-em-ueR"/>
-                <outlet property="placeImageView" destination="g4C-HK-3LT" id="AvW-WX-tfp"/>
                 <outlet property="valueLabel" destination="tyQ-V0-tnG" id="Fcq-oB-UFR"/>
             </connections>
             <point key="canvasLocation" x="-487" y="-1142"/>

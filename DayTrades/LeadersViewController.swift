@@ -96,27 +96,27 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch indexPath.row {
             case 0:
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    cell.placeImageView.image = UIImage(named: "ribbon-1.png")?.tintedWithBlueColor()
+                    cell.awardImageView.image = UIImage(named: "ribbon-1.png")?.tintedWithBlueColor()
                 }
                 else {
-                    cell.placeImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
+                    cell.awardImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
                 }
             case 1:
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    cell.placeImageView.image = UIImage(named: "ribbon-2.png")?.tintedWithRedColor()
+                    cell.awardImageView.image = UIImage(named: "ribbon-2.png")?.tintedWithRedColor()
                 }
                 else {
-                    cell.placeImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
+                    cell.awardImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
                 }
             case 2:
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    cell.placeImageView.image = UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor()
+                    cell.awardImageView.image = UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor()
                 }
                 else {
-                    cell.placeImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
+                    cell.awardImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
                 }
             default:
-                cell.placeImageView.image = nil
+                cell.awardImageView.image = nil
             }
             cell.nameLabel.text = account.user.username
             cell.valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
