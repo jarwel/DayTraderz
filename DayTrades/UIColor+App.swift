@@ -19,12 +19,20 @@ extension UIColor {
         return UIColor(red: 0, green: 0, blue: 60, alpha: 0.3)
     }
     
+    class func increaseColor() -> UIColor {
+        return UIColor.greenColor()
+    }
+    
+    class func decreaseColor() -> UIColor {
+        return UIColor.redColor()
+    }
+    
     class func colorForChange(change: Double) -> UIColor {
         if change > 0 {
-            return self.greenColor()
+            return self.increaseColor()
         }
         if change < 0 {
-            return self.redColor()
+            return self.decreaseColor()
         }
         return self.grayColor()
     }

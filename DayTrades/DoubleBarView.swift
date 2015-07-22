@@ -26,9 +26,9 @@ class DoubleBarView: UIView {
     
     func resetView() {
         hidden = true
-        backgroundColor = UIColor.redColor()
+        backgroundColor = UIColor.decreaseColor()
         subview.frame = CGRectMake(0, 0, frame.width / 2, frame.height)
-        subview.backgroundColor = UIColor.greenColor();
+        subview.backgroundColor = UIColor.increaseColor();
         leftLabel.frame = CGRectMake(4, 0, self.frame.width - 4, self.frame.height)
         leftLabel.textAlignment = NSTextAlignment.Left
         leftLabel.font = UIFont.boldSystemFontOfSize(15.0)

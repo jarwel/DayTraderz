@@ -52,8 +52,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         picksLabel.text = nil
         nextPickLabel?.text = nil
         nextPickButton?.hidden = true
-        winnersBarView.barColor = UIColor.greenColor()
-        losersBarView.barColor = UIColor.redColor()
+        winnersBarView.barColor = UIColor.increaseColor()
+        losersBarView.barColor = UIColor.decreaseColor()
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
