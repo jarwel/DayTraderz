@@ -23,7 +23,7 @@ class StockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let backgroundImage: UIImage = UIImage(named: "background-2.jpg") {
+        if let backgroundImage: UIImage = UIImage(named: "background-4.jpg") {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
         topView.backgroundColor = UIColor.translucentColor()

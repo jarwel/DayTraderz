@@ -12,7 +12,7 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let backgroundImage: UIImage = UIImage(named: "background-4.jpg") {
+        if let backgroundImage: UIImage = UIImage(named: "background-login.jpg") {
             signUpView?.backgroundColor = UIColor(patternImage: backgroundImage)
         }
         

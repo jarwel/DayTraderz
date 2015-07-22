@@ -12,7 +12,7 @@ class LogInViewController: PFLogInViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let backgroundImage: UIImage = UIImage(named: "background-4.jpg") {
+        if let backgroundImage: UIImage = UIImage(named: "background-login.jpg") {
             logInView?.backgroundColor = UIColor(patternImage: backgroundImage)
         }
 
