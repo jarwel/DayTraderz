@@ -85,10 +85,16 @@ class MarketHelperTests: XCTestCase {
         XCTAssertEqual("2015-07-09", dayOfTrade)
     }
     
-    func testNextDayOfTradeTwo() {
-        let date: NSDate? = utcFormatter!.dateFromString("2015-07-12T06:15:28")
+    func testNextDayOfTrade_2() {
+        let date: NSDate? = utcFormatter!.dateFromString("2015-07-12T06:15:00")
         let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
         XCTAssertEqual("2015-07-13", dayOfTrade)
+    }
+    
+    func testNextDayOfTrade_3() {
+        let date: NSDate? = utcFormatter!.dateFromString("2015-07-22T19:14:00")
+        let dayOfTrade: String = MarketHelper.nextDayOfTradeFromDate(date!)
+        XCTAssertEqual("2015-07-23", dayOfTrade)
     }
     
     func testNextDayOfTradeBeforeOpen() {
