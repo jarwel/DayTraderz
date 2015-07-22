@@ -177,6 +177,19 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         nextPickButton?.hidden = false
     }
     
+    func refreshAwardView(images: Array<UIImage?>) {
+        if images.count > 0 {
+            if let image: UIImage = images[0] {
+                leftImageView.image = image
+            }
+        }
+        if images.count > 1 {
+            if let image: UIImage = images[1] {
+                rightImageView.image = image
+            }
+        }
+    }
+    
     func fetchAccount() {
         if account != nil {
             ParseClient.refreshAccount(account!, block: { (object: PFObject?, error: NSError?) -> Void in
@@ -193,17 +206,19 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchAwards() {
+        var images: Array<UIImage?> = Array()
         ParseClient.fetchAccountsSortedByColumn("value", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
-                    self.leftImageView.image = UIImage(named: "trophy-1.png")?.tintedWithGoldColor()
+                    images.insert(UIImage(named: "trophy-1.png")?.tintedWithGoldColor(), atIndex: 0)
                 }
                 else if accounts.count > 1 && accounts[1].objectId == self.account?.objectId {
-                    self.leftImageView.image = UIImage(named: "trophy-2.png")?.tintedWithSilverColor()
+                    images.insert(UIImage(named: "trophy-2.png")?.tintedWithSilverColor(), atIndex: 0)
                 }
                 else if accounts.count > 2 && accounts[2].objectId == self.account?.objectId {
-                    self.leftImageView.image = UIImage(named: "trophy-3.png")?.tintedWithBronzeColor()
+                    images.insert(UIImage(named: "trophy-3.png")?.tintedWithBronzeColor(), atIndex: 0)
                 }
+                self.refreshAwardView(images)
             }
             if let error: NSError = error {
                 println("Error \(error) \(error.userInfo)")
@@ -212,14 +227,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         ParseClient.fetchAccountsSortedByColumn("winners", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
-                    self.rightImageView.image = UIImage(named: "ribbon-1.png")?.tintedWithBlueColor()
+                    images.append(UIImage(named: "ribbon-1.png")?.tintedWithBlueColor())
                 }
                 else if accounts.count > 1 && accounts[1].objectId == self.account?.objectId {
-                    self.rightImageView.image = UIImage(named: "ribbon-2.png")?.tintedWithRedColor()
+                    images.append(UIImage(named: "ribbon-2.png")?.tintedWithRedColor())
                 }
                 else if accounts.count > 2 && accounts[2].objectId == self.account?.objectId {
-                    self.rightImageView.image = UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor()
+                    images.append(UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor())
                 }
+                self.refreshAwardView(images)
             }
             if let error: NSError = error {
                 println("Error \(error) \(error.userInfo)")
