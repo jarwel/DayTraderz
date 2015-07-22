@@ -25,9 +25,14 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         super.awakeFromNib()
 
         hostedGraph = CPTXYGraph(frame: frame)
-        hostedGraph.backgroundColor = UIColor.translucentColor().CGColor
+        hostedGraph.backgroundColor = UIColor.darkGrayColor().CGColor
+        hostedGraph.paddingTop = 15
+        hostedGraph.paddingBottom = 15
+        hostedGraph.paddingLeft = 15
+        hostedGraph.paddingRight = 15
         hostedGraph.plotAreaFrame.masksToBorder = false
         hostedGraph.plotAreaFrame.fill = CPTFill(color: CPTColor.whiteColor())
+        hostedGraph.plotAreaFrame.hidden = true
         
         let plot: CPTTradingRangePlot = CPTTradingRangePlot(frame: frame)
         plot.dataSource = self
@@ -70,6 +75,17 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: 1).decimalValue
             
             hostedGraph.reloadData()
+            hostedGraph.backgroundColor = UIColor.translucentColor().CGColor
+            hostedGraph.plotAreaFrame.hidden = false
+        }
+        else {
+            let textStyle: CPTMutableTextStyle = CPTMutableTextStyle()
+            textStyle.color = CPTColor.lightGrayColor()
+            textStyle.fontSize = 16
+            let annotation: CPTLayerAnnotation = CPTLayerAnnotation(anchorLayer: hostedGraph)
+            annotation.contentLayer = CPTTextLayer(text: "CHART UNAVAILABLE", style: textStyle)
+            annotation.rectAnchor = CPTRectAnchor.Center
+            hostedGraph.addAnnotation(annotation)
         }
     }
     
@@ -116,7 +132,6 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingTop = 15
             hostedGraph.paddingBottom = 30
         }
         
@@ -134,7 +149,6 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
                 }
             }
             axis.axisLabels = axisLabels
-            hostedGraph.paddingLeft = 15
             hostedGraph.paddingRight = 9 * offset
         }
     
