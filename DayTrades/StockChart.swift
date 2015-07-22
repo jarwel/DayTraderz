@@ -25,7 +25,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         super.awakeFromNib()
 
         hostedGraph = CPTXYGraph(frame: frame)
-        hostedGraph.backgroundColor = UIColor.darkGrayColor().CGColor
+        hostedGraph.backgroundColor = UIColor.translucentColor().CGColor
         hostedGraph.paddingTop = 15
         hostedGraph.paddingBottom = 15
         hostedGraph.paddingLeft = 15
@@ -75,7 +75,6 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             axisSet?.yAxis.orthogonalCoordinateDecimal = NSNumber(integer: 1).decimalValue
             
             hostedGraph.reloadData()
-            hostedGraph.backgroundColor = UIColor.translucentColor().CGColor
             hostedGraph.plotAreaFrame.hidden = false
         }
         else {
