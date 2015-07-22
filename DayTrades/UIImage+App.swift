@@ -36,22 +36,23 @@ extension UIImage {
     
     func tintedWithBlueColor() -> UIImage {
         return tintedWithLinearGradientColors([
-            UIColor.blueColor().CGColor,
-            UIColor.blueColor().CGColor])
+            UIColor(hexString: "1AD6FD", alpha: 1.0).CGColor,
+            UIColor(hexString: "1D62F0", alpha: 1.0).CGColor,
+            UIColor(hexString: "1AD6FD", alpha: 1.0).CGColor])
     }
     
     func tintedWithRedColor() -> UIImage {
         return tintedWithLinearGradientColors([
-            UIColor.redColor().CGColor,
-            UIColor.redColor().CGColor])
+            UIColor(hexString: "FF5E3A", alpha: 1.0).CGColor,
+            UIColor(hexString: "FF2A68", alpha: 1.0).CGColor,
+            UIColor(hexString: "FF5E3A", alpha: 1.0).CGColor])
     }
     
     func tintedWithWhiteColor() -> UIImage {
         return tintedWithLinearGradientColors([
-            UIColor.lightGrayColor().CGColor,
-            UIColor.whiteColor().CGColor,
-            UIColor.whiteColor().CGColor,
-            UIColor.whiteColor().CGColor])
+            UIColor(hexString: "F7F7F7", alpha: 1.0).CGColor,
+            UIColor(hexString: "D7D7D7", alpha: 1.0).CGColor,
+            UIColor(hexString: "F7F7F7", alpha: 1.0).CGColor])
     }
     
     func tintedWithLinearGradientColors(colors: Array<CGColorRef>) -> UIImage {
