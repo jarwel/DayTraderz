@@ -8,14 +8,14 @@
 
 import Foundation
 
-class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PickViewControllerDelegate {
+class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
-    @IBOutlet weak var nextPickLabel: UILabel?
-    @IBOutlet weak var nextPickButton: UIButton?
+    @IBOutlet weak var nextPickLabel: UILabel!
+    @IBOutlet weak var nextPickButton: UIButton!
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var winnersBarView: SingleBarView!
@@ -28,21 +28,26 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     
     var picks: Array<Pick> = Array()
-    var account: Account?
     var nextPick: Pick?
     var currentPick: Pick?
     var quote: Quote?
     var quoteTimer: NSTimer?
-    
     var lastPrice: Double = 0
+    
+    var account: Account? {
+        didSet {
+            fetchPicks()
+            fetchAwards()
+            if let account: Account = self.account {
+                if account.user.objectId == PFUser.currentUser()?.objectId {
+                    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("fetchPicks"), name: Notification.NextPickUpdated.description, object: nil)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let navigationController = self.navigationController {
-            navigationController.navigationBar.barStyle = UIBarStyle.Black
-            navigationController.navigationBar.translucent = true
-            navigationController.navigationBar.tintColor = UIColor .whiteColor()
-        }
         if let backgroundImage: UIImage = UIImage(named: "background-1.jpg") {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
@@ -57,11 +62,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let accountCell = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
-        
-        if let account: Account = self.account {
-            fetchPicks()
-            fetchAwards()
-        }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameActive"), name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationBecameInactive"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
@@ -103,7 +103,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowPickSegue" {
             if let pickViewController: PickViewController = segue.destinationViewController as? PickViewController {
-                pickViewController.delegate = self
                 pickViewController.account = account;
             }
         }
@@ -166,15 +165,19 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func refreshNextPickView() {
-        if let nextPick: Pick = self.nextPick {
-            nextPickLabel?.text = "Next Pick: \(nextPick.symbol)"
-            nextPickButton?.setTitle("Remove", forState: UIControlState.Normal)
+        if let account: Account = self.account {
+            if account.user.objectId == PFUser.currentUser()?.objectId {
+                if let nextPick: Pick = self.nextPick {
+                    nextPickLabel?.text = "Next Pick: \(nextPick.symbol)"
+                    nextPickButton?.setTitle("Remove", forState: UIControlState.Normal)
+                }
+                else {
+                    nextPickLabel?.text = nil
+                    nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
+                }
+                nextPickButton?.hidden = false
+            }
         }
-        else {
-            nextPickLabel?.text = nil
-            nextPickButton?.setTitle("Set Next", forState: UIControlState.Normal)
-        }
-        nextPickButton?.hidden = false
     }
     
     func refreshAwardView(images: Array<UIImage?>) {
@@ -262,8 +265,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchPicks() {
-        if account != nil {
-            ParseClient.fetchPicksForAccount(account!, limit: 10, skip: 0, block: { (objects: [AnyObject]?,error:  NSError?) -> Void in
+        if let account: Account = self.account {
+            ParseClient.fetchPicksForAccount(account, limit: 10, skip: 0, block: { (objects: [AnyObject]?,error:  NSError?) -> Void in
                 if let objects: [AnyObject] = objects {
                     if let picks: Array<Pick> = objects as? Array<Pick> {
                         self.sortPicks(picks)
@@ -299,11 +302,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         refreshNextPickView()
         refreshView()
-    }
-    
-    func updateNextPick(pick: Pick?) {
-        nextPick = pick
-        refreshNextPickView()
     }
     
     func flashTextColor(color: UIColor, label: UILabel) {
@@ -450,10 +448,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         tableView.infiniteScrollingView.backgroundColor = UIColor.translucentColor()
-    }
-
-    @IBAction func onLogOutButtonTouched(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName(Notification.SignOut.description, object: nil)
     }
     
 }

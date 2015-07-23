@@ -12,21 +12,20 @@ import Foundation
 class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
     var window: UIWindow?
-    var account: Account?
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         Parse.setApplicationId("nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M", clientKey: "lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO")
         Account.registerSubclass()
         Pick.registerSubclass()
         Stock.registerSubclass()
         
-        window?.rootViewController = currentViewController()
+        window?.rootViewController = currentController()
         if let user: PFUser = PFUser.currentUser() {
             logIn();
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logIn"), name: Notification.LogIn.description, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logOut"), name: Notification.SignOut.description, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logOut"), name: Notification.LogOut.description, object: nil)
         return true
     }
     
@@ -39,34 +38,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
         return logInController
     }
     
-    func currentViewController() -> UIViewController {
+    func currentController() -> UIViewController {
         if let user: PFUser = PFUser.currentUser() {
-            return homeController();
+            return menuController();
         }
         return logInController();
     }
     
-    func homeController() -> UIViewController {
+    func menuController() -> UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("AppController") as! UINavigationController
-        let accountController: AccountViewController = navigationController.childViewControllers.first as! AccountViewController
-        accountController.account = account;
-        return navigationController;
+        let menuContoller: UIViewController = storyboard.instantiateViewControllerWithIdentifier("MenuController") as! UIViewController
+        return menuContoller;
     }
     
     func logIn() {
-        ParseClient.fetchAccount { (object: PFObject?, error: NSError?) -> Void in
-            if object != nil && error == nil {
-                self.account = object as? Account
-                self.window?.rootViewController = self.currentViewController()
-            }
-        }
+        window?.rootViewController = currentController()
     }
     
     func logOut() {
-        account = nil;
         PFUser.logOut()
-        window?.rootViewController = currentViewController()
+        window?.rootViewController = currentController()
     }
     
     func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {

@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Account View Controller-->
+        <!--Account-->
         <scene sceneID="hFY-rG-yjo">
             <objects>
                 <viewController id="PqU-rN-jni" customClass="AccountViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="buT-kL-TyP">
-                                <rect key="frame" x="0.0" y="234" width="600" height="366"/>
+                                <rect key="frame" x="0.0" y="234" width="600" height="317"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -144,20 +144,8 @@
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="leading" secondItem="7NY-7p-bsx" secondAttribute="trailing" constant="10" id="wf9-A4-XyP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3Ag-VT-6Bi">
-                        <barButtonItem key="leftBarButtonItem" image="logout.png" id="OSx-bm-09M">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="onLogOutButtonTouched:" destination="PqU-rN-jni" id="paQ-kt-RZO"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="leaders.png" id="QTk-8j-Mev">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="UFK-IR-wzX" kind="show" identifier="ShowLeadersSegue" id="84v-kN-OAS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Account" image="AccountBarIcon" id="UtC-e5-W1P"/>
+                    <navigationItem key="navigationItem" id="3Ag-VT-6Bi"/>
                     <connections>
                         <outlet property="leftImageView" destination="IU3-TE-gfw" id="NTN-Bo-Qcu"/>
                         <outlet property="losersBarView" destination="CLE-tO-8Kh" id="Zih-e0-pnX"/>
@@ -174,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10924" y="-7059"/>
+            <point key="canvasLocation" x="-10844" y="-7255"/>
         </scene>
         <!--Stock View Controller-->
         <scene sceneID="uYj-S2-t01">
@@ -248,9 +236,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhs-aO-f0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9314" y="-7059"/>
+            <point key="canvasLocation" x="-9878" y="-7255"/>
         </scene>
-        <!--Leaders View Controller-->
+        <!--Leaders-->
         <scene sceneID="yeQ-z0-n9I">
             <objects>
                 <viewController id="UFK-IR-wzX" customClass="LeadersViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,7 +263,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-fv-OhP">
-                                <rect key="frame" x="0.0" y="142" width="600" height="458"/>
+                                <rect key="frame" x="0.0" y="142" width="600" height="409"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -295,16 +283,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JDN-fv-OhP" secondAttribute="trailing" constant="-16" id="uDL-bw-zAR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Leaders" image="LeadersBarIcon" id="oru-MC-eZN"/>
                     <navigationItem key="navigationItem" id="QCh-vn-y9G"/>
                     <connections>
                         <outlet property="segmentedControl" destination="VYj-un-ige" id="MbL-vc-vAD"/>
                         <outlet property="tableView" destination="JDN-fv-OhP" id="2uT-Pg-DVy"/>
-                        <segue destination="hNg-yA-wYR" kind="show" identifier="ShowAccountSegue" id="zPP-gB-ehx"/>
+                        <segue destination="PqU-rN-jni" kind="show" identifier="ShowAccountSegue" id="6hj-fz-Ukl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10924" y="-6219"/>
+            <point key="canvasLocation" x="-11836" y="-6397"/>
         </scene>
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">
@@ -516,12 +505,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-10030" y="-7715"/>
+            <point key="canvasLocation" x="-10844" y="-6397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pK-OU-KbM">
             <objects>
-                <navigationController storyboardIdentifier="AppController" automaticallyAdjustsScrollViewInsets="NO" id="Kh1-p2-uee" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MenuController" automaticallyAdjustsScrollViewInsets="NO" id="Kh1-p2-uee" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Mz-h8-QLu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -529,157 +518,107 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PqU-rN-jni" kind="relationship" relationship="rootViewController" id="2v5-R0-H0C"/>
+                        <segue destination="Mkc-EY-GIs" kind="relationship" relationship="rootViewController" id="reh-SR-Bdm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkN-tB-fAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11756" y="-7059"/>
+            <point key="canvasLocation" x="-12728" y="-7255"/>
         </scene>
-        <!--Account View Controller-->
-        <scene sceneID="lHS-dm-deC">
+        <!--Settings-->
+        <scene sceneID="hNE-1w-Ooe">
             <objects>
-                <viewController id="hNg-yA-wYR" customClass="AccountViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aW8-ke-y90" customClass="SettingsViewController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KQT-8D-nDh"/>
-                        <viewControllerLayoutGuide type="bottom" id="zpd-FV-yMH"/>
+                        <viewControllerLayoutGuide type="top" id="R9j-Mn-dHv"/>
+                        <viewControllerLayoutGuide type="bottom" id="IGB-b6-4fc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nXg-mE-ZRY">
+                    <view key="view" contentMode="scaleToFill" id="PcZ-hg-c4K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFr-49-KBp">
-                                <rect key="frame" x="531" y="81" width="53" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXz-KQ-xno">
+                                <rect key="frame" x="16" y="175" width="568" height="56"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="DI1-qL-acz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="9AX-l9-9f3"/>
+                                    <constraint firstAttribute="height" constant="40" id="Gn1-bB-AFL"/>
+                                    <constraint firstAttribute="height" constant="56" id="hQO-cD-0Mx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="54w-JG-jYi">
-                                <rect key="frame" x="0.0" y="234" width="600" height="366"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gn1-bB-AFL"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <outlet property="dataSource" destination="hNg-yA-wYR" id="T6H-BK-uk0"/>
-                                    <outlet property="delegate" destination="hNg-yA-wYR" id="IwH-UX-019"/>
+                                    <action selector="onLogOutButtonPressed:" destination="aW8-ke-y90" eventType="touchUpInside" id="Q9m-Q1-hTA"/>
                                 </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhd-mt-htp" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="504" y="110" width="80" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for visiting!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqD-Uw-353">
+                                <rect key="frame" x="16" y="72" width="568" height="95"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="NLv-Xg-Jed"/>
-                                    <constraint firstAttribute="width" constant="80" id="mee-Pw-iFB"/>
+                                    <constraint firstAttribute="height" constant="95" id="VcL-Co-Te8"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGD-fL-agg" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="504" y="135" width="80" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="4ae-lL-kmp"/>
-                                    <constraint firstAttribute="width" constant="80" id="oUh-XV-Mkn"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4r-v2-AK9">
-                                <rect key="frame" x="16" y="120" width="468" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xWY-Pv-pvB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6be-C3-7zy">
-                                <rect key="frame" x="16" y="152" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="3sk-Nq-ysg"/>
-                                    <constraint firstAttribute="height" constant="32" id="aRC-vb-Vrw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="iyK-l9-7MT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="l5Q-Gg-h8j"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="iyK-l9-7MT"/>
-                                        <exclude reference="l5Q-Gg-h8j"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVW-l5-kMh">
-                                <rect key="frame" x="16" y="72" width="515" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="gMu-a4-PKz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXr-fa-zhB">
-                                <rect key="frame" x="52" y="152" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="1Tc-OQ-2IT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Hgc-pf-Shl"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Whp-Uc-eHT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Xn0-4i-CgA"/>
-                                    <constraint firstAttribute="width" constant="32" id="Zwq-Tx-kfe"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Hgc-pf-Shl"/>
-                                        <exclude reference="Whp-Uc-eHT"/>
-                                        <exclude reference="Xn0-4i-CgA"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dhd-mt-htp" firstAttribute="trailing" secondItem="nXg-mE-ZRY" secondAttribute="trailingMargin" id="1FM-sW-zlh"/>
-                            <constraint firstItem="YGD-fL-agg" firstAttribute="trailing" secondItem="nXg-mE-ZRY" secondAttribute="trailingMargin" id="4ZH-yq-wr7"/>
-                            <constraint firstItem="54w-JG-jYi" firstAttribute="top" secondItem="eXr-fa-zhB" secondAttribute="bottom" constant="50" id="B3t-ue-OWN"/>
-                            <constraint firstItem="HFr-49-KBp" firstAttribute="top" secondItem="KQT-8D-nDh" secondAttribute="bottom" constant="17" id="BxP-nP-vJr"/>
-                            <constraint firstItem="HFr-49-KBp" firstAttribute="trailing" secondItem="nXg-mE-ZRY" secondAttribute="trailingMargin" id="CAA-AU-lCw"/>
-                            <constraint firstItem="lVW-l5-kMh" firstAttribute="leading" secondItem="nXg-mE-ZRY" secondAttribute="leadingMargin" id="Elw-on-WGN"/>
-                            <constraint firstItem="6be-C3-7zy" firstAttribute="top" secondItem="O4r-v2-AK9" secondAttribute="bottom" constant="11" id="I1C-8X-2dD"/>
-                            <constraint firstItem="54w-JG-jYi" firstAttribute="leading" secondItem="nXg-mE-ZRY" secondAttribute="leadingMargin" constant="-16" id="MUk-EK-755"/>
-                            <constraint firstItem="O4r-v2-AK9" firstAttribute="top" secondItem="lVW-l5-kMh" secondAttribute="bottom" constant="10" id="Q4t-FO-4fP"/>
-                            <constraint firstItem="eXr-fa-zhB" firstAttribute="leading" secondItem="6be-C3-7zy" secondAttribute="trailing" constant="4" id="SRL-Q1-FiU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="54w-JG-jYi" secondAttribute="trailing" constant="-16" id="Sbk-mc-eLV"/>
-                            <constraint firstItem="lVW-l5-kMh" firstAttribute="top" secondItem="KQT-8D-nDh" secondAttribute="bottom" constant="8" id="VpS-cx-85r"/>
-                            <constraint firstItem="zpd-FV-yMH" firstAttribute="top" secondItem="54w-JG-jYi" secondAttribute="bottom" id="fDw-hz-zQx"/>
-                            <constraint firstItem="O4r-v2-AK9" firstAttribute="leading" secondItem="nXg-mE-ZRY" secondAttribute="leadingMargin" id="lJZ-Js-kBQ"/>
-                            <constraint firstItem="Dhd-mt-htp" firstAttribute="top" secondItem="HFr-49-KBp" secondAttribute="bottom" constant="8" id="nDL-wY-CaF"/>
-                            <constraint firstItem="eXr-fa-zhB" firstAttribute="top" secondItem="O4r-v2-AK9" secondAttribute="bottom" constant="11" id="s6r-bz-bnv"/>
-                            <constraint firstItem="6be-C3-7zy" firstAttribute="leading" secondItem="nXg-mE-ZRY" secondAttribute="leadingMargin" id="sgX-1t-sei"/>
-                            <constraint firstItem="HFr-49-KBp" firstAttribute="leading" secondItem="lVW-l5-kMh" secondAttribute="trailing" id="uPI-co-52G"/>
-                            <constraint firstItem="YGD-fL-agg" firstAttribute="top" secondItem="Dhd-mt-htp" secondAttribute="bottom" constant="5" id="vCU-uM-yyU"/>
-                            <constraint firstItem="YGD-fL-agg" firstAttribute="leading" secondItem="O4r-v2-AK9" secondAttribute="trailing" constant="20" id="z5r-M9-owa"/>
+                            <constraint firstItem="hqD-Uw-353" firstAttribute="leading" secondItem="PcZ-hg-c4K" secondAttribute="leadingMargin" id="6bg-kP-WRP"/>
+                            <constraint firstItem="hqD-Uw-353" firstAttribute="top" secondItem="R9j-Mn-dHv" secondAttribute="bottom" constant="8" id="JvG-pz-ceu"/>
+                            <constraint firstItem="gXz-KQ-xno" firstAttribute="top" secondItem="R9j-Mn-dHv" secondAttribute="bottom" constant="25" id="OEz-38-mbc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gXz-KQ-xno" secondAttribute="trailing" id="RsG-n7-P2n"/>
+                            <constraint firstItem="gXz-KQ-xno" firstAttribute="top" secondItem="hqD-Uw-353" secondAttribute="bottom" constant="8" id="ZNY-Mi-Rnf"/>
+                            <constraint firstItem="gXz-KQ-xno" firstAttribute="leading" secondItem="PcZ-hg-c4K" secondAttribute="leadingMargin" id="g4I-Gv-jdu"/>
+                            <constraint firstItem="hqD-Uw-353" firstAttribute="trailing" secondItem="PcZ-hg-c4K" secondAttribute="trailingMargin" id="tdv-0Y-B5L"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OEz-38-mbc"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="1nT-Qd-hjh"/>
-                    <connections>
-                        <outlet property="leftImageView" destination="6be-C3-7zy" id="18E-5n-vdq"/>
-                        <outlet property="losersBarView" destination="YGD-fL-agg" id="zbZ-Ms-rTi"/>
-                        <outlet property="nameLabel" destination="lVW-l5-kMh" id="F2l-1b-UrF"/>
-                        <outlet property="picksLabel" destination="HFr-49-KBp" id="QeB-HS-7Ij"/>
-                        <outlet property="rightImageView" destination="eXr-fa-zhB" id="8Wp-dU-Mg3"/>
-                        <outlet property="tableView" destination="54w-JG-jYi" id="FVM-z9-bRD"/>
-                        <outlet property="valueLabel" destination="O4r-v2-AK9" id="te3-Ov-kkG"/>
-                        <outlet property="winnersBarView" destination="Dhd-mt-htp" id="uZz-tc-QbW"/>
-                        <segue destination="3d8-EV-PAL" kind="show" identifier="ShowStockSegue" id="ftp-CR-Fu5"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsBarIcon" id="88E-Fr-hE1"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MYm-eA-bh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xfa-Fb-cWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10030" y="-6219"/>
+            <point key="canvasLocation" x="-12728" y="-6397"/>
+        </scene>
+        <!--Menu Controller-->
+        <scene sceneID="ssV-9p-KrQ">
+            <objects>
+                <tabBarController id="Mkc-EY-GIs" customClass="MenuController" customModule="DayTrades" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="J7p-uJ-sIp"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="jqW-bF-M7V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="PqU-rN-jni" kind="relationship" relationship="viewControllers" id="Apu-vy-Zk7"/>
+                        <segue destination="UFK-IR-wzX" kind="relationship" relationship="viewControllers" id="AOW-hF-iH7"/>
+                        <segue destination="aW8-ke-y90" kind="relationship" relationship="viewControllers" id="gaN-ZO-CFp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idF-Yo-48W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11836" y="-7255"/>
         </scene>
     </scenes>
     <resources>
-        <image name="leaders.png" width="24" height="24"/>
-        <image name="logout.png" width="24" height="24"/>
+        <image name="AccountBarIcon" width="25" height="25"/>
+        <image name="LeadersBarIcon" width="25" height="25"/>
+        <image name="SettingsBarIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ftp-CR-Fu5"/>
+        <segue reference="6hj-fz-Ukl"/>
     </inferredMetricsTieBreakers>
 </document>

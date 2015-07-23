@@ -9,15 +9,17 @@
 import Foundation
 
 enum Notification: Printable {
-    case LogIn, SignOut
+    case LogIn, LogOut, NextPickUpdated
     
     var description : String {
         get {
             switch(self) {
             case LogIn:
                 return "LogInNotification"
-            case SignOut:
+            case LogOut:
                 return "SignOutNotification"
+            case NextPickUpdated:
+                return "NextPickUpdatedNotification"
             }
         }
     }

@@ -25,6 +25,7 @@
 		2F4D4ACE1B5C9DEC006D36F2 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
 		2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
+		2F63C6D61B60CAB700E3E50D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */; };
 		2FBB51FC1B5D80F200077723 /* UIImage+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB51FB1B5D80F200077723 /* UIImage+App.swift */; };
 		2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* StockChart.swift */; };
 		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
@@ -33,6 +34,7 @@
 		2FE66F6A1B5DB31900B7B378 /* trophy-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F671B5DB31900B7B378 /* trophy-1.png */; };
 		2FE66F6B1B5DB31900B7B378 /* trophy-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F681B5DB31900B7B378 /* trophy-2.png */; };
 		2FE66F6C1B5DB31900B7B378 /* trophy-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F691B5DB31900B7B378 /* trophy-3.png */; };
+		2FFCB2F41B60927F00E5289E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFCB2F31B60927F00E5289E /* MenuController.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
 		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
@@ -77,8 +79,6 @@
 		CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */; };
 		CA98EF771AA55BCC0058A3EF /* background-login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF761AA55BCC0058A3EF /* background-login.jpg */; };
 		CA98EF791AA55BD20058A3EF /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF781AA55BD20058A3EF /* background-4.jpg */; };
-		CA9908111AA289AD00804200 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908101AA289AD00804200 /* logout.png */; };
-		CA9908131AA28A2100804200 /* leaders.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9908121AA28A2100804200 /* leaders.png */; };
 		CA9908201AA2C45500804200 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CA99081F1AA2C45500804200 /* close.png */; };
 		CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAAB61A01AA40C35002D739B /* background-2.jpg */; };
 		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
@@ -111,6 +111,7 @@
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewControllerTests.swift; sourceTree = "<group>"; };
+		2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FBB51FB1B5D80F200077723 /* UIImage+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+App.swift"; sourceTree = "<group>"; };
 		2FCB935C1B584925000A9B1F /* StockChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChart.swift; sourceTree = "<group>"; };
 		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		2FE66F671B5DB31900B7B378 /* trophy-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trophy-1.png"; sourceTree = "<group>"; };
 		2FE66F681B5DB31900B7B378 /* trophy-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trophy-2.png"; sourceTree = "<group>"; };
 		2FE66F691B5DB31900B7B378 /* trophy-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trophy-3.png"; sourceTree = "<group>"; };
+		2FFCB2F31B60927F00E5289E /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTradesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,8 +173,6 @@
 		CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFormatter.swift; sourceTree = "<group>"; };
 		CA98EF761AA55BCC0058A3EF /* background-login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-login.jpg"; sourceTree = "<group>"; };
 		CA98EF781AA55BD20058A3EF /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
-		CA9908101AA289AD00804200 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
-		CA9908121AA28A2100804200 /* leaders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaders.png; sourceTree = "<group>"; };
 		CA99081F1AA2C45500804200 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		CAAB61A01AA40C35002D739B /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
 		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+App.swift"; sourceTree = "<group>"; };
@@ -313,10 +313,12 @@
 		CA492B9B1A606DA800ED13B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2FFCB2F31B60927F00E5289E /* MenuController.swift */,
 				AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */,
 				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
 				2FCB935E1B5849B9000A9B1F /* StockViewController.swift */,
 				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
+				2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */,
 				2F3B037B1B549FBD00EB9B93 /* LogInViewController.swift */,
 				2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */,
 			);
@@ -407,8 +409,6 @@
 				CAAB61A01AA40C35002D739B /* background-2.jpg */,
 				CAF584461AA3EB47002422DD /* background-3.jpg */,
 				CA98EF781AA55BD20058A3EF /* background-4.jpg */,
-				CA9908101AA289AD00804200 /* logout.png */,
-				CA9908121AA28A2100804200 /* leaders.png */,
 				CA99081F1AA2C45500804200 /* close.png */,
 			);
 			name = Images;
@@ -516,7 +516,6 @@
 				2FE66F6B1B5DB31900B7B378 /* trophy-2.png in Resources */,
 				2FE66F6C1B5DB31900B7B378 /* trophy-3.png in Resources */,
 				CA492BA31A606F2600ED13B3 /* AccountCell.xib in Resources */,
-				CA9908111AA289AD00804200 /* logout.png in Resources */,
 				CAF584471AA3EB47002422DD /* background-3.jpg in Resources */,
 				CA492B861A606CDB00ED13B3 /* LaunchScreen.xib in Resources */,
 				CA9908201AA2C45500804200 /* close.png in Resources */,
@@ -529,7 +528,6 @@
 				CA492BC51A607CE100ED13B3 /* PickCell.xib in Resources */,
 				2F2FE9E71B5DA9EF00D4BC79 /* ribbon-2.png in Resources */,
 				2FE66F6A1B5DB31900B7B378 /* trophy-1.png in Resources */,
-				CA9908131AA28A2100804200 /* leaders.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,10 +626,12 @@
 				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
 				2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */,
+				2FFCB2F41B60927F00E5289E /* MenuController.swift in Sources */,
 				AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */,
 				2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */,
 				AABEDC151B52D0C400BDD762 /* DayQuote.swift in Sources */,
 				AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */,
+				2F63C6D61B60CAB700E3E50D /* SettingsViewController.swift in Sources */,
 				AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */,
 				AABEDC131B52CA9100BDD762 /* Pick.swift in Sources */,
 				AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */,

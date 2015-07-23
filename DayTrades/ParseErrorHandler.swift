@@ -25,7 +25,7 @@ class ParseErrorHandler {
     
     static func handleInvalidSessionTokenError() {
         PFUser.logOut()
-        NSNotificationCenter.defaultCenter().postNotificationName(Notification.SignOut.description, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogOut.description, object: nil)
     }
     
     static func handleErrorWithBlock(block: ([AnyObject]?, NSError?) -> Void) -> PFArrayResultBlock {

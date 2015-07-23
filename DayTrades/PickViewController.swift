@@ -8,10 +8,6 @@
 
 import Foundation
 
-@objc protocol PickViewControllerDelegate {
-    func updateNextPick(pick: Pick?)
-}
-
 class PickViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var detailsView: UIView!
@@ -28,7 +24,6 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
-    var delegate: PickViewControllerDelegate?
     var account: Account?
     var quote: Quote?
     
@@ -110,7 +105,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
                 let dayOfTrade: String = MarketHelper.nextDayOfTrade()
                 let pick: Pick = Pick(account: account, symbol: quote.symbol!, dayOfTrade: dayOfTrade)
                 ParseClient.createOrUpdatePick(pick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    self.delegate?.updateNextPick(pick)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }
