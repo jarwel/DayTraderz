@@ -52,10 +52,13 @@ class StockViewController: UIViewController {
         
         if let symbol: String = self.symbol {
             ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
-                if error == nil {
-                    self.stock = object as? Stock
-                    self.refreshView()
+                if let stock: Stock = object as? Stock {
+                    self.stock = stock
                 }
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
+                }
+                self.refreshView()
             });
             let start: String = startDayOfTrade()
             let end: String = endDateOfTrade()
@@ -66,6 +69,9 @@ class StockViewController: UIViewController {
                 }
             }
         }
+        else {
+            refreshView()
+        }
     }
     
     func refreshView() {
@@ -74,7 +80,7 @@ class StockViewController: UIViewController {
                 self.nameLabel.text = "\(stock.name!) (\(stock.symbol))"
             }
             else {
-                self.nameLabel.text = stock.symbol
+                self.nameLabel.text = symbol
             }
             if (stock.picks == 1) {
                 self.picksLabel.text = "Picked 1 time"
