@@ -74,22 +74,19 @@ class StockViewController: UIViewController {
     }
     
     func refreshView() {
+        nameLabel.text = symbol
         if let stock: Stock = self.stock {
             if let name: String = stock.name {
-                self.nameLabel.text = "\(stock.name!) (\(stock.symbol))"
-            }
-            else {
-                self.nameLabel.text = symbol
+                if count(name) > 0 {
+                    nameLabel.text = "\(stock.name!) (\(stock.symbol))"
+                }
             }
             if (stock.picks == 1) {
-                self.picksLabel.text = "Picked 1 time"
+                self.picksLabel.text = "1 pick"
             }
             else {
-                 self.picksLabel.text = "Picked \(stock.picks) times"
+                 self.picksLabel.text = "\(stock.picks) picks"
             }
-        }
-        else {
-            self.nameLabel.text = self.symbol
         }
     }
     

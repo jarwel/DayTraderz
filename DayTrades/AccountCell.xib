@@ -14,20 +14,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
-                        <rect key="frame" x="44" y="10" width="41" height="27"/>
+                        <rect key="frame" x="44" y="10" width="43.5" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="13b-aK-JrM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="87" y="10" width="125.5" height="27"/>
+                        <rect key="frame" x="89" y="10" width="123" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="9yF-OQ-hhl"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -60,19 +60,11 @@
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="g4C-HK-3LT" secondAttribute="trailing" constant="10" id="AQu-n0-idL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="JXi-I6-O7j" secondAttribute="trailing" constant="-8" id="E8j-Fu-Cgj"/>
                     <constraint firstItem="g4C-HK-3LT" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" constant="-6" id="SDa-fj-zLO"/>
-                    <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" id="aFM-aY-q3z"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="2" id="bXs-BF-gNE"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="2" id="iWF-RO-au3"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" constant="2" id="kEe-y5-ZHe"/>
                     <constraint firstItem="g4C-HK-3LT" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="1" id="oE1-fY-DAd"/>
-                    <constraint firstItem="JXi-I6-O7j" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="5" id="sME-Vs-Ga3"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="aFM-aY-q3z"/>
-                        <exclude reference="sME-Vs-Ga3"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
