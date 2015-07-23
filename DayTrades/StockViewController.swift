@@ -81,11 +81,11 @@ class StockViewController: UIViewController {
                     nameLabel.text = "\(stock.name!) (\(stock.symbol))"
                 }
             }
-            if (stock.picks == 1) {
-                self.picksLabel.text = "1 pick"
+            if stock.picks == 1 {
+                self.picksLabel.text = "Picked 1 time"
             }
-            else {
-                 self.picksLabel.text = "\(stock.picks) picks"
+            else if stock.picks > 1 {
+                 self.picksLabel.text = "Picked \(stock.picks) times"
             }
         }
     }
