@@ -63,9 +63,6 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.enableInfiniteScroll()
                 }
             }
-            else {
-                println("Error \(error) \(error!.userInfo)")
-            }
         }
     }
     
@@ -187,9 +184,6 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
                         self.accounts += objects as! Array<Account>
                         self.tableView.reloadData()
                     }
-                }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
                 }
                 self.tableView.infiniteScrollingView.stopAnimating()
             })

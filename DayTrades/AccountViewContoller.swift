@@ -219,9 +219,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 self.refreshAwardView(images)
             }
-            if let error: NSError = error {
-                println("Error \(error) \(error.userInfo)")
-            }
         }
         ParseClient.fetchAccountsSortedByColumn("winners", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
@@ -235,9 +232,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     images.append(UIImage(named: "ribbon-3.png")?.tintedWithWhiteColor())
                 }
                 self.refreshAwardView(images)
-            }
-            if let error: NSError = error {
-                println("Error \(error) \(error.userInfo)")
             }
         }
     }
@@ -260,9 +254,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                         self.fetchQuote()
                         self.enableInfiniteScroll()
                     }
-                }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
                 }
             })
         }
@@ -444,9 +435,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if let objects: [AnyObject] = objects {
                         self.picks += objects as! Array<Pick>
                         self.tableView.reloadData()
-                    }
-                    if let error: NSError = error {
-                        println("Error \(error) \(error.userInfo)")
                     }
                     self.tableView.infiniteScrollingView.stopAnimating()
                 })
