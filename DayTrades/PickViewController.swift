@@ -18,7 +18,6 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var disclaimerLabel: UILabel!
-    @IBOutlet weak var confirmButton: UIButton!
     
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let dateFormatter: NSDateFormatter = NSDateFormatter()
@@ -99,7 +98,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
         return true
     }
     
-    @IBAction func onSubmitButtonPressed(sender: AnyObject) {
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
         if let account: Account = self.account {
             if let quote: Quote = self.quote {
                 let dayOfTrade: String = MarketHelper.nextDayOfTrade()

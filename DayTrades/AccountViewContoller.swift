@@ -57,6 +57,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         picksLabel.text = nil
         nextPickLabel?.text = nil
         nextPickButton?.hidden = true
+        nextPickButton?.layer.cornerRadius = 4
         winnersBarView.barColor = UIColor.increaseColor()
         losersBarView.barColor = UIColor.decreaseColor()
         

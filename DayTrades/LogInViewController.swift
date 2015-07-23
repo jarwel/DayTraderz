@@ -13,9 +13,9 @@ class LogInViewController: PFLogInViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let backgroundImage: UIImage = UIImage(named: "background-login.jpg") {
-            logInView?.backgroundColor = UIColor(patternImage: backgroundImage)
+            logInView!.backgroundColor = UIColor(patternImage: backgroundImage)
         }
-
+        
         let titleLabel: UILabel = UILabel()
         titleLabel.text = "DayTrades"
         titleLabel.textColor = UIColor.whiteColor()
@@ -24,7 +24,7 @@ class LogInViewController: PFLogInViewController {
         titleLabel.font = UIFont.boldSystemFontOfSize(38)
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.adjustsFontSizeToFitWidth = true
-        logInView?.logo = titleLabel
+        logInView!.logo = titleLabel
         
         logInView?.usernameField?.backgroundColor = UIColor.translucentColor()
         logInView?.usernameField?.textColor = UIColor.whiteColor()
@@ -40,4 +40,18 @@ class LogInViewController: PFLogInViewController {
         logInView?.passwordField?.text = nil
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutLogInButton()
+    }
+    
+    func layoutLogInButton() {
+        let x: CGFloat = logInView!.logInButton!.frame.origin.x + 16
+        let y: CGFloat = logInView!.logInButton!.frame.origin.y
+        let width: CGFloat = logInView!.logInButton!.frame.width - 32
+        let height: CGFloat =  logInView!.logInButton!.frame.height
+        logInView?.logInButton?.frame = CGRectMake(x, y, width, height)
+        logInView?.logInButton?.layer.cornerRadius = 5
+        logInView?.logInButton?.clipsToBounds = true
+    }
 }

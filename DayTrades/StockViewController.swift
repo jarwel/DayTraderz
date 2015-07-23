@@ -13,6 +13,7 @@ class StockViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picksLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var stockChart: StockChart!
 
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
@@ -29,18 +30,31 @@ class StockViewController: UIViewController {
         topView.backgroundColor = UIColor.translucentColor()
         nameLabel.text = nil
         picksLabel.text = nil
+        submitButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+        ParseClient.fetchPickForDayOfTrade(dayOfTrade) { (object: PFObject?, error: NSError?) -> Void in
+            if let pick: Pick = object as? Pick {
+                if pick.symbol != self.symbol {
+                    self.submitButton?.hidden = false
+                }
+            }
+            if let error: NSError = error {
+                if error.code == 101 {
+                    self.submitButton?.hidden = false
+                }
+            }
+        }
+        
+        
         if let symbol: String = self.symbol {
             ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if error == nil {
                     self.stock = object as? Stock
                     self.refreshView()
-                }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
                 }
             });
             let start: String = startDayOfTrade()
@@ -49,9 +63,6 @@ class StockViewController: UIViewController {
                 if let data: NSData = data {
                     let quotes: Array<DayQuote> = DayQuote.fromData(data)
                     self.stockChart.reloadDataForQuotes(quotes)
-                }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
                 }
             }
         }

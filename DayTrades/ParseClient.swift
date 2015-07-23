@@ -21,12 +21,24 @@ class ParseClient {
         }
     }
     
-   
     class func fetchAccount(block: (PFObject?, NSError?) -> Void ) {
         if let user: PFUser = PFUser.currentUser() {
             let query: PFQuery? = Account.query()
             query?.includeKey("user")
             query?.whereKey("user", equalTo: user)
+            query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
+        }
+        else {
+            println("user is missing")
+            block(nil, NSError())
+        }
+    }
+    
+    class func fetchPickForDayOfTrade(dayOfTrade: String, block: (PFObject?, NSError?) -> Void ) {
+        if let user: PFUser = PFUser.currentUser() {
+            let query: PFQuery? = Pick.query()
+            query?.whereKey("user", equalTo: user)
+            query?.whereKey("dayOfTrade", equalTo: dayOfTrade)
             query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
         }
         else {

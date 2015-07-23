@@ -15,7 +15,7 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
         if let backgroundImage: UIImage = UIImage(named: "background-login.jpg") {
             signUpView?.backgroundColor = UIColor(patternImage: backgroundImage)
         }
-        
+
         let titleLabel: UILabel = UILabel()
         titleLabel.text = "DayTrades"
         titleLabel.textColor = UIColor.whiteColor()
@@ -33,8 +33,6 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
         signUpView?.passwordField?.backgroundColor = UIColor.translucentColor()
         signUpView?.passwordField?.textColor = UIColor.whiteColor()
         
-        signUpView?.signUpButton?.setTitle("Submit", forState: UIControlState.Normal)
-        
         if let image: UIImage = UIImage(named: "close.png") {
             signUpView?.dismissButton?.setImage(image, forState: UIControlState.Normal)
         }
@@ -49,11 +47,11 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        layoutSignUpButton()
         adjustFrameForView(signUpView?.logo)
         adjustFrameForView(signUpView?.usernameField)
         adjustFrameForView(signUpView?.passwordField)
         adjustFrameForView(signUpView?.emailField)
-        adjustFrameForView(signUpView?.signUpButton)
     }
     
     override func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -63,14 +61,23 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
         return true
     }
     
+    func layoutSignUpButton() {
+        let x: CGFloat = signUpView!.signUpButton!.frame.origin.x + 16
+        let y: CGFloat = signUpView!.signUpButton!.frame.origin.y - 25
+        let width: CGFloat = signUpView!.signUpButton!.frame.width - 32
+        let height: CGFloat = signUpView!.signUpButton!.frame.height
+        signUpView?.signUpButton?.frame = CGRectMake(x, y, width, height)
+        signUpView?.signUpButton?.setTitle("Sign Up", forState: UIControlState.Normal)
+        signUpView?.signUpButton?.layer.cornerRadius = 10
+        signUpView?.signUpButton?.clipsToBounds = true
+    }
+    
     func adjustFrameForView(view: UIView?){
-        if view != nil {
-            let x: CGFloat = view!.frame.origin.x
-            let y: CGFloat = view!.frame.origin.y - 25
-            let width: CGFloat = view!.frame.size.width
-            let height: CGFloat = view!.frame.size.height
-            view!.frame = CGRectMake(x, y, width, height)
-        }
+        let x: CGFloat = view!.frame.origin.x
+        let y: CGFloat = view!.frame.origin.y - 25
+        let width: CGFloat = view!.frame.size.width
+        let height: CGFloat = view!.frame.size.height
+        view!.frame = CGRectMake(x, y, width, height)
     }
     
     func textWillChange(textInput: UITextInput) {}

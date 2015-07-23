@@ -14,4 +14,5 @@ class SettingsViewController: UIViewController {
         PFUser.logOut()
         NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogOut.description, object: nil)
     }
+    
 }
