@@ -91,7 +91,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
         if text.hasPrefix("^") {
             return false
         }
-        if (disabledSymbols.containsObject(text.uppercaseString)) {
+        if disabledSymbols.containsObject(text.uppercaseString) {
             return false
         }
         return true

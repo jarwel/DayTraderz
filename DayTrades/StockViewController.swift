@@ -16,6 +16,7 @@ class StockViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var stockChart: StockChart!
 
+    let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
     var dayOfTrades: Array<String> = Array()
@@ -36,21 +37,22 @@ class StockViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
-            if let pick: Pick = object as? Pick {
-                if pick.symbol != self.symbol {
-                    self.submitButton?.hidden = false
-                }
-            }
-            if let error: NSError = error {
-                if error.code == 101 {
-                    self.submitButton?.hidden = false
-                }
-            }
-        }
-        
-        
         if let symbol: String = self.symbol {
+            if !disabledSymbols.containsObject(symbol.uppercaseString) {
+                ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
+                    if let pick: Pick = object as? Pick {
+                        if pick.symbol != symbol {
+                            self.submitButton?.hidden = false
+                        }
+                    }
+                    if let error: NSError = error {
+                        if error.code == 101 {
+                            self.submitButton?.hidden = false
+                        }
+                    }
+                }
+            }
+        
             ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let stock: Stock = object as? Stock {
                     self.stock = stock
