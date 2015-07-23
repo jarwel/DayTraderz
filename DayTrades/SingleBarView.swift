@@ -28,7 +28,7 @@ class SingleBarView: UIView {
         subview.frame = CGRectMake(frame.width, 0, 0, frame.height)
         label.frame = CGRectMake(0, 0, self.frame.width - 4, self.frame.height)
         label.textAlignment = NSTextAlignment.Right
-        label.font = UIFont.boldSystemFontOfSize(15.0)
+        label.font = UIFont.boldSystemFontOfSize(15)
         label.textColor = UIColor.blackColor()
         label.hidden = true
         label.text = nil

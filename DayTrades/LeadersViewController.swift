@@ -13,8 +13,8 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    let headerHeight: CGFloat = 22
-    let cellHeight: CGFloat = 45
+    let headerHeight: CGFloat = 20
+    let cellHeight: CGFloat = 44
     let cellIdentifier: String = "AccountCell"
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
@@ -151,6 +151,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let headerView: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             headerView.contentView.backgroundColor = UIColor.darkGrayColor()
             headerView.textLabel.textColor = UIColor.whiteColor()
+            headerView.textLabel.font = UIFont.boldSystemFontOfSize(15)
         }
     }
     

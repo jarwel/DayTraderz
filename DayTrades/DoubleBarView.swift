@@ -36,7 +36,7 @@ class DoubleBarView: UIView {
         leftLabel.text = nil
         rightLabel.frame = CGRectMake(0, 0, self.frame.width - 4, self.frame.height)
         rightLabel.textAlignment = NSTextAlignment.Right
-        rightLabel.font = UIFont.boldSystemFontOfSize(15.0)
+        rightLabel.font = UIFont.boldSystemFontOfSize(15)
         rightLabel.textColor = UIColor.blackColor()
         rightLabel.text = nil
     }
