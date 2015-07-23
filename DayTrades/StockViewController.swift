@@ -18,9 +18,9 @@ class StockViewController: UIViewController {
 
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
+    var dayOfTrades: Array<String> = Array()
     var symbol: String?
     var stock: Stock?
-    var dayOfTrades: Array<String> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,8 @@ class StockViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let dayOfTrade: String = MarketHelper.nextDayOfTrade()
-        ParseClient.fetchPickForDayOfTrade(dayOfTrade) { (object: PFObject?, error: NSError?) -> Void in
+        
+        ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
             if let pick: Pick = object as? Pick {
                 if pick.symbol != self.symbol {
                     self.submitButton?.hidden = false
@@ -98,7 +98,14 @@ class StockViewController: UIViewController {
     }
     
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        
+        if let symbol: String = self.symbol {
+            ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                if succeeded {
+                    NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                    self.submitButton.hidden = true
+                }
+            })
+        }
     }
     
 }

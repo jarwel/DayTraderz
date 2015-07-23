@@ -40,7 +40,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             fetchAwards()
             if let account: Account = self.account {
                 if account.user.objectId == PFUser.currentUser()?.objectId {
-                    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("fetchPicks"), name: Notification.NextPickUpdated.description, object: nil)
+                    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("fetchNextPick"), name: Notification.NextPickUpdated.description, object: nil)
                 }
             }
         }
@@ -102,11 +102,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowPickSegue" {
-            if let pickViewController: PickViewController = segue.destinationViewController as? PickViewController {
-                pickViewController.account = account;
-            }
-        }
         if segue.identifier == "ShowStockSegue" {
             if let stockViewController: StockViewController = segue.destinationViewController as? StockViewController {
                 if let indexPath: NSIndexPath = tableView.indexPathForSelectedRow() {
@@ -247,21 +242,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func fetchQuote() {
-        if currentPick != nil {
-            let symbols: Set<String> = ["\(currentPick!.symbol)"]
-            FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                if let data: NSData = data {
-                    let quotes: Array<Quote> = Quote.fromData(data)
-                    if quotes.count == 1 {
-                        self.quote = quotes.first
-                        self.tableView.reloadData()
-                    }
-                }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
-                }
-            })
+    func fetchNextPick() {
+        ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
+            if let nextPick: Pick = object as? Pick {
+                self.nextPick = nextPick
+                self.refreshNextPickView()
+            }
         }
     }
     
@@ -273,6 +259,24 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                         self.sortPicks(picks)
                         self.fetchQuote()
                         self.enableInfiniteScroll()
+                    }
+                }
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
+                }
+            })
+        }
+    }
+    
+    func fetchQuote() {
+        if currentPick != nil {
+            let symbols: Set<String> = ["\(currentPick!.symbol)"]
+            FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                if let data: NSData = data {
+                    let quotes: Array<Quote> = Quote.fromData(data)
+                    if quotes.count == 1 {
+                        self.quote = quotes.first
+                        self.tableView.reloadData()
                     }
                 }
                 if let error: NSError = error {

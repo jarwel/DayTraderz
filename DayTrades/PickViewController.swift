@@ -23,7 +23,6 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
-    var account: Account?
     var quote: Quote?
     
     override func viewDidLoad() {
@@ -99,13 +98,13 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        if let account: Account = self.account {
-            if let quote: Quote = self.quote {
-                let dayOfTrade: String = MarketHelper.nextDayOfTrade()
-                let pick: Pick = Pick(account: account, symbol: quote.symbol!, dayOfTrade: dayOfTrade)
-                ParseClient.createOrUpdatePick(pick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
-                    self.navigationController?.popViewControllerAnimated(true)
+        if let quote: Quote = self.quote {
+            if let symbol: String = quote.symbol {
+                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded {
+                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
                 })
             }
         }

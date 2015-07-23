@@ -34,19 +34,6 @@ class ParseClient {
         }
     }
     
-    class func fetchPickForDayOfTrade(dayOfTrade: String, block: (PFObject?, NSError?) -> Void ) {
-        if let user: PFUser = PFUser.currentUser() {
-            let query: PFQuery? = Pick.query()
-            query?.whereKey("user", equalTo: user)
-            query?.whereKey("dayOfTrade", equalTo: dayOfTrade)
-            query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
-        }
-        else {
-            println("user is missing")
-            block(nil, NSError())
-        }
-    }
-    
     class func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
         account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
@@ -78,26 +65,37 @@ class ParseClient {
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func createOrUpdatePick(pick: Pick, block: (Bool, NSError?) -> Void) {
-        let query: PFQuery? = Pick.query()
-        query?.whereKey("account", equalTo: pick.account)
-        query?.whereKey("dayOfTrade", equalTo: pick.dayOfTrade)
-        query?.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-            ParseErrorHandler.handleError(error)
-            if object == nil {
-                pick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
-            }
-            else {
-                object?.deleteInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded && error == nil {
-                        pick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+    class func fetchNextPick(block: (PFObject?, NSError?) -> Void ) {
+        let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+        if let user: PFUser = PFUser.currentUser() {
+            let query: PFQuery? = Pick.query()
+            query?.whereKey("user", equalTo: user)
+            query?.whereKey("dayOfTrade", equalTo: dayOfTrade)
+            query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
+        }
+        else {
+            println("user is missing")
+            block(nil, NSError())
+        }
+    }
+    
+    class func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
+        fetchAccount { (object: PFObject?, error: NSError?) -> Void in
+            if let account: Account = object as? Account {
+                self.fetchNextPick({ (object: PFObject?, error: NSError?) -> Void in
+                    let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+                    let nextPick: Pick = Pick(account: account, symbol: symbol, dayOfTrade: dayOfTrade)
+                    if let oldPick: Pick = object as? Pick {
+                        self.deletePick(oldPick, block: { (succeeded: Bool, error: NSError?) -> Void in
+                            if succeeded {
+                                nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+                            }
+                        })
                     }
-                    else {
-                        println("Error \(error) \(error!.userInfo)")
-                    }
+                    nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
                 })
             }
-        })
+        }
     }
     
     class func deletePick(pick: Pick, block: (Bool, NSError?) -> Void) {
