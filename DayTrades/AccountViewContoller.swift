@@ -21,8 +21,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var winnersBarView: SingleBarView!
     @IBOutlet weak var losersBarView: SingleBarView!
     
-    let headerHeight: CGFloat = 22
-    let cellHeight: CGFloat = 65
+    let headerHeight: CGFloat = 20
+    let cellHeight: CGFloat = 60
     let cellIdentifier: String = "PickCell"
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     let dateFormatter: NSDateFormatter = NSDateFormatter()
@@ -396,6 +396,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let headerView: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             headerView.contentView.backgroundColor = UIColor.darkGrayColor()
             headerView.textLabel.textColor = UIColor.whiteColor()
+            headerView.textLabel.font = UIFont.boldSystemFontOfSize(15)
         }
     }
     
