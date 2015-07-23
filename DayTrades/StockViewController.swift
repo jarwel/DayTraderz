@@ -35,13 +35,13 @@ class StockViewController: UIViewController {
         super.viewWillAppear(animated)
         if let symbol: String = self.symbol {
             ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
-                if error == nil {
-                    self.stock = object as? Stock
-                    self.refreshView()
+                if let stock: Stock = object as? Stock {
+                    self.stock = stock
                 }
-                else {
-                    println("Error \(error) \(error!.userInfo)")
+                if let error: NSError = error {
+                    println("Error \(error) \(error.userInfo)")
                 }
+                self.refreshView()
             });
             let start: String = startDayOfTrade()
             let end: String = endDateOfTrade()
@@ -54,6 +54,9 @@ class StockViewController: UIViewController {
                     println("Error \(error) \(error.userInfo)")
                 }
             }
+        }
+        else {
+            refreshView()
         }
     }
     
