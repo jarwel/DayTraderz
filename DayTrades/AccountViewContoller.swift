@@ -190,15 +190,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchAccount() {
-        if account != nil {
-            ParseClient.refreshAccount(account!, block: { (object: PFObject?, error: NSError?) -> Void in
-                if let object: PFObject = object {
-                    self.account = object as? Account
+        if let account: Account = self.account {
+            ParseClient.refreshAccount(account, block: { (object, error) -> Void in
+                if let refreshed: Account = object as? Account {
+                    self.account = refreshed
                     self.fetchAwards()
                     self.fetchPicks()
-                }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
                 }
             })
         }
