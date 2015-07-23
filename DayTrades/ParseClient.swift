@@ -102,7 +102,7 @@ class ParseClient {
         pick.deleteInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchSecurityForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
+    class func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
         let query: PFQuery? = Stock.query()
         query?.whereKey("symbol", equalTo: symbol)
         query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));

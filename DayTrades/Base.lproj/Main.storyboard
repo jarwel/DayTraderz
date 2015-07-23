@@ -611,6 +611,9 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="SettingsBarIcon" id="88E-Fr-hE1"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="gXz-KQ-xno" id="7v7-Fh-9T2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfa-Fb-cWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

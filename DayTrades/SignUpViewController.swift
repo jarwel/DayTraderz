@@ -68,7 +68,7 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
         let height: CGFloat = signUpView!.signUpButton!.frame.height
         signUpView?.signUpButton?.frame = CGRectMake(x, y, width, height)
         signUpView?.signUpButton?.setTitle("Sign Up", forState: UIControlState.Normal)
-        signUpView?.signUpButton?.layer.cornerRadius = 10
+        signUpView?.signUpButton?.layer.cornerRadius = 4
         signUpView?.signUpButton?.clipsToBounds = true
     }
     

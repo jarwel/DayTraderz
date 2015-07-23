@@ -51,7 +51,7 @@ class LogInViewController: PFLogInViewController {
         let width: CGFloat = logInView!.logInButton!.frame.width - 32
         let height: CGFloat =  logInView!.logInButton!.frame.height
         logInView?.logInButton?.frame = CGRectMake(x, y, width, height)
-        logInView?.logInButton?.layer.cornerRadius = 5
+        logInView?.logInButton?.layer.cornerRadius = 4
         logInView?.logInButton?.clipsToBounds = true
     }
 }

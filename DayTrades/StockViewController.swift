@@ -53,12 +53,9 @@ class StockViewController: UIViewController {
                 }
             }
         
-            ParseClient.fetchSecurityForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
+            ParseClient.fetchStockForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let stock: Stock = object as? Stock {
                     self.stock = stock
-                }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
                 }
                 self.refreshView()
             });
