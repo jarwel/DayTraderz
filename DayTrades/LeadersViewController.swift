@@ -31,10 +31,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.registerNib(accountCell, forCellReuseIdentifier: cellIdentifier)
         
         segmentedControl.backgroundColor = UIColor.translucentColor()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        
         fetchAccounts(15, skip: 0, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 self.accounts = accounts
@@ -42,6 +39,10 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             self.enableInfiniteScroll()
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
