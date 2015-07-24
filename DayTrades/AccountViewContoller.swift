@@ -177,6 +177,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func refreshAwardView(images: Array<UIImage?>) {
+        leftImageView.image = nil
+        rightImageView.image = nil
         if images.count > 0 {
             if let image: UIImage = images[0] {
                 leftImageView.image = image
