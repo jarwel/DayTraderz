@@ -202,6 +202,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchAccounts(15, skip: 0, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 self.accounts = accounts
+                self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
                 self.tableView.reloadData()
             }
         })
