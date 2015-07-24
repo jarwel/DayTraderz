@@ -105,9 +105,9 @@ class PickViewController: UIViewController, UISearchBarDelegate {
                 ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                     if let nextPick: Pick = object as? Pick {
                         NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
-                        self.submitButton.enabled = true
                         self.navigationController?.popViewControllerAnimated(true)
                     }
+                    self.submitButton.enabled = true
                 })
             }
         }
