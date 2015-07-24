@@ -319,29 +319,33 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.resetView()
         
         if indexPath.section == 0 {
-            if let currentPick: Pick = self.currentPick {
-                cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(currentPick.dayOfTrade)
-                cell.symbolLabel.text = currentPick.symbol
-                if account != nil && quote != nil && quote!.open > 0 {
-                    let priceChange: Double = quote!.price - quote!.open
-                    let percentChange: Double = priceChange / quote!.open * 100
-                    let estimatedValue: Double = account!.value + (account!.value * percentChange / 100);
-                    cell.openLabel.text = numberFormatter.priceFromNumber(quote!.open)
-                    cell.closeLabel.text = numberFormatter.priceFromNumber(quote!.price)
-                    cell.buyLabel.text = "BUY"
-                    cell.valueLabel.text = "\(numberFormatter.currencyFromNumber(estimatedValue)) (Est)"
-                    cell.changeLabel.text = ChangeFormatter.stringFromChange(priceChange, percentChange: percentChange)
-                    cell.changeLabel.textColor = UIColor.colorForChange(priceChange)
-                    if lastPrice != 0 && lastPrice != quote!.price {
-                        let color: UIColor = UIColor.colorForChange(quote!.price - lastPrice)
-                        flashTextColor(color, label: cell.closeLabel)
-                        flashTextColor(color, label: cell.valueLabel)
+            if let account: Account = self.account {
+                if let currentPick: Pick = self.currentPick {
+                    cell.dateLabel.text = dateFormatter.pickTextFromDayOfTrade(currentPick.dayOfTrade)
+                    cell.symbolLabel.text = currentPick.symbol
+                    if let quote: Quote = self.quote {
+                        if quote.open > 0 {
+                            let percentChange: Double = (quote.price - quote.open) / quote.open * 100
+                            let priceChange: Double = account.value * percentChange / 100
+                            let estimatedValue: Double = account.value + priceChange;
+                            cell.openLabel.text = numberFormatter.priceFromNumber(quote.open)
+                            cell.closeLabel.text = numberFormatter.priceFromNumber(quote.price)
+                            cell.buyLabel.text = "BUY"
+                            cell.valueLabel.text = "\(numberFormatter.currencyFromNumber(estimatedValue)) (Est)"
+                            cell.changeLabel.text = ChangeFormatter.stringFromChange(priceChange, percentChange: percentChange)
+                            cell.changeLabel.textColor = UIColor.colorForChange(priceChange)
+                            if lastPrice != 0 && lastPrice != quote.price {
+                                let color: UIColor = UIColor.colorForChange(quote.price - lastPrice)
+                                flashTextColor(color, label: cell.closeLabel)
+                                flashTextColor(color, label: cell.valueLabel)
+                            }
+                            lastPrice = quote.price
+                        }
                     }
-                    lastPrice = quote!.price
                 }
-            }
-            else if MarketHelper.isMarketClosed() {
-                cell.openLabel.text = "Market Closed"
+                else if MarketHelper.isMarketClosed() {
+                    cell.openLabel.text = "Market Closed"
+                }
             }
         }
         else if indexPath.section == 1 && indexPath.row < picks.count {

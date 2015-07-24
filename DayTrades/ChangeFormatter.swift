@@ -17,9 +17,8 @@ class ChangeFormatter {
     }
     
     class func stringFromPick(pick: Pick) -> String {
-        let priceChange: Double = pick.close - pick.open;
-        let percentChange: Double = priceChange / pick.open * 100;
-        return stringFromChange(priceChange, percentChange: percentChange)
+        let percentChange: Double = pick.change / pick.value * 100;
+        return stringFromChange(pick.change, percentChange: percentChange)
     }
     
     class func stringFromChange(priceChange: Double, percentChange: Double) -> String {
