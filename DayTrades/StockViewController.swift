@@ -19,9 +19,9 @@ class StockViewController: UIViewController {
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
     
-    var dayOfTrades: Array<String> = Array()
     var symbol: String?
     var stock: Stock?
+    var nextPick: Pick?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +40,14 @@ class StockViewController: UIViewController {
         if let symbol: String = self.symbol {
             if !disabledSymbols.containsObject(symbol.uppercaseString) {
                 ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
-                    if let pick: Pick = object as? Pick {
-                        if pick.symbol != symbol {
-                            self.submitButton?.hidden = false
+                    if let nextPick: Pick = object as? Pick {
+                        if nextPick.symbol == symbol {
+                            self.nextPick = nextPick
                         }
                     }
-                    if let error: NSError = error {
-                        if error.code == 101 {
-                            self.submitButton?.hidden = false
-                        }
-                    }
+                    self.refreshNextPickView()
                 }
             }
-        
             ParseClient.fetchStockForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let stock: Stock = object as? Stock {
                     self.stock = stock
@@ -90,6 +85,17 @@ class StockViewController: UIViewController {
         }
     }
     
+    func refreshNextPickView() {
+        submitButton.setTitle("Place Trade", forState: UIControlState.Normal)
+        submitButton.hidden = false
+        if let nextPick: Pick = self.nextPick {
+            if nextPick.symbol == symbol {
+                submitButton.setTitle("Remove Pick", forState: UIControlState.Normal)
+                submitButton.hidden = false
+            }
+        }
+    }
+    
     func startDayOfTrade() -> String {
         let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -45, toDate: NSDate(), options: nil)!
         return MarketHelper.previousDayOfTradeFromDate(date)
@@ -100,13 +106,26 @@ class StockViewController: UIViewController {
     }
     
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        if let symbol: String = self.symbol {
-            ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
-                if succeeded {
-                    NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
-                    self.submitButton.hidden = true
-                }
-            })
+        if let nextPick: Pick = self.nextPick {
+            if let nextPick: Pick = self.nextPick {
+                ParseClient.deletePick(nextPick, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded {
+                        self.nextPick = nil
+                        self.refreshNextPickView()
+                    }
+                })
+            }
+        }
+        else {
+            if let symbol: String = self.symbol {
+                ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
+                    if let nextPick: Pick = object as? Pick {
+                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                        self.nextPick = nextPick
+                        self.refreshNextPickView()
+                    }
+                })
+            }
         }
     }
     

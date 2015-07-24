@@ -55,7 +55,7 @@ extension UIImage {
             UIColor(hexString: "F7F7F7", alpha: 1.0).CGColor])
     }
     
-    func tintedWithLinearGradientColors(colors: Array<CGColorRef>) -> UIImage {
+    private func tintedWithLinearGradientColors(colors: Array<CGColorRef>) -> UIImage {
         let scale: CGFloat = self.scale
         UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scale, self.size.height * scale))
         let context: CGContextRef = UIGraphicsGetCurrentContext()

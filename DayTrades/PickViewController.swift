@@ -100,8 +100,8 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
         if let quote: Quote = self.quote {
             if let symbol: String = quote.symbol {
-                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
+                ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
+                    if let nextPick: Pick = object as? Pick {
                         NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
                         self.navigationController?.popViewControllerAnimated(true)
                     }

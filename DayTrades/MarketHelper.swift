@@ -86,7 +86,7 @@ class MarketHelper {
         return !marketHolidays.containsObject(string)
     }
     
-    static func easternDateFormatter() -> NSDateFormatter {
+    private static func easternDateFormatter() -> NSDateFormatter {
         let dateFormatter: NSDateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = NSTimeZone(name: "America/New_York")

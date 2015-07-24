@@ -76,7 +76,7 @@ class ParseClient {
         }
     }
     
-    class func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
+    class func setNextPick(symbol: String, block: (PFObject?, NSError?) -> Void) {
         fetchAccount { (object: PFObject?, error: NSError?) -> Void in
             if let account: Account = object as? Account {
                 let dayOfTrade: String = MarketHelper.nextDayOfTrade()
@@ -84,12 +84,22 @@ class ParseClient {
                 self.fetchNextPick({ (object: PFObject?, error: NSError?) -> Void in
                     if let oldPick: Pick = object as? Pick {
                         self.deletePick(oldPick, block: { (succeeded: Bool, error: NSError?) -> Void in
+                            ParseErrorHandler.handleError(error)
                             if succeeded {
-                                nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+                                nextPick.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
+                                    if succeeded {
+                                        block(nextPick, error)
+                                    }
+                                })
+                            }
+                        })
+                    } else {
+                        nextPick.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
+                            if succeeded {
+                                block(nextPick, error)
                             }
                         })
                     }
-                    nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
                 })
             }
         }
