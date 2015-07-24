@@ -17,6 +17,14 @@ class SettingsViewController: UIViewController {
         logOutButton.layer.cornerRadius = 4
     }
     
+    override func viewDidLayoutSubviews() {
+        let x: CGFloat = logOutButton.frame.origin.x
+        let y: CGFloat = view.frame.size.height / 2
+        let width: CGFloat = logOutButton.frame.width
+        let height: CGFloat = logOutButton.frame.height
+        logOutButton.frame = CGRectMake(x, y, width, height)
+    }
+    
     @IBAction func onLogOutButtonPressed(sender: AnyObject) {
         PFUser.logOut()
         NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogOut.description, object: nil)

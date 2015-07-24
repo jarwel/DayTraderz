@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-eN-g34">
-                                <rect key="frame" x="0.0" y="64" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBQ-Fc-QvR">
                                         <rect key="frame" x="8" y="8" width="584" height="21"/>
@@ -203,21 +203,21 @@
                                     <constraint firstItem="wBQ-Fc-QvR" firstAttribute="leading" secondItem="dxE-eN-g34" secondAttribute="leading" constant="8" id="7Dq-fN-MuH"/>
                                     <constraint firstItem="wBQ-Fc-QvR" firstAttribute="top" secondItem="dxE-eN-g34" secondAttribute="top" constant="8" id="BoY-vj-Yb1"/>
                                     <constraint firstItem="SJ7-hi-YB5" firstAttribute="leading" secondItem="dxE-eN-g34" secondAttribute="leading" constant="8" id="Oyn-Hr-7wY"/>
-                                    <constraint firstAttribute="height" constant="65" id="Xwf-hx-8hR"/>
+                                    <constraint firstAttribute="height" constant="60" id="Xwf-hx-8hR"/>
                                     <constraint firstItem="SJ7-hi-YB5" firstAttribute="top" secondItem="wBQ-Fc-QvR" secondAttribute="bottom" constant="6" id="cOG-HN-5Sf"/>
                                     <constraint firstAttribute="trailing" secondItem="SJ7-hi-YB5" secondAttribute="trailing" constant="8" id="jPi-oZ-tbK"/>
                                     <constraint firstAttribute="trailing" secondItem="wBQ-Fc-QvR" secondAttribute="trailing" constant="8" id="lz7-ph-3sW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-ND-dB6" customClass="StockChart" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="129" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="HeD-2L-SDa"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kX-Zk-R0j">
-                                <rect key="frame" x="0.0" y="379" width="600" height="54"/>
+                                <rect key="frame" x="0.0" y="374" width="600" height="54"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="aqb-yC-79B"/>
@@ -519,6 +519,7 @@
                         <outlet property="nameLabel" destination="8Zv-0v-FUK" id="plw-3K-lHe"/>
                         <outlet property="priceLabel" destination="b7l-lh-o81" id="C3v-QP-nc5"/>
                         <outlet property="securityView" destination="z9k-Dv-NFM" id="tXw-IV-rzL"/>
+                        <outlet property="submitButton" destination="SKJ-a0-Mfp" id="9x8-YY-23h"/>
                         <outlet property="symbolLabel" destination="z6s-fD-EGi" id="1lJ-MA-3Ft"/>
                     </connections>
                 </viewController>

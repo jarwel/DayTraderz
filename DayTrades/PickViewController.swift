@@ -18,6 +18,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var disclaimerLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
     
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let dateFormatter: NSDateFormatter = NSDateFormatter()
@@ -100,9 +101,11 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
         if let quote: Quote = self.quote {
             if let symbol: String = quote.symbol {
+                submitButton.enabled = false
                 ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                     if let nextPick: Pick = object as? Pick {
                         NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                        self.submitButton.enabled = true
                         self.navigationController?.popViewControllerAnimated(true)
                     }
                 })

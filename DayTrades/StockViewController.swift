@@ -108,22 +108,26 @@ class StockViewController: UIViewController {
     @IBAction func onSubmitButtonTouched(sender: AnyObject) {
         if let nextPick: Pick = self.nextPick {
             if let nextPick: Pick = self.nextPick {
+                submitButton.enabled = false
                 ParseClient.deletePick(nextPick, block: { (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
                         self.nextPick = nil
                         self.refreshNextPickView()
                     }
+                    self.submitButton.enabled = true
                 })
             }
         }
         else {
             if let symbol: String = self.symbol {
+                submitButton.enabled = false
                 ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                     if let nextPick: Pick = object as? Pick {
                         NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
                         self.nextPick = nextPick
                         self.refreshNextPickView()
                     }
+                    self.submitButton.enabled = true
                 })
             }
         }
