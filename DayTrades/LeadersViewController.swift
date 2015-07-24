@@ -35,7 +35,13 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        fetchAccounts()
+        fetchAccounts(15, skip: 0, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let accounts: Array<Account> = objects as? Array<Account> {
+                self.accounts = accounts
+                self.tableView.reloadData()
+            }
+            self.enableInfiniteScroll()
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -52,25 +58,22 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
-    func fetchAccounts() {
-        let column: String = columnSelected()
-        let skip: Int = accounts.count
-        ParseClient.fetchAccountsSortedByColumn(column, limit: 15, skip: skip) { (objects: [AnyObject]?, error: NSError?) -> Void in
-            if error == nil {
-                if objects != nil && column == self.columnSelected() {
-                    self.accounts += objects as! Array<Account>
-                    self.refreshView()
-                    self.enableInfiniteScroll()
+    func fetchAccounts(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+        let selectedIndex: Int = segmentedControl.selectedSegmentIndex
+        if selectedIndex == 0 {
+            ParseClient.fetchAccountsSortedByValue(limit, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+                if self.segmentedControl.selectedSegmentIndex == selectedIndex {
+                    block(objects, error)
                 }
-            }
+            })
         }
-    }
-    
-    func columnSelected() -> String {
-        if segmentedControl.selectedSegmentIndex == 1 {
-            return "winners"
+        else if selectedIndex == 1 {
+            ParseClient.fetchAccountsSortedByWinners(limit, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+                if self.segmentedControl.selectedSegmentIndex == selectedIndex {
+                    block(objects, error)
+                }
+            })
         }
-        return "value"
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -176,11 +179,10 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func enableInfiniteScroll() {
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
-            let column: String = self.columnSelected()
             let skip: Int = self.accounts.count
-            ParseClient.fetchAccountsSortedByColumn(column, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    if objects != nil && objects!.count > 0 && column == self.columnSelected() {
+            self.fetchAccounts(10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+                if let accounts: Array<Account> = objects as? Array<Account> {
+                    if accounts.count > 0 {
                         self.accounts += objects as! Array<Account>
                         self.tableView.reloadData()
                     }
@@ -195,8 +197,13 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func onValueChanged(sender: AnyObject) {
         accounts.removeAll()
         animated.removeAll()
-        tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
-        fetchAccounts()
+        tableView.reloadData()
+        fetchAccounts(15, skip: 0, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let accounts: Array<Account> = objects as? Array<Account> {
+                self.accounts = accounts
+                self.tableView.reloadData()
+            }
+        })
     }
     
 }

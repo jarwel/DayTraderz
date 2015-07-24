@@ -201,7 +201,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func fetchAwards() {
         var images: Array<UIImage?> = Array()
-        ParseClient.fetchAccountsSortedByColumn("value", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
+        ParseClient.fetchAccountsSortedByValue(3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
                     images.insert(UIImage(named: "trophy-1.png")?.tintedWithGoldColor(), atIndex: 0)
@@ -215,7 +215,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.refreshAwardView(images)
             }
         }
-        ParseClient.fetchAccountsSortedByColumn("winners", limit: 3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
+        ParseClient.fetchAccountsSortedByWinners(3, skip: 0) { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let accounts: Array<Account> = objects as? Array<Account> {
                 if accounts.count > 0 && accounts[0].objectId == self.account?.objectId {
                     images.append(UIImage(named: "ribbon-1.png")?.tintedWithBlueColor())

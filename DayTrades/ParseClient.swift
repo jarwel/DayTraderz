@@ -16,7 +16,7 @@ class ParseClient {
             account.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
         }
         else {
-            println("user is missing")
+            println("current user is missing")
             block(false, NSError())
         }
     }
@@ -29,7 +29,7 @@ class ParseClient {
             query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
         }
         else {
-            println("user is missing")
+            println("current user is missing")
             block(nil, NSError())
         }
     }
@@ -38,21 +38,18 @@ class ParseClient {
         account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchAccountsSortedByColumn(column: String, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
-        let hasWinnersQuery: PFQuery? = Account.query()
-        hasWinnersQuery?.whereKey("winners", greaterThan: 0)
-        
-        let hasLosersQuery: PFQuery? = Account.query()!
-        hasLosersQuery?.whereKey("losers", greaterThan: 0)
-        
-        if hasWinnersQuery != nil && hasLosersQuery != nil {
-            let query: PFQuery? = PFQuery.orQueryWithSubqueries([hasWinnersQuery!, hasLosersQuery!])
-            query?.includeKey("user")
-            query?.orderByDescending("\(column),losers")
-            query?.limit = limit
-            query?.skip = skip
-            query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
-        }
+    class func fetchAccountsSortedByValue(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+        fetchAccountsSortedByColumns("value,winners,losers", limit: limit, skip: skip, block: block)
+    }
+    
+    class func fetchAccountsSortedByWinners(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+        fetchAccountsSortedByColumns("winners,losers,value", limit: limit, skip: skip, block: block)
+    }
+    
+    class func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
+        let query: PFQuery? = Stock.query()
+        query?.whereKey("symbol", equalTo: symbol)
+        query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
     }
     
     class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
@@ -82,9 +79,9 @@ class ParseClient {
     class func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
         fetchAccount { (object: PFObject?, error: NSError?) -> Void in
             if let account: Account = object as? Account {
+                let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+                let nextPick: Pick = Pick(account: account, symbol: symbol, dayOfTrade: dayOfTrade)
                 self.fetchNextPick({ (object: PFObject?, error: NSError?) -> Void in
-                    let dayOfTrade: String = MarketHelper.nextDayOfTrade()
-                    let nextPick: Pick = Pick(account: account, symbol: symbol, dayOfTrade: dayOfTrade)
                     if let oldPick: Pick = object as? Pick {
                         self.deletePick(oldPick, block: { (succeeded: Bool, error: NSError?) -> Void in
                             if succeeded {
@@ -102,10 +99,19 @@ class ParseClient {
         pick.deleteInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
-        let query: PFQuery? = Stock.query()
-        query?.whereKey("symbol", equalTo: symbol)
-        query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
+    private class func fetchAccountsSortedByColumns(columns: String, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+        let hasWinnersQuery: PFQuery? = Account.query()
+        hasWinnersQuery?.whereKey("winners", greaterThan: 0)
+        
+        let hasLosersQuery: PFQuery? = Account.query()!
+        hasLosersQuery?.whereKey("losers", greaterThan: 0)
+        
+        let query: PFQuery? = PFQuery.orQueryWithSubqueries([hasWinnersQuery!, hasLosersQuery!])
+        query?.includeKey("user")
+        query?.orderByDescending(columns)
+        query?.limit = limit
+        query?.skip = skip
+        query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
 }

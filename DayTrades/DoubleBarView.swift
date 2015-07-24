@@ -52,10 +52,7 @@ class DoubleBarView: UIView {
             UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
                 self.subview.frame = CGRectMake(0, 0, width, self.frame.height)
             },
-            completion: { finished in
-                self.rightLabel.hidden = false;
-                self.leftLabel.hidden = false;
-            })
+            completion: nil)
         }
     }
     

@@ -29,8 +29,12 @@ class SingleBarView: UIView {
         label.frame = CGRectMake(0, 0, self.frame.width - 4, self.frame.height)
         label.textAlignment = NSTextAlignment.Right
         label.font = UIFont.boldSystemFontOfSize(15)
-        label.textColor = UIColor.blackColor()
-        label.hidden = true
+        if value == 0 {
+            label.textColor = self.barColor
+        }
+        else {
+            label.textColor = UIColor.blackColor()
+        }
         label.text = nil
     }
     
@@ -41,14 +45,10 @@ class SingleBarView: UIView {
             let width: CGFloat = frame.width * percent
             let x: CGFloat = frame.width - width
             subview.backgroundColor = barColor
-            label.text = "\(value)"
             UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
                 self.subview.frame = CGRectMake(x, 0, width, self.frame.height)
             }, completion: { finished in
-                if self.value == 0 {
-                    self.label.textColor = self.barColor
-                }
-                self.label.hidden = false;
+                self.label.text = "\(self.value)"
             })
         }
     }

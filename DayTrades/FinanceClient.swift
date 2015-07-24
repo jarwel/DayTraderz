@@ -20,7 +20,7 @@ class FinanceClient {
         sendRequestWithQuery(query, block: block);
     }
     
-    static func sendRequestWithQuery(query: String, block: (NSURLResponse!, NSData!, NSError!) -> Void) {
+    private static func sendRequestWithQuery(query: String, block: (NSURLResponse!, NSData!, NSError!) -> Void) {
         let encoded = query.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         let path: String = String(format: "http://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded!)
         if let url = NSURL(string: path) {
