@@ -12,8 +12,8 @@ class MenuController: UITabBarController {
     
     override func viewDidLoad() {
         navigationController!.navigationBar.barStyle = UIBarStyle.Black
-        navigationController!.navigationBar.translucent = true
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController!.navigationBar.translucent = true
         tabBar.barStyle = UIBarStyle.Black
         tabBar.translucent = true
         tabBar.tintColor = UIColor.whiteColor()
