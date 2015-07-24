@@ -100,7 +100,6 @@
                     <constraint firstItem="TBV-CJ-ife" firstAttribute="width" secondItem="x9l-0m-Jos" secondAttribute="width" constant="45" id="BWx-fa-J82"/>
                     <constraint firstItem="LF8-08-rh8" firstAttribute="width" secondItem="x9l-0m-Jos" secondAttribute="width" id="HUa-3L-52X"/>
                     <constraint firstItem="6oS-9Y-Ssc" firstAttribute="leading" secondItem="x9l-0m-Jos" secondAttribute="trailing" id="IUH-rB-3mF"/>
-                    <constraint firstItem="FmP-1o-JNQ" firstAttribute="width" secondItem="TBV-CJ-ife" secondAttribute="width" id="R49-7i-c29"/>
                     <constraint firstItem="x9l-0m-Jos" firstAttribute="top" secondItem="50I-6e-Fuj" secondAttribute="topMargin" id="SPY-ic-1lh"/>
                     <constraint firstItem="LF8-08-rh8" firstAttribute="leading" secondItem="50I-6e-Fuj" secondAttribute="leadingMargin" id="V64-Qa-Zrj"/>
                     <constraint firstItem="6oS-9Y-Ssc" firstAttribute="width" secondItem="gyd-TS-gf0" secondAttribute="width" id="Wah-IG-4W3"/>
@@ -108,7 +107,6 @@
                     <constraint firstAttribute="bottomMargin" secondItem="gyd-TS-gf0" secondAttribute="bottom" id="YNK-d6-uti"/>
                     <constraint firstItem="x9l-0m-Jos" firstAttribute="leading" secondItem="50I-6e-Fuj" secondAttribute="leadingMargin" id="Z4f-nZ-Cj3"/>
                     <constraint firstItem="LF8-08-rh8" firstAttribute="bottom" secondItem="50I-6e-Fuj" secondAttribute="bottomMargin" id="Zjg-i1-4DC"/>
-                    <constraint firstItem="LF8-08-rh8" firstAttribute="width" secondItem="FmP-1o-JNQ" secondAttribute="width" id="bvz-jX-mXu"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UA7-2q-UPr" secondAttribute="bottom" id="dnj-Re-kBR"/>
                     <constraint firstItem="UA7-2q-UPr" firstAttribute="leading" secondItem="gyd-TS-gf0" secondAttribute="trailing" constant="2" id="gJ9-EL-cEY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="FmP-1o-JNQ" secondAttribute="bottom" id="mGD-8x-1Eg"/>
@@ -117,12 +115,6 @@
                     <constraint firstItem="TBV-CJ-ife" firstAttribute="top" secondItem="50I-6e-Fuj" secondAttribute="topMargin" id="wzk-0n-jJC"/>
                     <constraint firstItem="ScM-rV-4C1" firstAttribute="top" secondItem="50I-6e-Fuj" secondAttribute="topMargin" id="ykR-9y-gbN"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="bvz-jX-mXu"/>
-                        <exclude reference="R49-7i-c29"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
