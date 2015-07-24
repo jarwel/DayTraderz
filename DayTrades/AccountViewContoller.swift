@@ -194,8 +194,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             ParseClient.refreshAccount(account, block: { (object, error) -> Void in
                 if let refreshed: Account = object as? Account {
                     self.account = refreshed
-                    self.fetchAwards()
-                    self.fetchPicks()
                 }
             })
         }
