@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="69" width="517.5" height="38"/>
+                                <rect key="frame" x="16" y="69" width="518" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="lOr-0h-9bm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
-                                <rect key="frame" x="533" y="74" width="50.5" height="21"/>
+                                <rect key="frame" x="533.5" y="74" width="50.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hOe-Ba-50d"/>
                                 </constraints>
@@ -45,7 +45,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Xf-oE6">
-                                <rect key="frame" x="512" y="175" width="78" height="25"/>
+                                <rect key="frame" x="514" y="175" width="78" height="25"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="7dz-XX-nQB"/>
@@ -61,19 +61,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-HI-lgt" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="484" y="101" width="100" height="20"/>
+                                <rect key="frame" x="494" y="101" width="90" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fdI-8F-Zxj"/>
-                                    <constraint firstAttribute="width" constant="100" id="fii-qR-swD"/>
+                                    <constraint firstAttribute="width" constant="90" id="fii-qR-swD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-tO-8Kh" customClass="SingleBarView" customModule="DayTrades" customModuleProvider="target">
-                                <rect key="frame" x="484" y="123" width="100" height="20"/>
+                                <rect key="frame" x="494" y="123" width="90" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="W9W-7e-ic9"/>
-                                    <constraint firstAttribute="width" constant="100" id="gdK-Zx-aDV"/>
+                                    <constraint firstAttribute="width" constant="90" id="gdK-Zx-aDV"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-TE-gfw">
@@ -97,7 +97,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-bm-eRQ">
-                                <rect key="frame" x="16" y="115" width="468" height="21"/>
+                                <rect key="frame" x="16" y="115" width="478" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KaS-3L-Hvu"/>
                                 </constraints>
@@ -106,7 +106,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Next Pick" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-7p-bsx">
-                                <rect key="frame" x="16" y="178" width="488" height="21"/>
+                                <rect key="frame" x="16" y="178" width="490" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="J4n-fJ-LZH"/>
                                 </constraints>
@@ -122,7 +122,7 @@
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="top" secondItem="BHb-NX-zp7" secondAttribute="bottom" constant="10" id="4Ul-LO-dPT"/>
                             <constraint firstItem="Ofg-ih-EcF" firstAttribute="leading" secondItem="IU3-TE-gfw" secondAttribute="trailing" constant="4" id="7jS-mP-RR1"/>
                             <constraint firstItem="CLE-tO-8Kh" firstAttribute="leading" secondItem="HQR-bm-eRQ" secondAttribute="trailing" id="8mV-y9-oFp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tjc-Xf-oE6" secondAttribute="trailing" constant="-6" id="9D6-Xu-wca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tjc-Xf-oE6" secondAttribute="trailing" constant="-8" id="9D6-Xu-wca"/>
                             <constraint firstAttribute="trailingMargin" secondItem="buT-kL-TyP" secondAttribute="trailing" constant="-16" id="Aiw-be-vww"/>
                             <constraint firstItem="HQR-bm-eRQ" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="Cp5-bH-P1K"/>
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="top" secondItem="CLE-tO-8Kh" secondAttribute="bottom" constant="32" id="FUz-Od-dcS"/>
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-rD-JWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10844" y="-7255"/>
+            <point key="canvasLocation" x="-10592" y="-10191"/>
         </scene>
         <!--Stock View Controller-->
         <scene sceneID="uYj-S2-t01">
@@ -193,7 +193,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="W4L-K4-FWe"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhs-aO-f0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9878" y="-7255"/>
+            <point key="canvasLocation" x="-9626" y="-10191"/>
         </scene>
         <!--Leaders-->
         <scene sceneID="yeQ-z0-n9I">
@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-G2-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11836" y="-6397"/>
+            <point key="canvasLocation" x="-11584" y="-9333"/>
         </scene>
         <!--Pick View Controller-->
         <scene sceneID="dcb-bp-1rE">
@@ -530,7 +530,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-10844" y="-6397"/>
+            <point key="canvasLocation" x="-10592" y="-9333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pK-OU-KbM">
@@ -548,7 +548,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkN-tB-fAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12728" y="-7255"/>
+            <point key="canvasLocation" x="-12476" y="-10191"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hNE-1w-Ooe">
@@ -618,7 +618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfa-Fb-cWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12728" y="-6397"/>
+            <point key="canvasLocation" x="-12476" y="-9333"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="ssV-9p-KrQ">
@@ -639,7 +639,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idF-Yo-48W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11836" y="-7255"/>
+            <point key="canvasLocation" x="-11584" y="-10191"/>
         </scene>
     </scenes>
     <resources>
@@ -648,6 +648,6 @@
         <image name="SettingsBarIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6hj-fz-Ukl"/>
+        <segue reference="Apu-vy-Zk7"/>
     </inferredMetricsTieBreakers>
 </document>

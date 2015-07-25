@@ -121,6 +121,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func applicationBecameActive() {
         println("application became active")
+        tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
         fetchAccount()
         quoteTimer?.invalidate()
         quoteTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("fetchQuote"), userInfo: nil, repeats: true)
@@ -344,9 +345,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                             lastPrice = quote.price
                         }
                     }
-                }
-                else if MarketHelper.isMarketClosed() {
-                    cell.openLabel.text = "Market Closed"
                 }
             }
         }
