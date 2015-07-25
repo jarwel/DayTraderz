@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="69" width="517.5" height="38"/>
+                                <rect key="frame" x="16" y="69" width="517" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="lOr-0h-9bm"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
-                                <rect key="frame" x="533" y="74" width="50.5" height="21"/>
+                                <rect key="frame" x="533" y="74" width="51" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hOe-Ba-50d"/>
                                 </constraints>
