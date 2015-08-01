@@ -29,9 +29,10 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
         topView.backgroundColor = UIColor.translucentColor()
+        submitButton.layer.cornerRadius = 4
+        submitButton.hidden = true
         nameLabel.text = nil
         picksLabel.text = nil
-        submitButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
