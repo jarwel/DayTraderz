@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-GY-JQX">
-                                <rect key="frame" x="16" y="69" width="517" height="38"/>
+                                <rect key="frame" x="16" y="69" width="517.5" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="lOr-0h-9bm"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Picks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-RE-jO6">
-                                <rect key="frame" x="533" y="74" width="51" height="21"/>
+                                <rect key="frame" x="533.5" y="74" width="50.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hOe-Ba-50d"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="buT-kL-TyP">
-                                <rect key="frame" x="0.0" y="215" width="600" height="336"/>
+                                <rect key="frame" x="0.0" y="210" width="600" height="341"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -126,7 +126,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="buT-kL-TyP" secondAttribute="trailing" constant="-16" id="Aiw-be-vww"/>
                             <constraint firstItem="HQR-bm-eRQ" firstAttribute="leading" secondItem="afo-Qs-2eu" secondAttribute="leadingMargin" id="Cp5-bH-P1K"/>
                             <constraint firstItem="tjc-Xf-oE6" firstAttribute="top" secondItem="CLE-tO-8Kh" secondAttribute="bottom" constant="32" id="FUz-Od-dcS"/>
-                            <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="15" id="HKm-rv-xyu"/>
+                            <constraint firstItem="buT-kL-TyP" firstAttribute="top" secondItem="tjc-Xf-oE6" secondAttribute="bottom" constant="10" id="HKm-rv-xyu"/>
                             <constraint firstItem="Ofg-ih-EcF" firstAttribute="top" secondItem="HQR-bm-eRQ" secondAttribute="bottom" constant="10" id="Iec-do-xff"/>
                             <constraint firstItem="iIl-RE-jO6" firstAttribute="leading" secondItem="Udm-GY-JQX" secondAttribute="trailing" id="Jps-VC-ggr"/>
                             <constraint firstItem="ZO4-HI-lgt" firstAttribute="top" secondItem="iIl-RE-jO6" secondAttribute="bottom" constant="6" id="LKD-TM-gMd"/>
