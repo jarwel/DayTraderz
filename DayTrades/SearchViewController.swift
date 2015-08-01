@@ -66,21 +66,22 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if isValidSymbol(searchText) {
-            let symbols: Set<String> = ["\(searchText.uppercaseString)"]
-            FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                self.quote = nil
-                if let data: NSData = data {
-                    let quotes: Array<Quote> = Quote.fromData(data)
-                    if let quote = quotes.first {
-                        if quote.symbol == searchBar.text.uppercaseString {
+            let symbol: String = searchText.uppercaseString
+            let requestNumber: UInt = ++self.requestNumber
+            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                if requestNumber == self.requestNumber {
+                    self.quote = nil
+                    if let data: NSData = data {
+                        let quotes: Array<Quote> = Quote.fromData(data)
+                        if let quote = quotes.first {
                             self.quote = quote
                         }
+                        if let error: NSError = error {
+                            println("Error \(error) \(error.userInfo)")
+                        }
                     }
+                    self.refreshView()
                 }
-                if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
-                }
-                self.refreshView()
             })
         }
     }

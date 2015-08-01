@@ -260,9 +260,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchQuote() {
-        if currentPick != nil {
-            let symbols: Set<String> = ["\(currentPick!.symbol)"]
-            FinanceClient.fetchQuotesForSymbols(symbols, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+        if let currentPick: Pick = self.currentPick {
+            let symbol: String = currentPick.symbol
+            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 if let data: NSData = data {
                     let quotes: Array<Quote> = Quote.fromData(data)
                     if quotes.count == 1 {

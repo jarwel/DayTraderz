@@ -10,8 +10,8 @@ import Foundation
 
 class FinanceClient {
 
-    class func fetchQuotesForSymbols(symbols: Set<String>, block: (NSURLResponse!, NSData!, NSError!) -> Void ) {
-        let query: String = "select symbol, Name, LastTradePriceOnly, Change, ChangeinPercent, Open from yahoo.finance.quotes where symbol in ('" + "','".join(symbols) + "') and ErrorIndicationreturnedforsymbolchangedinvalid is not null and MarketCapitalization <> '0'"
+    class func fetchQuoteForSymbol(symbol: String, block: (NSURLResponse!, NSData!, NSError!) -> Void ) {
+        let query: String = "select symbol, Name, LastTradePriceOnly, Change, ChangeinPercent, Open from yahoo.finance.quotes where symbol = '\(symbol)' and ErrorIndicationreturnedforsymbolchangedinvalid is not null and MarketCapitalization <> '0'"
         sendRequestWithQuery(query, block: block);
     }
     
