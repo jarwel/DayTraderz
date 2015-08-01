@@ -85,7 +85,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        if identifier == "ShowPickSegue" {
+        if identifier == "ShowSearchSegue" {
             if let nextPick: Pick = self.nextPick {
                 if nextPick.dayOfTrade == MarketHelper.nextDayOfTrade() {
                     self.nextPick = nil

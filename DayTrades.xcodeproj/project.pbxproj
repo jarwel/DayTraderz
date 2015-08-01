@@ -14,8 +14,8 @@
 		2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */; };
 		2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */; };
 		2F3B03861B5601E100EB9B93 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
-		2F4D4AC61B5C9B16006D36F2 /* PickViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */; };
-		2F4D4AC71B5C9B62006D36F2 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
+		2F4D4AC61B5C9B16006D36F2 /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D4AC51B5C9B16006D36F2 /* SearchViewControllerTests.swift */; };
+		2F4D4AC71B5C9B62006D36F2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* SearchViewController.swift */; };
 		2F4D4AC81B5C9D07006D36F2 /* Pick.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC121B52CA9100BDD762 /* Pick.swift */; };
 		2F4D4AC91B5C9DAC006D36F2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC0B1B52C1FC00BDD762 /* Account.swift */; };
 		2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136ED1B4F098A00B869A4 /* Quote.swift */; };
@@ -36,7 +36,7 @@
 		2FE66F6C1B5DB31900B7B378 /* trophy-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE66F691B5DB31900B7B378 /* trophy-3.png */; };
 		2FFCB2F41B60927F00E5289E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFCB2F31B60927F00E5289E /* MenuController.swift */; };
 		9F6F88CAE41E8B37EB21EF39 /* libPods-DayTrades.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50388C5F2DA07160DBCD45 /* libPods-DayTrades.a */; };
-		AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */; };
+		AA4AE6D31B52E30E0043AEC3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D21B52E30E0043AEC3 /* SearchViewController.swift */; };
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
 		AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */; };
 		AABEDBFB1B51D96B00BDD762 /* NSDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */; };
@@ -110,7 +110,7 @@
 		2F3B037D1B54A28800EB9B93 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2F3B03811B55F2A600EB9B93 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewControllerTests.swift; sourceTree = "<group>"; };
+		2F4D4AC51B5C9B16006D36F2 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
 		2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FBB51FB1B5D80F200077723 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		2FCB935C1B584925000A9B1F /* StockChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChart.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		6CF787D3AE6FBBF83CBF8C2E /* libPods-DayTradesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DayTradesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B20A3833F833D5DA20B5A8B /* Pods-DayTrades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTrades/Pods-DayTrades.debug.xcconfig"; sourceTree = "<group>"; };
 		9B30135AC6826120BCAECC34 /* Pods-DayTradesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTradesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayTradesTests/Pods-DayTradesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewController.swift; sourceTree = "<group>"; };
+		AA4AE6D21B52E30E0043AEC3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
 		AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewContoller.swift; sourceTree = "<group>"; };
 		AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterTests.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */,
-				2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */,
+				2F4D4AC51B5C9B16006D36F2 /* SearchViewControllerTests.swift */,
 				CAE281311B5084C2003790CC /* MarketHelperTests.swift */,
 				AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */,
 				AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */,
@@ -315,7 +315,7 @@
 			children = (
 				2FFCB2F31B60927F00E5289E /* MenuController.swift */,
 				AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */,
-				AA4AE6D21B52E30E0043AEC3 /* PickViewController.swift */,
+				AA4AE6D21B52E30E0043AEC3 /* SearchViewController.swift */,
 				2FCB935E1B5849B9000A9B1F /* StockViewController.swift */,
 				AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */,
 				2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */,
@@ -623,7 +623,7 @@
 				AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */,
 				2FBB51FC1B5D80F200077723 /* UIImage.swift in Sources */,
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
-				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
+				AA4AE6D31B52E30E0043AEC3 /* SearchViewController.swift in Sources */,
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
 				2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */,
 				2FFCB2F41B60927F00E5289E /* MenuController.swift in Sources */,
@@ -653,8 +653,8 @@
 				2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */,
 				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter.swift in Sources */,
 				2F4D4ACD1B5C9DCF006D36F2 /* UIColor.swift in Sources */,
-				2F4D4AC71B5C9B62006D36F2 /* PickViewController.swift in Sources */,
-				2F4D4AC61B5C9B16006D36F2 /* PickViewControllerTests.swift in Sources */,
+				2F4D4AC71B5C9B62006D36F2 /* SearchViewController.swift in Sources */,
+				2F4D4AC61B5C9B16006D36F2 /* SearchViewControllerTests.swift in Sources */,
 				2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */,
 				2F4D4AC91B5C9DAC006D36F2 /* Account.swift in Sources */,
 				CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  PickViewControllerTests.swift
+//  SearchViewControllerTests.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/19/15.
@@ -8,41 +8,41 @@
 
 import XCTest
 
-class PickViewContollerTests: XCTestCase {
+class SearchViewContollerTests: XCTestCase {
     
-    var pickViewController: PickViewController?
+    var searchViewController: SearchViewController?
     
     override func setUp() {
         super.setUp()
-        pickViewController = PickViewController()
+        searchViewController = SearchViewController()
     }
     
     override func tearDown() {
-        pickViewController = nil
+        searchViewController = nil
         super.tearDown()
     }
     
     func testIsValidSymbol() {
         let symbol: String = "AAPL"
-        let isValid: Bool = pickViewController!.isValidSymbol(symbol)
+        let isValid: Bool = searchViewController!.isValidSymbol(symbol)
         XCTAssertTrue(isValid)
     }
     
     func testIsValidSymbolLowercase() {
         let symbol: String = "aapl"
-        let isValid: Bool = pickViewController!.isValidSymbol(symbol)
+        let isValid: Bool = searchViewController!.isValidSymbol(symbol)
         XCTAssertTrue(isValid)
     }
     
     func testIsValidMarket() {
         let symbol: String = "^GSPC"
-        let isValid: Bool = pickViewController!.isValidSymbol(symbol)
+        let isValid: Bool = searchViewController!.isValidSymbol(symbol)
         XCTAssertFalse(isValid)
     }
     
     func testIsValidDisabledGRNBF() {
         let symbol: String = "GRNBF"
-        let isValid: Bool = pickViewController!.isValidSymbol(symbol)
+        let isValid: Bool = searchViewController!.isValidSymbol(symbol)
         XCTAssertFalse(isValid)
     }
     

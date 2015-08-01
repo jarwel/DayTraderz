@@ -1,5 +1,5 @@
 //
-//  PickViewController.swift
+//  SearchViewController.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/12/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PickViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var securityView: UIView!
@@ -25,6 +25,7 @@ class PickViewController: UIViewController, UISearchBarDelegate {
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
     var quote: Quote?
+    var requestNumber: UInt = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
