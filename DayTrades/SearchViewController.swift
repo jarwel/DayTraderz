@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
     @IBOutlet weak var submitButton: UIButton!
     
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
+    let changeFormatter: ChangeFormatter = ChangeFormatter()
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
@@ -48,8 +49,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
         if let quote: Quote = quote {
             symbolLabel.text = quote.symbol
             nameLabel.text = quote.name
-            priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote.price))
-            changeLabel.text = ChangeFormatter.stringFromQuote(quote)
+            priceLabel.text = numberFormatter.priceFromNumber(quote.price)
+            changeLabel.text = changeFormatter.textFromQuote(quote)
             changeLabel.textColor = UIColor.colorForChange(quote.priceChange)
             detailsView.hidden = true
             stockView.hidden = false

@@ -10,21 +10,22 @@ import Foundation
 
 class ChangeFormatter {
     
-    class func stringFromQuote(quote: Quote) -> String {
+    let numberFormatter: NSNumberFormatter = NSNumberFormatter()
+    
+    func textFromQuote(quote: Quote) -> String {
         let priceChange: Double = quote.priceChange
         let percentChange: Double = quote.percentChange
-        return stringFromChange(priceChange, percentChange: percentChange)
+        return textFromChange(priceChange, percentChange: percentChange)
     }
     
-    class func stringFromPick(pick: Pick) -> String {
+    func textFromPick(pick: Pick) -> String {
         let percentChange: Double = pick.change / pick.value * 100;
-        return stringFromChange(pick.change, percentChange: percentChange)
+        return textFromChange(pick.change, percentChange: percentChange)
     }
     
-    class func stringFromChange(priceChange: Double, percentChange: Double) -> String {
-        let numberFormatter: NSNumberFormatter = NSNumberFormatter()
-        let priceChangeFormat: String = numberFormatter.priceChangeFromNumber(NSNumber(double: priceChange))
-        let percentChangeFormat: String = numberFormatter.percentChangeFromNumber(NSNumber(double: percentChange))
+    func textFromChange(priceChange: Double, percentChange: Double) -> String {
+        let priceChangeFormat: String = numberFormatter.priceChangeFromNumber(priceChange)
+        let percentChangeFormat: String = numberFormatter.percentChangeFromNumber(percentChange)
         return "\(priceChangeFormat) (\(percentChangeFormat))"
     }
     

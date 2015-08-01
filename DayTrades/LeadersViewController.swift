@@ -120,7 +120,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.awardImageView.image = nil
             }
             cell.nameLabel.text = account.user.username
-            cell.valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
+            cell.valueLabel.text = numberFormatter.currencyFromNumber(account.value)
             cell.picksBarView.total = account.winners + account.losers
             cell.picksBarView.value = account.winners
             if animated.contains(account) {

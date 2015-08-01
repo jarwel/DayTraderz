@@ -24,6 +24,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     let headerHeight: CGFloat = 20
     let cellHeight: CGFloat = 60
     let cellIdentifier: String = "PickCell"
+    let changeFormatter: ChangeFormatter = ChangeFormatter()
     let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     let dateFormatter: NSDateFormatter = NSDateFormatter()
     
@@ -139,7 +140,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func refreshView() {
         if let account: Account = self.account {
             nameLabel.text = account.user.username
-            valueLabel.text = numberFormatter.currencyFromNumber(NSNumber(double: account.value))
+            valueLabel.text = numberFormatter.currencyFromNumber(account.value)
         
             let count: UInt = account.winners + account.losers;
             if count == 0 {
@@ -337,7 +338,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                             cell.closeLabel.text = numberFormatter.priceFromNumber(quote.price)
                             cell.buyLabel.text = "BUY"
                             cell.valueLabel.text = "\(numberFormatter.currencyFromNumber(estimatedValue)) (Est)"
-                            cell.changeLabel.text = ChangeFormatter.stringFromChange(priceChange, percentChange: percentChange)
+                            cell.changeLabel.text = changeFormatter.textFromChange(priceChange, percentChange: percentChange)
                             cell.changeLabel.textColor = UIColor.colorForChange(priceChange)
                             if lastPrice != 0 && lastPrice != quote.price {
                                 let color: UIColor = UIColor.colorForChange(quote.price - lastPrice)
@@ -359,7 +360,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.buyLabel.text = "BUY"
             cell.sellLabel.text = "SELL"
             cell.valueLabel.text = numberFormatter.currencyFromNumber(pick.value + pick.change)
-            cell.changeLabel.text = ChangeFormatter.stringFromPick(pick)
+            cell.changeLabel.text = changeFormatter.textFromPick(pick)
             cell.changeLabel.textColor = UIColor.colorForChange(pick.change)
             cell.openLabel.textColor = UIColor.whiteColor()
             cell.closeLabel.textColor = UIColor.whiteColor()

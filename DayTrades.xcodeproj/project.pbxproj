@@ -29,6 +29,7 @@
 		2FBB51FC1B5D80F200077723 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB51FB1B5D80F200077723 /* UIImage.swift */; };
 		2FC22EAA1B6D809B0010AB9B /* ChangeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */; };
 		2FC22EAD1B6D81480010AB9B /* ChangeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */; };
+		2FC22EAF1B6D84700010AB9B /* ChangeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC22EAE1B6D84700010AB9B /* ChangeFormatterTests.swift */; };
 		2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* StockChart.swift */; };
 		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
@@ -114,6 +115,7 @@
 		2F4D4AC51B5C9B16006D36F2 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
 		2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FBB51FB1B5D80F200077723 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		2FC22EAE1B6D84700010AB9B /* ChangeFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFormatterTests.swift; sourceTree = "<group>"; };
 		2FCB935C1B584925000A9B1F /* StockChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChart.swift; sourceTree = "<group>"; };
 		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */,
 				2F4D4AC51B5C9B16006D36F2 /* SearchViewControllerTests.swift */,
+				2FC22EAE1B6D84700010AB9B /* ChangeFormatterTests.swift */,
 				CAE281311B5084C2003790CC /* MarketHelperTests.swift */,
 				AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */,
 				AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */,
@@ -389,8 +392,8 @@
 		CA685CA41A89902500727CE1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */,
 				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
+				CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */,
 				2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */,
 			);
 			name = Helpers;
@@ -650,6 +653,7 @@
 				2F4D4ACC1B5C9DC3006D36F2 /* FinanceClient.swift in Sources */,
 				2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */,
 				CAE281301B50849B003790CC /* MarketHelper.swift in Sources */,
+				2FC22EAF1B6D84700010AB9B /* ChangeFormatterTests.swift in Sources */,
 				2F4D4ACB1B5C9DC0006D36F2 /* ParseClient.swift in Sources */,
 				2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */,
 				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter.swift in Sources */,
