@@ -1,5 +1,5 @@
 //
-//  UIColor+App.swift
+//  UIColor.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/9/15.

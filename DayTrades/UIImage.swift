@@ -1,5 +1,5 @@
 //
-//  UIImage+App.swift
+//  UIImage.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/20/15.

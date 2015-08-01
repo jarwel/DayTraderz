@@ -1,5 +1,5 @@
 //
-//  NSNumberFormatter+App.swift
+//  NSNumberFormatter.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/10/15.

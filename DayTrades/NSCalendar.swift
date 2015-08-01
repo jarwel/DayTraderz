@@ -1,5 +1,5 @@
 //
-//  NSCalendar+App.swift
+//  NSCalendar.swift
 //  DayTrades
 //
 //  Created by Jason Wells on 7/11/15.

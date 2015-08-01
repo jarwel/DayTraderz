@@ -21,12 +21,12 @@
 		2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136ED1B4F098A00B869A4 /* Quote.swift */; };
 		2F4D4ACB1B5C9DC0006D36F2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC161B52D57300BDD762 /* ParseClient.swift */; };
 		2F4D4ACC1B5C9DC3006D36F2 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
-		2F4D4ACD1B5C9DCF006D36F2 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */; };
+		2F4D4ACD1B5C9DCF006D36F2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor.swift */; };
 		2F4D4ACE1B5C9DEC006D36F2 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
 		2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B03851B5601E100EB9B93 /* Notification.swift */; };
 		2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07BE441B594C1400BB99CD /* Stock.swift */; };
 		2F63C6D61B60CAB700E3E50D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */; };
-		2FBB51FC1B5D80F200077723 /* UIImage+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB51FB1B5D80F200077723 /* UIImage+App.swift */; };
+		2FBB51FC1B5D80F200077723 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB51FB1B5D80F200077723 /* UIImage.swift */; };
 		2FCB935D1B584925000A9B1F /* StockChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935C1B584925000A9B1F /* StockChart.swift */; };
 		2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB935E1B5849B9000A9B1F /* StockViewController.swift */; };
 		2FD6F6641B57FB2A001F1630 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */; };
@@ -40,11 +40,11 @@
 		AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D41B531FBC0043AEC3 /* LeadersViewController.swift */; };
 		AA4AE6D71B534DC80043AEC3 /* AccountViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */; };
 		AABEDBFB1B51D96B00BDD762 /* NSDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */; };
-		AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
+		AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter.swift */; };
 		AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */; };
-		AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
-		AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
-		AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */; };
+		AABEDBFF1B51E19600BDD762 /* NSNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter.swift */; };
+		AABEDC011B51E8F900BDD762 /* NSCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar.swift */; };
+		AABEDC021B51E98B00BDD762 /* NSCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC001B51E8F900BDD762 /* NSCalendar.swift */; };
 		AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */; };
 		AABEDC081B51F81300BDD762 /* SingleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC071B51F81300BDD762 /* SingleBarView.swift */; };
 		AABEDC0A1B523EDD00BDD762 /* DoubleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */; };
@@ -73,7 +73,7 @@
 		CA492C131A61DDAB00ED13B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C111A61DDAB00ED13B3 /* Social.framework */; };
 		CA492C151A61DE1000ED13B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */; };
 		CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E71B4EE4B800B869A4 /* PickCell.swift */; };
-		CA8136EA1B4EE74B00B869A4 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */; };
+		CA8136EA1B4EE74B00B869A4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136E91B4EE74B00B869A4 /* UIColor.swift */; };
 		CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */; };
 		CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136ED1B4F098A00B869A4 /* Quote.swift */; };
 		CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */; };
@@ -81,9 +81,9 @@
 		CA98EF791AA55BD20058A3EF /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA98EF781AA55BD20058A3EF /* background-4.jpg */; };
 		CA9908201AA2C45500804200 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CA99081F1AA2C45500804200 /* close.png */; };
 		CAAB61A11AA40C35002D739B /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAAB61A01AA40C35002D739B /* background-2.jpg */; };
-		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */; };
+		CAD9B90E1B506AB900B9CF1D /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B90D1B506AB900B9CF1D /* NSDateFormatter.swift */; };
 		CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
-		CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */; };
+		CADFDD651B50252700E298A8 /* NSNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADFDD641B50252700E298A8 /* NSNumberFormatter.swift */; };
 		CAE281301B50849B003790CC /* MarketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */; };
 		CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE281311B5084C2003790CC /* MarketHelperTests.swift */; };
 		CAF584411AA3E4FA002422DD /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF584401AA3E4FA002422DD /* background-1.jpg */; };
@@ -112,7 +112,7 @@
 		2F3B03851B5601E100EB9B93 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		2F4D4AC51B5C9B16006D36F2 /* PickViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickViewControllerTests.swift; sourceTree = "<group>"; };
 		2F63C6D51B60CAB700E3E50D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		2FBB51FB1B5D80F200077723 /* UIImage+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+App.swift"; sourceTree = "<group>"; };
+		2FBB51FB1B5D80F200077723 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		2FCB935C1B584925000A9B1F /* StockChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChart.swift; sourceTree = "<group>"; };
 		2FCB935E1B5849B9000A9B1F /* StockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		AA4AE6D61B534DC80043AEC3 /* AccountViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewContoller.swift; sourceTree = "<group>"; };
 		AABEDBFA1B51D96B00BDD762 /* NSDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterTests.swift; sourceTree = "<group>"; };
 		AABEDBFD1B51E11F00BDD762 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
-		AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+App.swift"; sourceTree = "<group>"; };
+		AABEDC001B51E8F900BDD762 /* NSCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendar.swift; sourceTree = "<group>"; };
 		AABEDC031B51E9DB00BDD762 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarTests.swift; sourceTree = "<group>"; };
 		AABEDC071B51F81300BDD762 /* SingleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBarView.swift; sourceTree = "<group>"; };
 		AABEDC091B523EDD00BDD762 /* DoubleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleBarView.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		CA492C111A61DDAB00ED13B3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CA492C141A61DE1000ED13B3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CA8136E71B4EE4B800B869A4 /* PickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCell.swift; sourceTree = "<group>"; };
-		CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
+		CA8136E91B4EE74B00B869A4 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CA8136EB1B4EEF4500B869A4 /* FinanceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceClient.swift; sourceTree = "<group>"; };
 		CA8136ED1B4F098A00B869A4 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFormatter.swift; sourceTree = "<group>"; };
@@ -175,9 +175,9 @@
 		CA98EF781AA55BD20058A3EF /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		CA99081F1AA2C45500804200 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		CAAB61A01AA40C35002D739B /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
-		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+App.swift"; sourceTree = "<group>"; };
+		CAD9B90D1B506AB900B9CF1D /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
 		CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelper.swift; sourceTree = "<group>"; };
-		CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+App.swift"; sourceTree = "<group>"; };
+		CADFDD641B50252700E298A8 /* NSNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatter.swift; sourceTree = "<group>"; };
 		CAE281311B5084C2003790CC /* MarketHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketHelperTests.swift; sourceTree = "<group>"; };
 		CAE281331B508691003790CC /* DayTradesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DayTradesTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CAF584401AA3E4FA002422DD /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
@@ -417,11 +417,11 @@
 		CADFDD661B502A9400E298A8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CA8136E91B4EE74B00B869A4 /* UIColor+App.swift */,
-				2FBB51FB1B5D80F200077723 /* UIImage+App.swift */,
-				AABEDC001B51E8F900BDD762 /* NSCalendar+App.swift */,
-				CAD9B90D1B506AB900B9CF1D /* NSDateFormatter+App.swift */,
-				CADFDD641B50252700E298A8 /* NSNumberFormatter+App.swift */,
+				CA8136E91B4EE74B00B869A4 /* UIColor.swift */,
+				2FBB51FB1B5D80F200077723 /* UIImage.swift */,
+				AABEDC001B51E8F900BDD762 /* NSCalendar.swift */,
+				CAD9B90D1B506AB900B9CF1D /* NSDateFormatter.swift */,
+				CADFDD641B50252700E298A8 /* NSNumberFormatter.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -609,19 +609,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3B03861B5601E100EB9B93 /* Notification.swift in Sources */,
-				CADFDD651B50252700E298A8 /* NSNumberFormatter+App.swift in Sources */,
-				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter+App.swift in Sources */,
+				CADFDD651B50252700E298A8 /* NSNumberFormatter.swift in Sources */,
+				CAD9B90E1B506AB900B9CF1D /* NSDateFormatter.swift in Sources */,
 				CA8136F41B4F2D5400B869A4 /* ChangeFormatter.swift in Sources */,
 				2FCB935F1B5849B9000A9B1F /* StockViewController.swift in Sources */,
 				2F07BE451B594C1400BB99CD /* Stock.swift in Sources */,
 				2F3B037E1B54A28800EB9B93 /* SignUpViewController.swift in Sources */,
-				AABEDC011B51E8F900BDD762 /* NSCalendar+App.swift in Sources */,
+				AABEDC011B51E8F900BDD762 /* NSCalendar.swift in Sources */,
 				CA8136E81B4EE4B800B869A4 /* PickCell.swift in Sources */,
 				AABEDC171B52D57300BDD762 /* ParseClient.swift in Sources */,
 				AABFC5E21B4ED87B0094AAF1 /* AccountCell.swift in Sources */,
 				CA8136EE1B4F098A00B869A4 /* Quote.swift in Sources */,
 				AA4AE6D51B531FBC0043AEC3 /* LeadersViewController.swift in Sources */,
-				2FBB51FC1B5D80F200077723 /* UIImage+App.swift in Sources */,
+				2FBB51FC1B5D80F200077723 /* UIImage.swift in Sources */,
 				CAD9B9121B506E9000B9CF1D /* MarketHelper.swift in Sources */,
 				AA4AE6D31B52E30E0043AEC3 /* PickViewController.swift in Sources */,
 				2F3B03821B55F2A600EB9B93 /* AppDelegate.swift in Sources */,
@@ -636,7 +636,7 @@
 				AABEDC131B52CA9100BDD762 /* Pick.swift in Sources */,
 				AABEDC0C1B52C1FC00BDD762 /* Account.swift in Sources */,
 				CA8136EC1B4EEF4500B869A4 /* FinanceClient.swift in Sources */,
-				CA8136EA1B4EE74B00B869A4 /* UIColor+App.swift in Sources */,
+				CA8136EA1B4EE74B00B869A4 /* UIColor.swift in Sources */,
 				2F3B037C1B549FBD00EB9B93 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,21 +645,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AABEDC021B51E98B00BDD762 /* NSCalendar+App.swift in Sources */,
+				AABEDC021B51E98B00BDD762 /* NSCalendar.swift in Sources */,
 				2F4D4ACC1B5C9DC3006D36F2 /* FinanceClient.swift in Sources */,
 				2F4D4ACF1B5C9DFF006D36F2 /* Notification.swift in Sources */,
 				CAE281301B50849B003790CC /* MarketHelper.swift in Sources */,
 				2F4D4ACB1B5C9DC0006D36F2 /* ParseClient.swift in Sources */,
 				2F4D4AD01B5C9E1A006D36F2 /* Stock.swift in Sources */,
-				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter+App.swift in Sources */,
-				2F4D4ACD1B5C9DCF006D36F2 /* UIColor+App.swift in Sources */,
+				AABEDBFC1B51DAFC00BDD762 /* NSDateFormatter.swift in Sources */,
+				2F4D4ACD1B5C9DCF006D36F2 /* UIColor.swift in Sources */,
 				2F4D4AC71B5C9B62006D36F2 /* PickViewController.swift in Sources */,
 				2F4D4AC61B5C9B16006D36F2 /* PickViewControllerTests.swift in Sources */,
 				2F4D4ACA1B5C9DAF006D36F2 /* Quote.swift in Sources */,
 				2F4D4AC91B5C9DAC006D36F2 /* Account.swift in Sources */,
 				CAE281321B5084C2003790CC /* MarketHelperTests.swift in Sources */,
 				AABEDBFE1B51E11F00BDD762 /* NSNumberFormatterTests.swift in Sources */,
-				AABEDBFF1B51E19600BDD762 /* NSNumberFormatter+App.swift in Sources */,
+				AABEDBFF1B51E19600BDD762 /* NSNumberFormatter.swift in Sources */,
 				2F4D4AC81B5C9D07006D36F2 /* Pick.swift in Sources */,
 				2F4D4ACE1B5C9DEC006D36F2 /* ParseErrorHandler.swift in Sources */,
 				AABEDC041B51E9DB00BDD762 /* NSCalendarTests.swift in Sources */,
