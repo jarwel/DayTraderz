@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
@@ -48,6 +49,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
             symbolLabel.text = quote.symbol
             nameLabel.text = quote.name
             priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote.price))
+            changeLabel.text = ChangeFormatter.stringFromQuote(quote)
+            changeLabel.textColor = UIColor.colorForChange(quote.priceChange)
             detailsView.hidden = true
             stockView.hidden = false
             submitButton.hidden = false
