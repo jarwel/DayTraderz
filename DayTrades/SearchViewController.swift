@@ -124,6 +124,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
         let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
         let title: String = "Shares will be purchased for the opening price and sold at market close. All trades are final at 6:00 a.m. eastern time on \(dateText!)."
         let actionSheet: UIActionSheet = UIActionSheet(title: title, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Confirm")
+        view.endEditing(true)
         actionSheet.showInView(view)
     }
 
