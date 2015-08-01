@@ -79,6 +79,24 @@ class ParseClient {
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
+    class func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
+        fetchAccount { (object: PFObject?, error: NSError?) -> Void in
+            if let account: Account = object as? Account {
+                let dayOfTrade: String = MarketHelper.nextDayOfTrade()
+                self.fetchNextPick({ (object: PFObject?, error: NSError?) -> Void in
+                    if let nextPick: Pick = object as? Pick {
+                        nextPick.symbol = symbol
+                        nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+                    }
+                    else {
+                        let nextPick: Pick = Pick(account: account, symbol: symbol, dayOfTrade: dayOfTrade)
+                        nextPick.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+                    }
+                })
+            }
+        }
+    }
+    
     class func fetchNextPick(block: (PFObject?, NSError?) -> Void ) {
         let dayOfTrade: String = MarketHelper.nextDayOfTrade()
         if let user: PFUser = PFUser.currentUser() {
@@ -90,35 +108,6 @@ class ParseClient {
         else {
             println("user is missing")
             block(nil, NSError())
-        }
-    }
-    
-    class func setNextPick(symbol: String, block: (PFObject?, NSError?) -> Void) {
-        fetchAccount { (object: PFObject?, error: NSError?) -> Void in
-            if let account: Account = object as? Account {
-                let dayOfTrade: String = MarketHelper.nextDayOfTrade()
-                let nextPick: Pick = Pick(account: account, symbol: symbol, dayOfTrade: dayOfTrade)
-                self.fetchNextPick({ (object: PFObject?, error: NSError?) -> Void in
-                    if let oldPick: Pick = object as? Pick {
-                        self.deletePick(oldPick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                            ParseErrorHandler.handleError(error)
-                            if succeeded {
-                                nextPick.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                                    if succeeded {
-                                        block(nextPick, error)
-                                    }
-                                })
-                            }
-                        })
-                    } else {
-                        nextPick.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                            if succeeded {
-                                block(nextPick, error)
-                            }
-                        })
-                    }
-                })
-            }
         }
     }
     

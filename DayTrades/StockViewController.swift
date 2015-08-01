@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StockViewController: UIViewController {
+class StockViewController: UIViewController, UIActionSheetDelegate {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,10 +18,10 @@ class StockViewController: UIViewController {
 
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
     let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
+    let dateFormatter: NSDateFormatter = NSDateFormatter()
     
     var symbol: String?
     var stock: Stock?
-    var nextPick: Pick?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +39,7 @@ class StockViewController: UIViewController {
         
         if let symbol: String = self.symbol {
             if !disabledSymbols.containsObject(symbol.uppercaseString) {
-                ParseClient.fetchNextPick { (object: PFObject?, error: NSError?) -> Void in
-                    if let nextPick: Pick = object as? Pick {
-                        if nextPick.symbol == symbol {
-                            self.nextPick = nextPick
-                        }
-                    }
-                    self.refreshNextPickView()
-                }
+                submitButton.hidden = false
             }
             ParseClient.fetchStockForSymbol(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
                 if let stock: Stock = object as? Stock {
@@ -85,17 +78,6 @@ class StockViewController: UIViewController {
         }
     }
     
-    func refreshNextPickView() {
-        submitButton.setTitle("Place Trade", forState: UIControlState.Normal)
-        submitButton.hidden = false
-        if let nextPick: Pick = self.nextPick {
-            if nextPick.symbol == symbol {
-                submitButton.setTitle("Remove Pick", forState: UIControlState.Normal)
-                submitButton.hidden = false
-            }
-        }
-    }
-    
     func startDayOfTrade() -> String {
         let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -45, toDate: NSDate(), options: nil)!
         return MarketHelper.previousDayOfTradeFromDate(date)
@@ -105,32 +87,24 @@ class StockViewController: UIViewController {
         return MarketHelper.previousDayOfTradeFromDate(NSDate())
     }
     
-    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        if let nextPick: Pick = self.nextPick {
-            if let nextPick: Pick = self.nextPick {
-                submitButton.enabled = false
-                ParseClient.deletePick(nextPick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
-                        self.nextPick = nil
-                        self.refreshNextPickView()
-                    }
-                    self.submitButton.enabled = true
-                })
-            }
-        }
-        else {
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == actionSheet.destructiveButtonIndex {
             if let symbol: String = self.symbol {
-                submitButton.enabled = false
-                ParseClient.setNextPick(symbol, block: { (object: PFObject?, error: NSError?) -> Void in
-                    if let nextPick: Pick = object as? Pick {
+                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded {
+                        self.submitButton.hidden = true
                         NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
-                        self.nextPick = nextPick
-                        self.refreshNextPickView()
                     }
-                    self.submitButton.enabled = true
                 })
             }
         }
+    }
+    
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
+        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
+        let title: String = "Shares will be purchased for the opening price and sold at market close. All trades become final at 6:00 a.m. eastern time on \(dateText!)."
+        let actionSheet: UIActionSheet = UIActionSheet(title: title, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Confirm")
+        actionSheet.showInView(view)
     }
     
 }
