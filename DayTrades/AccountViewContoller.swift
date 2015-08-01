@@ -88,9 +88,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if identifier == "ShowPickSegue" {
             if let nextPick: Pick = self.nextPick {
                 if nextPick.dayOfTrade == MarketHelper.nextDayOfTrade() {
+                    self.nextPick = nil
+                    refreshNextPickView()
                     ParseClient.deletePick(nextPick, block: { (succeeded: Bool, error: NSError?) -> Void in
-                        if succeeded {
-                            self.nextPick = nil
+                        if !succeeded {
+                            self.nextPick = nextPick
                             self.refreshNextPickView()
                         }
                     })
