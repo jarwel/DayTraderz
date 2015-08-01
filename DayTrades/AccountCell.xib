@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-cK-8hO">
-                        <rect key="frame" x="42" y="10" width="43" height="27"/>
+                        <rect key="frame" x="40" y="10" width="43" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="13b-aK-JrM"/>
                         </constraints>
@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-V0-tnG">
-                        <rect key="frame" x="86.5" y="10" width="130.5" height="27"/>
+                        <rect key="frame" x="85" y="10" width="125" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="9yF-OQ-hhl"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g4C-HK-3LT">
-                        <rect key="frame" x="0.0" y="9" width="32" height="32"/>
+                        <rect key="frame" x="-2" y="9" width="32" height="32"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="DMR-MO-c5b"/>
@@ -46,7 +46,7 @@
                         </variation>
                     </imageView>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-I6-O7j" customClass="DoubleBarView" customModule="DayTrades" customModuleProvider="target">
-                        <rect key="frame" x="230" y="14" width="90" height="20"/>
+                        <rect key="frame" x="222" y="14" width="90" height="20"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="3cU-z0-8mr"/>
@@ -58,8 +58,8 @@
                     <constraint firstItem="JXi-I6-O7j" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="6" id="5O3-M7-V4s"/>
                     <constraint firstItem="JXi-I6-O7j" firstAttribute="leading" secondItem="tyQ-V0-tnG" secondAttribute="trailing" constant="12.5" id="7Ah-dS-Rca"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="leading" secondItem="g4C-HK-3LT" secondAttribute="trailing" constant="10" id="AQu-n0-idL"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="JXi-I6-O7j" secondAttribute="trailing" constant="-8" id="E8j-Fu-Cgj"/>
-                    <constraint firstItem="g4C-HK-3LT" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" constant="-8" id="SDa-fj-zLO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JXi-I6-O7j" secondAttribute="trailing" id="E8j-Fu-Cgj"/>
+                    <constraint firstItem="g4C-HK-3LT" firstAttribute="leading" secondItem="Vcx-QX-cOS" secondAttribute="leadingMargin" constant="-10" id="SDa-fj-zLO"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="2" id="bXs-BF-gNE"/>
                     <constraint firstItem="mNs-cK-8hO" firstAttribute="top" secondItem="Vcx-QX-cOS" secondAttribute="topMargin" constant="2" id="iWF-RO-au3"/>
                     <constraint firstItem="tyQ-V0-tnG" firstAttribute="leading" secondItem="mNs-cK-8hO" secondAttribute="trailing" constant="2" id="kEe-y5-ZHe"/>
