@@ -34,19 +34,10 @@ class ParseClient {
         }
     }
     
-    class func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
-        account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
-    }
-    
     class func fetchAccountsSortedByValue(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
-        let hasWinnersQuery: PFQuery? = Account.query()
-        hasWinnersQuery?.whereKey("winners", greaterThan: 0)
-        
-        let hasLosersQuery: PFQuery? = Account.query()!
-        hasLosersQuery?.whereKey("losers", greaterThan: 0)
-        
-        let query: PFQuery? = PFQuery.orQueryWithSubqueries([hasWinnersQuery!, hasLosersQuery!])
+        let query: PFQuery? = Account.query()
         query?.includeKey("user")
+        query?.whereKey("picks", greaterThan: 0)
         query?.limit = limit
         query?.skip = skip
         query?.orderByDescending("value")
@@ -56,20 +47,19 @@ class ParseClient {
     }
     
     class func fetchAccountsSortedByWinners(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
-        let hasWinnersQuery: PFQuery? = Account.query()
-        hasWinnersQuery?.whereKey("winners", greaterThan: 0)
-        
-        let hasLosersQuery: PFQuery? = Account.query()!
-        hasLosersQuery?.whereKey("losers", greaterThan: 0)
-        
-        let query: PFQuery? = PFQuery.orQueryWithSubqueries([hasWinnersQuery!, hasLosersQuery!])
+        let query: PFQuery? = Account.query()
         query?.includeKey("user")
+        query?.whereKey("picks", greaterThan: 0)
         query?.limit = limit
         query?.skip = skip
         query?.orderByDescending("winners")
         query?.addAscendingOrder("losers")
         query?.addDescendingOrder("value")
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
+    }
+    
+    class func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
+        account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
     class func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {

@@ -12,15 +12,13 @@ class Account: PFObject, PFSubclassing {
     
     @NSManaged var user: PFUser
     @NSManaged var value: Double
+    @NSManaged var picks: UInt
     @NSManaged var winners: UInt
     @NSManaged var losers: UInt
     
     convenience init(user: PFUser) {
         self.init()
         self.user = user
-        self.value = 10000.00
-        self.winners = 0
-        self.losers = 0
     }
     
     class func parseClassName() -> String {
