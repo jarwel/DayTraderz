@@ -8,16 +8,15 @@
 
 import Foundation
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheetDelegate {
     
     @IBOutlet weak var detailsView: UIView!
-    @IBOutlet weak var securityView: UIView!
+    @IBOutlet weak var stockView: UIView!
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var dayOfTradeLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var disclaimerLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
     let disabledSymbols: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Disabled symbols") as! NSArray
@@ -33,7 +32,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
         detailsView.backgroundColor = UIColor.translucentColor()
-        securityView.backgroundColor = UIColor.translucentColor()
+        stockView.backgroundColor = UIColor.translucentColor()
+        submitButton.layer.cornerRadius = 4
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,18 +45,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let dayOfTrade: String = MarketHelper.nextDayOfTrade()
         let text: String? = dateFormatter.fullTextFromDayOfTrade(dayOfTrade)
         if let quote: Quote = quote {
-            disclaimerLabel.text = "The listed security will be purchased for the full value of your account at the opening price and sold at market close on \(text!)."
             symbolLabel.text = quote.symbol
             nameLabel.text = quote.name
             priceLabel.text = numberFormatter.priceFromNumber(NSNumber(double: quote.price))
             detailsView.hidden = true
-            securityView.hidden = false
+            stockView.hidden = false
+            submitButton.hidden = false
         }
         else {
-            detailsLabel.text = "Choose a security to buy on"
+            detailsLabel.text = "Search for a stock to trade on"
             dayOfTradeLabel.text = text!
-            securityView.hidden = true
             detailsView.hidden = false
+            stockView.hidden = true
+            submitButton.hidden = true
         }
     }
     
@@ -100,19 +101,26 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         return true
     }
     
-    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        if let quote: Quote = self.quote {
-            if let symbol: String = quote.symbol {
-                submitButton.enabled = false
-                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
-                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
-                        self.navigationController?.popViewControllerAnimated(true)
-                    }
-                    self.submitButton.enabled = true
-                })
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == actionSheet.destructiveButtonIndex {
+            if let quote: Quote = self.quote {
+                if let symbol: String = quote.symbol {
+                    ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                        if succeeded {
+                            NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                            self.navigationController!.popViewControllerAnimated(true)
+                        }
+                    })
+                }
             }
         }
+    }
+    
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
+        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
+        let title: String = "Shares will be purchased for the opening price and sold at market close. All trades are final at 6:00 a.m. eastern time on \(dateText!)."
+        let actionSheet: UIActionSheet = UIActionSheet(title: title, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Confirm")
+        actionSheet.showInView(view)
     }
 
     @IBAction func onTap(sender: AnyObject) {
