@@ -88,6 +88,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
                     self.refreshView()
                 }
             })
+        } else {
+            self.quote = nil
+            self.refreshView()
         }
     }
     
