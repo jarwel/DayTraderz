@@ -23,6 +23,8 @@
 	<key>Disabled symbols</key>
 	<array>
 		<string>GRNBF</string>
+		<string>AREN</string>
+		<string>ASPPF</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
