@@ -51,7 +51,6 @@ class MarketHelper {
             }
             while (!isDayOfTrade(date))
         }
-        let dateFormatter: NSDateFormatter = easternDateFormatter()
         let dayOfTrade: String = easternDateFormatter().stringFromDate(date)
         return dayOfTrade
 

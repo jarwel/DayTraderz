@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
         Stock.registerSubclass()
         
         window?.rootViewController = currentController()
-        if let user: PFUser = PFUser.currentUser() {
+        if PFUser.currentUser() != nil {
             logIn();
         }
         
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     }
     
     func currentController() -> UIViewController {
-        if let user: PFUser = PFUser.currentUser() {
+        if PFUser.currentUser() != nil {
             return menuController();
         }
         return logInController();

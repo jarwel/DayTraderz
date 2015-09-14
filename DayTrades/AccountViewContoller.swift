@@ -396,7 +396,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.userInteractionEnabled = false
         if indexPath.section == 0 {
-            if let currentPick: Pick = currentPick {
+            if currentPick != nil {
                 cell.userInteractionEnabled = true
             }
         }
@@ -407,7 +407,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            if let currentPick: Pick = currentPick {
+            if currentPick != nil {
                 performSegueWithIdentifier("ShowStockSegue", sender: nil)
             }
         }
@@ -427,10 +427,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.addInfiniteScrollingWithActionHandler { () -> Void in
             if let account: Account = self.account {
                 var skip: Int = self.picks.count
-                if let nextPick = self.nextPick {
+                if self.nextPick != nil {
                     skip++
                 }
-                if let currentPick = self.currentPick {
+                if self.currentPick != nil {
                     skip++
                 }
                 ParseClient.fetchPicksForAccount(account, limit: 10, skip: skip, block: { (objects: [AnyObject]?, error: NSError?) -> Void in
