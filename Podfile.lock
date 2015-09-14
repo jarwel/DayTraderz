@@ -1,5 +1,5 @@
 PODS:
-  - Bolts/Tasks (1.2.0)
+  - Bolts/Tasks (1.2.2)
   - CorePlot (1.6)
   - Parse (1.7.5.3):
     - Bolts/Tasks (>= 1.2.0)
@@ -14,10 +14,10 @@ DEPENDENCIES:
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
-  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
   CorePlot: 820901f6c147f2d84549ffa1f0902869f980d74d
   Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
   ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2
