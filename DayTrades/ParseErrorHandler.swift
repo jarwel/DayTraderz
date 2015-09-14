@@ -35,14 +35,14 @@ class ParseErrorHandler {
         }
     }
     
-    static func handleErrorWithBlock(block: (PFObject?, NSError?) -> Void) -> PFObjectResultBlock? {
+    static func handleErrorWithBlock(block: (PFObject?, NSError?) -> Void) -> PFObjectResultBlock {
         return { (object: PFObject?, error: NSError?) -> Void in
             ParseErrorHandler.handleError(error)
             block(object, error)
         }
     }
     
-    static func handleErrorWithBlock(block: (Bool, NSError?) -> Void) -> PFBooleanResultBlock? {
+    static func handleErrorWithBlock(block: (Bool, NSError?) -> Void) -> PFBooleanResultBlock {
         return { (succeeded: Bool, error: NSError?) -> Void in
             ParseErrorHandler.handleError(error)
             block(succeeded, error)

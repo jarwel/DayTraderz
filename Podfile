@@ -3,7 +3,7 @@ platform :ios, '8.3'
 
 target 'DayTrades' do
 
-pod 'Parse', '1.7.5.3'
+pod 'Parse'
 pod 'ParseUI'
 pod 'CorePlot'
 pod 'SVPullToRefresh'
@@ -12,7 +12,7 @@ end
 
 target 'DayTradesTests' do
 
-pod 'Parse', '1.7.5.3'
+pod 'Parse'
 
 end
 
