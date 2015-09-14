@@ -58,16 +58,16 @@ extension UIImage {
     private func tintedWithLinearGradientColors(colors: Array<CGColorRef>) -> UIImage {
         let scale: CGFloat = self.scale
         UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scale, self.size.height * scale))
-        let context: CGContextRef = UIGraphicsGetCurrentContext()
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
         CGContextTranslateCTM(context, 0, self.size.height)
         CGContextScaleCTM(context, 1.0, -1.0)
-        CGContextSetBlendMode(context, kCGBlendModeNormal);
+        CGContextSetBlendMode(context, CGBlendMode.Normal);
         let rect: CGRect = CGRectMake(0, 0, self.size.width * scale, self.size.height * scale);
         CGContextDrawImage(context, rect, self.CGImage);
-        let space: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()
-        let gradient: CGGradientRef = CGGradientCreateWithColors(space, colors, nil)
+        let space: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
+        let gradient: CGGradientRef = CGGradientCreateWithColors(space, colors, nil)!
         CGContextClipToMask(context, rect, self.CGImage)
-        CGContextDrawLinearGradient(context, gradient, CGPointMake(0,0), CGPointMake(0,self.size.height * scale), 0)
+        CGContextDrawLinearGradient(context, gradient, CGPointMake(0,0), CGPointMake(0,self.size.height * scale), CGGradientDrawingOptions.DrawsBeforeStartLocation)
         let gradientImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return gradientImage

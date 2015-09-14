@@ -24,12 +24,12 @@ class MarketHelper {
     
     class func isMarketOpenOnDate(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour < 9 || hour >= 16 {
             return false
         }
         if hour == 9 {
-            let minute: Int = calendar.components(NSCalendarUnit.CalendarUnitMinute, fromDate: date).minute
+            let minute: Int = calendar.components(NSCalendarUnit.Minute, fromDate: date).minute
             if minute < 30 {
                 return false
             }
@@ -44,10 +44,10 @@ class MarketHelper {
     
     class func nextDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour >= 9 || !isDayOfTrade(date) {
-            do {
-                date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: 1, toDate: date, options: nil)!
+            repeat {
+                date = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: date, options: [])!
             }
             while (!isDayOfTrade(date))
         }
@@ -64,10 +64,10 @@ class MarketHelper {
     
     class func previousDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let hour: Int = calendar.components(NSCalendarUnit.CalendarUnitHour, fromDate: date).hour
+        let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour < 9 || !isDayOfTrade(date) {
-            do {
-                date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -1, toDate: date, options: nil)!
+            repeat {
+                date = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: date, options: [])!
             }
             while (!isDayOfTrade(date))
         }
@@ -78,7 +78,7 @@ class MarketHelper {
     
     static func isDayOfTrade(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
-        let weekday: Int = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        let weekday: Int = calendar.components(NSCalendarUnit.Weekday, fromDate: date).weekday
         if weekday < 2 || weekday > 6 {
             return false
         }

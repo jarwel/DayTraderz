@@ -79,7 +79,7 @@ class DayQuote {
     
     class func fromData(data: NSData) -> Array<DayQuote> {
         var quotes: Array<DayQuote> = Array()
-        let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+        let json = (try! NSJSONSerialization.JSONObjectWithData(data, options: [])) as! NSDictionary
         if let query = json["query"] as? NSDictionary {
             if let count = query["count"] as? Int {
                 if count == 1 {

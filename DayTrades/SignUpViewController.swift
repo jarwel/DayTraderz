@@ -56,7 +56,7 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
     
     override func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField != signUpView?.emailField {
-            return !(count(textField.text) >= 15 && count(string) > range.length)
+            return !(textField.text!.characters.count >= 15 && string.characters.count > range.length)
         }
         return true
     }
@@ -80,9 +80,9 @@ class SignUpViewController: PFSignUpViewController, UITextInputDelegate {
         view!.frame = CGRectMake(x, y, width, height)
     }
     
-    func textWillChange(textInput: UITextInput) {}
-    func textDidChange(textInput: UITextInput) {}
-    func selectionWillChange(textInput: UITextInput) {}
-    func selectionDidChange(textInput: UITextInput) {}
+    func textWillChange(textInput: UITextInput?) {}
+    func textDidChange(textInput: UITextInput?) {}
+    func selectionWillChange(textInput: UITextInput?) {}
+    func selectionDidChange(textInput: UITextInput?) {}
 
 }

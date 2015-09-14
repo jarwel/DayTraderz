@@ -49,7 +49,7 @@ class DoubleBarView: UIView {
             let width: CGFloat = frame.width * percent
             leftLabel.text = "\(value)"
             rightLabel.text = "\(total - value)"
-            UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
+            UIView.animateWithDuration(duration, delay: 0, options: [], animations: {
                 self.subview.frame = CGRectMake(0, 0, width, self.frame.height)
             },
             completion: nil)

@@ -47,7 +47,7 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowAccountSegue" {
-            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
+            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
             if indexPath.row < accounts.count {
                 let accountViewController: AccountViewController = segue.destinationViewController as! AccountViewController
                 accountViewController.account = accounts[indexPath.row]
@@ -151,8 +151,8 @@ class LeadersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             headerView.contentView.backgroundColor = UIColor.darkGrayColor()
-            headerView.textLabel.textColor = UIColor.whiteColor()
-            headerView.textLabel.font = UIFont.boldSystemFontOfSize(15)
+            headerView.textLabel?.textColor = UIColor.whiteColor()
+            headerView.textLabel?.font = UIFont.boldSystemFontOfSize(15)
         }
     }
     

@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
             logIn();
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logIn"), name: Notification.LogIn.description, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logOut"), name: Notification.LogOut.description, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logIn"), name: Notification.LogIn.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logOut"), name: Notification.LogOut.rawValue, object: nil)
         return true
     }
     
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func menuController() -> UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuContoller: UIViewController = storyboard.instantiateViewControllerWithIdentifier("MenuController") as! UIViewController
+        let menuContoller: UIViewController = storyboard.instantiateViewControllerWithIdentifier("MenuController") 
         return menuContoller;
     }
     
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     }
     
     func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
-        if count(username) > 0 && count(password) > 0 {
+        if username.characters.count > 0 && password.characters.count > 0 {
             return true
         }
         let title: String = "Log In Error"
@@ -72,9 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func signUpViewController(signUpController: PFSignUpViewController, shouldBeginSignUp info: [NSObject : AnyObject]) -> Bool {
         var informationComplete: Bool = true
-        for (key: NSObject, value: AnyObject) in info {
+        for (key, value): (NSObject, AnyObject) in info {
             if let string: String? = value as? String {
-                if count(string!) < 1 {
+                if (string!).characters.count < 1 {
                     informationComplete = false
                     break
                 }
@@ -89,13 +89,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogIn.description, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogIn.rawValue, object: nil)
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         ParseClient.createAccount { (succeeded: Bool, error: NSError?) -> Void in
             if succeeded {
-                NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogIn.description, object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogIn.rawValue, object: nil)
             }
         }
     }

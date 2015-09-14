@@ -45,7 +45,7 @@ class SingleBarView: UIView {
             let width: CGFloat = frame.width * percent
             let x: CGFloat = frame.width - width
             subview.backgroundColor = barColor
-            UIView.animateWithDuration(duration, delay: 0, options: nil, animations: {
+            UIView.animateWithDuration(duration, delay: 0, options: [], animations: {
                 self.subview.frame = CGRectMake(x, 0, width, self.frame.height)
             }, completion: { finished in
                 self.label.text = "\(self.value)"

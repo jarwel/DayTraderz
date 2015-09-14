@@ -392,8 +392,8 @@
 		CA685CA41A89902500727CE1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
 				CAD9B9111B506E9000B9CF1D /* MarketHelper.swift */,
+				CA8136F31B4F2D5400B869A4 /* ChangeFormatter.swift */,
 				2FD6F6631B57FB2A001F1630 /* ParseErrorHandler.swift */,
 			);
 			name = Helpers;
@@ -478,8 +478,9 @@
 		CA492B6A1A606CDB00ED13B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jason Wells";
 				TargetAttributes = {
 					CA492B711A606CDB00ED13B3 = {
@@ -724,6 +725,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -738,7 +740,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -773,7 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -795,6 +797,7 @@
 				INFOPLIST_FILE = DayTrades/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarwel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DayTrades;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DayTrades/DayTrades-Bridging-Header.h";
@@ -818,6 +821,7 @@
 				INFOPLIST_FILE = DayTrades/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarwel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DayTrades;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DayTrades/DayTrades-Bridging-Header.h";
@@ -841,6 +845,7 @@
 				);
 				INFOPLIST_FILE = DayTradesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarwel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DayTradesTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "DayTradesTests/DayTradesTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -860,6 +865,7 @@
 				);
 				INFOPLIST_FILE = DayTradesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarwel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DayTradesTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "DayTradesTests/DayTradesTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DayTrades.app/DayTrades";

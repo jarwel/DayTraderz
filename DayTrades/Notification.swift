@@ -8,20 +8,8 @@
 
 import Foundation
 
-enum Notification: Printable {
-    case LogIn, LogOut, NextPickUpdated
-    
-    var description : String {
-        get {
-            switch(self) {
-            case LogIn:
-                return "LogInNotification"
-            case LogOut:
-                return "SignOutNotification"
-            case NextPickUpdated:
-                return "NextPickUpdatedNotification"
-            }
-        }
-    }
-    
+enum Notification: String {
+    case LogIn = "LogInNotification"
+    case LogOut = "LogOutNotification"
+    case NextPickUpdated = "NextPickUpdatedNotification"
 }

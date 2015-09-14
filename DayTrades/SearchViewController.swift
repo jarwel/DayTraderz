@@ -66,23 +66,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
     }
     
     func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        return count(searchBar.text) + count(text) - range.length <= 5;
+        return searchBar.text!.characters.count + text.characters.count - range.length <= 5
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if isValidSymbol(searchText) {
             let symbol: String = searchText.uppercaseString
             let requestNumber: UInt = ++self.requestNumber
-            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if requestNumber == self.requestNumber {
                     self.quote = nil
                     if let data: NSData = data {
-                        let quotes: Array<Quote> = Quote.fromData(data)
+                        let quotes: [Quote] = Quote.fromData(data)
                         if let quote = quotes.first {
                             self.quote = quote
                         }
                         if let error: NSError = error {
-                            println("Error \(error) \(error.userInfo)")
+                            print("Error \(error) \(error.userInfo)")
                         }
                     }
                     self.refreshView()
@@ -114,7 +114,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
                 if let symbol: String = quote.symbol {
                     ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
                         if succeeded {
-                            NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                            NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
                             self.navigationController!.popViewControllerAnimated(true)
                         }
                     })

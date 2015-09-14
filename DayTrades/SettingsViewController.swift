@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onLogOutButtonPressed(sender: AnyObject) {
         PFUser.logOut()
-        NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogOut.description, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(Notification.LogOut.rawValue, object: nil)
     }
     
 }

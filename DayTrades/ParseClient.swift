@@ -10,14 +10,13 @@ import Foundation
 
 class ParseClient {
     
-    class func createAccount(block: (Bool, NSError?) -> Void ){
+    class func createAccount(block: (Bool, NSError?) -> Void ) {
         if let user: PFUser = PFUser.currentUser() {
             let account: Account = Account(user: user)
             account.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
         }
         else {
-            println("current user is missing")
-            block(false, NSError())
+            print("current user is missing")
         }
     }
     
@@ -29,8 +28,7 @@ class ParseClient {
             query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
         }
         else {
-            println("current user is missing")
-            block(nil, NSError())
+            print("current user is missing")
         }
     }
     
@@ -106,8 +104,7 @@ class ParseClient {
             query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
         }
         else {
-            println("user is missing")
-            block(nil, NSError())
+            print("user is missing")
         }
     }
     

@@ -50,7 +50,7 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
             });
             let start: String = startDayOfTrade()
             let end: String = endDateOfTrade()
-            FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse!, data: NSData!, error: NSError?) -> Void in
+            FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if let data: NSData = data {
                     let quotes: Array<DayQuote> = DayQuote.fromData(data)
                     self.stockChart.reloadDataForQuotes(quotes)
@@ -66,7 +66,7 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
         nameLabel.text = symbol
         if let stock: Stock = self.stock {
             if let name: String = stock.name {
-                if count(name) > 0 {
+                if name.characters.count > 0 {
                     nameLabel.text = "\(stock.name!) (\(stock.symbol))"
                 }
             }
@@ -80,7 +80,7 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
     }
     
     func startDayOfTrade() -> String {
-        let date = calendar.dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -45, toDate: NSDate(), options: nil)!
+        let date = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -45, toDate: NSDate(), options: [])!
         return MarketHelper.previousDayOfTradeFromDate(date)
     }
     
@@ -94,7 +94,7 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
                 ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
                         self.submitButton.hidden = true
-                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.description, object: nil)
+                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
                     }
                 })
             }

@@ -140,7 +140,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
             for location: NSObject in locations {
                 let tickLocation: NSDecimalNumber = location as! NSDecimalNumber
                 if let text: String = axis.labelFormatter.stringForObjectValue(tickLocation) {
-                    offset = CGFloat(count(text))
+                    offset = CGFloat(text.characters.count)
                     let axisLabel: CPTAxisLabel = CPTAxisLabel(text: text, textStyle: labelTextStyle)
                     axisLabel.tickLocation = tickLocation.decimalValue
                     axisLabel.offset = offset

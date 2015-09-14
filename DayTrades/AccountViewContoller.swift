@@ -41,7 +41,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             fetchAwards()
             if let account: Account = self.account {
                 if account.user.objectId == PFUser.currentUser()?.objectId {
-                    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("fetchNextPick"), name: Notification.NextPickUpdated.description, object: nil)
+                    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("fetchNextPick"), name: Notification.NextPickUpdated.rawValue, object: nil)
                 }
             }
         }
@@ -85,7 +85,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         quoteTimer?.invalidate()
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "ShowSearchSegue" {
             if let nextPick: Pick = self.nextPick {
                 if nextPick.dayOfTrade == MarketHelper.nextDayOfTrade() {
@@ -107,7 +107,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowStockSegue" {
             if let stockViewController: StockViewController = segue.destinationViewController as? StockViewController {
-                if let indexPath: NSIndexPath = tableView.indexPathForSelectedRow() {
+                if let indexPath: NSIndexPath = tableView.indexPathForSelectedRow {
                     if indexPath.section == 0 {
                         if let currentPick = self.currentPick {
                             stockViewController.symbol = currentPick.symbol
@@ -123,7 +123,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func applicationBecameActive() {
-        println("application became active")
+        print("application became active")
         tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:false)
         fetchAccount()
         quoteTimer?.invalidate()
@@ -131,7 +131,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func applicationBecameInactive() {
-        println("application became inactive")
+        print("application became inactive")
         winnersBarView.resetView()
         losersBarView.resetView()
         quoteTimer?.invalidate()
@@ -263,7 +263,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fetchQuote() {
         if let currentPick: Pick = self.currentPick {
             let symbol: String = currentPick.symbol
-            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if let data: NSData = data {
                     let quotes: Array<Quote> = Quote.fromData(data)
                     if quotes.count == 1 {
@@ -272,7 +272,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
                 if let error: NSError = error {
-                    println("Error \(error) \(error.userInfo)")
+                    print("Error \(error) \(error.userInfo)")
                 }
             })
         }
@@ -388,15 +388,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             headerView.contentView.backgroundColor = UIColor.darkGrayColor()
-            headerView.textLabel.textColor = UIColor.whiteColor()
-            headerView.textLabel.font = UIFont.boldSystemFontOfSize(15)
+            headerView.textLabel?.textColor = UIColor.whiteColor()
+            headerView.textLabel?.font = UIFont.boldSystemFontOfSize(15)
         }
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.userInteractionEnabled = false
         if indexPath.section == 0 {
-            if let currentPick: Pick = self.currentPick {
+            if let currentPick: Pick = currentPick {
                 cell.userInteractionEnabled = true
             }
         }
@@ -407,7 +407,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            if let currentPick: Pick = self.currentPick {
+            if let currentPick: Pick = currentPick {
                 performSegueWithIdentifier("ShowStockSegue", sender: nil)
             }
         }
