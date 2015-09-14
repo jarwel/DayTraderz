@@ -10,22 +10,26 @@ import Foundation
 
 class FinanceClient {
 
-    class func fetchQuoteForSymbol(symbol: String, block: (NSURLResponse?, NSData?, NSError?) -> Void ) {
+    class func fetchQuoteForSymbol(symbol: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
         let query: String = "select symbol, Name, LastTradePriceOnly, Change, ChangeinPercent, Open from yahoo.finance.quotes where symbol = '\(symbol)' and ErrorIndicationreturnedforsymbolchangedinvalid is not null and MarketCapitalization <> '0'"
         sendRequestWithQuery(query, block: block);
     }
     
-    class func fetchDayQuotesForSymbol(symbol: String, start: String, end: String, block: (NSURLResponse?, NSData?, NSError?) -> Void ) {
+    class func fetchDayQuotesForSymbol(symbol: String, start: String, end: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
         let query: String = String(format: "select * from yahoo.finance.historicaldata where symbol = '%@' and startDate = '%@' and endDate = '%@'", symbol, start, end)
         sendRequestWithQuery(query, block: block);
     }
     
-    private static func sendRequestWithQuery(query: String, block: (NSURLResponse?, NSData?, NSError?) -> Void) {
+    private static func sendRequestWithQuery(query: String, block: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let encoded = query.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         let path: String = String(format: "https://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded!)
         if let url = NSURL(string: path) {
             let request = NSURLRequest(URL: url)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: block)
+            NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                dispatch_async(dispatch_get_main_queue(), {
+                    block(data, response, error)
+                })
+            }).resume()
         }
     }
 

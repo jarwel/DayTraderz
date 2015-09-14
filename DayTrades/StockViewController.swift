@@ -50,9 +50,9 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
             });
             let start: String = startDayOfTrade()
             let end: String = endDateOfTrade()
-            FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            FinanceClient.fetchDayQuotesForSymbol(symbol, start: start, end: end) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 if let data: NSData = data {
-                    let quotes: Array<DayQuote> = DayQuote.fromData(data)
+                    let quotes: [DayQuote] = DayQuote.fromData(data)
                     self.stockChart.reloadDataForQuotes(quotes)
                 }
             }

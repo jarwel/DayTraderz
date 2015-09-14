@@ -73,7 +73,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
         if isValidSymbol(searchText) {
             let symbol: String = searchText.uppercaseString
             let requestNumber: UInt = ++self.requestNumber
-            FinanceClient.fetchQuoteForSymbol(symbol, block: { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            FinanceClient.fetchQuoteForSymbol(symbol, block: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 if requestNumber == self.requestNumber {
                     self.quote = nil
                     if let data: NSData = data {
