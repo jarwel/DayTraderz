@@ -10,19 +10,19 @@ import Foundation
 
 class MarketHelper {
     
-    static let marketHolidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
+    private static let marketHolidays: NSArray = NSBundle.mainBundle().objectForInfoDictionaryKey("Market holidays") as! NSArray
     
-    class func isMarketOpen() -> Bool {
+    static func isMarketOpen() -> Bool {
         let date: NSDate = NSDate()
         return isMarketOpenOnDate(date)
     }
     
-    class func isMarketClosed() -> Bool {
+    static func isMarketClosed() -> Bool {
         let date: NSDate = NSDate()
         return !isMarketOpenOnDate(date)
     }
     
-    class func isMarketOpenOnDate(date: NSDate) -> Bool {
+    static func isMarketOpenOnDate(date: NSDate) -> Bool {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour < 9 || hour >= 16 {
@@ -37,12 +37,12 @@ class MarketHelper {
         return isDayOfTrade(date)
     }
     
-    class func nextDayOfTrade() -> String {
+    static func nextDayOfTrade() -> String {
         let date: NSDate = NSDate()
         return nextDayOfTradeFromDate(date)
     }
     
-    class func nextDayOfTradeFromDate(var date: NSDate) -> String {
+    static func nextDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour >= 9 || !isDayOfTrade(date) {
@@ -56,12 +56,12 @@ class MarketHelper {
 
     }
     
-    class func previousDayOfTrade() -> String {
+    static func previousDayOfTrade() -> String {
         let date: NSDate = NSDate()
         return previousDayOfTradeFromDate(date)
     }
     
-    class func previousDayOfTradeFromDate(var date: NSDate) -> String {
+    static func previousDayOfTradeFromDate(var date: NSDate) -> String {
         let calendar: NSCalendar = NSCalendar.gregorianCalendarInEasternTime()
         let hour: Int = calendar.components(NSCalendarUnit.Hour, fromDate: date).hour
         if hour < 9 || !isDayOfTrade(date) {

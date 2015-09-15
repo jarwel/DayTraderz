@@ -28,7 +28,7 @@ class Pick: PFObject, PFSubclassing {
         self.dayOfTrade = dayOfTrade
     }
     
-    class func parseClassName() -> String {
+    static func parseClassName() -> String {
         return "Pick"
     }
     

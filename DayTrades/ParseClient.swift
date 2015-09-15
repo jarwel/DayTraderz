@@ -10,7 +10,7 @@ import Foundation
 
 class ParseClient {
     
-    class func createAccount(block: (Bool, NSError?) -> Void ) {
+    static func createAccount(block: (Bool, NSError?) -> Void ) {
         if let user: PFUser = PFUser.currentUser() {
             let account: Account = Account(user: user)
             account.saveInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
@@ -20,7 +20,7 @@ class ParseClient {
         }
     }
     
-    class func fetchAccount(block: (PFObject?, NSError?) -> Void ) {
+    static func fetchAccount(block: (PFObject?, NSError?) -> Void ) {
         if let user: PFUser = PFUser.currentUser() {
             let query: PFQuery? = Account.query()
             query?.includeKey("user")
@@ -32,7 +32,7 @@ class ParseClient {
         }
     }
     
-    class func fetchAccountsSortedByValue(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+    static func fetchAccountsSortedByValue(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
         let query: PFQuery? = Account.query()
         query?.includeKey("user")
         query?.whereKey("picks", greaterThan: 0)
@@ -44,7 +44,7 @@ class ParseClient {
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchAccountsSortedByWinners(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
+    static func fetchAccountsSortedByWinners(limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void) {
         let query: PFQuery? = Account.query()
         query?.includeKey("user")
         query?.whereKey("picks", greaterThan: 0)
@@ -56,17 +56,17 @@ class ParseClient {
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
+    static func refreshAccount(account: Account, block: (object: PFObject?, error: NSError?) -> Void ) {
         account.fetchInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
+    static func fetchStockForSymbol(symbol: String, block: (PFObject?, NSError?) -> Void ) {
         let query: PFQuery? = Stock.query()
         query?.whereKey("symbol", equalTo: symbol)
         query?.getFirstObjectInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block));
     }
     
-    class func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
+    static func fetchPicksForAccount(account: Account, limit: Int, skip: Int, block: ([AnyObject]?, NSError?) -> Void ) {
         let query: PFQuery? = Pick.query()
         query?.includeKey("account")
         query?.whereKey("account", equalTo: account)
@@ -77,7 +77,7 @@ class ParseClient {
         query?.findObjectsInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     
-    class func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
+    static func setNextPick(symbol: String, block: (Bool, NSError?) -> Void) {
         fetchAccount { (object: PFObject?, error: NSError?) -> Void in
             if let account: Account = object as? Account {
                 let dayOfTrade: String = MarketHelper.nextDayOfTrade()
@@ -95,7 +95,7 @@ class ParseClient {
         }
     }
     
-    class func fetchNextPick(block: (PFObject?, NSError?) -> Void ) {
+    static func fetchNextPick(block: (PFObject?, NSError?) -> Void ) {
         let dayOfTrade: String = MarketHelper.nextDayOfTrade()
         if let user: PFUser = PFUser.currentUser() {
             let query: PFQuery? = Pick.query()
@@ -108,7 +108,7 @@ class ParseClient {
         }
     }
     
-    class func deletePick(pick: Pick, block: (Bool, NSError?) -> Void) {
+    static func deletePick(pick: Pick, block: (Bool, NSError?) -> Void) {
         pick.deleteInBackgroundWithBlock(ParseErrorHandler.handleErrorWithBlock(block))
     }
     

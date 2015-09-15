@@ -21,7 +21,7 @@ class Account: PFObject, PFSubclassing {
         self.user = user
     }
     
-    class func parseClassName() -> String {
+    static func parseClassName() -> String {
         return "Account"
     }
     

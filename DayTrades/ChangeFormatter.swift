@@ -10,7 +10,7 @@ import Foundation
 
 class ChangeFormatter {
     
-    let numberFormatter: NSNumberFormatter = NSNumberFormatter()
+    private let numberFormatter: NSNumberFormatter = NSNumberFormatter()
     
     func textFromQuote(quote: Quote) -> String {
         let priceChange: Double = quote.priceChange

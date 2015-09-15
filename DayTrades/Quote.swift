@@ -77,7 +77,7 @@ class Quote {
         return 0
     }
     
-    class func fromData(data: NSData) -> Array<Quote> {
+    static func fromData(data: NSData) -> Array<Quote> {
         var quotes: Array<Quote> = Array()
         let json = (try! NSJSONSerialization.JSONObjectWithData(data, options: [])) as! NSDictionary
         if let query = json["query"] as? NSDictionary {

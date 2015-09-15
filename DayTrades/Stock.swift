@@ -14,7 +14,7 @@ class Stock: PFObject, PFSubclassing {
     @NSManaged var name: String?;
     @NSManaged var picks: UInt;
     
-    class func parseClassName() -> String {
+    static func parseClassName() -> String {
         return "Stock"
     }
     

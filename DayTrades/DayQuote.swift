@@ -77,7 +77,7 @@ class DayQuote {
         return 0
     }
     
-    class func fromData(data: NSData) -> Array<DayQuote> {
+    static func fromData(data: NSData) -> Array<DayQuote> {
         var quotes: Array<DayQuote> = Array()
         let json = (try! NSJSONSerialization.JSONObjectWithData(data, options: [])) as! NSDictionary
         if let query = json["query"] as? NSDictionary {

@@ -10,12 +10,12 @@ import Foundation
 
 class FinanceClient {
 
-    class func fetchQuoteForSymbol(symbol: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
+    static func fetchQuoteForSymbol(symbol: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
         let query: String = "select symbol, Name, LastTradePriceOnly, Change, ChangeinPercent, Open from yahoo.finance.quotes where symbol = '\(symbol)' and ErrorIndicationreturnedforsymbolchangedinvalid is not null and MarketCapitalization <> '0'"
         sendRequestWithQuery(query, block: block);
     }
     
-    class func fetchDayQuotesForSymbol(symbol: String, start: String, end: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
+    static func fetchDayQuotesForSymbol(symbol: String, start: String, end: String, block: (NSData?, NSURLResponse?, NSError?) -> Void ) {
         let query: String = String(format: "select * from yahoo.finance.historicaldata where symbol = '%@' and startDate = '%@' and endDate = '%@'", symbol, start, end)
         sendRequestWithQuery(query, block: block);
     }
