@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheetDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var stockView: UIView!
@@ -108,8 +108,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
         return true
     }
     
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == actionSheet.destructiveButtonIndex {
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
+        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
+        let message: String = "Shares will be purchased for the opening price and sold at market close. Trades are final at 6:00 a.m. eastern time on \(dateText!)."
+        let actionSheet: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive) {
+            (alertAction: UIAlertAction) -> Void in
             if let quote: Quote = self.quote {
                 if let symbol: String = quote.symbol {
                     ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
@@ -120,15 +125,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIActionSheet
                     })
                 }
             }
-        }
-    }
-    
-    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
-        let title: String = "Shares will be purchased for the opening price and sold at market close. All trades are final at 6:00 a.m. eastern time on \(dateText!)."
-        let actionSheet: UIActionSheet = UIActionSheet(title: title, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Confirm")
+        })
+        presentViewController(actionSheet, animated: true, completion: nil)
         view.endEditing(true)
-        actionSheet.showInView(view)
     }
 
     @IBAction func onTap(sender: AnyObject) {

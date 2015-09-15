@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StockViewController: UIViewController, UIActionSheetDelegate {
+class StockViewController: UIViewController {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -88,8 +88,13 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
         return MarketHelper.previousDayOfTradeFromDate(NSDate())
     }
     
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == actionSheet.destructiveButtonIndex {
+    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
+        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
+        let message: String = "Shares will be purchased for the opening price and sold at market close. Trades are final at 6:00 a.m. eastern time on \(dateText!)."
+        let actionSheet: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive) {
+            (alertAction: UIAlertAction) -> Void in
             if let symbol: String = self.symbol {
                 ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
                     if succeeded {
@@ -98,14 +103,8 @@ class StockViewController: UIViewController, UIActionSheetDelegate {
                     }
                 })
             }
-        }
-    }
-    
-    @IBAction func onSubmitButtonTouched(sender: AnyObject) {
-        let dateText: String? = dateFormatter.fullTextFromDayOfTrade(MarketHelper.nextDayOfTrade())
-        let title: String = "Shares will be purchased for the opening price and sold at market close. All trades are final at 6:00 a.m. eastern time on \(dateText!)."
-        let actionSheet: UIActionSheet = UIActionSheet(title: title, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Confirm")
-        actionSheet.showInView(view)
+        })
+        presentViewController(actionSheet, animated: true, completion: nil)
     }
     
 }
