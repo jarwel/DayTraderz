@@ -23,8 +23,15 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
+        let plot: CPTTradingRangePlot = CPTTradingRangePlot(frame: frame)
+        plot.dataSource = self
+        plot.plotStyle = CPTTradingRangePlotStyle.CandleStick
+        plot.increaseFill = CPTFill(color: CPTColor.greenColor())
+        plot.decreaseFill = CPTFill(color: CPTColor.redColor())
+        
         hostedGraph = CPTXYGraph(frame: frame)
+        hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
         hostedGraph.backgroundColor = UIColor.clearColor().CGColor
         hostedGraph.paddingTop = 15
         hostedGraph.paddingBottom = 15
@@ -33,13 +40,6 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         hostedGraph.plotAreaFrame.masksToBorder = false
         hostedGraph.plotAreaFrame.fill = CPTFill(color: CPTColor.whiteColor())
         hostedGraph.plotAreaFrame.hidden = true
-        
-        let plot: CPTTradingRangePlot = CPTTradingRangePlot(frame: frame)
-        plot.dataSource = self
-        plot.plotStyle = CPTTradingRangePlotStyle.CandleStick
-        plot.increaseFill = CPTFill(color: CPTColor.greenColor())
-        plot.decreaseFill = CPTFill(color: CPTColor.redColor())
-        hostedGraph.addPlot(plot, toPlotSpace:hostedGraph.defaultPlotSpace)
         
         plotSpace = hostedGraph.defaultPlotSpace as? CPTXYPlotSpace
         
