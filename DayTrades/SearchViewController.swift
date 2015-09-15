@@ -113,25 +113,26 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let message: String = "Shares will be purchased for the opening price and sold at market close. Trades are final at 6:00 a.m. eastern time on \(dateText!)."
         let actionSheet: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive) {
-            (alertAction: UIAlertAction) -> Void in
-            if let quote: Quote = self.quote {
-                if let symbol: String = quote.symbol {
-                    ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
-                        if succeeded {
-                            NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
-                            self.navigationController!.popViewControllerAnimated(true)
-                        }
-                    })
-                }
-            }
-        })
+        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive, handler: onConfirmButtonTouched))
         presentViewController(actionSheet, animated: true, completion: nil)
         view.endEditing(true)
     }
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+    }
+    
+    private func onConfirmButtonTouched(alertAction: UIAlertAction) -> Void {
+        if let quote: Quote = self.quote {
+            if let symbol: String = quote.symbol {
+                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded {
+                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
+                        self.navigationController!.popViewControllerAnimated(true)
+                    }
+                })
+            }
+        }
     }
     
 }

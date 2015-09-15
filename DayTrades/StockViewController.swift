@@ -93,18 +93,19 @@ class StockViewController: UIViewController {
         let message: String = "Shares will be purchased for the opening price and sold at market close. Trades are final at 6:00 a.m. eastern time on \(dateText!)."
         let actionSheet: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive) {
-            (alertAction: UIAlertAction) -> Void in
-            if let symbol: String = self.symbol {
-                ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
-                    if succeeded {
-                        self.submitButton.hidden = true
-                        NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
-                    }
-                })
-            }
-        })
+        actionSheet.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive, handler: onConfirmButtonTouched))
         presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func onConfirmButtonTouched(alertAction: UIAlertAction) -> Void {
+        if let symbol: String = self.symbol {
+            ParseClient.setNextPick(symbol, block: { (succeeded: Bool, error: NSError?) -> Void in
+                if succeeded {
+                    self.submitButton.hidden = true
+                    NSNotificationCenter.defaultCenter().postNotificationName(Notification.NextPickUpdated.rawValue, object: nil)
+                }
+            })
+        }
     }
     
 }
