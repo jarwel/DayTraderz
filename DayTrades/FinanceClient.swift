@@ -21,10 +21,10 @@ class FinanceClient {
     }
     
     private static func sendRequestWithQuery(query: String, block: (NSData?, NSURLResponse?, NSError?) -> Void) {
-        let encoded = query.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let path: String = String(format: "https://query.yahooapis.com/v1/public/yql?q=%@&env=store://datatables.org/alltableswithkeys&format=json", encoded!)
-        if let url = NSURL(string: path) {
-            let request = NSURLRequest(URL: url)
+        let encoded: String? = query.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let path: String = "https://query.yahooapis.com/v1/public/yql?q=\(encoded)&env=store://datatables.org/alltableswithkeys&format=json"
+        if let url: NSURL = NSURL(string: path) {
+            let request: NSURLRequest = NSURLRequest(URL: url)
             NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 dispatch_async(dispatch_get_main_queue(), {
                     block(data, response, error)

@@ -9,7 +9,9 @@
 import Foundation
 
 enum Notification: String {
+    
     case LogIn = "LogInNotification"
     case LogOut = "LogOutNotification"
     case NextPickUpdated = "NextPickUpdatedNotification"
+    
 }

@@ -25,7 +25,7 @@ class StockChart: CPTGraphHostingView, CPTPlotDataSource, CPTAxisDelegate {
         super.awakeFromNib()
 
         hostedGraph = CPTXYGraph(frame: frame)
-        hostedGraph.backgroundColor = UIColor.translucentColor().CGColor
+        hostedGraph.backgroundColor = UIColor.clearColor().CGColor
         hostedGraph.paddingTop = 15
         hostedGraph.paddingBottom = 15
         hostedGraph.paddingLeft = 15

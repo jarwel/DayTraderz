@@ -72,9 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func signUpViewController(signUpController: PFSignUpViewController, shouldBeginSignUp info: [NSObject : AnyObject]) -> Bool {
         var informationComplete: Bool = true
-        for (key, value): (NSObject, AnyObject) in info {
-            if let string: String? = value as? String {
-                if (string!).characters.count < 1 {
+        for value: AnyObject in info.values {
+            if let string: String = value as? String {
+                if string.characters.count < 1 {
                     informationComplete = false
                     break
                 }
