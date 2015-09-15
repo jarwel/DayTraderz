@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         Parse.setApplicationId("nejKNcGGrt7CFNrKoQm0rdRmGWju7LzY7mp6HI5M", clientKey: "lK3DnrFO0M5oo4iNVvSafci6mh0vSZTjm5B3HdnO")
         Account.registerSubclass()
         Pick.registerSubclass()
